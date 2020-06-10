@@ -1,16 +1,17 @@
 package com.example.matdog.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.matdog.R
 
-class MainActivity : AppCompatActivity() {
-
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        super.onCreate(savedInstanceState)
+        val intent = Intent(this, MainActivity::class.java)  // 메인 액티비티로 화면 넘어감
+        startActivity(intent)
+        finish()
     }
 
     // full screen
@@ -41,5 +42,4 @@ class MainActivity : AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
     }
-
 }
