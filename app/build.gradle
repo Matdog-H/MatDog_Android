@@ -55,4 +55,6 @@ dependencies {
 
     //lottie를 쓰기 위한 라이브러리
     implementation 'com.airbnb.android:lottie:3.3.1'
+
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
 }
