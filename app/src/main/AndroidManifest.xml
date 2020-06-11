@@ -9,21 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.mypage.MyPageActivity"></activity>
-        <activity android:name=".main.dog_lost.WriteActivity" />
-        <activity android:name=".main.dog_lost.DetailActivity" />
-        <activity android:name=".main.dog_list.ListActivity" />
-        <activity android:name=".main.dog_camera.CameraActivity" />
-        <activity android:name=".sign.SignUpActivity" />
-        <activity android:name=".sign.SignInActivity">
+<!--        <activity android:name=".main.dog_list.fragment_new"/>-->
+<!--        <activity android:name=".main.dog_list.fragment_age"/>-->
+        <activity android:name=".main.dog_camera.NolistActivity">
+
+        </activity>
+        <activity android:name=".main.mypage.MyPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".main.dog_lost.WriteActivity" />
+        <activity android:name=".main.dog_lost.DetailActivity" />
+        <activity android:name=".main.dog_list.ListActivity">
+
         </activity>
+        <activity android:name=".main.dog_camera.CameraActivity" />
+        <activity android:name=".sign.SignUpActivity" />
+        <activity android:name=".sign.SignInActivity"></activity>
+        <activity android:name=".main.MainActivity" />
     </application>
 
 </manifest>

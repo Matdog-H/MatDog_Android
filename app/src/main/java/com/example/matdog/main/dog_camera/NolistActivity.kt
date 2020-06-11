@@ -1,29 +1,16 @@
-package com.example.matdog.main.mypage
+package com.example.matdog.main.dog_camera
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.matdog.R
-import com.example.matdog.main.dog_list.ListAdapter
-import kotlinx.android.synthetic.main.activity_list.*
-import kotlinx.android.synthetic.main.activity_my_page.*
 
-class MyPageActivity : AppCompatActivity() {
-
+class NolistActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_page)
-
-
-
-        val mypage_fragmentAdapter = MypageAdapter(supportFragmentManager)
-        mypage_viewPager.adapter = mypage_fragmentAdapter
-
-        mypage_tablayout.setupWithViewPager(mypage_viewPager)
+        setContentView(R.layout.activity_nolist)
 
     }
-
-
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -52,4 +39,5 @@ class MyPageActivity : AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
     }
+
 }

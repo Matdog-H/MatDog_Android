@@ -45,7 +45,8 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/signup_txt"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:padding="10dp"/>
 
     <ImageButton
         android:id="@+id/btn_check"
@@ -77,7 +78,8 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
         android:textSize="15dp"
-        android:password="true"/>
+        android:password="true"
+        android:padding="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -99,7 +101,8 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
         android:textSize="15dp"
-        android:password="true"/>
+        android:password="true"
+        android:padding="10dp"/>
 
     <TextView
         android:id="@+id/txt_checkpw"
@@ -134,7 +137,8 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:padding="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,8 +159,9 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:hint="   ex) 서울시 영등포구"
+        android:hint="ex) 서울시 영등포구"
         android:textSize="15dp"
+        android:padding="10dp"
         />
 
     <TextView
@@ -179,7 +184,8 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
         android:textSize="15dp"
-        android:hint="   ex) 2000-01-01"/>
+        android:hint="ex) 2000-01-01"
+        android:padding="10dp"/>
 
     <ImageView
         android:id="@+id/img_txtbox"
@@ -210,8 +216,9 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:hint="   휴대폰 번호 '-'포함 입력"
-        android:textSize="15dp"/>
+        android:hint="휴대폰 번호 '-'포함 입력"
+        android:textSize="15dp"
+        android:padding="10dp"/>
 
     <CheckBox
         android:id="@+id/checkbox_email"
@@ -232,8 +239,9 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:hint="   이메일"
-        android:textSize="15dp"/>
+        android:hint="이메일"
+        android:textSize="15dp"
+        android:padding="10dp"/>
 
     <CheckBox
         android:id="@+id/checkbox_memo"
@@ -254,8 +262,9 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:hint="   Memo"
-        android:textSize="15dp"/>
+        android:hint="Memo"
+        android:textSize="15dp"
+        android:padding="10dp"/>
 
 
     <Button
