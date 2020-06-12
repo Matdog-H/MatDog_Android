@@ -29,6 +29,7 @@
             android:text="마이페이지"/>
 
         <ImageButton
+            android:id="@+id/btn_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit"
@@ -257,11 +258,11 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/mypage_viewPager"
             android:layout_width="match_parent"
-            android:layout_height="520dp"
+            android:layout_height="468dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mypage_tablayout"/>
+            app:layout_constraintTop_toBottomOf="@+id/mypage_tablayout" />
 
 
 

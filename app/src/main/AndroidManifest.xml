@@ -15,16 +15,15 @@
 
         </activity>
         <activity android:name=".main.mypage.MyPageActivity">
+        </activity>
+        <activity android:name=".main.dog_lost.WriteActivity" />
+        <activity android:name=".main.dog_lost.DetailActivity" />
+        <activity android:name=".main.dog_list.ListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <activity android:name=".main.dog_lost.WriteActivity" />
-        <activity android:name=".main.dog_lost.DetailActivity" />
-        <activity android:name=".main.dog_list.ListActivity">
 
         </activity>
         <activity android:name=".main.dog_camera.CameraActivity" />
