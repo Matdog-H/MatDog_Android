@@ -2,6 +2,7 @@ package com.example.matdog.main.mypage
 
 data class ListItem (
     val it_image: Int,
+    val it_love:Int,
     val it_species: String,
     val it_state :Int,
     val it_gender:Int,

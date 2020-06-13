@@ -45,7 +45,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/signup_txt"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:padding="10dp"/>
 
     <ImageButton
@@ -77,7 +77,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:password="true"
         android:padding="10dp"/>
 
@@ -100,7 +100,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:password="true"
         android:padding="10dp"/>
 
@@ -137,7 +137,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:padding="10dp"/>
 
     <TextView
@@ -160,7 +160,7 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
         android:hint="ex) 서울시 영등포구"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:padding="10dp"
         />
 
@@ -183,7 +183,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:hint="ex) 2000-01-01"
         android:padding="10dp"/>
 
@@ -217,7 +217,7 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
         android:hint="휴대폰 번호 '-'포함 입력"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:padding="10dp"/>
 
     <CheckBox
@@ -240,7 +240,7 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
         android:hint="이메일"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:padding="10dp"/>
 
     <CheckBox
@@ -263,7 +263,7 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/signup_txt"
         android:hint="Memo"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:padding="10dp"/>
 
 

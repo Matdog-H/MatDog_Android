@@ -16,6 +16,9 @@ class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>()
     }
 
     override fun getItemCount(): Int {
+//        if (data == null) {
+//            return 0;
+//        }
         return data.size
     }
 
