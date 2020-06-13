@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="#ffffff"
+
+        >
+    
+    <ImageView
+        android:id="@+id/dog_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/img_box"
+        android:src="@drawable/profile_image"/>
+
+        <ImageButton
+            android:id="@+id/love"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            app:layout_constraintBottom_toBottomOf="@id/dog_image"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/ic_love"
+            android:background="#00000000"
+            android:layout_marginRight="5dp"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="137dp"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:id="@+id/species"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="말티즈"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:id="@+id/gender"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/gender_man"
+                app:layout_constraintLeft_toRightOf="@id/species"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="5dp"/>
+
+            <ImageView
+                android:id="@+id/state"
+                android:layout_width="35dp"
+                android:layout_height="15dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/state_shelter"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"/>
+
+            <TextView
+                android:id="@+id/tv_dog_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/species"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textColor="#9b9ea3"
+                android:text="나이:"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:id="@+id/dog_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/species"
+                app:layout_constraintLeft_toRightOf="@id/tv_dog_age"
+                android:textColor="#9b9ea3"
+                android:layout_marginLeft="5dp"
+                android:text="3살 추정"
+                android:textSize="12dp"/>
+
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_dog_age"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textColor="#9b9ea3"
+                android:text="등록일:"
+                android:textSize="12dp"/>
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/dog_age"
+                app:layout_constraintLeft_toRightOf="@id/tv_date"
+                android:textColor="#9b9ea3"
+                android:layout_marginLeft="5dp"
+                android:text="2020.06.11"
+                android:textSize="12dp"/>
+
+
+            <TextView
+                android:id="@+id/tv_dog_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_date"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textColor="#9b9ea3"
+                android:text="보호장소:"
+                android:textSize="12dp"/>
+
+
+            <TextView
+                android:id="@+id/dog_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/date"
+                app:layout_constraintLeft_toRightOf="@id/tv_dog_place"
+                android:textColor="#9b9ea3"
+                android:layout_marginLeft="5dp"
+                android:text="서울시 양천구"
+                android:textSize="12dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
