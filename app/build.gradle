@@ -56,9 +56,4 @@ dependencies {
 
     //lottie를 쓰기 위한 라이브러리
     implementation 'com.airbnb.android:lottie:3.3.1'
-
-    //  플로팅 액션 버튼 생성
-    implementation 'com.android.support:design:29.0.2'
-
-
 }

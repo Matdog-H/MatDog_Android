@@ -14,6 +14,9 @@
         <activity android:name=".main.dog_camera.NolistActivity"/>
         <activity android:name=".main.mypage.MyPageActivity"/>
         <activity android:name=".main.dog_camera.LostCameraActivity"></activity>
+        <activity android:name=".main.dog_lost.detail_popup.Detail_popupActivity"></activity>
+        <activity android:name=".main.dog_lost.detail_popup.Detail_PopupActivity" />
+        <activity android:name=".main.mypage.MyPageActivity" />
         <activity android:name=".main.dog_lost.WriteActivity" />
         <activity android:name=".main.dog_lost.DetailActivity" />
         <activity android:name=".main.dog_list.ListActivity"/>
@@ -24,11 +27,18 @@
         <activity
             android:name=".main.SplashActivity"
             android:theme="@style/SplashTheme">
+        <activity android:name=".main.dog_lost.DetailActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".main.dog_list.ListActivity" />
+        <activity android:name=".main.dog_camera.CameraActivity" />
+        <activity android:name=".sign.SignUpActivity" />
+        <activity android:name=".sign.SignInActivity" />
+        <activity android:name=".main.MainActivity" />
         </activity>
     </application>
 
