@@ -20,8 +20,7 @@ class SignUpActivity : AppCompatActivity() {
 
         //이전 화면 돌아가기
         btn_prev.setOnClickListener {
-            val intent = Intent(this, SignInActivity::class.java)
-            startActivity(intent)
+            finish()
         }
 
 

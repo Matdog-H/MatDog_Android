@@ -1,7 +1,9 @@
 package com.example.matdog.main.dog_list
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +39,7 @@ class fragment_age : Fragment(){
 
         //리사이클러뷰 배치
         recyclerview.layoutManager= GridLayoutManager(thiscontext,2)
+
 
 
 //        if(myadapter.getItemCount() == null){
