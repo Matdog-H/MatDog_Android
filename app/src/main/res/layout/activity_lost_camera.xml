@@ -64,13 +64,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:layout_width="137dp"
+        android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="64dp"
         android:background="@drawable/graybtn"
-        android:text="추천 공고 보기"
+        android:text="강아지를 찾아주세요"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button"
@@ -78,12 +78,12 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="137dp"
+        android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="64dp"
         android:background="@drawable/graybtn"
-        android:text="분양 공고 등록"
+        android:text="주인을 찾아주세요"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

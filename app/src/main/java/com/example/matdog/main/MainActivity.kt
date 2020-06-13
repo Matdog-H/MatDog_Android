@@ -1,9 +1,13 @@
 package com.example.matdog.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import com.example.matdog.R
+import com.example.matdog.main.dog_camera.CameraActivity
+import com.example.matdog.main.dog_camera.LostCameraActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,6 +15,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val btn_camera: ImageButton = findViewById(R.id.btn_camera)
+        btn_camera.setOnClickListener{
+            val intent = Intent(this@MainActivity, CameraActivity::class.java)
+            startActivity(intent)
+        }
+        val btn_lost: ImageButton = findViewById(R.id.btn_lost)
+        btn_lost.setOnClickListener{
+            val intent = Intent(this@MainActivity, LostCameraActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     // full screen

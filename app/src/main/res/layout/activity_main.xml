@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btn_camera"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btn_list"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
@@ -41,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageButton
+        android:id="@+id/btn_lost"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -48,9 +49,10 @@
         android:background="#00000000"
         android:src="@drawable/main_btn_3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_camera" />
 
     <ImageButton
+        android:id="@+id/btn_mypage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -58,7 +60,7 @@
         android:background="#00000000"
         android:src="@drawable/main_btn_4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_list" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
