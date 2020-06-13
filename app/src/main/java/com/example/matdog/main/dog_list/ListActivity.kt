@@ -5,6 +5,7 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.setPadding
@@ -20,6 +21,11 @@ class ListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_list)
 
         var count=1 //버튼 클릭 횟수
+
+        val ic_back: ImageButton = findViewById(R.id.ic_back)
+        ic_back.setOnClickListener{
+            finish()
+        }
 
         btn_search.setOnClickListener {
             val search_edt = EditText(applicationContext)

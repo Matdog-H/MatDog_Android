@@ -4,12 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.matdog.sign.SignInActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        val intent = Intent(this, MainActivity::class.java)  // 메인 액티비티로 화면 넘어감
+        val intent = Intent(this, SignInActivity::class.java)  // 메인 액티비티로 화면 넘어감
         startActivity(intent)
         finish()
     }

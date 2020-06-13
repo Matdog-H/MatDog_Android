@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.matdog.R
+import com.example.matdog.main.MainActivity
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity() {
@@ -14,7 +15,10 @@ class SignInActivity : AppCompatActivity() {
 
 
         //로그인 버튼 이벤트
-
+        btn_login.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         //회원가입 버튼 이벤트
         btn_signup.setOnClickListener {

@@ -8,6 +8,9 @@ import android.widget.ImageButton
 import com.example.matdog.R
 import com.example.matdog.main.dog_camera.CameraActivity
 import com.example.matdog.main.dog_camera.LostCameraActivity
+import com.example.matdog.main.dog_list.ListActivity
+import com.example.matdog.main.mypage.MyPageActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,14 +18,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn_camera: ImageButton = findViewById(R.id.btn_camera)
         btn_camera.setOnClickListener{
             val intent = Intent(this@MainActivity, CameraActivity::class.java)
             startActivity(intent)
         }
-        val btn_lost: ImageButton = findViewById(R.id.btn_lost)
         btn_lost.setOnClickListener{
             val intent = Intent(this@MainActivity, LostCameraActivity::class.java)
+            startActivity(intent)
+        }
+        btn_list.setOnClickListener{
+            val intent = Intent(this@MainActivity, ListActivity::class.java)
+            startActivity(intent)
+        }
+        btn_mypage.setOnClickListener{
+            val intent = Intent(this@MainActivity, MyPageActivity::class.java)
             startActivity(intent)
         }
     }

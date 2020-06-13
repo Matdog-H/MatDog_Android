@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
 import com.example.matdog.R
+import kotlinx.android.synthetic.main.activity_camera.*
 
 class CameraActivity : AppCompatActivity() {
 
@@ -13,7 +14,6 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
 
-        val ic_back: ImageButton = findViewById(R.id.ic_back)
         ic_back.setOnClickListener{
             finish()
         }
