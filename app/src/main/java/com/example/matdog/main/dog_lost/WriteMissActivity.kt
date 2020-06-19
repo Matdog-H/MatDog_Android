@@ -1,25 +1,26 @@
 package com.example.matdog.main.dog_lost
 
 /*
-* WriteActivity.kt
-* 분양 공고 등록
-* activity_write.xml
+* WriteMissActivity.kt
+* 유기견 찾기_ 실종 공고등록
+* activity_write_miss.xml
  */
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.matdog.R
-import kotlinx.android.synthetic.main.activity_write.*
+import kotlinx.android.synthetic.main.activity_write_miss.*
 
-class WriteActivity : AppCompatActivity() {
+class WriteMissActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_write)
+        setContentView(R.layout.activity_write_miss)
 
         ic_back.setOnClickListener {
             finish()
         }
     }
+
 }
