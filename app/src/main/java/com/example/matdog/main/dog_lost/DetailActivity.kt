@@ -2,15 +2,10 @@ package com.example.matdog.main.dog_lost
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
-import com.example.matdog.main.dog_lost.detail_popup.Detail_popupActivity
+import com.example.matdog.main.dog_lost.detail_lost_popup.Detail_popupActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 
 

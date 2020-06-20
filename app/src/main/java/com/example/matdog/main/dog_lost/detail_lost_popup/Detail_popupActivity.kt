@@ -1,4 +1,4 @@
-package com.example.matdog.main.dog_lost.detail_popup
+package com.example.matdog.main.dog_lost.detail_lost_popup
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

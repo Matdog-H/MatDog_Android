@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:id="@+id/picture1"
+            android:id="@+id/picture1_write"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="60dp"
@@ -29,18 +29,30 @@
             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/picture_button1_write"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/write_picture"
+            app:layout_constraintTop_toTopOf="@id/write_picture" />
+
         <View
-            android:id="@+id/picture2"
+            android:id="@+id/picture2_write"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginTop="36dp"
             android:background="@drawable/imageplus"
-            app:layout_constraintEnd_toStartOf="@id/picture3"
-            app:layout_constraintStart_toEndOf="@id/picture1"
+            app:layout_constraintEnd_toStartOf="@id/picture3_write"
+            app:layout_constraintStart_toEndOf="@id/picture1_write"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
+
         <View
-            android:id="@+id/picture3"
+            android:id="@+id/picture3_write"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="30dp"
@@ -51,6 +63,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
+
 
         <TextView
             android:layout_width="wrap_content"
