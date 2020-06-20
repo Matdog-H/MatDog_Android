@@ -1,9 +1,11 @@
 package com.example.matdog.main.mypage
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +26,10 @@ class fragment_my : Fragment(){
 
        //this로 현재 context 전달
        myadapter= Adapter(thiscontext)
+
+//       myadapter= Adapter(thiscontext,ListItem){item ->
+//           Toast.makeText(thiscontext, "개의 품종은 ${item.it_species} 이며, 나이는 ${item.it_age}세이다.", Toast.LENGTH_SHORT).show()
+//       }
 
        //리사이클러뷰의 어댑터 세팅
        recyclerview.adapter=myadapter
@@ -74,10 +80,19 @@ class fragment_my : Fragment(){
            )
        )
 
+       //클릭 리스너 등록
+//       myadapter.setItemClickListener(object : Adapter.ItemClickListener{
+//           override fun onClick(view:View,position:Int){
+//               Log.d("Lss","${position}번 리스트 선택")
+//           }
+//       })
 
        myadapter.notifyDataSetChanged()
 
+
+
        return mylistview
+
 
 
     }
