@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.matdog.R
-import kotlinx.android.synthetic.main.activity_camera.*
 import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write.ic_back
 
@@ -28,6 +27,14 @@ class WriteActivity : AppCompatActivity() {
 
         ic_back.setOnClickListener {
             finish()
+        }
+
+        btn_oksignup.setOnClickListener {
+            finish()
+        }
+
+        species_modify.setOnClickListener {
+            species_name.isEnabled = true // 종 수정하기
         }
     }
 

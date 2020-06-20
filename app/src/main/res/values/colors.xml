@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#84cdc2</color>
+    <color name="colorPrimaryDark">#5ea096</color>
+    <color name="colorAccent">#fb777a</color>
 
     <!--투명도-->
     <color name="transcolor">#38333333</color>

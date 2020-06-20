@@ -9,13 +9,10 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.setPadding
 import com.example.matdog.R
 import com.example.matdog.main.dog_lost.DetailActivity
-import com.example.matdog.main.dog_camera.CameraActivity
 import com.example.matdog.main.dog_lost.WriteActivity
 import kotlinx.android.synthetic.main.activity_list.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
 class ListActivity : AppCompatActivity() {
