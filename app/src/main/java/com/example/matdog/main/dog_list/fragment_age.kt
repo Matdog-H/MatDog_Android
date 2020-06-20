@@ -12,8 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
+import com.example.matdog.main.dog_lost.DetailActivity
 import com.example.matdog.main.mypage.Adapter
 import com.example.matdog.main.mypage.ListItem
+import kotlinx.android.synthetic.main.activity_fragment_age.*
 import kotlinx.android.synthetic.main.activity_list.*
 
 
@@ -39,7 +41,6 @@ class fragment_age : Fragment(){
 
         //리사이클러뷰 배치
         recyclerview.layoutManager= GridLayoutManager(thiscontext,2)
-
 
 
 //        if(myadapter.getItemCount() == null){

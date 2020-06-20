@@ -32,13 +32,12 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:layout_marginTop="7dp"
                 android:background="#19000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -279,6 +278,28 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="25dp"
             android:layout_marginBottom="20dp"/>
+
+        <ImageView
+            android:id="@+id/btn_detail_state_shelter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/state_shelter"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="#9b9ea3"
+            android:text="2020.05.05"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="18dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton

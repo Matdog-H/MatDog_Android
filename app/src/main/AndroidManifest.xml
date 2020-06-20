@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.matdog">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +20,8 @@
         <activity android:name=".main.dog_camera.NolistActivity"/>
         <activity android:name=".main.mypage.MyPageActivity"/>
         <activity android:name=".main.dog_camera.LostCameraActivity"></activity>
-        <activity android:name=".main.dog_lost.detail_popup.Detail_popupActivity"></activity>
+        <activity android:name=".main.dog_lost.detail_popup.Detail_popupActivity"
+            android:theme="@style/DialogTheme"></activity>
         <activity android:name=".main.dog_lost.WriteActivity" />
         <activity android:name=".main.dog_lost.DetailActivity" />
         <activity android:name=".main.dog_list.ListActivity"/>
