@@ -8,7 +8,6 @@ package com.example.matdog.main.dog_lost
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import com.example.matdog.R
 import kotlinx.android.synthetic.main.activity_write.*
 

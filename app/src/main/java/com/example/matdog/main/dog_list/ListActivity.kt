@@ -58,6 +58,7 @@ class ListActivity : AppCompatActivity() {
 
         }
 
+        // 공고 등록 플로팅 버튼 클릭이벤트
         btn_write.setOnClickListener{
             val intent = Intent(this@ListActivity, WriteActivity::class.java)
             startActivity(intent)
