@@ -21,6 +21,14 @@ class WriteMissActivity : AppCompatActivity() {
         ic_back.setOnClickListener {
             finish()
         }
+
+        btn_oksignup.setOnClickListener {
+            finish()
+        }
+
+        species_modify.setOnClickListener {
+            species_name.isEnabled = true // 종 수정하기
+        }
     }
 
 }

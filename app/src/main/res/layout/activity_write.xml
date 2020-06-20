@@ -17,63 +17,83 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <View
-            android:id="@+id/picture1_write"
-            android:layout_width="80dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/imageplus"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/write_picture"
-            app:layout_constraintTop_toTopOf="@id/write_picture" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/picture_button1_write"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.16"
             app:layout_constraintStart_toStartOf="@id/write_picture"
+            app:layout_constraintTop_toTopOf="@id/write_picture" />
+
+        <View
+            android:id="@+id/picture1_write"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/imageplus"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="@id/picture_button1_write"
+            app:layout_constraintBottom_toBottomOf="@id/picture_button1_write"
+             />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/picture_button2_write"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/image"
+            app:layout_constraintEnd_toStartOf="@id/picture_button3_write"
+            app:layout_constraintStart_toEndOf="@id/picture_button1_write"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
         <View
             android:id="@+id/picture2_write"
-            android:layout_width="80dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/imageplus"
-            app:layout_constraintEnd_toStartOf="@id/picture3_write"
-            app:layout_constraintStart_toEndOf="@id/picture1_write"
-            app:layout_constraintTop_toTopOf="@id/write_picture" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="@id/picture_button2_write"
+            app:layout_constraintBottom_toBottomOf="@id/picture_button2_write"
+            />
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/picture_button3_write"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/image"
+            app:layout_constraintEnd_toEndOf="@id/write_picture"
+            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintStart_toStartOf="@id/write_picture"
+            app:layout_constraintTop_toTopOf="@id/write_picture" />
 
         <View
             android:id="@+id/picture3_write"
-            android:layout_width="80dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="60dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/imageplus"
-            app:layout_constraintEnd_toEndOf="@id/write_picture"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@id/write_picture"
-            app:layout_constraintTop_toTopOf="@id/write_picture" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="@id/picture_button3_write"
+            app:layout_constraintBottom_toBottomOf="@id/picture_button3_write"
+            />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
             android:text="※얼굴이 잘 보이는 사진으로 등록해주세요.※"
+            android:textSize="14sp"
             android:textColor="#999797"
             app:layout_constraintBottom_toBottomOf="@id/write_picture"
             app:layout_constraintEnd_toEndOf="@id/write_picture"
-            app:layout_constraintStart_toStartOf="@id/write_picture" />
+            app:layout_constraintHorizontal_bias="0.547"
+            app:layout_constraintStart_toStartOf="@id/write_picture"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.193" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -101,27 +121,22 @@
         app:layout_constraintTop_toBottomOf="@id/write_picture"
         app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/species"
+        <EditText
+            android:id="@+id/species_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="25dp"
             android:text="푸들"
             android:textColor="#5ea096"
-            android:textSize="34sp"
+            android:textSize="40sp"
             android:textStyle="bold"
+            android:backgroundTint="#5ea096"
+            android:shadowColor="#5ea096"
+            android:enabled="false"
             app:layout_constraintEnd_toEndOf="@id/imformation_view"
             app:layout_constraintStart_toStartOf="@id/imformation_view"
-            app:layout_constraintTop_toTopOf="@id/imformation_view" />
-
-        <View
-            android:id="@+id/view_detail"
-            android:layout_width="85dp"
-            android:layout_height="2dp"
-            android:background="@drawable/write_line2"
-            app:layout_constraintEnd_toEndOf="@id/species"
-            app:layout_constraintStart_toStartOf="@id/species"
-            app:layout_constraintTop_toBottomOf="@id/species" />
+            app:layout_constraintTop_toTopOf="@id/imformation_view"
+            />
 
         <Button
             android:id="@+id/species_modify"
@@ -132,7 +147,7 @@
             android:background="@drawable/species_edit_btn"
             android:text="종 수정"
             android:textColor="#5ea096"
-            android:textSize="11sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@id/imformation_view"
             app:layout_constraintTop_toTopOf="@id/imformation_view" />
 
@@ -152,7 +167,8 @@
             <RadioGroup
                 android:id="@+id/radioGroupgender"
                 android:layout_width="201dp"
-                android:layout_height="33dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="@id/imformation"
@@ -169,6 +185,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="여"
+                    android:textSize="20sp"
                     android:textColor="@drawable/rbtn_textcolor_selector" />
 
                 <RadioButton
@@ -181,17 +198,21 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="남"
+                    android:textSize="20sp"
                     android:textColor="@drawable/rbtn_textcolor_selector" />
             </RadioGroup>
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/gender"
                 android:gravity="center"
                 android:text="성별"
                 android:textColor="#ffffff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
@@ -199,7 +220,8 @@
             <RadioGroup
                 android:id="@+id/radioGroupNeutrali"
                 android:layout_width="201dp"
-                android:layout_height="33dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="44dp"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -217,6 +239,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="Y"
+                    android:textSize="20sp"
                     android:textColor="@drawable/rbtn_textcolor_selector" />
 
                 <RadioButton
@@ -229,6 +252,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="N"
+                    android:textSize="20sp"
                     android:textColor="@drawable/rbtn_textcolor_selector" />
 
                 <RadioButton
@@ -241,18 +265,20 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="모름"
-                    android:textColor="@drawable/rbtn_textcolor_selector" />
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="20sp" />
             </RadioGroup>
 
             <TextView
                 android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="47dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/gender"
                 android:gravity="center"
                 android:text="중성화"
                 android:textColor="#ffffff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
@@ -266,12 +292,13 @@
                 android:gravity="center"
                 android:hint="5kg"
                 android:textColor="#84cdc2"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
             <View
-                android:layout_width="173dp"
+                android:id="@+id/view1"
+                android:layout_width="184dp"
                 android:layout_height="2dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/write_line"
@@ -281,18 +308,18 @@
                 app:layout_constraintTop_toBottomOf="@id/edtweight" />
 
             <TextView
-                android:layout_width="48dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/gender"
                 android:gravity="center"
                 android:text="체중"
                 android:textColor="#ffffff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@id/edtweight"
                 app:layout_constraintEnd_toStartOf="@+id/edtyear"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@id/edtweight" />
+                app:layout_constraintEnd_toEndOf="@id/view1" />
 
             <!-- 나이 -->
             <EditText
@@ -305,7 +332,7 @@
                 android:gravity="center"
                 android:hint="2살"
                 android:textColor="#84cdc2"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
@@ -318,15 +345,15 @@
                 app:layout_constraintTop_toBottomOf="@id/edtyear" />
 
             <TextView
-                android:layout_width="48dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/gender"
                 android:gravity="center"
                 android:text="나이"
                 android:textColor="#ffffff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@id/edtyear"
-                app:layout_constraintStart_toEndOf="@id/edtyear" />
+                app:layout_constraintEnd_toEndOf="@id/view3" />
 
             <!-- 보호장소 -->
             <EditText
@@ -338,7 +365,7 @@
                 android:gravity="center"
                 android:hint="서울시 영등포구"
                 android:textColor="#84cdc2"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
@@ -351,13 +378,13 @@
                 app:layout_constraintTop_toBottomOf="@id/edtplace" />
 
             <TextView
-                android:layout_width="75dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/gender"
                 android:gravity="center"
                 android:text="보호장소"
                 android:textColor="#ffffff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@id/edtplace"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
@@ -383,7 +410,7 @@
                 android:hint="활발함"
                 android:padding="10dp"
                 android:textColor="#84cdc2"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintStart_toStartOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@+id/imformation" />
@@ -396,7 +423,7 @@
                 android:gravity="center"
                 android:text="특징"
                 android:textColor="#ffffff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/edtfeature"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -404,11 +431,14 @@
         <!-- 연락처 라디오 버튼 -->
         <RadioGroup
             android:id="@+id/radioContact"
-            android:layout_width="288dp"
-            android:layout_height="33dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal"
+            android:padding="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="@id/imformation_view"
             app:layout_constraintStart_toStartOf="@id/imformation_view"
             app:layout_constraintTop_toBottomOf="@id/imformation">
@@ -424,6 +454,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="이전 연락처 그대로"
+                android:textSize="20sp"
                 android:textColor="@drawable/rbtn_textcolor_selector" />
 
             <RadioButton
@@ -436,6 +467,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="연락처 수정"
+                android:textSize="20sp"
                 android:textColor="@drawable/rbtn_textcolor_selector" />
         </RadioGroup>
 
@@ -445,12 +477,11 @@
     <Button
         android:id="@+id/btn_oksignup"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:background="#fb777a"
         android:text="등록하기"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
