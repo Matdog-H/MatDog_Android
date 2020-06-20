@@ -90,25 +90,26 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/nolist_button_1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="38dp"
         android:layout_marginBottom="170dp"
-        android:layout_marginLeft="30dp"
-        android:background="#00000000"/>
+        android:background="#00000000"
+        android:src="@drawable/nolist_button_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/nolist_button_2"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="38dp"
         android:layout_marginBottom="170dp"
-        android:layout_marginRight="30dp"
-        android:background="#00000000"/>
+        android:background="#00000000"
+        android:src="@drawable/nolist_button_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageButton
+        android:id="@+id/btn_write"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/img_writebutton"

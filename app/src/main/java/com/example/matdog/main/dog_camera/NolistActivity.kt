@@ -1,5 +1,6 @@
 package com.example.matdog.main.dog_camera
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
@@ -9,7 +10,14 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import com.example.matdog.R
 import com.example.matdog.main.dog_list.ListAdapter
+import com.example.matdog.main.dog_lost.WriteActivity
 import kotlinx.android.synthetic.main.activity_list.*
+import kotlinx.android.synthetic.main.activity_list.btn_search
+import kotlinx.android.synthetic.main.activity_list.btn_write
+import kotlinx.android.synthetic.main.activity_list.list_tablayout
+import kotlinx.android.synthetic.main.activity_list.list_viewPager
+import kotlinx.android.synthetic.main.activity_list.searchview
+import kotlinx.android.synthetic.main.activity_nolist.*
 
 class NolistActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +53,13 @@ class NolistActivity : AppCompatActivity() {
 
             }
         }
+
+        // 공고 등록 플로팅 버튼 클릭이벤트
+        btn_write.setOnClickListener {
+            val intent = Intent(this@NolistActivity, WriteActivity::class.java)
+            startActivity(intent)
+        }
+
         val fragmentAdapter = ListAdapter(supportFragmentManager)
         list_viewPager.adapter = fragmentAdapter
 

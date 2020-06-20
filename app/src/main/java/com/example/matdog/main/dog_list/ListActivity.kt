@@ -1,5 +1,6 @@
 package com.example.matdog.main.dog_list
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
@@ -10,6 +11,8 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.setPadding
 import com.example.matdog.R
+import com.example.matdog.main.dog_camera.CameraActivity
+import com.example.matdog.main.dog_lost.WriteActivity
 import kotlinx.android.synthetic.main.activity_list.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
@@ -55,6 +58,11 @@ class ListActivity : AppCompatActivity() {
 
         }
 
+        // 공고 등록 플로팅 버튼 클릭이벤트
+        btn_write.setOnClickListener{
+            val intent = Intent(this@ListActivity, WriteActivity::class.java)
+            startActivity(intent)
+        }
 
         val fragmentAdapter = ListAdapter(supportFragmentManager)
         list_viewPager.adapter = fragmentAdapter

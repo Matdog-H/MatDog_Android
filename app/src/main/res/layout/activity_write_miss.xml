@@ -111,7 +111,6 @@
             app:layout_constraintTop_toBottomOf="@id/species" />
 
         <Button
-            android:id="@+id/species_modify"
             android:layout_width="51dp"
             android:layout_height="26dp"
             android:layout_marginTop="63dp"
@@ -182,73 +181,13 @@
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
-            <!-- 중성화 여부 라디오 버튼 -->
-            <RadioGroup
-                android:id="@+id/radioGroupNeutrali"
-                android:layout_width="201dp"
-                android:layout_height="33dp"
-                android:layout_marginTop="44dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toTopOf="@id/imformation">
-
-                <RadioButton
-                    android:id="@+id/radioYes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rbtn_selector_left"
-                    android:button="@null"
-                    android:checked="true"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Y"
-                    android:textColor="@drawable/rbtn_textcolor_selector" />
-
-                <RadioButton
-                    android:id="@+id/radioNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rbtn_selector"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="N"
-                    android:textColor="@drawable/rbtn_textcolor_selector" />
-
-                <RadioButton
-                    android:id="@+id/radioNon"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rbtn_selector_right"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="모름"
-                    android:textColor="@drawable/rbtn_textcolor_selector" />
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
-                android:background="@drawable/gender"
-                android:gravity="center"
-                android:text="중성화"
-                android:textColor="#ffffff"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="@id/imformation"
-                app:layout_constraintTop_toTopOf="@id/imformation" />
 
             <!-- 체충 -->
             <EditText
                 android:id="@+id/edtweight"
                 android:layout_width="125dp"
                 android:layout_height="28dp"
-                android:layout_marginTop="92dp"
+                android:layout_marginTop="44dp"
                 android:background="#00000000"
                 android:gravity="center"
                 android:hint="5kg"
@@ -286,7 +225,7 @@
                 android:id="@+id/edtyear"
                 android:layout_width="88dp"
                 android:layout_height="28dp"
-                android:layout_marginTop="92dp"
+                android:layout_marginTop="44dp"
                 android:layout_marginEnd="48dp"
                 android:background="#00000000"
                 android:gravity="center"
@@ -320,7 +259,7 @@
                 android:id="@+id/edtplace"
                 android:layout_width="250dp"
                 android:layout_height="28dp"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="89dp"
                 android:background="#00000000"
                 android:gravity="center"
                 android:hint="서울시 영등포구"
@@ -348,12 +287,79 @@
                 app:layout_constraintBottom_toBottomOf="@id/edtplace"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
+            <!-- 잃어버린 날짜 -->
+            <EditText
+                android:id="@+id/edtmissday"
+                android:layout_width="250dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="140dp"
+                android:background="#00000000"
+                android:gravity="center"
+                android:hint="2020년 6월 20일"
+                android:textColor="#84cdc2"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/imformation"
+                app:layout_constraintTop_toTopOf="@id/imformation" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/write_line"
+                app:layout_constraintStart_toStartOf="@id/imformation"
+                app:layout_constraintTop_toBottomOf="@id/edtmissday" />
+
+            <TextView
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gender"
+                android:gravity="center"
+                android:text="잃어버린 날짜"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissday"
+                app:layout_constraintEnd_toEndOf="@id/imformation" />
+
+            <!-- 잃어버린 장소 -->
+            <EditText
+                android:id="@+id/edtmissplace"
+                android:layout_width="250dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="188dp"
+                android:background="#00000000"
+                android:gravity="center"
+                android:hint="서울시 영등포구"
+                android:textColor="#84cdc2"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/imformation"
+                app:layout_constraintTop_toTopOf="@id/imformation" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/write_line"
+                app:layout_constraintStart_toStartOf="@id/imformation"
+                app:layout_constraintTop_toBottomOf="@id/edtmissplace" />
+
+            <TextView
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gender"
+                android:gravity="center"
+                android:text="잃어버린 장소"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissplace"
+                app:layout_constraintEnd_toEndOf="@id/imformation" />
+
+
             <!-- 특징 -->
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
-                android:layout_marginTop="213dp"
+                android:layout_marginTop="260dp"
                 android:background="@drawable/write_edit"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintStart_toStartOf="@id/imformation"
@@ -364,7 +370,7 @@
                 android:id="@+id/edtfeature"
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
-                android:layout_marginTop="213dp"
+                android:layout_marginTop="260dp"
                 android:background="#00000000"
                 android:gravity="top"
                 android:hint="활발함"

@@ -1,21 +1,21 @@
 package com.example.matdog.main.dog_lost
 
 /*
-* WriteActivity.kt
-* 분양 공고 등록
-* activity_write.xml
+* WriteSightActivity.kt
+* 유기견 찾기_ 목격 공고등록
+* activity_write_sight.xml
  */
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.matdog.R
-import kotlinx.android.synthetic.main.activity_write.*
+import kotlinx.android.synthetic.main.activity_wrtie_sight.*
 
-class WriteActivity : AppCompatActivity() {
+class WrtieSightActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_write)
+        setContentView(R.layout.activity_wrtie_sight)
 
         ic_back.setOnClickListener {
             finish()
