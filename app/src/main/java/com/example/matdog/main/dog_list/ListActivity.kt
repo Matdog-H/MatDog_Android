@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.setPadding
 import com.example.matdog.R
+import com.example.matdog.main.dog_lost.DetailActivity
 import com.example.matdog.main.dog_camera.CameraActivity
 import com.example.matdog.main.dog_lost.WriteActivity
 import kotlinx.android.synthetic.main.activity_list.*
@@ -70,6 +71,11 @@ class ListActivity : AppCompatActivity() {
         list_tablayout.setupWithViewPager(list_viewPager)
 
 
+        imsibutton.setOnClickListener {
+            val intent = Intent(this, DetailActivity::class.java)
+            startActivity(intent)
+        }
+
 //        //이미지 버튼 클릭시
 //        btn_tab_new.setOnClickListener {
 //            //이미지 변경
@@ -96,6 +102,8 @@ class ListActivity : AppCompatActivity() {
 //        }
 
     }
+
+
 
 
 
