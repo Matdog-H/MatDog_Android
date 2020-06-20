@@ -16,6 +16,7 @@ class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>()
 
     //데이터 저장할 아이템리스트
     var data= listOf<ListItem>()
+    private var onItemClickListener: View.OnClickListener? = null
 
 //    //클릭 인터페이스 정의
 //    interface  ItemClickListener{fun onClick(view: View, position: Int)}
@@ -32,6 +33,7 @@ class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>()
         //리스트 아이템 인플레이터
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item,parent,false)
 //        return ViewHolder(view,itemClick)
+        view.setOnClickListener(onItemClickListener)
         return ViewHolder(view)
     }
 
@@ -43,6 +45,10 @@ class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>()
         return data.size
     }
 
+    fun onItemClick(l: View.OnClickListener){
+        onItemClickListener = l
+    }
+
     //바인드뷰홀더 생성
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(data[position])
@@ -50,6 +56,8 @@ class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>()
 //        //view에 OnClickListener 달고 , 그 안에서 직접 만든 itemClickLister 연결결
 //       holder.itemView.setOnClickListener{itemClickLister.onClick(it,position)}
     }
+
+
 
 //
 //    inner class Holder(itemView:View?, itemClick: (ListItem) -> Unit):RecyclerView.ViewHolder(itemView!!){

@@ -33,5 +33,14 @@ class DetailActivity : AppCompatActivity() {
         btn_detail_back.setOnClickListener {
             finish()
         }
+
+        btn_zzim.setOnClickListener {
+            //if(btn_zzim.){
+                btn_zzim.setBackgroundResource(R.drawable.ic_heart)
+            //}
+
+            //else
+                btn_zzim.setBackgroundResource(R.drawable.ic_heart_2)
+        }
     }
 }

@@ -1,7 +1,9 @@
 package com.example.matdog.main.dog_list
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
+import com.example.matdog.main.dog_lost.DetailActivity
 import com.example.matdog.main.mypage.Adapter
 import com.example.matdog.main.mypage.ListItem
 
 
-class fragment_new : Fragment(){
+class fragment_new : Fragment(), View.OnClickListener{
 
     private lateinit var  recyclerview : RecyclerView
     private lateinit var myadapter: Adapter
@@ -27,8 +30,12 @@ class fragment_new : Fragment(){
 
         recyclerview = fnlistview.findViewById(R.id.fn_recyclerview)
 
+
+
         //this로 현재 context 전달
         myadapter= Adapter(thiscontext)
+
+        myadapter.onItemClick(this)
 
         //리사이클러뷰의 어댑터 세팅
         recyclerview.adapter=myadapter
@@ -38,7 +45,7 @@ class fragment_new : Fragment(){
 
         myadapter.data= listOf(
             ListItem(
-                it_image=R.drawable.profile_image,
+                it_image=R.drawable.taepoong,
                 it_love = R.drawable.ic_love,
                 it_species ="말티즈",
                 it_age = "3살 추정",
@@ -48,7 +55,7 @@ class fragment_new : Fragment(){
                 it_place="경기도 고양시"
             ),
             ListItem(
-                it_image=R.drawable.profile_image,
+                it_image=R.drawable.taepoong2,
                 it_love = R.drawable.ic_love,
                 it_species ="말티즈",
                 it_age = "4살 추정",
@@ -57,7 +64,7 @@ class fragment_new : Fragment(){
                 it_date = "2020.06.11",
                 it_place="경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.profile_image,
+                it_image=R.drawable.taepoong3,
                 it_love = R.drawable.ic_love,
                 it_species ="말티즈",
                 it_age = "4살 추정",
@@ -66,7 +73,7 @@ class fragment_new : Fragment(){
                 it_date = "2020.06.12",
                 it_place="경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.profile_image,
+                it_image=R.drawable.taepoong,
                 it_love = R.drawable.ic_love,
                 it_species ="말티즈",
                 it_age = "5살 추정",
@@ -75,7 +82,7 @@ class fragment_new : Fragment(){
                 it_date = "2020.06.12",
                 it_place="경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.profile_image,
+                it_image=R.drawable.taepoong2,
                 it_love = R.drawable.ic_love,
                 it_species ="말티즈",
                 it_age = "3살 추정",
@@ -84,7 +91,7 @@ class fragment_new : Fragment(){
                 it_date = "2020.06.12",
                 it_place="경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.profile_image,
+                it_image=R.drawable.taepoong3,
                 it_love = R.drawable.ic_love,
                 it_species ="말티즈",
                 it_age = "3살 추정",
@@ -93,7 +100,7 @@ class fragment_new : Fragment(){
                 it_date = "2020.06.12",
                 it_place="경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.profile_image,
+                it_image=R.drawable.taepoong,
                 it_love = R.drawable.ic_love,
                 it_species ="말티즈",
                 it_age = "3살 추정",
@@ -102,7 +109,7 @@ class fragment_new : Fragment(){
                 it_date = "2020.06.12",
                 it_place="경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.profile_image,
+                it_image=R.drawable.taepoong2,
                 it_love = R.drawable.ic_love,
                 it_species ="말티즈",
                 it_age = "3살 추정",
@@ -117,4 +124,17 @@ class fragment_new : Fragment(){
 
         return fnlistview
     }
+
+    override fun onClick(v: View?) {
+
+        recyclerview = view?.findViewById(R.id.fn_recyclerview)!!
+
+        if (v?.parent == recyclerview){
+            val intent: Intent = Intent(getActivity(), DetailActivity::class.java)
+            //intent.putExtra("matchingIdx", matchingData[rv.getChildAdapterPosition(v)].matchingIdx)
+            startActivity(intent)
+        }
+
+    }
+
 }
