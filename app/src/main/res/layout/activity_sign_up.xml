@@ -34,28 +34,32 @@
         app:layout_constraintTop_toTopOf="parent"
        app:layout_constraintRight_toLeftOf="@+id/signup_id"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="95dp"/>
+        android:layout_marginTop="100dp"/>
 
     <EditText
         android:id="@+id/signup_id"
-        android:layout_width="228dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="80dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
         android:padding="10dp"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/btn_check"
-        android:layout_width="228dp"
-        android:layout_height="38dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@+id/signup_id"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/signup_btn"/>
 
     <TextView
@@ -66,16 +70,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup_pw"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="184dp"/>
+        android:layout_marginTop="200dp"/>
 
     <EditText
         android:id="@+id/signup_pw"
-        android:layout_width="228dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@+id/btn_check"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
         android:password="true"
@@ -89,16 +95,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup_checkpw"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="227dp"/>
+        android:layout_marginTop="250dp"/>
 
     <EditText
         android:id="@+id/signup_checkpw"
-        android:layout_width="228dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@+id/signup_pw"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
         android:password="true"
@@ -113,8 +121,9 @@
         app:layout_constraintTop_toBottomOf="@id/signup_checkpw"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:text="비밀번호를 다시 입력해 주세요."
         />
 
@@ -126,16 +135,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup_name"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="291dp"/>
+        android:layout_marginTop="325dp"/>
 
     <EditText
         android:id="@+id/signup_name"
-        android:layout_width="228dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@+id/txt_checkpw"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
         android:padding="10dp"/>
@@ -148,16 +159,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup_address"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="333dp"/>
+        android:layout_marginTop="375dp"/>
 
     <EditText
         android:id="@+id/signup_address"
-        android:layout_width="228dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@+id/signup_name"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/signup_txt"
         android:hint="ex) 서울시 영등포구"
         android:textSize="13dp"
@@ -172,29 +185,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup_birth"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="378dp"/>
+        android:layout_marginTop="425dp"/>
 
     <EditText
         android:id="@+id/signup_birth"
-        android:layout_width="228dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@+id/signup_address"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
         android:hint="ex) 2000-01-01"
         android:padding="10dp"/>
 
-    <ImageView
+    <TextView
         android:id="@+id/img_txtbox"
-        android:layout_width="250dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
-        android:src="@drawable/singup_box"
+        android:background="@drawable/edit_txt"
         app:layout_constraintTop_toBottomOf="@+id/signup_birth"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:text="공개하실 개인정보를 선택해 주세요."
+        android:textSize="13dp"
+        android:paddingLeft="40dp"
+        android:paddingTop="5dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="15dp"/>
     
     <CheckBox
@@ -204,21 +225,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup_birth"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="462dp"/>
+        android:layout_marginTop="515dp"/>
 
 
     <EditText
         android:id="@+id/signup_phone"
-        android:layout_width="228dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@+id/img_txtbox"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
         android:background="@drawable/signup_txt"
         android:hint="휴대폰 번호 '-'포함 입력"
         android:textSize="13dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:enabled="false"/>
 
     <CheckBox
         android:id="@+id/checkbox_email"
@@ -227,21 +251,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup_email"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="510dp"/>
+        android:layout_marginTop="563dp"/>
 
 
     <EditText
         android:id="@+id/signup_email"
-        android:layout_width="228dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@+id/signup_phone"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
         android:background="@drawable/signup_txt"
         android:hint="이메일"
         android:textSize="13dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:enabled="false"/>
 
     <CheckBox
         android:id="@+id/checkbox_memo"
@@ -250,21 +277,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup_memo"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="558dp"/>
+        android:layout_marginTop="640dp"/>
 
 
     <EditText
         android:id="@+id/signup_memo"
-        android:layout_width="228dp"
-        android:layout_height="58dp"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
         app:layout_constraintTop_toBottomOf="@+id/signup_email"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/signup_txt"
         android:hint="Memo"
         android:textSize="13dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:gravity="top"
+        android:enabled="false"/>
 
 
     <Button
@@ -277,4 +308,5 @@
         android:textSize="25dp"
         android:textColor="#ffffff"
         android:background="#84cdc2"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

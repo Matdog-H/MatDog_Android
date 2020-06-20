@@ -1,16 +1,16 @@
 package com.example.matdog.sign
 
-import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.R.id.text2
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.EditText
+import android.view.View
+import android.widget.CompoundButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.matdog.R
-import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
+
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -45,6 +45,33 @@ class SignUpActivity : AppCompatActivity() {
             }
         })
 
+        checkbox_phone.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { arg0, arg1 -> // 체크되면 모두 보이도록 설정
+            if (checkbox_phone.isChecked() === true)
+                signup_phone.isEnabled=true
+             else
+                signup_phone.isEnabled=false
+
+        })
+
+        checkbox_email.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { arg0, arg1 -> // 체크되면 모두 보이도록 설정
+            if (checkbox_email.isChecked() === true)
+                signup_email.isEnabled=true
+            else
+                signup_email.isEnabled=false
+
+        })
+
+        checkbox_memo.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { arg0, arg1 -> // 체크되면 모두 보이도록 설정
+            if (checkbox_memo.isChecked() === true)
+                signup_memo.isEnabled=true
+            else
+                signup_memo.isEnabled=false
+
+        })
+
+//        if(checkbox_phone.isChecked())   signup_phone.isEnabled=true
+//        if(checkbox_email.isChecked()) signup_email.isEnabled=true
+//        if(checkbox_memo.isChecked()) signup_memo.isEnabled=true
 
 
 
@@ -55,6 +82,8 @@ class SignUpActivity : AppCompatActivity() {
             //조건4 : 개인정보 체크박스 최소 하나 이상 선택되어야 함
             if(signup_id.getText().toString().equals(""))
                 Toast.makeText(this,"아이디를 입력해주세요",Toast.LENGTH_LONG).show()
+            else if (signup_pw.getText().toString().equals(""))
+                Toast.makeText(this,"비밀번호를 입력해주세요",Toast.LENGTH_LONG).show()
             else if(txt_checkpw.getText().toString().equals("비밀번호가 일치하지 않습니다.")){
                 Toast.makeText(this,"비밀번호가 틀렸습니다.",Toast.LENGTH_LONG).show()
             }
@@ -72,10 +101,10 @@ class SignUpActivity : AppCompatActivity() {
             }
             else
             {
-                if(checkbox_phone.isChecked()||checkbox_email.isChecked()||checkbox_memo.isChecked()){
-                    Toast.makeText(this,"가입이 완료되었습니다.",Toast.LENGTH_LONG).show()
-                    val intent = Intent(this, SignInActivity::class.java)
-                    startActivity(intent)
+                if(checkbox_phone.isChecked()||checkbox_email.isChecked()||checkbox_memo.isChecked()) {
+
+                    Toast.makeText(this, "가입이 완료되었습니다.", Toast.LENGTH_LONG).show()
+                    finish()
                 }
                 else
                     Toast.makeText(this, "개인 정보를 선택해 주세요.", Toast.LENGTH_LONG).show()
