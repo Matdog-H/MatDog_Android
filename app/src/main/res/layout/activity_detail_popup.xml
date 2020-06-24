@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".main.dog_lost.detail_lost_popup.Detail_popupActivity"
     android:layout_gravity="center"
     android:background="#00FFFFFF">
 
@@ -17,10 +16,99 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <TextView
+        android:id="@+id/tv_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="#f87575"
+        android:text="Tel)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="60dp"
+        />
+
+    <TextView
+        android:id="@+id/user_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_tel"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_tel"
+        android:layout_marginLeft="5dp"
+        android:hint="010-1111-1111"
+        android:textSize="17dp"
+        android:textColor="#4c4c4c"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="#f87575"
+        android:text="Email)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="40dp"
+        />
+
+    <TextView
+        android:id="@+id/user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_email"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_email"
+        android:layout_marginLeft="5dp"
+        android:hint="a12345@gmail.com"
+        android:textSize="17dp"
+        android:textColor="#4c4c4c"
+        />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="3dp"
+        android:layout_centerInParent="true"
+        android:background="#84cdc2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="155dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="#f87575"
+        android:text="Memo)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="40dp"
+        />
+
+    <TextView
+        android:id="@+id/user_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_memo"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_memo"
+        android:layout_marginLeft="5dp"
+        android:hint="오픈카톡 주소"
+        android:textColor="#4c4c4c"
+        android:textSize="17dp"
+        />
+
+    <ImageButton
+        android:id="@+id/closebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_close_black_24dp"
+        android:background="#00000000"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
