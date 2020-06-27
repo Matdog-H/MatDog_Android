@@ -45,8 +45,6 @@ class Write_Shelter_Activity : AppCompatActivity() {
             val i = Intent(this, Renew_popupActivity::class.java)
             startActivity(i)
 
-//            val intent = Intent(this@ListActivity, WriteActivity::class.java)
-//            startActivity(intent)
         }
     }
 
