@@ -48,7 +48,9 @@
         android:layout_marginRight="50dp"
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:maxLines="1"
+        android:maxLength="17"/>
 
     <Button
         android:id="@+id/btn_check"
@@ -85,7 +87,9 @@
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
         android:password="true"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:maxLines="1"
+        android:maxLength="20"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -110,7 +114,9 @@
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
         android:password="true"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:maxLines="1"
+        android:maxLength="20"/>
 
     <TextView
         android:id="@+id/txt_checkpw"
@@ -149,7 +155,8 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:maxLines="1"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -175,6 +182,7 @@
         android:hint="ex) 서울시 영등포구"
         android:textSize="13dp"
         android:padding="10dp"
+        android:maxLines="1"
         />
 
     <TextView
@@ -200,7 +208,8 @@
         android:background="@drawable/signup_txt"
         android:textSize="13dp"
         android:hint="ex) 2000-01-01"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@+id/img_txtbox"
@@ -216,7 +225,8 @@
         android:paddingTop="5dp"
         android:layout_marginRight="70dp"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        />
     
     <CheckBox
         android:id="@+id/checkbox_phone"
@@ -242,7 +252,8 @@
         android:hint="휴대폰 번호 '-'포함 입력"
         android:textSize="13dp"
         android:padding="10dp"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:maxLines="1"/>
 
     <CheckBox
         android:id="@+id/checkbox_email"
@@ -268,7 +279,8 @@
         android:hint="이메일"
         android:textSize="13dp"
         android:padding="10dp"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:maxLines="1"/>
 
     <CheckBox
         android:id="@+id/checkbox_memo"

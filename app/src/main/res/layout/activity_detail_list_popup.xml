@@ -22,7 +22,7 @@
         android:id="@+id/tv_tel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="15dp"
         android:textColor="#f87575"
         android:text="Tel)"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,11 +33,15 @@
 
     <EditText
         android:layout_width="145dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/tv_tel"
         app:layout_constraintBottom_toBottomOf="@+id/tv_tel"
         android:layout_marginLeft="5dp"
         android:backgroundTint = "#d2d2d2"
+        android:textColor="#686666"
+        android:textSize="15dp"
+        android:maxLines="1"
+        android:maxLength="15"
         />
 
 
@@ -45,7 +49,7 @@
         android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="15dp"
         android:textColor="#f87575"
         android:text="Email)"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,34 +59,43 @@
         />
 
     <EditText
-        android:layout_width="145dp"
-        android:layout_height="30dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/tv_email"
         app:layout_constraintBottom_toBottomOf="@+id/tv_email"
         android:layout_marginLeft="5dp"
         android:backgroundTint = "#d2d2d2"
+        android:textColor="#686666"
+        android:textSize="15dp"
+        android:maxLines="1"
+        android:maxLength="30"
+        android:ellipsize="end"
         />
 
     <TextView
         android:id="@+id/tv_memo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="15dp"
         android:textColor="#f87575"
         android:text="Memo)"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="160dp"
         android:layout_marginLeft="33dp"
+
         />
 
     <EditText
-        android:layout_width="145dp"
-        android:layout_height="30dp"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/tv_memo"
         app:layout_constraintBottom_toBottomOf="@+id/tv_memo"
         android:layout_marginLeft="5dp"
         android:backgroundTint = "#d2d2d2"
+        android:textColor="#686666"
+        android:textSize="15dp"
+
         />
 
     <TextView

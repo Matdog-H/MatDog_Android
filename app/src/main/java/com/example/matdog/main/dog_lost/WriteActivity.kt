@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.matdog.R
+import com.example.matdog.main.dog_list.detail_list_popup.Detail_list_popupActivity
 import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write.ic_back
 
@@ -35,6 +36,15 @@ class WriteActivity : AppCompatActivity() {
 
         species_modify.setOnClickListener {
             species_name.isEnabled = true // 종 수정하기
+        }
+
+
+        radionotouch.setOnClickListener {
+            val i = Intent(this, Detail_list_popupActivity::class.java)
+            startActivity(i)
+
+//            val intent = Intent(this@ListActivity, WriteActivity::class.java)
+//            startActivity(intent)
         }
     }
 
