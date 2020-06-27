@@ -18,6 +18,8 @@
         <activity android:name=".main.dog_list.detail_list_popup.Detail_list_popupActivity"
             android:theme="@style/DialogTheme"></activity>
         <!-- <activity android:name=".main.dog_list.fragment_new"/> -->
+        <activity android:name=".main.dog_lost.DetailProtectActivity" />
+        <activity android:name=".main.dog_list.detail_list_popup.Detail_list_popupActivity" /> <!-- <activity android:name=".main.dog_list.fragment_new"/> -->
         <!-- <activity android:name=".main.dog_list.fragment_age"/> -->
         <activity android:name=".main.dog_camera.NolistActivity" />
         <activity android:name=".main.mypage.MyPageActivity" />

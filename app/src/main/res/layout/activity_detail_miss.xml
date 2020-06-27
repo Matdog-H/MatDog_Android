@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.dog_lost.DetailActivity">
+    tools:context=".main.dog_lost.DetailMissActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        app:layout_constraintTop_toBottomOf="@id/toolbar_missing">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -20,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.viewpager.widget.ViewPager
-                android:id="@+id/pager"
+                android:id="@+id/pager_missing"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:background="#CBCED1"
@@ -38,14 +37,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/btn_zzim"
+                android:id="@+id/btn_zzim_missing"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/ic_heart"
+                android:background="@drawable/zzim_btn_state"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/detail_box"
@@ -57,19 +57,27 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/txt_detail_jong"
+                    android:id="@+id/txt_detail_jong_missing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginBottom="10dp"
-                    android:text="골든리트리버"
+                    android:text="말티즈"
                     android:textColor="#636363"
                     android:textSize="43sp"
-                    app:layout_constraintBottom_toTopOf="@id/view_detail"
-                    app:layout_constraintStart_toStartOf="@id/view_detail" />
+                    app:layout_constraintBottom_toTopOf="@id/view_detail_missing"
+                    app:layout_constraintStart_toStartOf="@id/view_detail_missing" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/woman"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_detail_jong_missing"
+                    app:layout_constraintEnd_toStartOf="@id/txt_detail_jong_missing"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="10dp"/>
                 <TextView
-                    android:id="@+id/txt_detail_age"
+                    android:id="@+id/txt_detail_age_missing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
@@ -77,11 +85,11 @@
                     android:textColor="#5ea096"
                     android:textSize="16.3sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/txt_detail_jong"
-                    app:layout_constraintEnd_toEndOf="@id/view_detail" />
+                    app:layout_constraintBottom_toBottomOf="@id/txt_detail_jong_missing"
+                    app:layout_constraintEnd_toEndOf="@id/view_detail_missing" />
 
                 <View
-                    android:id="@+id/view_detail"
+                    android:id="@+id/view_detail_missing"
                     android:layout_width="0dp"
                     android:layout_height="10dp"
                     android:layout_marginStart="20dp"
@@ -93,7 +101,7 @@
                     app:layout_constraintTop_toTopOf="@id/detail_box" />
 
                 <TextView
-                    android:id="@+id/img_detail_transgender"
+                    android:id="@+id/img_detail_scale_missing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
@@ -102,54 +110,25 @@
                     android:gravity="center"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="중성화"
-                    android:textColor="#fb777a"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/view_detail" />
-
-                <TextView
-                    android:id="@+id/txt_detail_transgender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:text="Y"
-                    android:textColor="#848484"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_transgender"
-                    app:layout_constraintStart_toEndOf="@id/img_detail_transgender"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_transgender" />
-
-                <TextView
-                    android:id="@+id/img_detail_scale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="86dp"
-                    android:background="@drawable/itembox"
-                    android:gravity="center"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
                     android:text="체중"
                     android:textColor="#fb777a"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/img_detail_transgender"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_transgender" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/view_detail_missing" />
 
                 <TextView
-                    android:id="@+id/txt_detail_scale"
+                    android:id="@+id/txt_detail_scale_missing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
-                    android:text="4.5"
+                    android:text="5"
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_scale"
-                    app:layout_constraintStart_toEndOf="@id/img_detail_scale"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_scale" />
+                    app:layout_constraintBottom_toBottomOf="@id/img_detail_scale_missing"
+                    app:layout_constraintStart_toEndOf="@id/img_detail_scale_missing"
+                    app:layout_constraintTop_toTopOf="@id/img_detail_scale_missing" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -159,13 +138,13 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_scale"
-                    app:layout_constraintStart_toEndOf="@id/txt_detail_scale"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_scale" />
+                    app:layout_constraintBottom_toBottomOf="@id/img_detail_scale_missing"
+                    app:layout_constraintStart_toEndOf="@id/txt_detail_scale_missing"
+                    app:layout_constraintTop_toTopOf="@id/img_detail_scale_missing" />
 
                 <TextView
-                    android:id="@+id/img_detail_protect_location"
-                    android:layout_width="83dp"
+                    android:id="@+id/img_detail_missing_location"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
                     android:layout_marginTop="20dp"
@@ -173,15 +152,15 @@
                     android:gravity="center"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="보호장소"
+                    android:text="잃어버린 장소"
                     android:textColor="#fb777a"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_transgender" />
+                    app:layout_constraintTop_toBottomOf="@id/img_detail_scale_missing" />
 
                 <TextView
-                    android:id="@+id/txt_detail_protect_location"
+                    android:id="@+id/txt_detail_missing_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
@@ -189,13 +168,13 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_protect_location"
-                    app:layout_constraintStart_toEndOf="@id/img_detail_protect_location"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_protect_location" />
+                    app:layout_constraintBottom_toBottomOf="@id/img_detail_missing_location"
+                    app:layout_constraintStart_toEndOf="@id/img_detail_missing_location"
+                    app:layout_constraintTop_toTopOf="@id/img_detail_missing_location" />
 
                 <TextView
-                    android:id="@+id/img_detail_institution"
-                    android:layout_width="83dp"
+                    android:id="@+id/img_detail_missing_date"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
                     android:layout_marginTop="20dp"
@@ -203,25 +182,56 @@
                     android:gravity="center"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="관할기관"
+                    android:text="잃어버린 날짜"
                     android:textColor="#fb777a"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_protect_location" />
+                    app:layout_constraintTop_toBottomOf="@id/img_detail_missing_location" />
 
                 <TextView
-                    android:id="@+id/txt_detail_institution"
+                    android:id="@+id/txt_detail_missing_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
-                    android:text="서울 유기 보호소"
+                    android:text="2020-05-03"
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_institution"
-                    app:layout_constraintStart_toEndOf="@id/img_detail_institution"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_institution" />
+                    app:layout_constraintBottom_toBottomOf="@id/img_detail_missing_date"
+                    app:layout_constraintStart_toEndOf="@id/img_detail_missing_date"
+                    app:layout_constraintTop_toTopOf="@id/img_detail_missing_date" />
+
+                <TextView
+                    android:id="@+id/img_detail_protect_location_missing"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="37dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/itembox"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="보호 장소"
+                    android:textColor="#fb777a"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_detail_missing_date" />
+
+                <TextView
+                    android:id="@+id/txt_detail_protect_location_missing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="17dp"
+                    android:text="서울시 영등포구"
+                    android:textColor="#848484"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/img_detail_protect_location_missing"
+                    app:layout_constraintStart_toEndOf="@id/img_detail_protect_location_missing"
+                    app:layout_constraintTop_toTopOf="@id/img_detail_protect_location_missing" />
+
 
                 <TextView
                     android:id="@+id/img_detail_feature"
@@ -238,7 +248,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_institution" />
+                    app:layout_constraintTop_toBottomOf="@id/img_detail_protect_location_missing" />
 
                 <TextView
                     android:id="@+id/txt_detail_feature"
@@ -250,7 +260,6 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_feature"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/img_detail_feature"
                     app:layout_constraintTop_toTopOf="@id/img_detail_feature" />
@@ -261,7 +270,7 @@
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_missing"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/shadow_up_bar"
@@ -271,7 +280,7 @@
         app:layout_constraintTop_toTopOf="parent" >
 
         <ImageView
-            android:id="@+id/btn_detail_back"
+            android:id="@+id/btn_detail_back_missing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_back"
@@ -281,10 +290,10 @@
             android:layout_marginBottom="20dp"/>
 
         <ImageView
-            android:id="@+id/btn_detail_state_shelter"
+            android:id="@+id/btn_detail_state_missing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/state_shelter"
+            android:src="@drawable/state_missing"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
@@ -304,7 +313,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
-        android:id="@+id/btn_detail_call"
+        android:id="@+id/btn_detail_call_missing"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:background="@drawable/btn_boonyang"

@@ -30,7 +30,7 @@ class CameraActivity : AppCompatActivity() {
 
     private fun picture() {
         //Change profile Image
-        ic_camera.setOnClickListener {
+        get_photo.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_DENIED
