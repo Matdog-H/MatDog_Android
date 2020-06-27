@@ -45,6 +45,8 @@ class SignUpActivity : AppCompatActivity() {
             }
         })
 
+
+        //체크박스 체크 시 textview 활성화
         checkbox_phone.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { arg0, arg1 -> // 체크되면 모두 보이도록 설정
             if (checkbox_phone.isChecked() === true)
                 signup_phone.isEnabled=true
@@ -69,12 +71,9 @@ class SignUpActivity : AppCompatActivity() {
 
         })
 
-//        if(checkbox_phone.isChecked())   signup_phone.isEnabled=true
-//        if(checkbox_email.isChecked()) signup_email.isEnabled=true
-//        if(checkbox_memo.isChecked()) signup_memo.isEnabled=true
 
 
-
+        //회원가입 버튼 이벤트
         btn_oksignup.setOnClickListener {
             //조건1 : 아이디가 공백이 아니고 중복확인 버튼을 눌렀는지 <-> 중복확인 버튼을 클릭 후 버튼 텍스트가 '사용 가능'으로 바꼈는지 체크
             //조건2 : 비밀번호가 일치하는지

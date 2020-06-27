@@ -38,6 +38,15 @@ class WriteActivity : AppCompatActivity() {
         }
 
         picture()
+
+
+        radionotouch.setOnClickListener {
+            val i = Intent(this, Detail_list_popupActivity::class.java)
+            startActivity(i)
+
+//            val intent = Intent(this@ListActivity, WriteActivity::class.java)
+//            startActivity(intent)
+        }
     }
 
     private fun picture() {
@@ -55,7 +64,6 @@ class WriteActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     //Change profile image

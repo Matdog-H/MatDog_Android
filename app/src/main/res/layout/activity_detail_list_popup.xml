@@ -4,17 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    tools:context=".main.dog_lost.detail_lost_popup.Detail_popupActivity"
     android:layout_gravity="center"
     android:background="#00FFFFFF">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background"
+        android:background="@drawable/pop_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColor="#f87575"
+        android:text="Tel)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="60dp"
+        />
+
+    <EditText
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_tel"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_tel"
+        android:layout_marginLeft="5dp"
+        android:backgroundTint = "#d2d2d2"
+        android:textColor="#686666"
+        android:textSize="15dp"
+        android:maxLines="1"
+        android:maxLength="15"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColor="#f87575"
+        android:text="Email)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="40dp"
+        />
+
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_email"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_email"
+        android:layout_marginLeft="5dp"
+        android:backgroundTint = "#d2d2d2"
+        android:textColor="#686666"
+        android:textSize="15dp"
+        android:maxLines="1"
+        android:maxLength="30"
+        android:ellipsize="end"
+        />
+
+    <TextView
+        android:id="@+id/tv_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColor="#f87575"
+        android:text="Memo)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="33dp"
+
+        />
+
+    <EditText
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_memo"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_memo"
+        android:layout_marginLeft="5dp"
+        android:backgroundTint = "#d2d2d2"
+        android:textColor="#686666"
+        android:textSize="15dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:textColor="#7f7d7d"
+        android:text="※현재 공고에서만 수정되는 정보입니다※"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="80dp"
+        />
+
+    <Button
+        android:id="@+id/editbutton"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@drawable/btn_signin"
+        android:text="수정"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="40dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -23,6 +128,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="42dp"/>
+        android:layout_marginEnd="42dp"
+        android:visibility="invisible"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
