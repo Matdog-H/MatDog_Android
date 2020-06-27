@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.matdog.R
+import com.example.matdog.main.dog_list.detail_list_popup.Detail_list_popupActivity
 import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write.ic_back
 
