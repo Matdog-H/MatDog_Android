@@ -29,18 +29,20 @@ class WriteActivity : AppCompatActivity() {
             finish()
         }
 
-        btn_oksignup.setOnClickListener {
+        btn_okwrite.setOnClickListener {
             finish()
         }
 
         species_modify.setOnClickListener {
             species_name.isEnabled = true // 종 수정하기
         }
+
+        picture()
     }
 
     private fun picture() {
         //Change profile Image
-        picture1_write.setOnClickListener {
+        picture_write1_plus.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_DENIED
@@ -53,6 +55,7 @@ class WriteActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
     //Change profile image
@@ -88,7 +91,7 @@ class WriteActivity : AppCompatActivity() {
     @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
-            picture_button1_write.setImageURI(data?.data)
+            picture_write1.setImageURI(data?.data)
         }
     }
 }

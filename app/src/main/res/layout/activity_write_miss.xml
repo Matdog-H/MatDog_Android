@@ -18,8 +18,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_button1_write"
+            android:id="@+id/picture_write1"
             android:layout_width="85dp"
             android:layout_height="85dp"
             android:layout_marginTop="52dp"
@@ -29,38 +30,38 @@
             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
-        <View
-            android:id="@+id/picture1_write"
+        <ImageButton
+            android:id="@+id/picture_write1_plus"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/imageplus"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_button1_write"
-            app:layout_constraintBottom_toBottomOf="@id/picture_button1_write"
+            app:layout_constraintEnd_toEndOf="@id/picture_write1"
+            app:layout_constraintBottom_toBottomOf="@id/picture_write1"
             />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_button2_write"
+            android:id="@+id/picture_write2"
             android:layout_width="85dp"
             android:layout_height="85dp"
             android:layout_marginTop="52dp"
             android:background="@drawable/image"
-            app:layout_constraintEnd_toStartOf="@id/picture_button3_write"
-            app:layout_constraintStart_toEndOf="@id/picture_button1_write"
+            app:layout_constraintEnd_toStartOf="@id/picture_write3"
+            app:layout_constraintStart_toEndOf="@id/picture_write1"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
-        <View
-            android:id="@+id/picture2_write"
+        <ImageButton
+            android:id="@+id/picture_write2_plus"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/imageplus"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_button2_write"
-            app:layout_constraintBottom_toBottomOf="@id/picture_button2_write"
+            app:layout_constraintEnd_toEndOf="@id/picture_write2"
+            app:layout_constraintBottom_toBottomOf="@id/picture_write2"
             />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_button3_write"
+            android:id="@+id/picture_write3"
             android:layout_width="85dp"
             android:layout_height="85dp"
             android:layout_marginStart="30dp"
@@ -71,14 +72,14 @@
             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
-        <View
-            android:id="@+id/picture3_write"
+        <ImageButton
+            android:id="@+id/picture_write3_plus"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/imageplus"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_button3_write"
-            app:layout_constraintBottom_toBottomOf="@id/picture_button3_write"
+            app:layout_constraintEnd_toEndOf="@id/picture_write3"
+            app:layout_constraintBottom_toBottomOf="@id/picture_write3"
             />
 
 
@@ -477,7 +478,7 @@
 
     <!--공고 등록버튼 -->
     <Button
-        android:id="@+id/btn_oksignup"
+        android:id="@+id/btn_okwrite"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#fb777a"
