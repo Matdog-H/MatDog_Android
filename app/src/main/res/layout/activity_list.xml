@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.Share_files.List_share.List_Shelter_Activity"
+    tools:context=".main.Share_files.List_share.List_Activity"
     android:background="#ffffff">
 
     <ImageButton

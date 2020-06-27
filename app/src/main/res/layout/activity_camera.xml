@@ -86,6 +86,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:id="@+id/btn_camera_list"
         android:layout_width="137dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
@@ -99,7 +100,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_camera_register"
         android:layout_width="137dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="39dp"

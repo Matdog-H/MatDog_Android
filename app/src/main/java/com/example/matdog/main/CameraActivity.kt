@@ -4,6 +4,7 @@ package com.example.matdog.main
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ListActivity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -11,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.matdog.R
+import com.example.matdog.main.Share_files.List_share.List_Activity
+import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
+import com.example.matdog.sign.SignUpActivity
 import kotlinx.android.synthetic.main.activity_camera.*
 
 class CameraActivity : AppCompatActivity() {
@@ -19,12 +23,36 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
 
+        init()
+        picture()
+    }
+
+    private fun init(){
+
+        //뒤로가기
         ic_back.setOnClickListener{
             finish()
         }
 
-        picture()
+
+        //추천 공고 보기
+        btn_camera_list.setOnClickListener {
+            val intent1 = Intent(this, List_Activity::class.java)
+            intent1.putExtra("state0","0") //상태값=0
+            startActivity(intent1)
+        }
+
+
+        //분양 공고 등록
+        btn_camera_register.setOnClickListener {
+            val intent2 = Intent(this,Write_Shelter_Activity::class.java)
+            startActivity(intent2)
+        }
+
+
+
     }
+
 
     private fun picture() {
         //Change profile Image

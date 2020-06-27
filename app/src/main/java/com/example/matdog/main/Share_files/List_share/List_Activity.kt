@@ -2,6 +2,7 @@ package com.example.matdog.main.Share_files.List_share
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.EditText
@@ -9,16 +10,33 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.matdog.R
+import com.example.matdog.main.dog_miss.Write_Miss_Activity
+import com.example.matdog.main.dog_protect.Write_Protect_Activity
 import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
 import kotlinx.android.synthetic.main.activity_list.*
 
 
-class List_Shelter_Activity : AppCompatActivity() {
+class List_Activity : AppCompatActivity() {
+
+
+    //var state : String = intent.getStringExtra("state")
+
+    private var state0 : String? = null
+    private var state1 : String? = null
+    private var state2 : String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        init()
+        list_change()
+
+    }
+
+    // 버튼 클릭 관련 함수
+    private fun init(){
         var count=1 //버튼 클릭 횟수
 
         val ic_back: ImageButton = findViewById(R.id.ic_back)
@@ -35,7 +53,6 @@ class List_Shelter_Activity : AppCompatActivity() {
 
             if(count>1 && count%2==0){ //버튼을 두번 클릭 했을 시
                 //검색 기능 추가
-
                 searchview.removeAllViews();
                 count++
 
@@ -51,13 +68,6 @@ class List_Shelter_Activity : AppCompatActivity() {
                 searchview.addView(search_edt)
                 count++
             }
-
-        }
-
-        // 공고 등록 플로팅 버튼 클릭이벤트
-        btn_write.setOnClickListener{
-            val intent = Intent(this@List_Shelter_Activity, Write_Shelter_Activity::class.java)
-            startActivity(intent)
         }
 
         val fragmentAdapter =
@@ -65,40 +75,30 @@ class List_Shelter_Activity : AppCompatActivity() {
                 supportFragmentManager
             )
         list_viewPager.adapter = fragmentAdapter
-
         list_tablayout.setupWithViewPager(list_viewPager)
-
-
-
-//        //이미지 버튼 클릭시
-//        btn_tab_new.setOnClickListener {
-//            //이미지 변경
-//            btn_tab_age.setBackgroundResource(R.drawable.tap_age_unselect)
-//            btn_tab_new.setBackgroundResource(R.drawable.tap_new_select)
-//
-//
-//            //화면 변경
-//            supportFragmentManager.beginTransaction()
-//                .replace(R.id.fragment_view, fragment_new())
-//                .commit()
-//        }
-//
-//        btn_tab_age.setOnClickListener {
-//            //이미지 변경
-//            btn_tab_new.setBackgroundResource(R.drawable.tap_new_unselect)
-//            btn_tab_age.setBackgroundResource(R.drawable.tap_age_select)
-//
-//
-//            //화면 변경
-//            supportFragmentManager.beginTransaction()
-//                .replace(R.id.fragment_view, fragment_age())
-//                .commit()
-//        }
-
     }
 
+    private fun list_change() {
+
+        state0 = intent.getStringExtra("state0")
+        state1 = intent.getStringExtra("state1")
+        state2 = intent.getStringExtra("state2")
 
 
+        btn_write.setOnClickListener {
+             if (state1.isNullOrBlank() && state2.isNullOrBlank()) {
+                val intent1 = Intent(this, Write_Shelter_Activity::class.java)
+                startActivity(intent1)
+            } else if (state0.isNullOrBlank() && state2.isNullOrBlank()) {
+                 val intent2 = Intent(this, Write_Miss_Activity::class.java)
+                startActivity(intent2)
+            } else {
+                 val intent3 = Intent(this, Write_Protect_Activity::class.java)
+                startActivity(intent3)
+            }
 
 
+        }
+
+    }
 }

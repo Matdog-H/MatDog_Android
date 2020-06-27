@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.matdog.R
-import com.example.matdog.main.Share_files.List_share.List_Shelter_Activity
+import com.example.matdog.main.Share_files.List_share.List_Activity
 import com.example.matdog.main.mypage.MyPageActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btn_list.setOnClickListener{
-            val intent = Intent(this@MainActivity, List_Shelter_Activity::class.java)
+            val intent = Intent(this@MainActivity, List_Activity::class.java)
             startActivity(intent)
         }
         btn_mypage.setOnClickListener{
