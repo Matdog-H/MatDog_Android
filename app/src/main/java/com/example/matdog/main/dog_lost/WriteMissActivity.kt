@@ -22,7 +22,7 @@ class WriteMissActivity : AppCompatActivity() {
             finish()
         }
 
-        btn_oksignup.setOnClickListener {
+        btn_okwrite.setOnClickListener {
             finish()
         }
 
