@@ -1,5 +1,10 @@
-package com.example.matdog.main.dog_camera
+package com.example.matdog.main.dog_shelter
 
+/*
+* WriteActivity.kt
+* 분양 공고 등록
+* activity_write.xml
+ */
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -9,35 +14,54 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.Toast
 import com.example.matdog.R
-import kotlinx.android.synthetic.main.activity_camera.*
+import com.example.matdog.main.pop_up.Renew_popupActivity
+import kotlinx.android.synthetic.main.activity_write.*
+import kotlinx.android.synthetic.main.activity_write.ic_back
 
-class CameraActivity : AppCompatActivity() {
+class Write_Shelter_Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_camera)
+        setContentView(R.layout.activity_write)
 
-        ic_back.setOnClickListener{
+        ic_back.setOnClickListener {
             finish()
         }
 
+        btn_okwrite.setOnClickListener {
+            finish()
+        }
+
+        species_modify.setOnClickListener {
+            species_name.isEnabled = true // 종 수정하기
+        }
+
         picture()
+
+
+        radionotouch.setOnClickListener {
+            val i = Intent(this, Renew_popupActivity::class.java)
+            startActivity(i)
+
+//            val intent = Intent(this@ListActivity, WriteActivity::class.java)
+//            startActivity(intent)
+        }
     }
 
     private fun picture() {
         //Change profile Image
-        get_photo.setOnClickListener {
+        picture_write1_plus.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_DENIED
                 ) {
 
                     val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                    requestPermissions(permissions, PERMISSION_CODE)
+                    requestPermissions(permissions,
+                        PERMISSION_CODE
+                    )
                 } else {
                     pickImageFromGallery()
                 }
@@ -49,7 +73,9 @@ class CameraActivity : AppCompatActivity() {
     private fun pickImageFromGallery(){
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        startActivityForResult(intent, IMAGE_PICK_CODE)
+        startActivityForResult(intent,
+            IMAGE_PICK_CODE
+        )
     }
 
     companion object{
@@ -78,7 +104,7 @@ class CameraActivity : AppCompatActivity() {
     @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
-            picture_button1.setImageURI(data?.data)
+            picture_write1.setImageURI(data?.data)
         }
     }
 }

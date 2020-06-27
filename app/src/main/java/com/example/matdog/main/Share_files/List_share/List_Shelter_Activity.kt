@@ -1,22 +1,19 @@
-package com.example.matdog.main.dog_list
+package com.example.matdog.main.Share_files.List_share
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
-import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.matdog.R
-import com.example.matdog.main.dog_lost.DetailActivity
-import com.example.matdog.main.dog_lost.WriteActivity
+import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
 import kotlinx.android.synthetic.main.activity_list.*
 
 
-class ListActivity : AppCompatActivity() {
+class List_Shelter_Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,11 +56,14 @@ class ListActivity : AppCompatActivity() {
 
         // 공고 등록 플로팅 버튼 클릭이벤트
         btn_write.setOnClickListener{
-            val intent = Intent(this@ListActivity, WriteActivity::class.java)
+            val intent = Intent(this@List_Shelter_Activity, Write_Shelter_Activity::class.java)
             startActivity(intent)
         }
 
-        val fragmentAdapter = ListAdapter(supportFragmentManager)
+        val fragmentAdapter =
+            ViewPager_Shelter_Adapter(
+                supportFragmentManager
+            )
         list_viewPager.adapter = fragmentAdapter
 
         list_tablayout.setupWithViewPager(list_viewPager)

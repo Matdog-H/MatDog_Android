@@ -1,15 +1,16 @@
-package com.example.matdog.main.dog_lost
+package com.example.matdog.main.dog_shelter
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
-import com.example.matdog.main.dog_lost.detail_lost_popup.Detail_popupActivity
+import com.example.matdog.main.Share_files.Detail_share.Viewpager_detail_adapter
+import com.example.matdog.main.pop_up.Call_popupActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 
 
-class DetailActivity : AppCompatActivity() {
+class Detail_Shelter_Activity : AppCompatActivity() {
     internal lateinit var viewpager : ViewPager
     var CHECK_NUM = 0
 
@@ -19,7 +20,7 @@ class DetailActivity : AppCompatActivity() {
 
         viewpager = findViewById(R.id.pager) as ViewPager
 
-        val adapter = ViewPagerAdapter(this)
+        val adapter = Viewpager_detail_adapter(this)
         viewpager.adapter = adapter
 
         init()
@@ -27,7 +28,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun init(){
         btn_detail_call.setOnClickListener {
-            val i = Intent(this, Detail_popupActivity::class.java)
+            val i = Intent(this, Call_popupActivity::class.java)
             startActivity(i)
         }
 

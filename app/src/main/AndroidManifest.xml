@@ -15,25 +15,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.dog_list.detail_list_popup.Detail_list_popupActivity"
+        <activity android:name=".main.pop_up.Renew_popupActivity"
             android:theme="@style/DialogTheme"></activity>
         <!-- <activity android:name=".main.dog_list.fragment_new"/> -->
-        <activity android:name=".main.dog_lost.DetailProtectActivity" />
-        <activity android:name=".main.dog_camera.NolistActivity" />
+        <activity android:name=".main.dog_protect.Detail_Protect_Activity" />
         <activity android:name=".main.mypage.MyPageActivity" />
-        <activity android:name=".main.dog_camera.LostCameraActivity" />
+        <activity android:name=".main.LostCameraActivity" />
         <activity
-            android:name=".main.dog_lost.detail_lost_popup.Detail_popupActivity"
+            android:name="com.example.matdog.main.pop_up.Call_popupActivity"
             android:theme="@style/DialogTheme" />
-        <activity android:name=".main.dog_lost.WriteActivity" />
-        <activity android:name=".main.dog_lost.DetailActivity" />
-        <activity android:name=".main.dog_list.ListActivity" />
-        <activity android:name=".main.dog_camera.CameraActivity" />
+        <activity android:name=".main.dog_shelter.Write_Shelter_Activity" />
+        <activity android:name=".main.dog_shelter.Detail_Shelter_Activity" />
+        <activity android:name="com.example.matdog.main.Share_files.List_share.List_Shelter_Activity" />
+        <activity android:name=".main.CameraActivity" />
         <activity android:name=".sign.SignUpActivity" />
         <activity android:name=".sign.SignInActivity" />
         <activity android:name=".main.MainActivity" /> <!-- 시작 액티비티를 SplashActivity로 설정, android:theme를 SplashTheme로 설정 -->
         <activity
-            android:name=".main.SplashActivity"
+            android:name=".sign.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

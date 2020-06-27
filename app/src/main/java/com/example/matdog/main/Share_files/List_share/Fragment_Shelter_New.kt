@@ -1,9 +1,7 @@
-package com.example.matdog.main.dog_list
+package com.example.matdog.main.Share_files.List_share
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
-import com.example.matdog.main.dog_lost.DetailActivity
-import com.example.matdog.main.mypage.Adapter
-import com.example.matdog.main.mypage.ListItem
+import com.example.matdog.main.Share_files.Recyclerview_share.Adapter
+import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
+import com.example.matdog.main.dog_shelter.Detail_Shelter_Activity
 
 
-class fragment_new : Fragment(), View.OnClickListener{
+class Fragment_Shelter_New : Fragment(), View.OnClickListener{
 
     private lateinit var  recyclerview : RecyclerView
     private lateinit var myadapter: Adapter
@@ -33,7 +31,8 @@ class fragment_new : Fragment(), View.OnClickListener{
 
 
         //this로 현재 context 전달
-        myadapter= Adapter(thiscontext)
+        myadapter=
+            Adapter(thiscontext)
 
         myadapter.onItemClick(this)
 
@@ -45,78 +44,78 @@ class fragment_new : Fragment(), View.OnClickListener{
 
         myadapter.data= listOf(
             ListItem(
-                it_image=R.drawable.taepoong,
+                it_image = R.drawable.taepoong,
                 it_love = R.drawable.ic_love,
-                it_species ="말티즈",
+                it_species = "말티즈",
                 it_age = "3살 추정",
-                it_state =R.drawable.state_protect,
-                it_gender =R.drawable.gender_man,
+                it_state = R.drawable.state_protect,
+                it_gender = R.drawable.gender_man,
                 it_date = "2020.05.31",
-                it_place="경기도 고양시"
+                it_place = "경기도 고양시"
             ),
             ListItem(
-                it_image=R.drawable.taepoong2,
+                it_image = R.drawable.taepoong2,
                 it_love = R.drawable.ic_love,
-                it_species ="말티즈",
+                it_species = "말티즈",
                 it_age = "4살 추정",
-                it_state =R.drawable.state_sighting,
-                it_gender =R.drawable.gender_woman,
+                it_state = R.drawable.state_sighting,
+                it_gender = R.drawable.gender_woman,
                 it_date = "2020.06.11",
-                it_place="경기도 고양시"
+                it_place = "경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.taepoong3,
+                it_image = R.drawable.taepoong3,
                 it_love = R.drawable.ic_love,
-                it_species ="말티즈",
+                it_species = "말티즈",
                 it_age = "4살 추정",
-                it_state =R.drawable.state_sighting,
-                it_gender =R.drawable.gender_man,
+                it_state = R.drawable.state_sighting,
+                it_gender = R.drawable.gender_man,
                 it_date = "2020.06.12",
-                it_place="경기도 고양시"
+                it_place = "경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.taepoong,
+                it_image = R.drawable.taepoong,
                 it_love = R.drawable.ic_love,
-                it_species ="말티즈",
+                it_species = "말티즈",
                 it_age = "5살 추정",
-                it_state =R.drawable.state_sighting,
-                it_gender =R.drawable.gender_woman,
+                it_state = R.drawable.state_sighting,
+                it_gender = R.drawable.gender_woman,
                 it_date = "2020.06.12",
-                it_place="경기도 고양시"
+                it_place = "경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.taepoong2,
+                it_image = R.drawable.taepoong2,
                 it_love = R.drawable.ic_love,
-                it_species ="말티즈",
+                it_species = "말티즈",
                 it_age = "3살 추정",
-                it_state =R.drawable.state_shelter,
-                it_gender =R.drawable.gender_woman,
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_woman,
                 it_date = "2020.06.12",
-                it_place="경기도 고양시"
+                it_place = "경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.taepoong3,
+                it_image = R.drawable.taepoong3,
                 it_love = R.drawable.ic_love,
-                it_species ="말티즈",
+                it_species = "말티즈",
                 it_age = "3살 추정",
-                it_state =R.drawable.state_shelter,
-                it_gender =R.drawable.gender_man,
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
                 it_date = "2020.06.12",
-                it_place="경기도 고양시"
+                it_place = "경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.taepoong,
+                it_image = R.drawable.taepoong,
                 it_love = R.drawable.ic_love,
-                it_species ="말티즈",
+                it_species = "말티즈",
                 it_age = "3살 추정",
-                it_state =R.drawable.state_shelter,
-                it_gender =R.drawable.gender_man,
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
                 it_date = "2020.06.12",
-                it_place="경기도 고양시"
+                it_place = "경기도 고양시"
             ), ListItem(
-                it_image=R.drawable.taepoong2,
+                it_image = R.drawable.taepoong2,
                 it_love = R.drawable.ic_love,
-                it_species ="말티즈",
+                it_species = "말티즈",
                 it_age = "3살 추정",
-                it_state =R.drawable.state_shelter,
-                it_gender =R.drawable.gender_man,
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
                 it_date = "2020.06.12",
-                it_place="경기도 고양시"
+                it_place = "경기도 고양시"
             )
 
         )
@@ -130,7 +129,7 @@ class fragment_new : Fragment(), View.OnClickListener{
         recyclerview = view?.findViewById(R.id.fn_recyclerview)!!
 
         if (v?.parent == recyclerview){
-            val intent: Intent = Intent(getActivity(), DetailActivity::class.java)
+            val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
             //intent.putExtra("matchingIdx", matchingData[rv.getChildAdapterPosition(v)].matchingIdx)
             startActivity(intent)
         }

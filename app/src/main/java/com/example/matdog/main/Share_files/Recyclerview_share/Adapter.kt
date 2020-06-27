@@ -1,13 +1,10 @@
-package com.example.matdog.main.mypage
+package com.example.matdog.main.Share_files.Recyclerview_share
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.matdog.R
 
 // 1.람다식 itemClick

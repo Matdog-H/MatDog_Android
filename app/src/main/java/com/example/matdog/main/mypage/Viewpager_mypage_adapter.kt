@@ -1,15 +1,16 @@
-package com.example.matdog.main.dog_list
+package com.example.matdog.main.mypage
 
-import android.hardware.Camera
+
 import androidx.fragment.app.*
-import com.example.matdog.R
 
-class ListAdapter(fm : FragmentManager): FragmentStatePagerAdapter(fm){
+class Viewpager_mypage_adapter(fm : FragmentManager): FragmentStatePagerAdapter(fm){
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                fragment_new()}
-            else -> {return fragment_age()}
+                fragment_my()
+            }
+            else -> {return fragment_like()
+            }
         }
 
     }
@@ -19,8 +20,8 @@ class ListAdapter(fm : FragmentManager): FragmentStatePagerAdapter(fm){
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position){
-            0 -> {"최신순" }
-            else -> {return "나이순"}
+            0 -> "내 공고"
+            else -> {return "찜"}
         }
 
     }

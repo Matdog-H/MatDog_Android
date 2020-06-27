@@ -1,15 +1,15 @@
-package com.example.matdog.main.dog_lost
+package com.example.matdog.main.dog_miss
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
-import com.example.matdog.main.dog_lost.detail_lost_popup.Detail_popupActivity
-import kotlinx.android.synthetic.main.activity_detail.*
+import com.example.matdog.main.Share_files.Detail_share.Viewpager_detail_adapter
+import com.example.matdog.main.pop_up.Call_popupActivity
 import kotlinx.android.synthetic.main.activity_detail_miss.*
 
-class DetailMissActivity : AppCompatActivity() {
+class Detail_Miss_Activity : AppCompatActivity() {
     internal lateinit var viewpager : ViewPager
     var CHECK_NUM = 0
 
@@ -19,7 +19,7 @@ class DetailMissActivity : AppCompatActivity() {
 
         viewpager = findViewById(R.id.pager_missing) as ViewPager
 
-        val adapter = ViewPagerAdapter(this)
+        val adapter = Viewpager_detail_adapter(this)
         viewpager.adapter = adapter
 
         init()
@@ -27,7 +27,7 @@ class DetailMissActivity : AppCompatActivity() {
 
     private fun init(){
         btn_detail_call_missing.setOnClickListener {
-            val i = Intent(this, Detail_popupActivity::class.java)
+            val i = Intent(this, Call_popupActivity::class.java)
             startActivity(i)
         }
 

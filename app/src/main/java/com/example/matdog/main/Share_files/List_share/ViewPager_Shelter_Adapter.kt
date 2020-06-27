@@ -1,15 +1,14 @@
-package com.example.matdog.main.mypage
-
+package com.example.matdog.main.Share_files.List_share
 
 import androidx.fragment.app.*
 
-class MypageAdapter(fm : FragmentManager): FragmentStatePagerAdapter(fm){
+class ViewPager_Shelter_Adapter(fm : FragmentManager): FragmentStatePagerAdapter(fm){
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                fragment_my()
+                Fragment_Shelter_New()
             }
-            else -> {return fragment_like()
+            else -> {return Fragment_Shelter_Age()
             }
         }
 
@@ -20,8 +19,8 @@ class MypageAdapter(fm : FragmentManager): FragmentStatePagerAdapter(fm){
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position){
-            0 -> "내 공고"
-            else -> {return "찜"}
+            0 -> {"최신순" }
+            else -> {return "나이순"}
         }
 
     }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BFBFBF"
-    tools:context=".main.dog_lost.WriteActivity">
+    tools:context=".main.dog_shelter.Write_Shelter_Activity">
 
     <!-- 사진올리기 -->
     <androidx.constraintlayout.widget.ConstraintLayout

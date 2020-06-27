@@ -1,25 +1,17 @@
-package com.example.matdog.main.dog_list
+package com.example.matdog.main.Share_files.List_share
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
-import com.example.matdog.main.dog_lost.DetailActivity
-import com.example.matdog.main.mypage.Adapter
-import com.example.matdog.main.mypage.ListItem
-import kotlinx.android.synthetic.main.activity_fragment_age.*
-import kotlinx.android.synthetic.main.activity_list.*
+import com.example.matdog.main.Share_files.Recyclerview_share.Adapter
 
 
-class fragment_age : Fragment(){
+class Fragment_Shelter_Age : Fragment(){
 
     private lateinit var  recyclerview : RecyclerView
     private lateinit var myadapter: Adapter
@@ -34,7 +26,8 @@ class fragment_age : Fragment(){
         recyclerview = falistview.findViewById(R.id.fa_recyclerview)
 
         //this로 현재 context 전달
-        myadapter= Adapter(thiscontext)
+        myadapter=
+            Adapter(thiscontext)
 
         //리사이클러뷰의 어댑터 세팅
         recyclerview.adapter=myadapter

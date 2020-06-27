@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.dog_list.fragment_new"
+    tools:context=".main.Share_files.List_share.Fragment_Shelter_New"
     android:layout_gravity="center">
 
     <androidx.constraintlayout.widget.ConstraintLayout

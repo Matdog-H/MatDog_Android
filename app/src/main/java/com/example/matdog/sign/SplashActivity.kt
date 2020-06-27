@@ -1,10 +1,9 @@
-package com.example.matdog.main
+package com.example.matdog.sign
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.matdog.sign.SignInActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

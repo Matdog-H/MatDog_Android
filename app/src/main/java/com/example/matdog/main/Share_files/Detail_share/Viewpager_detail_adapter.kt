@@ -1,4 +1,4 @@
-package com.example.matdog.main.dog_lost
+package com.example.matdog.main.Share_files.Detail_share
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
 
 /** @author Aidan Follestad (afollestad) */
-class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
+class Viewpager_detail_adapter(private val context : Context) : PagerAdapter() {
 
     private var layoutInflater : LayoutInflater? = null
     val Image = arrayOf(

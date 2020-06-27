@@ -1,10 +1,10 @@
-package com.example.matdog.main.dog_camera
+package com.example.matdog.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.matdog.R
-import com.example.matdog.main.dog_list.ListActivity
+import com.example.matdog.main.Share_files.List_share.List_Shelter_Activity
 import kotlinx.android.synthetic.main.activity_lost_camera.*
 
 class LostCameraActivity : AppCompatActivity() {
@@ -18,7 +18,7 @@ class LostCameraActivity : AppCompatActivity() {
         }
 
         finddog.setOnClickListener{
-            val i = Intent(this, ListActivity::class.java)
+            val i = Intent(this, List_Shelter_Activity::class.java)
             startActivity(i)
         }
     }
