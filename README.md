@@ -7,6 +7,9 @@
 ## 구성도
 <img width="400" alt="matdog" src="https://user-images.githubusercontent.com/57608585/89705609-bbab2280-d999-11ea-9002-2bc2d2a98316.png">
 
+## 흐름도
+<img width="400" alt="matdog" src="https://user-images.githubusercontent.com/57608585/89750088-6ee45a80-db05-11ea-974f-b1ebd14318c5.PNG">
+
 ## Member
 - [강수빈](https://github.com/ksb0511)
 - [나혜지](https://github.com/nhj7911)
