@@ -29,6 +29,10 @@
 |     마이페이지     |	-사용자 프로필을 수정할 수 있는 버튼이 존재한다.</br>-나의 공고 저장 리스트를 볼 수 있고, 내가 쓴 공고들을 확인할 수 있다. |
 
 
+## Logo
+<img width="400" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312229-91c7a200-df3d-11ea-8c68-16b7b01603b9.png">
+<img width="400" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312236-b3c12480-df3d-11ea-990f-a8fd5f09c055.png">              
+
 ## Member
 - [강수빈](https://github.com/ksb0511)
 - [나혜지](https://github.com/nhj7911)
