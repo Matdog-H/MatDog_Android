@@ -30,8 +30,8 @@
 
 
 ## Logo
-<img width="1500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312229-91c7a200-df3d-11ea-8c68-16b7b01603b9.png">
-<img width="1500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312236-b3c12480-df3d-11ea-990f-a8fd5f09c055.png">              
+<img width="1500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312413-40201700-df3f-11ea-9c47-f413c15f6d32.png">
+<img width="1500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312416-431b0780-df3f-11ea-93c4-0e1c196b141a.png">              
 
 ## Member
 - [강수빈](https://github.com/ksb0511)
