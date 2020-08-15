@@ -42,213 +42,199 @@
             />
 
         <!-- 프로필 -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/mypage_profile"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginTop="70dp"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mypage_profile"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-                <ImageView
-                    android:id="@+id/img_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/profile"
-                    app:layout_constraintStart_toStartOf="@id/mypage_profile"
-                    app:layout_constraintEnd_toEndOf="@id/mypage_profile"
-                    app:layout_constraintTop_toTopOf="@id/mypage_profile"/>
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:enabled="false"
+            android:text="홍길동"
+            android:textColor="#545454"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@id/mypage_profile"
+            app:layout_constraintStart_toStartOf="@id/mypage_profile"
+            app:layout_constraintTop_toTopOf="@id/mypage_profile" />
+
+        <ImageView
+            android:id="@+id/ic_birth"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_birth"
+            app:layout_constraintEnd_toStartOf="@id/user_birth"
+            app:layout_constraintTop_toBottomOf="@id/user_name" />
 
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/plus_img"
-                    app:layout_constraintEnd_toEndOf="@id/img_profile"
-                    app:layout_constraintBottom_toBottomOf="@+id/img_profile"/>
+        <EditText
+            android:id="@+id/user_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="1999년 01월 25일"
+            android:textColor="#545454"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/mypage_profile"
+            app:layout_constraintStart_toStartOf="@id/mypage_profile"
+            app:layout_constraintTop_toBottomOf="@id/user_name" />
 
-                <EditText
-                    android:id="@+id/user_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="홍길동"
-                    android:textSize="20sp"
-                    android:enabled="false"
-                    android:background="@null"
-                    app:layout_constraintTop_toBottomOf="@id/img_profile"
-                    app:layout_constraintStart_toStartOf="@id/mypage_profile"
-                    app:layout_constraintEnd_toEndOf="@id/mypage_profile"
-                    />
+        <ImageView
+            android:id="@+id/ic_phone"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_phone"
+            app:layout_constraintStart_toStartOf="@id/mypage_profile"
+            app:layout_constraintTop_toBottomOf="@id/user_birth" />
 
-                <ImageView
-                    android:id="@+id/ic_birth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_birth"
-                    app:layout_constraintStart_toEndOf="@id/img_profile"
-                    app:layout_constraintBottom_toBottomOf="@id/user_name"/>
+        <ImageView
+            android:id="@+id/ic_place"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ic_place"
+            app:layout_constraintStart_toStartOf="@id/mypage_profile"
+            app:layout_constraintTop_toBottomOf="@id/user_birth" />
 
+        <ImageView
+            android:id="@+id/ic_email"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="125dp"
+            android:src="@drawable/ic_email"
+            app:layout_constraintEnd_toEndOf="@id/mypage_profile"
+            app:layout_constraintTop_toBottomOf="@id/user_birth" />
 
-                <EditText
-                    android:id="@+id/user_birth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1999년 01월 25일"
-                    android:textSize="10sp"
-                    android:enabled="false"
-                    android:background="@null"
-                    android:layout_marginStart="5dp"
-                    app:layout_constraintStart_toEndOf="@id/ic_birth"
-                    app:layout_constraintBottom_toBottomOf="@id/user_name"/>
+        <ImageView
+            android:id="@+id/ic_dm"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="125dp"
+            android:src="@drawable/ic_dm"
+            app:layout_constraintEnd_toEndOf="@id/mypage_profile"
+            app:layout_constraintTop_toBottomOf="@id/user_birth" />
 
-               <ImageView
-                    android:id="@+id/ic_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_phone"
-                    android:layout_marginTop="120dp"
-                    app:layout_constraintTop_toTopOf="@id/mypage_profile"
-                    app:layout_constraintStart_toStartOf="@id/mypage_profile"/>
+        <EditText
+            android:id="@+id/user_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="010-0000-0000"
+            android:textColor="#545454"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/ic_phone"
+            app:layout_constraintTop_toTopOf="@id/ic_phone" />
 
-                <ImageView
-                    android:id="@+id/ic_place"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_place"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="140dp"
-                    app:layout_constraintTop_toTopOf="@id/mypage_profile"
-                    app:layout_constraintStart_toStartOf="@id/mypage_profile"/>
+        <EditText
+            android:id="@+id/user_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="경기도 고양시 일산동구"
+            android:textColor="#545454"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/ic_place"
+            app:layout_constraintTop_toTopOf="@id/ic_place" />
 
-                <ImageView
-                    android:id="@+id/ic_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_email"
-                    android:layout_marginEnd="120dp"
-                    android:layout_marginTop="120dp"
-                    app:layout_constraintTop_toTopOf="@id/mypage_profile"
-                    app:layout_constraintEnd_toEndOf="@id/mypage_profile"/>
+        <EditText
+            android:id="@+id/user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="ABCD@gmail.com"
+            android:textColor="#545454"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/ic_email"
+            app:layout_constraintTop_toTopOf="@id/ic_email" />
 
-                <ImageView
-                    android:id="@+id/ic_dm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_dm"
-                    android:layout_marginEnd="120dp"
-                    android:layout_marginTop="140dp"
-                    app:layout_constraintTop_toTopOf="@id/mypage_profile"
-                    app:layout_constraintEnd_toEndOf="@id/mypage_profile"/>
+        <EditText
+            android:id="@+id/user_dm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="카톡아이디- faabcd"
+            android:textColor="#545454"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/ic_dm"
+            app:layout_constraintTop_toTopOf="@id/ic_dm" />
 
-                <EditText
-                    android:id="@+id/user_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="010-0000-0000"
-                    android:textSize="10sp"
-                    android:layout_marginStart="5dp"
-                    android:enabled="false"
-                    android:background="@null"
-                    app:layout_constraintTop_toTopOf="@id/ic_phone"
-                    app:layout_constraintStart_toEndOf="@id/ic_phone"/>
+        <Button
+            android:id="@+id/btn_privacy_phone"
+            android:layout_width="40dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="공개"
+            android:textColor="#5ea096"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/user_phone"
+            app:layout_constraintEnd_toStartOf="@id/ic_email" />
 
-                <EditText
-                    android:id="@+id/user_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="경기도 고양시 일산동구"
-                   android:textSize="10sp"
-                    android:layout_marginStart="5dp"
-                    android:enabled="false"
-                    android:background="@null"
-                    app:layout_constraintTop_toTopOf="@id/ic_place"
-                    app:layout_constraintStart_toEndOf="@id/ic_place"/>
+        <Button
+            android:id="@+id/btn_privacy_address"
+            android:layout_width="40dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="비공개"
+            android:textColor="#ff565a"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/user_address"
+            app:layout_constraintEnd_toStartOf="@id/ic_dm" />
 
-                <EditText
-                    android:id="@+id/user_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ABCD@gmail.com"
-                    android:textSize="10sp"
-                    android:layout_marginStart="5dp"
-                    android:enabled="false"
-                    android:background="@null"
-                    app:layout_constraintTop_toTopOf="@id/ic_email"
-                    app:layout_constraintStart_toEndOf="@id/ic_email"/>
+        <Button
+            android:id="@+id/btn_privacy_email"
+            android:layout_width="40dp"
+            android:layout_height="15dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="비공개"
+            android:textColor="#ff565a"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/user_email"
+            app:layout_constraintEnd_toEndOf="@id/mypage_profile" />
 
-                <EditText
-                    android:id="@+id/user_dm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="카톡아이디- faabcd"
-                    android:textSize="10sp"
-                    android:layout_marginStart="5dp"
-                    android:enabled="false"
-                    android:background="@null"
-                    app:layout_constraintTop_toTopOf="@id/ic_dm"
-                    app:layout_constraintStart_toEndOf="@id/ic_dm"/>
-
-                <Button
-                    android:id="@+id/btn_privacy_phone"
-                    android:layout_width="40dp"
-                    android:layout_height="15dp"
-                    android:text="공개"
-                    android:textSize="10sp"
-                    android:textColor="#5ea096"
-                    android:enabled="false"
-                    android:background="@null"
-                    android:layout_marginEnd="15dp"
-                    app:layout_constraintEnd_toStartOf="@id/ic_email"
-                    app:layout_constraintBottom_toBottomOf="@+id/user_phone"
-                    />
-
-                <Button
-                    android:id="@+id/btn_privacy_address"
-                    android:layout_width="40dp"
-                    android:layout_height="15dp"
-                    android:text="비공개"
-                    android:textSize="10sp"
-                    android:textColor="#ff565a"
-                    android:enabled="false"
-                    android:background="@null"
-                    android:layout_marginEnd="15dp"
-                    app:layout_constraintEnd_toStartOf="@id/ic_dm"
-                    app:layout_constraintBottom_toBottomOf="@+id/user_address"
-                    />
-
-                <Button
-                    android:id="@+id/btn_privacy_email"
-                    android:layout_width="40dp"
-                    android:layout_height="15dp"
-                    android:text="비공개"
-                    android:textSize="10sp"
-                    android:textColor="#ff565a"
-                    android:enabled="false"
-                    android:background="@null"
-                    app:layout_constraintEnd_toEndOf="@id/mypage_profile"
-                    app:layout_constraintBottom_toBottomOf="@+id/user_email"
-                    />
-
-                <Button
-                    android:id="@+id/btn_privacy_dm"
-                    android:layout_width="40dp"
-                    android:layout_height="15dp"
-                    android:text="공개"
-                    android:textSize="10sp"
-                    android:textColor="#5ea096"
-                    android:enabled="false"
-                    android:background="@null"
-                    app:layout_constraintEnd_toEndOf="@id/mypage_profile"
-                    app:layout_constraintBottom_toBottomOf="@+id/user_dm"
-                    />
+        <Button
+            android:id="@+id/btn_privacy_dm"
+            android:layout_width="40dp"
+            android:layout_height="15dp"
+            android:background="@null"
+            android:enabled="false"
+            android:text="공개"
+            android:textColor="#5ea096"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/user_dm"
+            app:layout_constraintEnd_toEndOf="@id/mypage_profile" />
 
 
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <com.google.android.material.tabs.TabLayout
@@ -256,7 +242,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabGravity="fill"
-            android:layout_marginTop="20dp"
             app:tabIndicatorColor="#ff8878"
             app:tabSelectedTextColor="#ff8878"
             app:tabMode="fixed"
