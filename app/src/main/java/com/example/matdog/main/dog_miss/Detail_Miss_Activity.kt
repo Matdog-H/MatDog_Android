@@ -1,8 +1,9 @@
 package com.example.matdog.main.dog_miss
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.Detail_share.Viewpager_detail_adapter
@@ -23,6 +24,15 @@ class Detail_Miss_Activity : AppCompatActivity() {
         viewpager.adapter = adapter
 
         init()
+
+        val intent = intent /*데이터 수신*/
+
+        if (intent.extras!!.getString("delete").equals("delete_miss")){
+            btn_delete.setVisibility(View.VISIBLE)
+            btn_delete.isEnabled=true
+        }
+
+
     }
 
     private fun init(){

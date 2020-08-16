@@ -20,6 +20,58 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/Img_nolist"
+            android:layout_width="140dp"
+            android:layout_height="110dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="180dp"
+            android:src="@drawable/nolist_logo"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/Tv_nolist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="310dp"
+            android:textSize="17dp"
+            android:text="조건에 맞는 공고가 없다멍!"
+            android:visibility="invisible"/>
+
+        <ImageButton
+            android:id="@+id/btn_newpost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nolist_button_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="180dp"
+            android:layout_marginLeft="50dp"
+            android:background="#00000000"
+            android:visibility="invisible"
+            android:enabled="false"/>
+
+
+        <ImageButton
+            android:id="@+id/btn_rephoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nolist_button_2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="180dp"
+            android:layout_marginRight="50dp"
+            android:background="#00000000"
+            android:visibility="invisible"
+            android:enabled="false"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </FrameLayout>

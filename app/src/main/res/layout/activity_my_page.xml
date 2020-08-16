@@ -250,7 +250,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/mypage_tablayout"
             android:layout_width="match_parent"
@@ -260,7 +259,6 @@
             app:tabIndicatorColor="#ff8878"
             app:tabSelectedTextColor="#ff8878"
             app:tabMode="fixed"
-            tools:layout_editor_absoluteY="20dp"
             app:layout_constraintTop_toBottomOf="@id/mypage_profile">
         </com.google.android.material.tabs.TabLayout>
 
@@ -268,11 +266,12 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/mypage_viewPager"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:scrollbars="vertical"
+            android:layout_height="0dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mypage_tablayout"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
 

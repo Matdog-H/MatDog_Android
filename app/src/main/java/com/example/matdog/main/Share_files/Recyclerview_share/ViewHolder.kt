@@ -15,7 +15,7 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val gender: ImageView = view.findViewById(R.id.gender)
     val state: ImageView = view.findViewById(R.id.state)
     val dog_age: TextView = view.findViewById(R.id.dog_age)
-    val dog_place: TextView = view.findViewById(R.id.dog_place)
+    //val dog_place: TextView = view.findViewById(R.id.dog_place)
     val date: TextView = view.findViewById(R.id.date)
 
 
@@ -39,7 +39,7 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         dog_age.text=data.it_age
         species.text=data.it_species
         date.text=data.it_date
-        dog_place.text=data.it_place
+        //dog_place.text=data.it_place
 
 
     }

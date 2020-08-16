@@ -255,6 +255,19 @@
                     app:layout_constraintStart_toEndOf="@id/img_detail_feature"
                     app:layout_constraintTop_toTopOf="@id/img_detail_feature" />
 
+                <Button
+                    android:id="@+id/btn_delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="삭제"
+                    android:textAllCaps="false"
+                    android:textSize="25dp"
+                    android:textColor="#ffffff"
+                    android:background="#84cdc2"
+                    android:visibility="invisible"
+                    android:enabled="false"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

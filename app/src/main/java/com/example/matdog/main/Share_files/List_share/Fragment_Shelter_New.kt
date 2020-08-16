@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
-import com.example.matdog.main.CameraActivity
 import com.example.matdog.main.Share_files.Recyclerview_share.Adapter
 import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
 import com.example.matdog.main.dog_shelter.Detail_Shelter_Activity
+import kotlinx.android.synthetic.main.activity_fragment_new.*
 
 
 class Fragment_Shelter_New : Fragment(), View.OnClickListener{
@@ -51,8 +51,8 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                 it_age = "3살 추정",
                 it_state = R.drawable.state_protect,
                 it_gender = R.drawable.gender_man,
-                it_date = "2020.05.31",
-                it_place = "경기도 고양시"
+                it_date = "2020.05.31"
+                //it_place = "경기도 고양시"
             ),
             ListItem(
                 it_image = R.drawable.taepoong2,
@@ -61,8 +61,8 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                 it_age = "4살 추정",
                 it_state = R.drawable.state_sighting,
                 it_gender = R.drawable.gender_woman,
-                it_date = "2020.06.11",
-                it_place = "경기도 고양시"
+                it_date = "2020.06.11"
+                //it_place = "경기도 고양시"
             ), ListItem(
                 it_image = R.drawable.taepoong3,
                 it_love = R.drawable.ic_love,
@@ -70,8 +70,8 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                 it_age = "4살 추정",
                 it_state = R.drawable.state_sighting,
                 it_gender = R.drawable.gender_man,
-                it_date = "2020.06.12",
-                it_place = "경기도 고양시"
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
             ), ListItem(
                 it_image = R.drawable.taepoong,
                 it_love = R.drawable.ic_love,
@@ -79,8 +79,8 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                 it_age = "5살 추정",
                 it_state = R.drawable.state_sighting,
                 it_gender = R.drawable.gender_woman,
-                it_date = "2020.06.12",
-                it_place = "경기도 고양시"
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
             ), ListItem(
                 it_image = R.drawable.taepoong2,
                 it_love = R.drawable.ic_love,
@@ -88,8 +88,8 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                 it_age = "3살 추정",
                 it_state = R.drawable.state_shelter,
                 it_gender = R.drawable.gender_woman,
-                it_date = "2020.06.12",
-                it_place = "경기도 고양시"
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
             ), ListItem(
                 it_image = R.drawable.taepoong3,
                 it_love = R.drawable.ic_love,
@@ -97,8 +97,8 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                 it_age = "3살 추정",
                 it_state = R.drawable.state_shelter,
                 it_gender = R.drawable.gender_man,
-                it_date = "2020.06.12",
-                it_place = "경기도 고양시"
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
             ), ListItem(
                 it_image = R.drawable.taepoong,
                 it_love = R.drawable.ic_love,
@@ -106,8 +106,8 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                 it_age = "3살 추정",
                 it_state = R.drawable.state_shelter,
                 it_gender = R.drawable.gender_man,
-                it_date = "2020.06.12",
-                it_place = "경기도 고양시"
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
             ), ListItem(
                 it_image = R.drawable.taepoong2,
                 it_love = R.drawable.ic_love,
@@ -115,11 +115,30 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                 it_age = "3살 추정",
                 it_state = R.drawable.state_shelter,
                 it_gender = R.drawable.gender_man,
-                it_date = "2020.06.12",
-                it_place = "경기도 고양시"
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
             )
 
         )
+
+
+
+//        if (myadapter!= null){
+//            if (myadapter.getItemCount() > 0){
+//                // implement your work
+//            }else {
+//                // do whatever you want on empty list adapter
+//                fnlistview.Img_nolist.setVisibility(View.VISIBLE)
+//                fnlistview.Tv_nolist.setVisibility(View.VISIBLE)
+//            }
+//        }
+
+        if(myadapter!=null){
+            if(myadapter.getItemCount()==0){
+                Img_nolist.setVisibility(View.VISIBLE)
+                Tv_nolist.setVisibility(View.VISIBLE)
+            }
+        }
 
 
         return fnlistview

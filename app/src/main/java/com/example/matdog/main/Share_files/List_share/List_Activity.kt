@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.matdog.R
+import com.example.matdog.main.Share_files.Recyclerview_share.Adapter
 import com.example.matdog.main.dog_miss.Write_Miss_Activity
 import com.example.matdog.main.dog_protect.Write_Protect_Activity
 import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
@@ -24,7 +25,6 @@ class List_Activity : AppCompatActivity() {
     private var state0 : String? = null
     private var state1 : String? = null
     private var state2 : String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,7 +96,6 @@ class List_Activity : AppCompatActivity() {
                  val intent3 = Intent(this, Write_Protect_Activity::class.java)
                 startActivity(intent3)
             }
-
 
         }
 

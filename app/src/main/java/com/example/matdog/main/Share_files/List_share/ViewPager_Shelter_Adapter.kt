@@ -19,7 +19,7 @@ class ViewPager_Shelter_Adapter(fm : FragmentManager): FragmentStatePagerAdapter
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position){
-            0 -> {"최신순" }
+            0 -> {"등록일순" }
             else -> {return "나이순"}
         }
 

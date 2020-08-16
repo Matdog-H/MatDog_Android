@@ -42,7 +42,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="150dp"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -126,27 +126,27 @@
                 android:textSize="12dp"/>
 
 
-            <TextView
-                android:id="@+id/tv_dog_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_date"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:textColor="#9b9ea3"
-                android:text="보호장소:"
-                android:textSize="12dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/tv_dog_place"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/tv_date"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                android:textColor="#9b9ea3"-->
+<!--                android:text="보호장소:"-->
+<!--                android:textSize="12dp"/>-->
 
 
-            <TextView
-                android:id="@+id/dog_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/date"
-                app:layout_constraintLeft_toRightOf="@id/tv_dog_place"
-                android:textColor="#9b9ea3"
-                android:layout_marginLeft="5dp"
-                android:text="서울시 양천구"
-                android:textSize="12dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/dog_place"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/date"-->
+<!--                app:layout_constraintLeft_toRightOf="@id/tv_dog_place"-->
+<!--                android:textColor="#9b9ea3"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:text="서울시 양천구"-->
+<!--                android:textSize="12dp"/>-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
