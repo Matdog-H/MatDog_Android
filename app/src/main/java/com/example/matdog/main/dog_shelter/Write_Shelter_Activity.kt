@@ -9,14 +9,19 @@ package com.example.matdog.main.dog_shelter
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Toast
 import com.example.matdog.R
+import com.example.matdog.main.CameraActivity
 import com.example.matdog.main.pop_up.Renew_popupActivity
+import kotlinx.android.synthetic.main.activity_camera.*
 import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write.ic_back
 
@@ -26,31 +31,33 @@ class Write_Shelter_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write)
 
-        ic_back.setOnClickListener {
+        ic_back.setOnClickListener { // 뒤로가기 버튼 눌렀을 때
             finish()
         }
 
-        btn_okwrite.setOnClickListener {
+        btn_okwrite.setOnClickListener { // 등록하기 버튼 눌렀을 때
             finish()
         }
 
-        species_modify.setOnClickListener {
-            species_name.isEnabled = true // 종 수정하기
+        species_modify.setOnClickListener { // 종 수정버튼 눌렀을 때,
+            // 종 수정가능해짐
+            species_name.isEnabled = true
         }
 
-        picture()
-
-
-        radionotouch.setOnClickListener {
+        radionotouch.setOnClickListener { // 연락처수정 라디오버튼을 눌렀을 때,
+            // 연락처수정할 수 있는 팝업창 띄움
             val i = Intent(this, Renew_popupActivity::class.java)
             startActivity(i)
 
         }
+
+        picture()
+
     }
 
     private fun picture() {
-        //Change profile Image
-        picture_write1_plus.setOnClickListener {
+        // 앨범(갤러리에서) 사진 가져오기
+        get_photo.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_DENIED
@@ -67,13 +74,13 @@ class Write_Shelter_Activity : AppCompatActivity() {
         }
     }
 
-    //Change profile image
+    // 앨범에서 이미지 가져오기
     private fun pickImageFromGallery(){
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        startActivityForResult(intent,
-            IMAGE_PICK_CODE
-        )
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true) // 여러장 선택가능
+        intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(intent, IMAGE_PICK_CODE)
     }
 
     companion object{
@@ -102,7 +109,13 @@ class Write_Shelter_Activity : AppCompatActivity() {
     @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
-            picture_write1.setImageURI(data?.data)
+            if(data == null){
+
+            }else{
+
+            }
+
+            picture_button1.setImageURI(data?.data)
         }
     }
 }
