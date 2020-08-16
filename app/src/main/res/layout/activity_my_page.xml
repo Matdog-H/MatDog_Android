@@ -63,7 +63,7 @@
             android:enabled="false"
             android:text="홍길동"
             android:textColor="#545454"
-            android:textSize="24sp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="@id/mypage_profile"
             app:layout_constraintStart_toStartOf="@id/mypage_profile"
             app:layout_constraintTop_toTopOf="@id/mypage_profile" />
@@ -92,44 +92,55 @@
             app:layout_constraintStart_toStartOf="@id/mypage_profile"
             app:layout_constraintTop_toBottomOf="@id/user_name" />
 
+        <View
+            android:id="@+id/mypage_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="#E1E1E1"
+            app:layout_constraintEnd_toEndOf="@+id/mypage_profile"
+            app:layout_constraintStart_toStartOf="@+id/mypage_profile"
+            app:layout_constraintTop_toBottomOf="@id/user_birth" />
+
         <ImageView
             android:id="@+id/ic_phone"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="18dp"
             android:background="@drawable/ic_phone"
             app:layout_constraintStart_toStartOf="@id/mypage_profile"
-            app:layout_constraintTop_toBottomOf="@id/user_birth" />
+            app:layout_constraintTop_toBottomOf="@id/mypage_line" />
+
 
         <ImageView
             android:id="@+id/ic_place"
             android:layout_width="23dp"
             android:layout_height="23dp"
             android:layout_marginStart="2dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="58dp"
             android:src="@drawable/ic_place"
             app:layout_constraintStart_toStartOf="@id/mypage_profile"
-            app:layout_constraintTop_toBottomOf="@id/user_birth" />
+            app:layout_constraintTop_toBottomOf="@id/mypage_line" />
 
         <ImageView
             android:id="@+id/ic_email"
             android:layout_width="23dp"
             android:layout_height="23dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="125dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="140dp"
             android:src="@drawable/ic_email"
             app:layout_constraintEnd_toEndOf="@id/mypage_profile"
-            app:layout_constraintTop_toBottomOf="@id/user_birth" />
+            app:layout_constraintTop_toBottomOf="@id/mypage_line" />
 
         <ImageView
             android:id="@+id/ic_dm"
             android:layout_width="23dp"
             android:layout_height="23dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="125dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginEnd="140dp"
             android:src="@drawable/ic_dm"
             app:layout_constraintEnd_toEndOf="@id/mypage_profile"
-            app:layout_constraintTop_toBottomOf="@id/user_birth" />
+            app:layout_constraintTop_toBottomOf="@id/mypage_line" />
 
         <EditText
             android:id="@+id/user_phone"
@@ -141,6 +152,7 @@
             android:text="010-0000-0000"
             android:textColor="#545454"
             android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_phone"
             app:layout_constraintStart_toEndOf="@id/ic_phone"
             app:layout_constraintTop_toTopOf="@id/ic_phone" />
 
@@ -154,6 +166,7 @@
             android:text="경기도 고양시 일산동구"
             android:textColor="#545454"
             android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_place"
             app:layout_constraintStart_toEndOf="@id/ic_place"
             app:layout_constraintTop_toTopOf="@id/ic_place" />
 
@@ -167,6 +180,7 @@
             android:text="ABCD@gmail.com"
             android:textColor="#545454"
             android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_email"
             app:layout_constraintStart_toEndOf="@id/ic_email"
             app:layout_constraintTop_toTopOf="@id/ic_email" />
 
@@ -180,6 +194,7 @@
             android:text="카톡아이디- faabcd"
             android:textColor="#545454"
             android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_dm"
             app:layout_constraintStart_toEndOf="@id/ic_dm"
             app:layout_constraintTop_toTopOf="@id/ic_dm" />
 
@@ -187,14 +202,16 @@
             android:id="@+id/btn_privacy_phone"
             android:layout_width="40dp"
             android:layout_height="15dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="12dp"
             android:background="@null"
             android:enabled="false"
             android:text="공개"
             android:textColor="#5ea096"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/user_phone"
-            app:layout_constraintEnd_toStartOf="@id/ic_email" />
+            app:layout_constraintEnd_toStartOf="@id/ic_email"
+            app:layout_constraintTop_toTopOf="@+id/user_phone"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btn_privacy_address"
@@ -207,7 +224,8 @@
             android:textColor="#ff565a"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/user_address"
-            app:layout_constraintEnd_toStartOf="@id/ic_dm" />
+            app:layout_constraintEnd_toStartOf="@id/ic_dm"
+            app:layout_constraintTop_toTopOf="@+id/user_address" />
 
         <Button
             android:id="@+id/btn_privacy_email"
@@ -219,7 +237,8 @@
             android:textColor="#ff565a"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/user_email"
-            app:layout_constraintEnd_toEndOf="@id/mypage_profile" />
+            app:layout_constraintEnd_toEndOf="@id/mypage_profile"
+            app:layout_constraintTop_toTopOf="@+id/user_email" />
 
         <Button
             android:id="@+id/btn_privacy_dm"
@@ -231,7 +250,8 @@
             android:textColor="#5ea096"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/user_dm"
-            app:layout_constraintEnd_toEndOf="@id/mypage_profile" />
+            app:layout_constraintEnd_toEndOf="@id/mypage_profile"
+            app:layout_constraintTop_toTopOf="@+id/user_dm" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
