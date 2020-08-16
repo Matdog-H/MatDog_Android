@@ -9,17 +9,14 @@ package com.example.matdog.main.dog_shelter
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import com.example.matdog.R
-import com.example.matdog.main.CameraActivity
 import com.example.matdog.main.pop_up.Renew_popupActivity
 import kotlinx.android.synthetic.main.activity_camera.*
 import kotlinx.android.synthetic.main.activity_write.*
