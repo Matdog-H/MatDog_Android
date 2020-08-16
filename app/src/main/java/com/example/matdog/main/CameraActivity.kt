@@ -27,7 +27,7 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun picture() {
-        //Change profile Image
+        // 앨범(갤러리에서) 사진 가져오기
         get_photo.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
@@ -45,7 +45,7 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
-    //Change profile image
+    //앨범에서 이미지 가져오기
     private fun pickImageFromGallery(){
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
