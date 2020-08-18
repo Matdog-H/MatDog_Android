@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/get_photo"
+        android:id="@+id/get_photo_lost"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/ic_insert_photo_black_24dp"
@@ -63,7 +63,7 @@
 
     </FrameLayout>
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/picture_button1"
+        android:id="@+id/picture_button2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/camera_background"

@@ -40,6 +40,7 @@
         android:layout_marginEnd="27dp"/>
 
     <FrameLayout
+        android:id="@+id/camera_view"
         android:layout_width="match_parent"
         android:layout_height="540dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +63,7 @@
         />
 
     </FrameLayout>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/picture_button1"
         android:layout_width="0dp"

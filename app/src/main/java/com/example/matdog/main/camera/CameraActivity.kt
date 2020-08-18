@@ -27,6 +27,7 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isGone
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.List_share.List_Activity
 import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
@@ -109,8 +110,6 @@ class CameraActivity : AppCompatActivity() {
             val intent2 = Intent(this,Write_Shelter_Activity::class.java)
             startActivity(intent2)
         }
-
-
 
     }
 
