@@ -46,8 +46,10 @@ class SignUpActivity : AppCompatActivity() {
         })
 
 
-        //체크박스 체크 시 textview 활성화
+        /*
+        //체크박스 체크 시 연락방법 공개로 설정하기. (서버)
         checkbox_phone.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { arg0, arg1 -> // 체크되면 모두 보이도록 설정
+
             if (checkbox_phone.isChecked() === true)
                 signup_phone.isEnabled=true
              else
@@ -63,15 +65,14 @@ class SignUpActivity : AppCompatActivity() {
 
         })
 
-        checkbox_memo.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { arg0, arg1 -> // 체크되면 모두 보이도록 설정
-            if (checkbox_memo.isChecked() === true)
-                signup_memo.isEnabled=true
+        checkbox_dm.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { arg0, arg1 -> // 체크되면 모두 보이도록 설정
+            if (checkbox_dm.isChecked() === true)
+                signup_dm.isEnabled=true
             else
-                signup_memo.isEnabled=false
+                signup_dm.isEnabled=false
 
         })
-
-
+        */
 
         //회원가입 버튼 이벤트
         btn_oksignup.setOnClickListener {
@@ -100,7 +101,7 @@ class SignUpActivity : AppCompatActivity() {
             }
             else
             {
-                if(checkbox_phone.isChecked()||checkbox_email.isChecked()||checkbox_memo.isChecked()) {
+                if(checkbox_phone.isChecked()||checkbox_email.isChecked()||checkbox_dm.isChecked()) {
 
                     Toast.makeText(this, "가입이 완료되었습니다.", Toast.LENGTH_LONG).show()
                     finish()

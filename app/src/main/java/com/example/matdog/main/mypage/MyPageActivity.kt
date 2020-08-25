@@ -47,7 +47,6 @@ class MyPageActivity : AppCompatActivity() {
                 user_dm.isEnabled=false
 
                 btn_privacy_phone.isEnabled=false
-                btn_privacy_address.isEnabled=false
                 btn_privacy_email.isEnabled=false
                 btn_privacy_dm.isEnabled=false
 
@@ -65,7 +64,6 @@ class MyPageActivity : AppCompatActivity() {
                 user_dm.isEnabled=true
 
                 btn_privacy_phone.isEnabled=true
-                btn_privacy_address.isEnabled=true
                 btn_privacy_email.isEnabled=true
                 btn_privacy_dm.isEnabled=true
 
@@ -81,17 +79,7 @@ class MyPageActivity : AppCompatActivity() {
                     cnt_phone++
                 }
 
-                btn_privacy_address.setOnClickListener {
-                    if(cnt_address%2==0){
-                        btn_privacy_address.setText("비공개")
-                        btn_privacy_address.setTextColor(Color.parseColor(strColor1))
-                    }
-                    else {
-                        btn_privacy_address.setText("공개")
-                        btn_privacy_address.setTextColor(Color.parseColor(strColor2))
-                    }
-                    cnt_address++
-                }
+               
                 btn_privacy_email.setOnClickListener {
                     if(cnt_email%2==0){
                         btn_privacy_email.setText("비공개")

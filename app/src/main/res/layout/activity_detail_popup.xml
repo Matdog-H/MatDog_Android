@@ -79,24 +79,24 @@
 
 
     <TextView
-        android:id="@+id/tv_memo"
+        android:id="@+id/tv_dm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="17dp"
         android:textColor="#f87575"
-        android:text="Memo)"
+        android:text="DM)"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="170dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="60dp"
         />
 
     <TextView
-        android:id="@+id/user_memo"
+        android:id="@+id/user_dm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/tv_memo"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_memo"
+        app:layout_constraintLeft_toRightOf="@+id/tv_dm"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dm"
         android:layout_marginLeft="5dp"
         android:hint="오픈카톡 주소"
         android:textColor="#4c4c4c"

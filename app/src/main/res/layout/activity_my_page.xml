@@ -136,7 +136,7 @@
             android:id="@+id/ic_dm"
             android:layout_width="23dp"
             android:layout_height="23dp"
-            android:layout_marginTop="58dp"
+            android:layout_marginTop="56dp"
             android:layout_marginEnd="140dp"
             android:src="@drawable/ic_dm"
             app:layout_constraintEnd_toEndOf="@id/mypage_profile"
@@ -212,20 +212,6 @@
             app:layout_constraintEnd_toStartOf="@id/ic_email"
             app:layout_constraintTop_toTopOf="@+id/user_phone"
             app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/btn_privacy_address"
-            android:layout_width="40dp"
-            android:layout_height="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@null"
-            android:enabled="false"
-            android:text="비공개"
-            android:textColor="#ff565a"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@+id/user_address"
-            app:layout_constraintEnd_toStartOf="@id/ic_dm"
-            app:layout_constraintTop_toTopOf="@+id/user_address" />
 
         <Button
             android:id="@+id/btn_privacy_email"

@@ -285,14 +285,15 @@
             <!-- 체충 -->
             <EditText
                 android:id="@+id/edtweight"
-                android:layout_width="125dp"
+                android:layout_width="100dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="92dp"
                 android:background="#00000000"
-                android:gravity="center"
-                android:hint="5kg"
+                android:gravity="right"
+                android:hint="5"
                 android:textColor="#84cdc2"
                 android:textSize="20sp"
+                android:inputType="number"
                 app:layout_constraintStart_toStartOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
@@ -310,29 +311,40 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:text="kg"
+                android:textSize="20sp"
+                android:textColor="#84cdc2"
+                android:textStyle="bold"
+                android:paddingBottom="2dp"
+                app:layout_constraintStart_toEndOf="@id/edtweight"
+                app:layout_constraintBottom_toBottomOf="@id/view1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@drawable/gender"
                 android:gravity="center"
                 android:text="체중"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@id/edtweight"
-                app:layout_constraintEnd_toStartOf="@+id/edtyear"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintEnd_toEndOf="@id/view1" />
 
             <!-- 나이 -->
             <EditText
                 android:id="@+id/edtyear"
-                android:layout_width="88dp"
+                android:layout_width="63dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="92dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginEnd="73dp"
                 android:background="#00000000"
-                android:gravity="center"
-                android:hint="2살"
+                android:gravity="right"
+                android:hint="2"
                 android:textColor="#84cdc2"
                 android:textSize="20sp"
+                android:inputType="number"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
@@ -343,6 +355,18 @@
                 android:background="@drawable/write_line"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toBottomOf="@id/edtyear" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="살"
+                android:textSize="20sp"
+                android:textColor="#84cdc2"
+                android:textStyle="bold"
+                android:paddingBottom="2dp"
+                app:layout_constraintStart_toEndOf="@id/edtyear"
+                app:layout_constraintBottom_toBottomOf="@id/view3"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
