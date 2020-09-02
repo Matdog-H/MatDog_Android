@@ -2,12 +2,15 @@ package com.example.matdog.main.dog_shelter
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.Detail_share.Viewpager_detail_adapter
 import com.example.matdog.main.pop_up.Call_popupActivity
 import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.activity_detail_miss.*
+import kotlinx.android.synthetic.main.activity_detail_protect.*
 
 
 class Detail_Shelter_Activity : AppCompatActivity() {
@@ -24,6 +27,22 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         viewpager.adapter = adapter
 
         init()
+
+        val intent = intent /*데이터 수신*/
+        val delete_state = intent.getStringExtra("delete")
+
+        //마이페이지에서 넘어왔을 때
+        if (delete_state != null && delete_state.equals("delete_shelter")){
+            btn_delete.setVisibility(View.VISIBLE)
+            btn_delete.isEnabled=true
+
+            //삭제 버튼
+            btn_delete.setOnClickListener {
+                //해당 공고 삭제
+                finish()
+            }
+        }
+
     }
 
     private fun init(){

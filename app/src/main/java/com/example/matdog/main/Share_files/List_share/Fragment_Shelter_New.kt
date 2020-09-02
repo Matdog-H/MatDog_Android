@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.Recyclerview_share.Adapter
 import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
+import com.example.matdog.main.dog_miss.Detail_Miss_Activity
+import com.example.matdog.main.dog_protect.Detail_Protect_Activity
 import com.example.matdog.main.dog_shelter.Detail_Shelter_Activity
 import kotlinx.android.synthetic.main.activity_fragment_new.*
 
@@ -32,8 +34,7 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
 
 
         //this로 현재 context 전달
-        myadapter=
-            Adapter(thiscontext)
+        myadapter=Adapter(thiscontext)
 
         myadapter.onItemClick(this)
 
@@ -149,7 +150,7 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
         recyclerview = view?.findViewById(R.id.fn_recyclerview)!!
 
         if (v?.parent == recyclerview){
-            val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
+            val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
             //intent.putExtra("matchingIdx", matchingData[rv.getChildAdapterPosition(v)].matchingIdx)
             startActivity(intent)
         }
