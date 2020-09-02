@@ -9,6 +9,7 @@ import com.example.matdog.R
 import com.example.matdog.main.Share_files.Detail_share.Viewpager_detail_adapter
 import com.example.matdog.main.pop_up.Call_popupActivity
 import kotlinx.android.synthetic.main.activity_detail_miss.*
+import kotlinx.android.synthetic.main.activity_detail_protect.*
 
 class Detail_Miss_Activity : AppCompatActivity() {
     internal lateinit var viewpager : ViewPager
@@ -25,12 +26,24 @@ class Detail_Miss_Activity : AppCompatActivity() {
 
         init()
 
-        val intent = intent /*데이터 수신*/
 
-        if (intent.extras!!.getString("delete").equals("delete_miss")){
-            btn_delete.setVisibility(View.VISIBLE)
-            btn_delete.isEnabled=true
+        val intent = intent /*데이터 수신*/
+        val delete_state = intent.getStringExtra("delete")
+
+        //마이페이지에서 넘어왔을 때
+        if (delete_state != null && delete_state.equals("delete_miss")){
+            btn_delete_miss.setVisibility(View.VISIBLE)
+            btn_delete_miss.isEnabled=true
+
+            //삭제 버튼
+            btn_delete_miss.setOnClickListener {
+                //해당 공고 삭제
+                finish()
+            }
         }
+
+
+
 
 
     }
