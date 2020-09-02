@@ -12,6 +12,7 @@ import com.example.matdog.R
 import com.example.matdog.main.Share_files.Recyclerview_share.Adapter
 import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
 import com.example.matdog.main.dog_miss.Detail_Miss_Activity
+import com.example.matdog.main.dog_protect.Detail_Protect_Activity
 import com.example.matdog.main.dog_shelter.Detail_Shelter_Activity
 
 class fragment_my : Fragment(), View.OnClickListener{
@@ -106,8 +107,8 @@ class fragment_my : Fragment(), View.OnClickListener{
         recyclerview = view?.findViewById(R.id.ml_recyclerview)!!
 
         if (v?.parent == recyclerview){
-            val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
-            intent.putExtra("delete","delete_miss")
+            val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
+            intent.putExtra("delete","delete_protect")
             startActivity(intent)
         }
 

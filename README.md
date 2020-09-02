@@ -4,6 +4,10 @@
 ## Environment
 ![](https://img.shields.io/badge/Android-29-green) ![](https://img.shields.io/badge/Kotlin-1.3.41-orange)
 
+## Logo
+<img width="500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312413-40201700-df3f-11ea-9c47-f413c15f6d32.png">
+<img width="500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312416-431b0780-df3f-11ea-93c4-0e1c196b141a.png">     
+
 ## 구성도
 <img width="400" alt="matdog" src="https://user-images.githubusercontent.com/57608585/89705609-bbab2280-d999-11ea-9002-2bc2d2a98316.png">
 
@@ -27,11 +31,7 @@
 |    유기견 찾기(강아지, 주인 찾기)     | -카메라로 강아지를 인식하면 위 기능과 다르게 <주인을 찾아주세요>, <강아지를 찾아주세요> 버튼을 볼 수 있다.</br>-그 이후에는 분양 공고 보기와 공고 상세화면과 같다. |
 |     공고가 없는 화면      | -카메라로 강아지를 인식했을 때 존재하지 않는 경우, 조건에 맞는 공고가 없다고 뜬다.</br>-<내가 공고 등록하기>, <사진 다시 찍기> 버튼이 존재한다. |
 |     마이페이지     |	-사용자 프로필을 수정할 수 있는 버튼이 존재한다.</br>-나의 공고 저장 리스트를 볼 수 있고, 내가 쓴 공고들을 확인할 수 있다. |
-
-
-## Logo
-<img width="1500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312413-40201700-df3f-11ea-9c47-f413c15f6d32.png">
-<img width="1500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312416-431b0780-df3f-11ea-93c4-0e1c196b141a.png">              
+         
 
 ## Member
 - [강수빈](https://github.com/ksb0511)

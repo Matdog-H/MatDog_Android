@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.CameraActivity">
+    tools:context=".main.camera.CameraActivity">
 
     <ImageView
         android:id="@+id/logo"
@@ -38,6 +38,31 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="27dp"/>
+
+    <FrameLayout
+        android:id="@+id/camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="90dp">
+
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_convert"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_cached_24"
+        />
+
+    </FrameLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/picture_button1"
