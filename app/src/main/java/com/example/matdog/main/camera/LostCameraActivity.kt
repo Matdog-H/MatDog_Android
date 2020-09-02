@@ -1,6 +1,8 @@
 package com.example.matdog.main.camera
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -97,9 +99,73 @@ class LostCameraActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
         )
 
+        picture()
+
+        // 화면 켜짐 유지
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+        )
+
         initSensor()
         initView()
     }
+
+    private fun picture() {
+        // 앨범(갤러리에서) 사진 가져오기
+        get_photo_lost.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                    PackageManager.PERMISSION_DENIED
+                ) {
+
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    requestPermissions(permissions,
+                        LostCameraActivity.PERMISSION_CODE
+                    )
+                } else {
+                    pickImageFromGallery()
+                }
+            }
+        }
+    }
+
+    //앨범에서 이미지 가져오기
+    private fun pickImageFromGallery(){
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent,
+            LostCameraActivity.IMAGE_PICK_CODE
+        )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when(requestCode){
+            LostCameraActivity.PERMISSION_CODE -> {
+                if (grantResults.size > 0 && grantResults[0] ==
+                    PackageManager.PERMISSION_GRANTED){
+                    pickImageFromGallery()
+                }
+                else{
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if(resultCode == Activity.RESULT_OK && requestCode == LostCameraActivity.IMAGE_PICK_CODE){
+            picture_button2.setImageURI(data?.data)
+        }
+    }
+
+
+
 //------------------------------카메라---------------------------------------
 
     private fun initSensor() {
