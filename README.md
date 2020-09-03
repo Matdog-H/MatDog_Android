@@ -5,8 +5,8 @@
 ![](https://img.shields.io/badge/Android-29-green) ![](https://img.shields.io/badge/Kotlin-1.3.41-orange)
 
 ## Logo
-<img width="500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312413-40201700-df3f-11ea-9c47-f413c15f6d32.png">
-<img width="500" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312416-431b0780-df3f-11ea-93c4-0e1c196b141a.png">     
+<img width="400" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312413-40201700-df3f-11ea-9c47-f413c15f6d32.png">
+<img width="400" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312416-431b0780-df3f-11ea-93c4-0e1c196b141a.png">     
 
 ## 구성도
 <img width="400" alt="matdog" src="https://user-images.githubusercontent.com/57608585/89705609-bbab2280-d999-11ea-9002-2bc2d2a98316.png">
