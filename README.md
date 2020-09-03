@@ -14,6 +14,9 @@
 ## 흐름도
 <img width="400" alt="matdog" src="https://user-images.githubusercontent.com/57608585/89750088-6ee45a80-db05-11ea-974f-b1ebd14318c5.PNG">
 
+## 알고리즘 명세서
+<img width="450" alt="matdog" src="https://user-images.githubusercontent.com/57608585/92076306-51996800-edf5-11ea-89ca-ee8dfd1eafa8.PNG">
+
 ## 주요 기술
 - 카메라 : 사용자가 앱 화면을 통해 사진 촬영할 수 있도록 한다.
 - 앨범연동 : 사용자가 앨범에 있는 사진을 앱으로 가져올 수 있다.
