@@ -7,6 +7,9 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Camera
 import android.graphics.ImageFormat
 import android.hardware.Sensor
 import android.hardware.SensorManager
@@ -14,7 +17,6 @@ import android.hardware.camera2.*
 import android.media.ExifInterface
 import android.media.ImageReader
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
@@ -26,8 +28,8 @@ import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.view.isGone
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.List_share.List_Activity
 import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
@@ -169,7 +171,6 @@ class CameraActivity : AppCompatActivity() {
 
 
 //------------------------------카메라---------------------------------------
-
     private fun initSensor() {
         mSensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)

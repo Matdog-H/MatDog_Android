@@ -1,0 +1,15 @@
+package com.example.matdog.api
+
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+object UserServiceImpl {
+    private const val BASE_URL = "http://3.34.224.42:8081"
+
+    private val retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val userService: UserService = retrofit.create(UserService::class.java)
+}
