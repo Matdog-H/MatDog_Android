@@ -37,6 +37,7 @@ class SignInActivity : AppCompatActivity() {
                 callLogin.safeEnqueue(onResponse = {
                     Log.v("3333333333","3333333333")
                     if(it.isSuccessful){
+                        Toast.makeText(this, "로그인 성공", Toast.LENGTH_LONG)
                         Log.v("4444444444","4444444444")
                         loginData=it.body()!!.data
                         Log.v("5555555555","55555555")
