@@ -6,11 +6,23 @@ package com.example.matdog.main.dog_miss
 * activity_write_miss.xml
  */
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.media.ExifInterface
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
+import android.util.SparseIntArray
+import android.widget.Toast
 import com.example.matdog.R
+import com.example.matdog.main.camera.CameraActivity
 import com.example.matdog.main.pop_up.Renew_popupActivity
+import kotlinx.android.synthetic.main.activity_camera.*
 import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write_miss.*
 import kotlinx.android.synthetic.main.activity_write_miss.btn_okwrite
@@ -18,6 +30,7 @@ import kotlinx.android.synthetic.main.activity_write_miss.ic_back
 import kotlinx.android.synthetic.main.activity_write_miss.radionotouch
 import kotlinx.android.synthetic.main.activity_write_miss.species_modify
 import kotlinx.android.synthetic.main.activity_write_miss.species_name
+import kotlinx.android.synthetic.main.activity_write_protect.*
 
 class Write_Miss_Activity : AppCompatActivity() {
 
@@ -25,24 +38,128 @@ class Write_Miss_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_miss)
 
-        ic_back.setOnClickListener {
+        ic_back.setOnClickListener {// 뒤로가기 버튼 눌렀을 때
             finish()
         }
 
-        btn_okwrite.setOnClickListener {
+        btn_okwrite.setOnClickListener {// 등록하기 버튼 눌렀을 때
             finish()
         }
 
-        species_modify.setOnClickListener {
-            species_name.isEnabled = true // 종 수정하기
+        species_modify.setOnClickListener {// 종 수정버튼 눌렀을 때,
+            // 종 수정가능해짐
+            species_name.isEnabled = true
         }
 
 
-        radionotouch.setOnClickListener {
+        radionotouch.setOnClickListener {// 연락처수정 라디오버튼을 눌렀을 때,
+            // 연락처수정할 수 있는 팝업창 띄움
             val i = Intent(this, Renew_popupActivity::class.java)
             startActivity(i)
 
         }
+        picture() // 앨범에서 사진 가져오기
     }
 
+    private fun picture() {
+        // + 버튼 클릭이벤트
+        picture_write1_miss.setOnClickListener{
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                    PackageManager.PERMISSION_DENIED
+                ) {
+
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    requestPermissions(
+                        permissions,
+                        PERMISSION_CODE
+                    )
+                } else {
+                    pickImageFromGallery()
+                }
+            }
+        }
+    }
+    // 앨범에서 이미지 가져오기
+    private fun pickImageFromGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_PICK_CODE)
+    }
+
+    companion object {
+        private val IMAGE_PICK_CODE = 1000
+        private val PERMISSION_CODE = 1001
+
+        //카메라
+        const val CAMERA_BACK = "0"
+        const val CAMERA_FRONT = "1"
+
+        private val ORIENTATIONS = SparseIntArray()
+
+        init {
+            ORIENTATIONS.append(ExifInterface.ORIENTATION_NORMAL, 0)
+            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_90, 90)
+            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_180, 180)
+            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_270, 270)
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            PERMISSION_CODE -> {
+                if (grantResults.size > 0 && grantResults[0] ==
+                    PackageManager.PERMISSION_GRANTED){
+                    pickImageFromGallery()
+                } else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+            picture_write1_miss.setImageURI(data?.data)
+        }
+    }
+
+    /*
+    // 앨범 여러개
+    @SuppressLint("MissingSuperCall")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+            if (data == null) { // 앨범에서 뒤로가기를 눌렀을 때 data가 없기때문에 생기는 오류 잡아주기 위함
+                Log.d("1111111111","11111")
+            } else {
+              if (data.clipData == null) {
+                  Log.d("22222222222", "2222222222222222")
+                  Toast.makeText(this, "다중선택이 불가한 기기입니다.", Toast.LENGTH_LONG).show();
+              } else {
+                    val clipData = data.clipData
+                    Log.i("clipdata", Integer.toString(clipData!!.itemCount))
+                  Log.d("3333333","3333333333333")
+                    if (clipData.getItemCount() > 3) { // 사진 3장 이상 선택했을 때
+                        Toast.makeText(this, "사진은 3장까지 선택 가능합니다.", Toast.LENGTH_LONG).show();
+                    } else if (clipData.getItemCount() == 1) { // 사진 1장 선택했을 때
+                        picture_write1_miss.setImageURI(clipData.getItemAt(0).getUri()) // 사진 등록
+                    } else if (clipData.getItemCount() == 2) { // 사진 2장 선택했을 때
+                        picture_write1_miss.setImageURI(clipData.getItemAt(0).getUri()) // 사진 등록
+                        picture_write2_miss.setImageURI(clipData.getItemAt(1).getUri()) // 사진 등록
+                    }else if (clipData.getItemCount() == 3){ // 사진 3장 선택했을 때
+                        picture_write1_miss.setImageURI(clipData.getItemAt(0).getUri()) // 사진 등록
+                        picture_write2_miss.setImageURI(clipData.getItemAt(1).getUri()) // 사진 등록
+                        picture_write3_miss.setImageURI(clipData.getItemAt(2).getUri()) // 사진 등록
+                    }
+
+                }
+
+            }
+        }
+    }*/
 }

@@ -20,7 +20,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_write1"
+            android:id="@+id/picture_write1_miss"
             android:layout_width="85dp"
             android:layout_height="85dp"
             android:layout_marginTop="52dp"
@@ -31,37 +31,28 @@
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
         <ImageButton
-            android:id="@+id/picture_write1_plus"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/imageplus"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_write1"
-            app:layout_constraintBottom_toBottomOf="@id/picture_write1"
-            />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_write2"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/image"
-            app:layout_constraintEnd_toStartOf="@id/picture_write3"
-            app:layout_constraintStart_toEndOf="@id/picture_write1"
-            app:layout_constraintTop_toTopOf="@id/write_picture" />
-
-        <ImageButton
             android:id="@+id/picture_write2_plus"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/imageplus"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_write2"
-            app:layout_constraintBottom_toBottomOf="@id/picture_write2"
+            app:layout_constraintEnd_toEndOf="@id/picture_write1_miss"
+            app:layout_constraintBottom_toBottomOf="@id/picture_write1_miss"
             />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_write3"
+            android:id="@+id/picture_write2_miss"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/image"
+            app:layout_constraintEnd_toStartOf="@id/picture_write3_miss"
+            app:layout_constraintStart_toEndOf="@id/picture_write1_miss"
+            app:layout_constraintTop_toTopOf="@id/write_picture" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/picture_write3_miss"
             android:layout_width="85dp"
             android:layout_height="85dp"
             android:layout_marginStart="30dp"
@@ -71,16 +62,6 @@
             app:layout_constraintHorizontal_bias="0.84"
             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
-
-        <ImageButton
-            android:id="@+id/picture_write3_plus"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/imageplus"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_write3"
-            app:layout_constraintBottom_toBottomOf="@id/picture_write3"
-            />
 
 
         <TextView
@@ -221,12 +202,12 @@
             <!-- 체충 -->
             <EditText
                 android:id="@+id/edtweight"
-                android:layout_width="125dp"
+                android:layout_width="100dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="44dp"
                 android:background="#00000000"
-                android:gravity="center"
-                android:hint="5kg"
+                android:gravity="right"
+                android:hint="5"
                 android:textColor="#84cdc2"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@id/imformation"
@@ -246,29 +227,40 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:text="kg"
+                android:textSize="20sp"
+                android:textColor="#84cdc2"
+                android:textStyle="bold"
+                android:paddingBottom="5dp"
+                app:layout_constraintStart_toEndOf="@id/edtweight"
+                app:layout_constraintBottom_toBottomOf="@id/view1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@drawable/gender"
                 android:gravity="center"
                 android:text="체중"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@id/edtweight"
-                app:layout_constraintEnd_toStartOf="@+id/edtyear"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintEnd_toEndOf="@id/view1" />
 
             <!-- 나이 -->
             <EditText
                 android:id="@+id/edtyear"
-                android:layout_width="88dp"
+                android:layout_width="63dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="44dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginEnd="73dp"
                 android:background="#00000000"
-                android:gravity="center"
-                android:hint="2살"
+                android:gravity="right"
+                android:hint="2"
                 android:textColor="#84cdc2"
                 android:textSize="20sp"
+                android:inputType="number"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
@@ -279,6 +271,18 @@
                 android:background="@drawable/write_line"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toBottomOf="@id/edtyear" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="살"
+                android:textSize="20sp"
+                android:textColor="#84cdc2"
+                android:textStyle="bold"
+                android:paddingBottom="5dp"
+                app:layout_constraintStart_toEndOf="@id/edtyear"
+                app:layout_constraintBottom_toBottomOf="@id/view3"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
