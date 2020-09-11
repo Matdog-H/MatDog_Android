@@ -53,7 +53,7 @@
                 android:id="@+id/detail_box"
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
-                android:layout_marginTop="347dp"
+                android:layout_marginTop="344dp"
                 android:background="@drawable/detail_explain_box"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -73,11 +73,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@drawable/woman"
                     app:layout_constraintBottom_toBottomOf="@id/txt_detail_jong_protect"
-                    app:layout_constraintEnd_toStartOf="@id/txt_detail_jong_protect"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="10dp"/>
+                    app:layout_constraintEnd_toStartOf="@id/txt_detail_jong_protect" />
+
                 <TextView
                     android:id="@+id/txt_detail_age_missing"
                     android:layout_width="wrap_content"
@@ -271,14 +272,14 @@
                     android:id="@+id/btn_delete_protect"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="#84cdc2"
+                    android:enabled="false"
                     android:text="삭제"
                     android:textAllCaps="false"
-                    android:textSize="25dp"
                     android:textColor="#ffffff"
-                    android:background="#84cdc2"
+                    android:textSize="25dp"
                     android:visibility="invisible"
-                    android:enabled="false"/>
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

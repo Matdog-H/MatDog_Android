@@ -25,7 +25,7 @@
             android:layout_marginTop="52dp"
             android:background="@drawable/image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintHorizontal_bias="0.159"
             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
@@ -37,7 +37,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="@id/picture_write1"
             app:layout_constraintBottom_toBottomOf="@id/picture_write1"
-             />
+            />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/picture_write2"
@@ -49,15 +49,6 @@
             app:layout_constraintStart_toEndOf="@id/picture_write1"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
-        <ImageButton
-            android:id="@+id/picture_write2_plus"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/imageplus"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_write2"
-            app:layout_constraintBottom_toBottomOf="@id/picture_write2"
-            />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/picture_write3"
@@ -70,16 +61,6 @@
             app:layout_constraintHorizontal_bias="0.84"
             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
-
-        <ImageButton
-            android:id="@+id/picture_write3_plus"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/imageplus"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_write3"
-            app:layout_constraintBottom_toBottomOf="@id/picture_write3"
-            />
 
 
         <TextView
@@ -315,7 +296,7 @@
                 android:textSize="20sp"
                 android:textColor="#84cdc2"
                 android:textStyle="bold"
-                android:paddingBottom="2dp"
+                android:paddingBottom="5dp"
                 app:layout_constraintStart_toEndOf="@id/edtweight"
                 app:layout_constraintBottom_toBottomOf="@id/view1"
                 />
@@ -363,7 +344,7 @@
                 android:textSize="20sp"
                 android:textColor="#84cdc2"
                 android:textStyle="bold"
-                android:paddingBottom="2dp"
+                android:paddingBottom="5dp"
                 app:layout_constraintStart_toEndOf="@id/edtyear"
                 app:layout_constraintBottom_toBottomOf="@id/view3"
                 />

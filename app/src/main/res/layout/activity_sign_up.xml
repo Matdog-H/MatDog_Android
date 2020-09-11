@@ -252,7 +252,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img_txtbox"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="50dp"
         android:background="@drawable/signup_txt"
