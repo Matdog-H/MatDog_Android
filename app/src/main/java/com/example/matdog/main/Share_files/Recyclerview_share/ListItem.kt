@@ -2,7 +2,7 @@ package com.example.matdog.main.Share_files.Recyclerview_share
 
 data class ListItem (
     val it_image: Int,
-    val it_love:Int,
+    //val it_love:Int,
     val it_species: String,
     val it_state :Int,
     val it_gender:Int,

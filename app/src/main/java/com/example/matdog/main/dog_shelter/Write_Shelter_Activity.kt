@@ -11,6 +11,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -127,7 +128,7 @@ class Write_Shelter_Activity : AppCompatActivity() {
                         picture_write1.setAdjustViewBounds(true); // ImgaeView가 드로어블의 종횡비를 유지하기 위해서 true줌
                         picture_write1.setImageURI(Uri.fromFile(f1)); // 뷰에 띄우기 위해 uri로 변환 후 이미지 uri줌
                         //val pic1 = 1 // 왜있는지 모르겟네..
-                    } else if (clipData.getItemCount() > 1 && clipData.getItemCount() < 3) { // 3장 이내로 선택했을 때
+                    } else if (clipData.getItemCount() >= 1 && clipData.getItemCount() < 3) { // 3장 이내로 선택했을 때
                         var imageListUri = mutableListOf<Uri>()
                         for (i in 1 until clipData.getItemCount()) {
                             //Log.i("3. single choice", Integer.toString(clipData.getItemAt(0).getUri()))

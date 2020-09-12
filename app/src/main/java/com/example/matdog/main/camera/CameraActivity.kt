@@ -7,6 +7,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.ImageFormat
 import android.hardware.Sensor
 import android.hardware.SensorManager
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
+import android.provider.MediaStore
 import android.util.DisplayMetrics
 import android.util.Log
 import android.util.SparseIntArray
@@ -27,6 +29,7 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.core.view.drawToBitmap
 import androidx.core.view.isGone
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.List_share.List_Activity
@@ -87,7 +90,11 @@ class CameraActivity : AppCompatActivity() {
 
         initSensor()
         initView()
+
+
+
     }
+
 
     private fun init(){
 
@@ -110,6 +117,8 @@ class CameraActivity : AppCompatActivity() {
             val intent2 = Intent(this,Write_Shelter_Activity::class.java)
             startActivity(intent2)
         }
+
+
 
     }
 
@@ -162,10 +171,15 @@ class CameraActivity : AppCompatActivity() {
 
     @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             picture_button1.setImageURI(data?.data)
         }
+//        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+//            val imageBitmap = data?.extras?.get("data") as Bitmap
+//            surfaceView.setBackgroundResource(imageBitmap)
+//        }
     }
+
 
 
 //------------------------------카메라---------------------------------------
@@ -343,4 +357,18 @@ class CameraActivity : AppCompatActivity() {
         Log.d("ViewSize", "TextureView Width : $viewWidth TextureView Height : $viewHeight")
         surfaceView.layoutParams = FrameLayout.LayoutParams(viewWidth, viewHeight)
     }
+
+
+
+    //---------------------------사진 캡쳐 인텐트 호출---------------------------------------------
+//    val REQUEST_IMAGE_CAPTURE = 1
+//
+//    private fun dispatchTakePictureIntent() {
+//        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+//            takePictureIntent.resolveActivity(packageManager)?.also {
+//                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+//            }
+//        }
+//    }
+
 }

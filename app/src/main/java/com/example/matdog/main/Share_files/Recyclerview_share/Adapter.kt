@@ -49,6 +49,4 @@ class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>()
     }
 
 
-
-
 }

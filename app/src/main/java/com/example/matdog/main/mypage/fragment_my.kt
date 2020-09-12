@@ -48,7 +48,7 @@ class fragment_my : Fragment(), View.OnClickListener{
        myadapter.data= listOf(
            ListItem(
                it_image = R.drawable.taepoong,
-               it_love = R.drawable.ic_love,
+               //it_love = R.drawable.ic_love,
                it_species = "말티즈",
                it_age = "3살 추정",
                it_state = R.drawable.state_shelter,
@@ -58,7 +58,7 @@ class fragment_my : Fragment(), View.OnClickListener{
            ),
            ListItem(
                it_image = R.drawable.taepoong,
-               it_love = R.drawable.ic_love,
+               //it_love = R.drawable.ic_love,
                it_species = "말티즈",
                it_age = "3살 추정",
                it_state = R.drawable.state_shelter,
@@ -67,7 +67,7 @@ class fragment_my : Fragment(), View.OnClickListener{
                //it_place = "경기도 고양시"
            ), ListItem(
                it_image = R.drawable.taepoong2,
-               it_love = R.drawable.ic_love,
+               //it_love = R.drawable.ic_love,
                it_species = "말티즈",
                it_age = "3살 추정",
                it_state = R.drawable.state_shelter,
@@ -77,7 +77,7 @@ class fragment_my : Fragment(), View.OnClickListener{
            ),
            ListItem(
                it_image = R.drawable.taepoong3,
-               it_love = R.drawable.ic_love,
+               //it_love = R.drawable.ic_love,
                it_species = "말티즈",
                it_age = "3살 추정",
                it_state = R.drawable.state_shelter,
