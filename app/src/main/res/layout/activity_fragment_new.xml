@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/Img_nolist"
+            android:id="@+id/Img_nolist_New"
             android:layout_width="140dp"
             android:layout_height="110dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -33,7 +33,7 @@
             />
 
         <TextView
-            android:id="@+id/Tv_nolist"
+            android:id="@+id/Tv_nolist_New"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"

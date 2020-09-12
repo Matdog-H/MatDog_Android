@@ -14,4 +14,9 @@ object SharedPreferenceController {
         editor.apply()
     }
 
+    fun getUserToken(context: Context): String {
+        val pref = context.getSharedPreferences(TOKEN, Context.MODE_PRIVATE)
+        return pref.getString(TOKEN, "") ?: ""
+    }
+
 }

@@ -12,4 +12,5 @@ object UserServiceImpl {
         .build()
 
     val userService: UserService = retrofit.create(UserService::class.java)
+    val ListService: ListInter = retrofit.create(ListInter::class.java)
 }
