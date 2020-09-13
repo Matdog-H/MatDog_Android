@@ -9,7 +9,7 @@
 <img width="400" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312416-431b0780-df3f-11ea-93c4-0e1c196b141a.png">     
 
 ## 구성도
-<img width="500" alt="matdog" src="https://user-images.githubusercontent.com/57608585/93016244-bffed700-f5fa-11ea-9a52-de9049c4bdb8.PNG">
+<img width="700" alt="matdog" src="https://user-images.githubusercontent.com/57608585/93016244-bffed700-f5fa-11ea-9a52-de9049c4bdb8.PNG">
 
 ## 흐름도
 <img width="400" alt="matdog" src="https://user-images.githubusercontent.com/57608585/89750088-6ee45a80-db05-11ea-974f-b1ebd14318c5.PNG">
