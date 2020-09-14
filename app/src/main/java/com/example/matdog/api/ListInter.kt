@@ -28,20 +28,20 @@ data class ListResponse(
 )
 
 data  class ListAllData(
-    @SerializedName("userIdx")
-    val userIdx : Int,
     @SerializedName("registerIdx")
     val registerIdx : Int,
+    @SerializedName("userIdx")
+    val userIdx : Int,
     @SerializedName("registerStatus")
     val registerStatus : Int,
-    @SerializedName("variety")
-    val variety : String,
-    @SerializedName("gender")
-    val gender : Int,
+    @SerializedName("kindCd")
+    val kindCd : String,
+    @SerializedName("sexCd")
+    val sexCd : String,
     @SerializedName("age")
-    val age : Int,
-    @SerializedName("protectPlace")
-    val protectPlace : String,
-    @SerializedName("registeDate")
-    val registeDate : String
+    val age : String,
+    @SerializedName("careAddr")
+    val careAddr : String,
+    @SerializedName("happenDt")
+    val happenDt : String
 )

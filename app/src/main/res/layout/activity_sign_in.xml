@@ -34,7 +34,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Logo"
         android:maxLines="1"
-        android:maxLength="17"/>
+        android:maxLength="17"
+        android:text="test"/>
 
     <EditText
         android:id="@+id/editText_pw"
@@ -52,7 +53,8 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_id"
         android:password="true"
         android:maxLines="1"
-        android:maxLength="20"/>
+        android:maxLength="20"
+        android:text="1234"/>
 
     <Button
         android:id="@+id/btn_login"

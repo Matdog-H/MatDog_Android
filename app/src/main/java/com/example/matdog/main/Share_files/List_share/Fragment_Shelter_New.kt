@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
+import com.example.matdog.api.UserServiceImpl
+import com.example.matdog.api.safeEnqueue
+import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
 import com.example.matdog.main.Share_files.Recyclerview_share.rv_Adapter
 import com.example.matdog.main.dog_miss.Detail_Miss_Activity
 import kotlinx.android.synthetic.main.activity_fragment_new.*
@@ -22,10 +25,46 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
     private lateinit var  FNrecyclerview : RecyclerView
     var myadapter1: rv_Adapter = rv_Adapter(R.layout.list_item)
 
+    var rv_datalist = ArrayList<ArrayList<ListItem>>()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view= inflater.inflate(R.layout.activity_fragment_new, container, false)
-        var thiscontext = container!!.getContext()
+
+        //-------server--------------
+        val callNewList = UserServiceImpl.ListService.listResponse_new()
+
+        callNewList.safeEnqueue {
+            if(it.isSuccessful){
+                //추후에 내부에서 status값에 따라 분리하는 코드 작성 요함.
+                Log.v("666666666666666","666666666666666666666")
+                val myData = it.body()!!.listdata
+                Log.v("myData의 사이즈 체크", myData.size.toString())
+                var List_new = arrayListOf<ListItem>()
+                for(i in 0 until myData.size) {
+                    Log.v("777777777777","777777777777777777")
+                    List_new.add(
+                        ListItem(
+                            it_image = R.drawable.taepoong,
+                            it_species = myData[i].kindCd,
+                            it_status = myData[i].registerStatus,
+                            it_gender = myData[i].sexCd,
+                            it_age = myData[i].age,
+                            it_date = myData[i].happenDt
+                        )
+                    )
+                    Log.v("item값 체크하기",myData[i].kindCd)
+                }
+                myadapter1.data = List_new
+                myadapter1.notifyDataSetChanged()
+                // 에러날 것 같은 부분 ※
+                Log.v("888888888888888","888888888888888")
+                rv_datalist.add(myadapter1.data) // 이부분에서 어댑터 통해 리사이클러뷰로 못가는 것 같음
+                Log.v("데이터리스트 확인하기",rv_datalist.toString())
+            }
+        }
+
+        //-------------------------------------------------
         Log.v("999999999","9999999999")
         FNrecyclerview = view.findViewById(R.id.fn_recyclerview)
         Log.v("@@@@@@@@@@","@@@@@@@@@@@@@22222")
