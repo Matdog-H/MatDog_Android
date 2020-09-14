@@ -7,6 +7,7 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
 import com.example.matdog.main.pop_up.Call_popupActivity
+import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail_protect.*
 
 class Detail_Protect_Activity : AppCompatActivity() {
@@ -19,6 +20,9 @@ class Detail_Protect_Activity : AppCompatActivity() {
 
         val intent = intent /*데이터 수신*/
         val delete_state = intent.getStringExtra("delete")
+
+        // 사진 주기
+        detail_protect_img.setImageResource(R.drawable.taepoong2)
 
         //마이페이지에서 넘어왔을 때
         if (delete_state != null && delete_state.equals("delete_protect")){
@@ -38,15 +42,18 @@ class Detail_Protect_Activity : AppCompatActivity() {
     }
 
     private fun init(){
+        //연락처 팝업버튼
         btn_detail_call_protect.setOnClickListener {
             val i = Intent(this, Call_popupActivity::class.java)
             startActivity(i)
         }
 
+        // 뒤로가기
         btn_detail_back_protect.setOnClickListener {
             finish()
         }
 
+        // 찜버튼
         btn_zzim_protect.setOnClickListener {
             if(CHECK_NUM==0){
                 //btn_zzim.setBackgroundResource(R.drawable.ic_heart)

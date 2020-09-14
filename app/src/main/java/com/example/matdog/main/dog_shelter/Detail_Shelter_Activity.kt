@@ -18,10 +18,8 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        // 사진 주면 화면에 맞춰서 리사이징하도록
+        // 사진 주기
         detail_img.setImageResource(R.drawable.taepoong2)
-
-        init()
 
         val intent = intent /*데이터 수신*/
         val delete_state = intent.getStringExtra("delete")
@@ -37,6 +35,8 @@ class Detail_Shelter_Activity : AppCompatActivity() {
                 finish()
             }
         }
+
+        init()
 
     }
 

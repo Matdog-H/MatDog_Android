@@ -33,11 +33,6 @@
             android:theme="@style/DialogTheme" />
         <activity android:name=".main.dog_shelter.Write_Shelter_Activity" />
         <activity android:name=".main.dog_shelter.Detail_Shelter_Activity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".main.dog_miss.Write_Miss_Activity" />
         <activity android:name=".main.dog_miss.Detail_Miss_Activity" />
@@ -49,7 +44,11 @@
         <activity
             android:name=".sign.SplashActivity"
             android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

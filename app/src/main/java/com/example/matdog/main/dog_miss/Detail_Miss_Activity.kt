@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
 import com.example.matdog.main.pop_up.Call_popupActivity
+import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail_miss.*
 
 class Detail_Miss_Activity : AppCompatActivity() {
@@ -17,9 +18,8 @@ class Detail_Miss_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_miss)
 
-
-        init()
-
+        // 사진 주기
+        detail_miss_img.setImageResource(R.drawable.taepoong2)
 
         val intent = intent /*데이터 수신*/
         val delete_state = intent.getStringExtra("delete")
@@ -36,22 +36,23 @@ class Detail_Miss_Activity : AppCompatActivity() {
             }
         }
 
-
-
-
+        init()
 
     }
 
     private fun init(){
+        //연락처 팝업버튼
         btn_detail_call_missing.setOnClickListener {
             val i = Intent(this, Call_popupActivity::class.java)
             startActivity(i)
         }
 
+        // 뒤로가기
         btn_detail_back_missing.setOnClickListener {
             finish()
         }
 
+        // 찜버튼
         btn_zzim_missing.setOnClickListener {
             if(CHECK_NUM==0){
                 //btn_zzim.setBackgroundResource(R.drawable.ic_heart)
