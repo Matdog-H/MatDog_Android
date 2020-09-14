@@ -32,6 +32,7 @@
         />
 
     <EditText
+        android:id="@+id/list_popup_tel"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/tv_tel"
@@ -59,6 +60,7 @@
         />
 
     <EditText
+        android:id="@+id/list_popup_email"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/tv_email"
@@ -87,6 +89,7 @@
         />
 
     <EditText
+        android:id="@+id/list_popup_dm"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/tv_dm"

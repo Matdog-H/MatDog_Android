@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
-import com.example.matdog.main.Share_files.Detail_share.Viewpager_detail_adapter
 import com.example.matdog.main.pop_up.Call_popupActivity
-import kotlinx.android.synthetic.main.activity_detail_miss.*
 import kotlinx.android.synthetic.main.activity_detail_protect.*
 
 class Detail_Protect_Activity : AppCompatActivity() {
@@ -18,12 +16,6 @@ class Detail_Protect_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_protect)
-
-        viewpager = findViewById(R.id.pager_protect) as ViewPager
-
-        val adapter = Viewpager_detail_adapter(this)
-        viewpager.adapter = adapter
-
 
         val intent = intent /*데이터 수신*/
         val delete_state = intent.getStringExtra("delete")
