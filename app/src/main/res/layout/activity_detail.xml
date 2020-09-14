@@ -67,7 +67,7 @@
                     android:layout_marginEnd="10dp"
                     android:text="5세"
                     android:textColor="#5ea096"
-                    android:textSize="16.3sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/txt_detail_jong"
                     app:layout_constraintEnd_toEndOf="@id/view_detail" />
@@ -242,7 +242,6 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_feature"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/img_detail_feature"
                     app:layout_constraintTop_toTopOf="@id/img_detail_feature" />
