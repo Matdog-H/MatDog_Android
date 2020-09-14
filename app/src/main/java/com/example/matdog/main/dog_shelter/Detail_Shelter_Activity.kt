@@ -6,11 +6,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
-import com.example.matdog.main.Share_files.Detail_share.Viewpager_detail_adapter
 import com.example.matdog.main.pop_up.Call_popupActivity
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.activity_detail_miss.*
-import kotlinx.android.synthetic.main.activity_detail_protect.*
 
 
 class Detail_Shelter_Activity : AppCompatActivity() {
@@ -21,10 +18,8 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        viewpager = findViewById(R.id.pager) as ViewPager
-
-        val adapter = Viewpager_detail_adapter(this)
-        viewpager.adapter = adapter
+        // 사진 주면 화면에 맞춰서 리사이징하도록
+        detail_img.setImageResource(R.drawable.taepoong2)
 
         init()
 
@@ -46,15 +41,18 @@ class Detail_Shelter_Activity : AppCompatActivity() {
     }
 
     private fun init(){
+        //연락처 팝업버튼
         btn_detail_call.setOnClickListener {
             val i = Intent(this, Call_popupActivity::class.java)
             startActivity(i)
         }
 
+        // 뒤로가기
         btn_detail_back.setOnClickListener {
             finish()
         }
 
+        // 찜버튼
         btn_zzim.setOnClickListener {
             if(CHECK_NUM==0){
                 //btn_zzim.setBackgroundResource(R.drawable.ic_heart)

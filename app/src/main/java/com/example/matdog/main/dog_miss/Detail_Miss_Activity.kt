@@ -6,10 +6,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.matdog.R
-import com.example.matdog.main.Share_files.Detail_share.Viewpager_detail_adapter
 import com.example.matdog.main.pop_up.Call_popupActivity
 import kotlinx.android.synthetic.main.activity_detail_miss.*
-import kotlinx.android.synthetic.main.activity_detail_protect.*
 
 class Detail_Miss_Activity : AppCompatActivity() {
     internal lateinit var viewpager : ViewPager
@@ -19,10 +17,6 @@ class Detail_Miss_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_miss)
 
-        viewpager = findViewById(R.id.pager_missing) as ViewPager
-
-        val adapter = Viewpager_detail_adapter(this)
-        viewpager.adapter = adapter
 
         init()
 

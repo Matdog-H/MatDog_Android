@@ -20,7 +20,7 @@ class rv_Adapter(rv_item: Int) : RecyclerView.Adapter<rv_ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): rv_ViewHolder {
         //리스트 아이템 인플레이터
         val view = LayoutInflater.from(parent.context).inflate(rv_item,parent,false)
-       view.setOnClickListener(onItemClickListener)
+        view.setOnClickListener(onItemClickListener)
         return rv_ViewHolder(view)
     }
 

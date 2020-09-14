@@ -45,6 +45,8 @@ class SignInActivity : AppCompatActivity() {
                         Log.v("token", loginData.token)
                         val login = Intent(this, MainActivity::class.java)
                         startActivity(login)
+                    }else{
+
                     }
                 })
 //                val intent = Intent(this, MainActivity::class.java)
