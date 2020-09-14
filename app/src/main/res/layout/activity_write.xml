@@ -25,8 +25,7 @@
             android:layout_marginTop="52dp"
             android:background="@drawable/image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.159"
-            app:layout_constraintStart_toStartOf="@id/write_picture"
+             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
         <ImageButton
@@ -38,30 +37,6 @@
             app:layout_constraintEnd_toEndOf="@id/picture_write1"
             app:layout_constraintBottom_toBottomOf="@id/picture_write1"
             />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_write2"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/image"
-            app:layout_constraintEnd_toStartOf="@id/picture_write3"
-            app:layout_constraintStart_toEndOf="@id/picture_write1"
-            app:layout_constraintTop_toTopOf="@id/write_picture" />
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_write3"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/image"
-            app:layout_constraintEnd_toEndOf="@id/write_picture"
-            app:layout_constraintHorizontal_bias="0.84"
-            app:layout_constraintStart_toStartOf="@id/write_picture"
-            app:layout_constraintTop_toTopOf="@id/write_picture" />
-
 
         <TextView
             android:layout_width="wrap_content"

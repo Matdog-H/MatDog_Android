@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".main.pop_up.Call_popupActivity"
+    tools:context=".main.pop_up.Renew_popupActivity"
     android:layout_gravity="center"
     android:background="#00FFFFFF">
 
@@ -114,7 +114,7 @@
         />
 
     <Button
-        android:id="@+id/editbutton"
+        android:id="@+id/popup_editbutton"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:background="@drawable/btn_signin"

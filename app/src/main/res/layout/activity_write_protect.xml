@@ -17,8 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/picture_write1_protect"
             android:layout_width="85dp"
@@ -26,7 +24,6 @@
             android:layout_marginTop="52dp"
             android:background="@drawable/image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.16"
             app:layout_constraintStart_toStartOf="@id/write_picture"
             app:layout_constraintTop_toTopOf="@id/write_picture" />
 
@@ -39,30 +36,6 @@
             app:layout_constraintEnd_toEndOf="@id/picture_write1_protect"
             app:layout_constraintBottom_toBottomOf="@id/picture_write1_protect"
             />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_write2_protect"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/image"
-            app:layout_constraintEnd_toStartOf="@id/picture_write3_protect"
-            app:layout_constraintStart_toEndOf="@id/picture_write1_protect"
-            app:layout_constraintTop_toTopOf="@id/write_picture" />
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_write3_protect"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/image"
-            app:layout_constraintEnd_toEndOf="@id/write_picture"
-            app:layout_constraintHorizontal_bias="0.84"
-            app:layout_constraintStart_toStartOf="@id/write_picture"
-            app:layout_constraintTop_toTopOf="@id/write_picture" />
-
 
         <TextView
             android:layout_width="wrap_content"
