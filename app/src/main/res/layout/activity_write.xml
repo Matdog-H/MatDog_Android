@@ -368,23 +368,55 @@
                 app:layout_constraintBottom_toBottomOf="@id/edtplace"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
+            <!-- 관할기관 -->
+            <EditText
+                android:id="@+id/edtShlter"
+                android:layout_width="250dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="188dp"
+                android:background="#00000000"
+                android:gravity="center"
+                android:hint="서울시 영등포구"
+                android:textColor="#84cdc2"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/imformation"
+                app:layout_constraintTop_toTopOf="@id/imformation" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/write_line"
+                app:layout_constraintStart_toStartOf="@id/imformation"
+                app:layout_constraintTop_toBottomOf="@id/edtShlter" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gender"
+                android:gravity="center"
+                android:text="관할기관"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/edtShlter"
+                app:layout_constraintEnd_toEndOf="@id/imformation" />
+
             <!-- 특징 -->
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
-                android:layout_marginTop="213dp"
+                android:layout_marginTop="260dp"
                 android:background="@drawable/write_edit"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintStart_toStartOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@+id/imformation" />
 
-
             <EditText
                 android:id="@+id/edtfeature"
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
-                android:layout_marginTop="213dp"
+                android:layout_marginTop="260dp"
                 android:background="#00000000"
                 android:gravity="top"
                 android:hint="활발함"
@@ -394,7 +426,6 @@
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintStart_toStartOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@+id/imformation" />
-
 
             <TextView
                 android:layout_width="55dp"

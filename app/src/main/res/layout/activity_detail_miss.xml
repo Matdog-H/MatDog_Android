@@ -54,8 +54,8 @@
                     android:id="@+id/txt_detail_jong_missing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginBottom="8dp"
                     android:text="말티즈"
                     android:textColor="#636363"
                     android:textSize="43sp"
@@ -70,6 +70,7 @@
                     app:layout_constraintEnd_toStartOf="@id/txt_detail_jong_missing"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="10dp"/>
+
                 <TextView
                     android:id="@+id/txt_detail_age_missing"
                     android:layout_width="wrap_content"
@@ -196,36 +197,6 @@
                     app:layout_constraintStart_toEndOf="@id/img_detail_missing_date"
                     app:layout_constraintTop_toTopOf="@id/img_detail_missing_date" />
 
-                <TextView
-                    android:id="@+id/img_detail_protect_location_missing"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="37dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/itembox"
-                    android:gravity="center"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="보호 장소"
-                    android:textColor="#fb777a"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_missing_date" />
-
-                <TextView
-                    android:id="@+id/txt_detail_protect_location_missing"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:text="서울시 영등포구"
-                    android:textColor="#848484"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_protect_location_missing"
-                    app:layout_constraintStart_toEndOf="@id/img_detail_protect_location_missing"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_protect_location_missing" />
-
 
                 <TextView
                     android:id="@+id/img_detail_feature"
@@ -242,10 +213,10 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_protect_location_missing" />
+                    app:layout_constraintTop_toBottomOf="@id/img_detail_missing_date" />
 
                 <TextView
-                    android:id="@+id/txt_detail_feature"
+                    android:id="@+id/txt_detail_feature_miss"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
