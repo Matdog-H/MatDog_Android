@@ -24,8 +24,8 @@
                 android:id="@+id/detail_miss_img"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:background="#19000000"
-                android:scaleType="centerCrop"
+                android:background="#325ea096"
+                android:scaleType="centerInside"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -63,8 +63,10 @@
                     app:layout_constraintStart_toStartOf="@id/view_detail_missing" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_sex_miss"
+                    android:layout_width="20dp"
+                    android:layout_height="25dp"
+                    android:scaleType="fitXY"
                     android:background="@drawable/woman"
                     app:layout_constraintBottom_toBottomOf="@id/txt_detail_jong_missing"
                     app:layout_constraintEnd_toStartOf="@id/txt_detail_jong_missing"

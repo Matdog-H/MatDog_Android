@@ -23,8 +23,8 @@
                 android:id="@+id/detail_img"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:background="#19000000"
-                android:scaleType="centerCrop"
+                android:background="#325ea096"
+                android:scaleType="centerInside"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -59,6 +59,17 @@
                     android:textSize="43sp"
                     app:layout_constraintBottom_toTopOf="@id/view_detail"
                     app:layout_constraintStart_toStartOf="@id/view_detail" />
+
+                <ImageView
+                    android:id="@+id/detail_sex"
+                    android:layout_width="20dp"
+                    android:layout_height="25dp"
+                    android:scaleType="fitXY"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/woman"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_detail_jong"
+                    app:layout_constraintEnd_toStartOf="@id/txt_detail_jong" />
 
                 <TextView
                     android:id="@+id/txt_detail_age"
@@ -239,6 +250,7 @@
                     android:layout_marginStart="17dp"
                     android:layout_marginEnd="20dp"
                     android:text="장난기가 많음. 중이염을 앓고 있음."
+                    android:paddingTop="1dp"
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"

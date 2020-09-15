@@ -25,8 +25,8 @@
                 android:id="@+id/detail_protect_img"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:background="#19000000"
-                android:scaleType="centerCrop"
+                android:background="#325ea096"
+                android:scaleType="centerInside"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +64,10 @@
                     app:layout_constraintStart_toStartOf="@id/view_detail_protect" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_sex_protect"
+                    android:layout_width="20dp"
+                    android:layout_height="25dp"
+                    android:scaleType="fitXY"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/woman"
