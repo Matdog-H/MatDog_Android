@@ -45,15 +45,15 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                     Log.v("777777777777","777777777777777777")
                     List_new.add(
                         ListItem(
-                            it_image = R.drawable.taepoong,
                             it_species = myData[i].kindCd,
                             it_status = myData[i].registerStatus,
                             it_gender = myData[i].sexCd,
                             it_age = myData[i].age,
-                            it_date = myData[i].happenDt
+                            it_date = myData[i].happenDt,
+                            it_image = myData[i].popfile
                         )
                     )
-                    Log.v("item값 체크하기",myData[i].kindCd)
+                    Log.v("item값 체크하기",myData[i].toString())
                 }
                 myadapter1.data = List_new
                 myadapter1.notifyDataSetChanged()
