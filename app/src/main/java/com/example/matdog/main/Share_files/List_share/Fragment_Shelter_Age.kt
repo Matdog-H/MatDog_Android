@@ -43,12 +43,12 @@ class Fragment_Shelter_Age : Fragment(), View.OnClickListener {
                 for(i in 0 until myData.size) {
                     List_age.add(
                         ListItem(
-                            it_image = R.drawable.taepoong,
                             it_species = myData[i].kindCd,
                             it_status = myData[i].registerStatus,
                             it_gender = myData[i].sexCd,
                             it_age = myData[i].age,
-                            it_date = myData[i].happenDt
+                            it_date = myData[i].happenDt,
+                            it_image = myData[i].popfile
                         )
                     )
                     Log.v("item값 체크하기",myData[i].happenDt)
