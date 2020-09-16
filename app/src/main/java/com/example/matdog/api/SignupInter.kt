@@ -5,13 +5,13 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 //회원가입
-//interface SignupInter{
-//    @POST("/user/signup")
-//    fun requestSignUp(
-//        @Body signupRequest: SignupRequest
-//    ): Call<SignupResponse>
-//
-//}
+interface SignupInter{
+    @POST("/user/signup")
+    fun requestSignUp(
+        @Body signupRequest: SignupRequest
+    ): Call<SignupResponse>
+
+}
 
 //요청
 data class SignupRequest(
@@ -27,10 +27,16 @@ data class SignupRequest(
     val birth : String,
     @SerializedName("tel")
     val tel : String,
+    @SerializedName("telcheck")
+    val telcheck : Int,
     @SerializedName("email")
     val email : String,
+    @SerializedName("emailcheck")
+    val emailcheck : Int,
     @SerializedName("dm")
-    val dm : String
+    val dm : String,
+    @SerializedName("dmcheck")
+    val dmcheck : Int
 )
 
 
@@ -38,5 +44,5 @@ data class SignupRequest(
 data class SignupResponse(
     val status: Int,
     val message: String,
-    val data: String
+    val data: String?
 )

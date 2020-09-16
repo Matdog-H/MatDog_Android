@@ -6,13 +6,13 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 //회원가입
-//interface IdCheckInter{
-//    //아이디 중복 체크
-//    @POST("/user/check/{id}")
-//    fun requestSignUpIdCheck(
-//        @Body idcheckRequest: IdCheckRequest
-//    ): Call<IdCheckResponse>
-//}
+interface IdCheckInter{
+    //아이디 중복 체크
+    @POST("/user/check/{id}")
+    fun requestSignUpIdCheck(
+        @Body idcheckRequest: IdCheckRequest
+    ): Call<IdCheckResponse>
+}
 
 
 //아이디 중복 검사
@@ -52,5 +52,5 @@ data  class SignupData(
 data class IdCheckResponse(
     val status: Int,
     val message: String,
-    val data: String
+    val data: String?
 )

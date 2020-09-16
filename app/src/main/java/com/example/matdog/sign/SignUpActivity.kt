@@ -80,6 +80,7 @@ class SignUpActivity : AppCompatActivity() {
 
         val id = signup_id.getText().toString()
         val pw = signup_pw.getText().toString()
+        val pwcheck=txt_checkpw.getText().toString()
         val name = signup_name.getText().toString()
         val addr = signup_address.getText().toString()
         val birth = signup_birth.getText().toString()
@@ -87,41 +88,67 @@ class SignUpActivity : AppCompatActivity() {
         val email = signup_email.getText().toString()
         val dm = signup_dm.getText().toString()
 
+        val telcheck : Int
+        val emailcheck : Int
+        val dmcheck : Int
+
+        //개인정보 공개여부
+        if(checkbox_phone.isChecked() === true){
+            telcheck = 0
+        }
+        else {
+            telcheck = 1
+        }
+
+        if(checkbox_email.isChecked() === true){
+            emailcheck = 0
+        }
+        else {
+            emailcheck = 1
+        }
+
+        if(checkbox_dm.isChecked() === true){
+            dmcheck = 0
+        }
+        else {
+            dmcheck = 1
+        }
+
         //회원가입 버튼 이벤트
         btn_oksignup.setOnClickListener {
             //조건1 : 아이디가 공백이 아니고 중복확인 버튼을 눌렀는지 <-> 중복확인 버튼을 클릭 후 버튼 텍스트가 '사용 가능'으로 바꼈는지 체크
             //조건2 : 비밀번호가 일치하는지
             //조건3 : 이름, 주소, 생년월일이 공백이 아닌지
             //조건4 : 개인정보 체크박스 최소 하나 이상 선택되어야 함
-            if(signup_id.getText().toString().equals(""))
+            if(id.equals(""))
                 Toast.makeText(this,"아이디를 입력해주세요",Toast.LENGTH_LONG).show()
-            else if (signup_pw.getText().toString().equals(""))
+            else if (pw.equals(""))
                 Toast.makeText(this,"비밀번호를 입력해주세요",Toast.LENGTH_LONG).show()
-            else if(txt_checkpw.getText().toString().equals("비밀번호가 일치하지 않습니다.")){
+            else if(pwcheck.equals("비밀번호가 일치하지 않습니다.")){
                 Toast.makeText(this,"비밀번호가 틀렸습니다.",Toast.LENGTH_LONG).show()
             }
-            else if(txt_checkpw.getText().toString().equals("비밀번호를 다시 입력해 주세요")){
+            else if(pwcheck.equals("비밀번호를 다시 입력해 주세요")){
                 Toast.makeText(this,"비밀번호를 입력해 주세요",Toast.LENGTH_LONG).show()
             }
-            else if(signup_name.getText().toString().equals("")){
+            else if(name.equals("")){
                 Toast.makeText(this,"이름을 입력해주세요.",Toast.LENGTH_LONG).show()
             }
-            else if(signup_address.getText().toString().equals("")){
+            else if(addr.equals("")){
                 Toast.makeText(this,"주소를 입력해주세요.",Toast.LENGTH_LONG).show()
             }
-            else if(signup_birth.getText().toString().equals("")) {
+            else if(birth.equals("")) {
                 Toast.makeText(this, "생년월일을 입력해주세요.", Toast.LENGTH_LONG).show()
             }
             else
             {
                 if(checkbox_phone.isChecked()||checkbox_email.isChecked()||checkbox_dm.isChecked()) {
-//                    val callSignup = UserServiceImpl.SignupService.requestSignUp(SignupRequest(id,pw,name,addr,birth,tel,email,dm))
-//
-//                    callSignup.safeEnqueue(onResponse={
-//                        if(it.isSuccessful){
-//
-//                        }
-//                    })
+                    val callSignup = UserServiceImpl.SignupService.requestSignUp(SignupRequest(id,pw,name,addr,birth,tel,telcheck,email,emailcheck,dm,dmcheck))
+
+                    callSignup.safeEnqueue(onResponse={
+                        if(it.isSuccessful){
+
+                        }
+                    })
 
                     Toast.makeText(this, "가입이 완료되었습니다.", Toast.LENGTH_LONG).show()
                     finish()
