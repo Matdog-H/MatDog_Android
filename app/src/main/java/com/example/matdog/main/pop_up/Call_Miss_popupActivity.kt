@@ -21,7 +21,7 @@ class Call_Miss_popupActivity : AppCompatActivity() {
         // -----------server--------------
         val callpopupMiss = UserServiceImpl.matchingDetailService.matchingDetailResponse_miss(
             token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNYXREb2ciLCJ1c2VySWR4Ijo2fQ.IuYm_J1zncxiL00mMH5n_Sc7eBmT5elC9_8H86lKiH0",
-            registertatus = 2, //상태 "실종" 고정
+            registerStatus = 2, //상태 "실종" 고정
             registerIdx = 8 // 공고 id
         )
 

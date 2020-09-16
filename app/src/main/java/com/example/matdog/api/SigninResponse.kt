@@ -9,6 +9,6 @@ data class SigninResponse(
     val data: Token
 )
 
-data  class Token(
+data class Token(
     val token : String
 )

@@ -5,29 +5,31 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.example.matdog.R
+import com.example.matdog.api.SharedPreferenceController
 import com.example.matdog.api.UserServiceImpl
 import com.example.matdog.api.safeEnqueue
 import com.example.matdog.main.pop_up.Call_Protect_popupActivity
-import com.example.matdog.main.pop_up.Call_popupActivity
-import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.activity_detail_miss.*
 import kotlinx.android.synthetic.main.activity_detail_protect.*
 
 class Detail_Protect_Activity : AppCompatActivity() {
-    internal lateinit var viewpager : ViewPager
-    var CHECK_NUM = 0
+    private var token : String = ""
+    private val registerStatus: Int = 3 // 공고 상태 "임시보호-protect" 고정
+    private var registerIdx: Int = 31 //공고 id -> 나중에 값 받아옴
+    private var CHECK_NUM = 0 // 찜 상태
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_protect)
 
         // -----------server--------------
+        token = SharedPreferenceController.getUserToken(this)
         val callProtectDetail = UserServiceImpl.matchingDetailService.matchingDetailResponse_protect(
-            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNYXREb2ciLCJ1c2VySWR4Ijo2fQ.IuYm_J1zncxiL00mMH5n_Sc7eBmT5elC9_8H86lKiH0",
-            registerStatus = 3, //상태 "임시보호-protect" 고정
-            registerIdx = 31 // 공고 id
+            token = token,
+            registerStatus = registerStatus, //상태 "임시보호-protect" 고정
+            registerIdx = registerIdx // 공고 id
         )
 
         callProtectDetail.safeEnqueue {
@@ -43,7 +45,7 @@ class Detail_Protect_Activity : AppCompatActivity() {
                 txt_detail_protect_location_missing.setText(protectregister.careAddr) // 보호장소
                 txt_detail_feature_protect.setText(protectregister.specialMark) //특징
 
-                Log.v("개ㅐ애애"+protectregister.filename,"개이미지") //개이미지 string 못받아옴 null값
+                Log.v("이미지주소"+protectregister.filename,"개이미지") //개이미지 string 못받아옴 null값
                 Glide.with(this)
                     .load(protectregister.filename)
                     .into(detail_protect_img) //사진
@@ -60,6 +62,15 @@ class Detail_Protect_Activity : AppCompatActivity() {
                     Glide.with(this)
                         .load(R.drawable.gender_woman)
                         .into(detail_sex_protect)
+                }
+                //찜 상태 받아오기
+                var likeStatus = it.body()!!.likeStatus
+                if (likeStatus == 0) {
+                    btn_zzim_protect.setSelected(false)
+                    CHECK_NUM = 0
+                } else {
+                    btn_zzim_protect.setSelected(true)
+                    CHECK_NUM = 1
                 }
 
             }
@@ -109,6 +120,20 @@ class Detail_Protect_Activity : AppCompatActivity() {
             }else{
                 btn_zzim_protect.setSelected(false)
                 CHECK_NUM=0
+            }
+
+            // 찜상태 서버에 전송
+            val LikeStatusService = UserServiceImpl.LikeStatusService.likeStatusRequest(
+                token = token,
+                registerIdx = registerIdx, // 공고 id
+                registerStatus = registerStatus, //공고 상태 "실종"
+                likestatus = CHECK_NUM // 찜상태
+            )
+            LikeStatusService.safeEnqueue {
+                if (it.isSuccessful) {
+                    Log.v("miss찜공고상태변화:"+CHECK_NUM, it.body()!!.message)
+                }
+
             }
 
         }

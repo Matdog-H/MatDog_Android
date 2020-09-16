@@ -5,12 +5,9 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
-import java.io.File
-import java.net.URI
-import java.util.*
 
 // 공고 상세화면 - 보호소/실종/임시보호 공고 상세조회
-interface callMatchingDetail{
+interface CallMatchingDetail{
     @GET("/program/viewall/{registerStatus}/{registerIdx}")
     fun matchingDetailResponse(
         @Header("authorization") token : String, // 토큰값
@@ -21,7 +18,7 @@ interface callMatchingDetail{
     @GET("/program/viewalllost/{registerStatus}/{registerIdx}")
     fun matchingDetailResponse_miss(
         @Header("authorization") token : String, // 토큰값
-        @Path("registerStatus") registertatus: Int,
+        @Path("registerStatus") registerStatus: Int,
         @Path("registerIdx") registerIdx: Int
     ): Call<DetailResponseMiss>
 
@@ -40,7 +37,9 @@ data class DetailResponse(
     @SerializedName("message")
     val message: String,
     @SerializedName("register")
-    val detailregister: DetailData
+    val detailregister: DetailData,
+    @SerializedName("likeStatus") // 찜 상태
+    val likeStatus: Int
 )
 
 //register
@@ -83,7 +82,9 @@ data class DetailResponseMiss(
     @SerializedName("message")
     val message: String,
     @SerializedName("register")
-    val missregister: DetailDataMiss
+    val missregister: DetailDataMiss,
+    @SerializedName("likeStatus") // 찜 상태
+    val likeStatus: Int
 )
 //lost
 data class DetailDataMiss(
@@ -122,7 +123,9 @@ data class DetailResponseProtect(
     @SerializedName("message")
     val message: String,
     @SerializedName("register")
-    val protectregister: DetailDataProtect
+    val protectregister: DetailDataProtect,
+    @SerializedName("likeStatus") // 찜 상태
+    val likeStatus: Int
 )
 //spot->protect?로 이름 바꾸는거 좋을듯
 data class DetailDataProtect(
