@@ -9,6 +9,10 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.matdog.R
+import com.example.matdog.api.SigninRequest
+import com.example.matdog.api.SignupRequest
+import com.example.matdog.api.SignupResponse
+import com.example.matdog.api.UserServiceImpl
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
@@ -74,6 +78,15 @@ class SignUpActivity : AppCompatActivity() {
         })
         */
 
+        val id = signup_id.getText().toString()
+        val pw = signup_pw.getText().toString()
+        val name = signup_name.getText().toString()
+        val addr = signup_address.getText().toString()
+        val birth = signup_birth.getText().toString()
+        val tel = signup_birth.getText().toString()
+        val email = signup_email.getText().toString()
+        val dm = signup_dm.getText().toString()
+
         //회원가입 버튼 이벤트
         btn_oksignup.setOnClickListener {
             //조건1 : 아이디가 공백이 아니고 중복확인 버튼을 눌렀는지 <-> 중복확인 버튼을 클릭 후 버튼 텍스트가 '사용 가능'으로 바꼈는지 체크
@@ -102,6 +115,13 @@ class SignUpActivity : AppCompatActivity() {
             else
             {
                 if(checkbox_phone.isChecked()||checkbox_email.isChecked()||checkbox_dm.isChecked()) {
+//                    val callSignup = UserServiceImpl.SignupService.requestSignUp(SignupRequest(id,pw,name,addr,birth,tel,email,dm))
+//
+//                    callSignup.safeEnqueue(onResponse={
+//                        if(it.isSuccessful){
+//
+//                        }
+//                    })
 
                     Toast.makeText(this, "가입이 완료되었습니다.", Toast.LENGTH_LONG).show()
                     finish()
