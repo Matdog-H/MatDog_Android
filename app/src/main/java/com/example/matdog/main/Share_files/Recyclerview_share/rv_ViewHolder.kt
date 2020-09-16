@@ -26,16 +26,16 @@ class rv_ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         Glide.with(itemView)
             .load(R.drawable.gender_man)
             .into(list_gender)
-//        var gender : Int = data.it_gender.toInt()
-//        if(gender == 0){
-//            Glide.with(itemView)
-//                .load(R.drawable.gender_man)
-//                .into(list_gender)
-//        }else{
-//            Glide.with(itemView)
-//                .load(R.drawable.gender_woman)
-//                .into(list_gender)
-//        }
+        var gender : String = data.it_gender
+        if(gender == "M" || gender == "1"){
+            Glide.with(itemView)
+                .load(R.drawable.gender_man)
+                .into(list_gender)
+        }else{
+            Glide.with(itemView)
+                .load(R.drawable.gender_woman)
+                .into(list_gender)
+        }
 
         //추후에 0,1,2에 따른 상황 수정필요
         var registerStatus : Int = data.it_status

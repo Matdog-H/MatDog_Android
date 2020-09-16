@@ -21,14 +21,14 @@
         android:usesCleartextTraffic="true">
 
         <!--Splash/Main/login-->
-       <activity
+        <activity
             android:name=".sign.SplashActivity"
             android:theme="@style/SplashTheme">
-           <!-- 시작 액티비티, 기본 intent-filter-->
-           <intent-filter>
-               <action android:name="android.intent.action.MAIN" />
-               <category android:name="android.intent.category.LAUNCHER" />
-           </intent-filter>
+            <!-- 시작 액티비티, 기본 intent-filter-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity" />
 

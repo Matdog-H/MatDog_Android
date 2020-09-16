@@ -28,10 +28,10 @@ data class ListResponse(
 )
 
 data  class ListAllData(
-    @SerializedName("registerIdx")
-    val registerIdx : Int,
     @SerializedName("userIdx")
     val userIdx : Int,
+    @SerializedName("registerIdx")
+    val registerIdx : Int,
     @SerializedName("registerStatus")
     val registerStatus : Int,
     @SerializedName("kindCd")
@@ -40,8 +40,8 @@ data  class ListAllData(
     val sexCd : String,
     @SerializedName("age")
     val age : String,
-    @SerializedName("careAddr")
-    val careAddr : String,
     @SerializedName("happenDt")
-    val happenDt : String
+    val happenDt : String,
+    @SerializedName("popfile")
+    val popfile : String
 )
