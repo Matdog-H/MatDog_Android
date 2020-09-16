@@ -43,12 +43,11 @@ class fragment_my : Fragment(), View.OnClickListener{
 //           ListItem(
 //               it_image = R.drawable.taepoong,
 //               it_species = "말티즈",
-//               it_age = 3,
+//               it_age = "3",
 //               it_status = R.drawable.state_shelter,
-//               it_gender = 1,
+//               it_gender = "1",
 //               it_date = "2020.06.12"
 //           )
-//
 //       )
 
 

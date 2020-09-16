@@ -34,15 +34,17 @@ class mp_ViewHolder(view: View):RecyclerView.ViewHolder(view) {
             .into(mp_gender)
 
 
-//        if(dog_gender==0){
-//            Glide.with(itemView)
-//                .load(R.drawable.gender_man)
-//                .into(mp_gender)
-//        }else{
-//            Glide.with(itemView)
-//                .load(R.drawable.gender_woman)
-//                .into(mp_gender)
-//        }
+        var gender : String = data.it_gender
+        if(gender == "M" || gender == "1"){
+            Glide.with(itemView)
+                .load(R.drawable.gender_man)
+                .into(mp_gender)
+        }else{
+            Glide.with(itemView)
+                .load(R.drawable.gender_woman)
+                .into(mp_gender)
+        }
+
 
         //등록상태
         var register_state : Int=data.it_status
