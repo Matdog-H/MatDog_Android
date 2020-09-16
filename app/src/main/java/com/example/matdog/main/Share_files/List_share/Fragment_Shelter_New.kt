@@ -52,7 +52,7 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
                             it_gender = myData[i].sexCd,
                             it_age = myData[i].age,
                             it_date = myData[i].happenDt,
-                            it_image = myData[i].popfile
+                            it_image = myData[i].filename
                         )
                     )
                     Log.v("item값 체크하기",myData[i].toString())

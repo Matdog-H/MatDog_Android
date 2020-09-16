@@ -42,6 +42,6 @@ data  class ListAllData(
     val age : String,
     @SerializedName("happenDt")
     val happenDt : String,
-    @SerializedName("popfile")
-    val popfile : String
+    @SerializedName("filename")
+    val filename : String
 )
