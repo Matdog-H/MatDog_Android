@@ -37,6 +37,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_tel"
         android:layout_marginLeft="5dp"
         android:hint="010-1111-1111"
+        android:text="dddd"
         android:textSize="17dp"
         android:textColor="#4c4c4c"
         />

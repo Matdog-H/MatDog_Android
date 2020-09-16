@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:background="#325ea096"
-                android:scaleType="centerInside"
+                android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +75,7 @@
                     app:layout_constraintEnd_toStartOf="@id/txt_detail_jong_protect" />
 
                 <TextView
-                    android:id="@+id/txt_detail_age_missing"
+                    android:id="@+id/txt_detail_age_protect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
@@ -158,7 +158,7 @@
                     app:layout_constraintTop_toBottomOf="@id/img_detail_scale_protect" />
 
                 <TextView
-                    android:id="@+id/txt_detail_missing_location"
+                    android:id="@+id/txt_detail_protect_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
@@ -188,7 +188,7 @@
                     app:layout_constraintTop_toBottomOf="@id/img_detail_missing_location" />
 
                 <TextView
-                    android:id="@+id/txt_detail_missing_date"
+                    android:id="@+id/txt_detail_protect_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
@@ -249,12 +249,13 @@
                     app:layout_constraintTop_toBottomOf="@id/img_detail_protect_location_missing" />
 
                 <TextView
-                    android:id="@+id/txt_detail_feature"
+                    android:id="@+id/txt_detail_feature_protect"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
                     android:layout_marginEnd="20dp"
                     android:text="장난기가 많음. 중이염을 앓고 있음."
+                    android:paddingTop="1dp"
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -312,6 +313,7 @@
             android:layout_marginEnd="15dp"/>
 
         <TextView
+            android:id="@+id/txt_detail_happenDt_protect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"

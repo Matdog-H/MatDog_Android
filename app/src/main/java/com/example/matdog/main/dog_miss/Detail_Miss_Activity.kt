@@ -2,10 +2,19 @@ package com.example.matdog.main.dog_miss
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
 import com.example.matdog.R
+import com.example.matdog.api.SharedPreferenceController
+import com.example.matdog.api.SigninRequest
+import com.example.matdog.api.UserServiceImpl
+import com.example.matdog.api.safeEnqueue
+import com.example.matdog.main.MainActivity
+import com.example.matdog.main.pop_up.Call_Miss_popupActivity
 import com.example.matdog.main.pop_up.Call_popupActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail_miss.*
@@ -20,6 +29,48 @@ class Detail_Miss_Activity : AppCompatActivity() {
 
         // 사진 주기
         detail_miss_img.setImageResource(R.drawable.taepoong2)
+
+        // -----------server--------------
+        val callDetailMiss = UserServiceImpl.matchingDetailService.matchingDetailResponse_miss(
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNYXREb2ciLCJ1c2VySWR4Ijo2fQ.IuYm_J1zncxiL00mMH5n_Sc7eBmT5elC9_8H86lKiH0",
+            registertatus = 2, //상태 "실종" 고정
+            registerIdx = 8 // 공고 id
+        )
+
+        callDetailMiss.safeEnqueue {
+            if(it.isSuccessful){
+                val missregister = it.body()!!.missregister
+                // 데이터 줌
+                txt_detail_happenDt_missing.setText(missregister.happenDt) // 등록일
+                txt_detail_jong_missing.setText(missregister.kindCd) //종
+                txt_detail_age_missing.setText("나이 "+missregister.age) //나이
+                txt_detail_scale_missing.setText(missregister.weight) //체중
+                txt_detail_missing_location.setText(missregister.lostPlace) //잃어버린 장소
+                txt_detail_missing_date.setText(missregister.lostDate) //잃어버린 날짜
+                txt_detail_feature_miss.setText(missregister.specialMark) //특징
+
+                Log.v("개ㅐ애애"+missregister.filename,"개이미지") //개이미지 string 못받아옴 null값
+                Glide.with(this)
+                    .load(missregister.filename)
+                    .into(detail_miss_img) //사진
+
+                //성별
+                var sexCd : String = missregister.sexCd
+                if(sexCd == "M"){
+                    //detail_sex.setImageResource(R.drawable.gender_man)
+                    Glide.with(this)
+                        .load(R.drawable.gender_man)
+                        .into(detail_sex_miss)
+                }else{
+                    //detail_sex.setImageResource(R.drawable.gender_woman)
+                    Glide.with(this)
+                        .load(R.drawable.gender_woman)
+                        .into(detail_sex_miss)
+                }
+
+            }
+        }
+
 
         val intent = intent /*데이터 수신*/
         val delete_state = intent.getStringExtra("delete")
@@ -43,7 +94,7 @@ class Detail_Miss_Activity : AppCompatActivity() {
     private fun init(){
         //연락처 팝업버튼
         btn_detail_call_missing.setOnClickListener {
-            val i = Intent(this, Call_popupActivity::class.java)
+            val i = Intent(this, Call_Miss_popupActivity::class.java)
             startActivity(i)
         }
 
