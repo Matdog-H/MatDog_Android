@@ -16,6 +16,8 @@ import com.example.matdog.api.safeEnqueue
 import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
 import com.example.matdog.main.Share_files.Recyclerview_share.rv_Adapter
 import com.example.matdog.main.dog_miss.Detail_Miss_Activity
+import com.example.matdog.main.dog_protect.Detail_Protect_Activity
+import com.example.matdog.main.dog_shelter.Detail_Shelter_Activity
 import kotlinx.android.synthetic.main.activity_fragment_new.*
 import kotlinx.android.synthetic.main.list_item.*
 
@@ -78,6 +80,88 @@ class Fragment_Shelter_New : Fragment(), View.OnClickListener{
         FNrecyclerview.layoutManager= GridLayoutManager(activity,2)
         myadapter1.notifyDataSetChanged()
         //리사이클러뷰의 어댑터 세팅
+        recyclerview.adapter=myadapter
+
+        //리사이클러뷰 배치
+        recyclerview.layoutManager= GridLayoutManager(thiscontext,2)
+
+        myadapter.data= listOf(
+            ListItem(
+                it_image = R.drawable.taepoong,
+                it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_protect,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.05.31"
+                //it_place = "경기도 고양시"
+            ),
+            ListItem(
+                it_image = R.drawable.taepoong2,
+                it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "4살 추정",
+                it_state = R.drawable.state_sighting,
+                it_gender = R.drawable.gender_woman,
+                it_date = "2020.06.11"
+                //it_place = "경기도 고양시"
+            ), ListItem(
+                it_image = R.drawable.taepoong3,
+                it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "4살 추정",
+                it_state = R.drawable.state_sighting,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            ), ListItem(
+                it_image = R.drawable.taepoong,
+                it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "5살 추정",
+                it_state = R.drawable.state_sighting,
+                it_gender = R.drawable.gender_woman,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            ), ListItem(
+                it_image = R.drawable.taepoong2,
+                it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_woman,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            ), ListItem(
+                it_image = R.drawable.taepoong3,
+                it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            ), ListItem(
+                it_image = R.drawable.taepoong,
+                it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            ), ListItem(
+                it_image = R.drawable.taepoong2,
+                it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            )
+
+        )
 
         Log.v("아이템 갯수.. 확인하기",myadapter1.itemCount.toString()) // 0개로 뜬다.. 이유가 뭐지?
         //일단 Fragment에서 추가된 것들이 못들어왔다는 것 같은데.. 왜 못들어왔을까?

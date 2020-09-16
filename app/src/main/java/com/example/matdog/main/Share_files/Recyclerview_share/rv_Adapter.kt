@@ -46,6 +46,4 @@ class rv_Adapter(rv_item: Int) : RecyclerView.Adapter<rv_ViewHolder>(){
     }
 
 
-
-
 }

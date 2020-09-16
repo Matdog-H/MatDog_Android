@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.Recyclerview_share.rv_Adapter
@@ -15,7 +16,7 @@ import com.example.matdog.main.dog_shelter.Detail_Shelter_Activity
 class fragment_like : Fragment(), View.OnClickListener{
 
     private lateinit var  recyclerview : RecyclerView
-    private lateinit var myadapter: rv_Adapter
+    private lateinit var myadapter: Adapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -37,47 +38,48 @@ class fragment_like : Fragment(), View.OnClickListener{
 //        recyclerview.layoutManager= GridLayoutManager(thiscontext,2)
 //
 
-//        myadapter.data= listOf(
-//            ListItem(
-//                it_image = R.drawable.taepoong,
-//                it_love = R.drawable.ic_love,
-//                it_species = "말티즈",
-//                it_age = "3살 추정",
-//                it_state = R.drawable.state_shelter,
-//                it_gender = R.drawable.gender_man,
-//                it_date = "2020.06.12"
-//                //it_place = "경기도 고양시"
-//            ),
-//            ListItem(
-//                it_image = R.drawable.taepoong2,
-//                it_love = R.drawable.ic_love,
-//                it_species = "말티즈",
-//                it_age = "3살 추정",
-//                it_state = R.drawable.state_shelter,
-//                it_gender = R.drawable.gender_man,
-//                it_date = "2020.06.12"
-//                //it_place = "경기도 고양시"
-//            ), ListItem(
-//                it_image = R.drawable.taepoong3,
-//                it_love = R.drawable.ic_love,
-//                it_species = "말티즈",
-//                it_age = "3살 추정",
-//                it_state = R.drawable.state_shelter,
-//                it_gender = R.drawable.gender_man,
-//                it_date = "2020.06.12"
-//                //it_place = "경기도 고양시"
-//            ),
-//            ListItem(
-//                it_image = R.drawable.taepoong,
-//                it_love = R.drawable.ic_love,
-//                it_species = "말티즈",
-//                it_age = "3살 추정",
-//                it_state = R.drawable.state_shelter,
-//                it_gender = R.drawable.gender_man,
-//                it_date = "2020.06.12"
-//                //it_place = "경기도 고양시"
-//            )
-//        )
+
+        myadapter.data= listOf(
+            ListItem(
+                it_image = R.drawable.taepoong,
+                //it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            ),
+            ListItem(
+                it_image = R.drawable.taepoong2,
+                //it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            ), ListItem(
+                it_image = R.drawable.taepoong3,
+                //it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            ),
+            ListItem(
+                it_image = R.drawable.taepoong,
+                //it_love = R.drawable.ic_love,
+                it_species = "말티즈",
+                it_age = "3살 추정",
+                it_state = R.drawable.state_shelter,
+                it_gender = R.drawable.gender_man,
+                it_date = "2020.06.12"
+                //it_place = "경기도 고양시"
+            )
+        )
 
 
         myadapter.notifyDataSetChanged()

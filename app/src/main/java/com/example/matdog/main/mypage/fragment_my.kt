@@ -25,59 +25,64 @@ class fragment_my : Fragment(), View.OnClickListener{
 
        recyclerview = mylistview.findViewById(R.id.ml_recyclerview)
 
-//       //this로 현재 context 전달
-//       myadapter= Adapter(thiscontext)
-//
-//       myadapter.onItemClick(this)
-//
-//       //리사이클러뷰의 어댑터 세팅
-//       recyclerview.adapter=myadapter
-//
-//       //리사이클러뷰 배치
-//       recyclerview.layoutManager=GridLayoutManager(thiscontext,2)
-//
+       //this로 현재 context 전달
+       myadapter= Adapter(thiscontext)
 
-//       myadapter.data= listOf(
-//           ListItem(
-//               it_image = R.drawable.taepoong,
-//               it_love = R.drawable.ic_love,
-//               it_species = "말티즈",
-//               it_age = "3살 추정",
-//               it_state = R.drawable.state_shelter,
-//               it_gender = R.drawable.gender_man,
-//               it_date = "2020.06.12"
-//               //it_place = "경기도 고양시"
-//           ),
-//           ListItem(
-//               it_image = R.drawable.taepoong,
-//               it_love = R.drawable.ic_love,
-//               it_species = "말티즈",
-//               it_age = "3살 추정",
-//               it_state = R.drawable.state_shelter,
-//               it_gender = R.drawable.gender_man,
-//               it_date = "2020.06.12"
-//               //it_place = "경기도 고양시"
-//           ), ListItem(
-//               it_image = R.drawable.taepoong2,
-//               it_love = R.drawable.ic_love,
-//               it_species = "말티즈",
-//               it_age = "3살 추정",
-//               it_state = R.drawable.state_shelter,
-//               it_gender = R.drawable.gender_man,
-//               it_date = "2020.06.12"
-//               //it_place = "경기도 고양시"
-//           ),
-//           ListItem(
-//               it_image = R.drawable.taepoong3,
-//               it_love = R.drawable.ic_love,
-//               it_species = "말티즈",
-//               it_age = "3살 추정",
-//               it_state = R.drawable.state_shelter,
-//               it_gender = R.drawable.gender_man,
-//               it_date = "2020.06.12"
-//               //it_place = "경기도 고양시"
-//           )
-//       )
+       myadapter.onItemClick(this)
+
+
+//       myadapter= Adapter(thiscontext,ListItem){item ->
+//           Toast.makeText(thiscontext, "개의 품종은 ${item.it_species} 이며, 나이는 ${item.it_age}세이다.", Toast.LENGTH_SHORT).show()
+//       }
+
+       //리사이클러뷰의 어댑터 세팅
+       recyclerview.adapter=myadapter
+
+       //리사이클러뷰 배치
+       recyclerview.layoutManager=GridLayoutManager(thiscontext,2)
+
+
+       myadapter.data= listOf(
+           ListItem(
+               it_image = R.drawable.taepoong,
+               it_love = R.drawable.ic_love,
+               it_species = "말티즈",
+               it_age = "3살 추정",
+               it_state = R.drawable.state_shelter,
+               it_gender = R.drawable.gender_man,
+               it_date = "2020.06.12"
+               //it_place = "경기도 고양시"
+           ),
+           ListItem(
+               it_image = R.drawable.taepoong,
+               it_love = R.drawable.ic_love,
+               it_species = "말티즈",
+               it_age = "3살 추정",
+               it_state = R.drawable.state_shelter,
+               it_gender = R.drawable.gender_man,
+               it_date = "2020.06.12"
+               //it_place = "경기도 고양시"
+           ), ListItem(
+               it_image = R.drawable.taepoong2,
+               it_love = R.drawable.ic_love,
+               it_species = "말티즈",
+               it_age = "3살 추정",
+               it_state = R.drawable.state_shelter,
+               it_gender = R.drawable.gender_man,
+               it_date = "2020.06.12"
+               //it_place = "경기도 고양시"
+           ),
+           ListItem(
+               it_image = R.drawable.taepoong3,
+               it_love = R.drawable.ic_love,
+               it_species = "말티즈",
+               it_age = "3살 추정",
+               it_state = R.drawable.state_shelter,
+               it_gender = R.drawable.gender_man,
+               it_date = "2020.06.12"
+               //it_place = "경기도 고양시"
+           )
+       )
 
        //클릭 리스너 등록
 //       myadapter.setItemClickListener(object : Adapter.ItemClickListener{
