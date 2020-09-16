@@ -39,56 +39,44 @@ class fragment_like : Fragment(), View.OnClickListener{
         //리사이클러뷰 배치
         FLrecyclerview.layoutManager= GridLayoutManager(thiscontext,2)
 
-
-        mpadapter1.mp_data= arrayListOf(
-            ListItem(
-                it_image = R.drawable.taepoong3,
-                it_species = "말티즈",
-                it_age = 3,
-                it_status = R.drawable.state_shelter,
-                it_gender = R.drawable.gender_man,
-                it_date = "2020.06.12"
-            ),
-            ListItem(
-                it_image = R.drawable.taepoong2,
-                it_species = "말티즈",
-                it_age = 2,
-                it_status = R.drawable.state_shelter,
-                it_gender = R.drawable.gender_man,
-                it_date = "20200202"
-            ),  ListItem(
-                it_image = R.drawable.taepoong3,
-                it_species = "말티즈",
-                it_age = 3,
-                it_status = R.drawable.state_shelter,
-                it_gender = R.drawable.gender_man,
-                it_date = "2020.06.12"
-            ),
-            ListItem(
-                it_image = R.drawable.taepoong2,
-                it_species = "말티즈",
-                it_age = 2,
-                it_status = R.drawable.state_shelter,
-                it_gender = R.drawable.gender_man,
-                it_date = "20200202"
-            ),
-            ListItem(
-                it_image = R.drawable.taepoong3,
-                it_species = "말티즈",
-                it_age = 3,
-                it_status = R.drawable.state_shelter,
-                it_gender = R.drawable.gender_man,
-                it_date = "2020.06.12"
-            ),
-            ListItem(
-                it_image = R.drawable.taepoong2,
-                it_species = "말티즈",
-                it_age = 2,
-                it_status = R.drawable.state_shelter,
-                it_gender = R.drawable.gender_man,
-                it_date = "20200202"
-            )
-        )
+//        mpadapter1.mp_data= arrayListOf(
+//            ListItem(
+//                it_image = "1",
+//                it_species = "말티즈",
+//                it_age = "3",
+//                it_status = R.drawable.state_shelter,
+//                it_gender = "1",
+//                it_date = "2020.06.12"
+//            ), ListItem(
+//                it_image = "1",
+//                it_species = "말티즈",
+//                it_age = "3",
+//                it_status = R.drawable.state_shelter,
+//                it_gender = "1",
+//                it_date = "2020.06.12"
+//            ), ListItem(
+//                it_image = "1",
+//                it_species = "말티즈",
+//                it_age = "3",
+//                it_status = R.drawable.state_shelter,
+//                it_gender = "1",
+//                it_date = "2020.06.12"
+//            ), ListItem(
+//                it_image = "1",
+//                it_species = "말티즈",
+//                it_age = "3",
+//                it_status = R.drawable.state_shelter,
+//                it_gender = "1",
+//                it_date = "2020.06.12"
+//            ), ListItem(
+//                it_image = "1",
+//                it_species = "말티즈",
+//                it_age = "3",
+//                it_status = R.drawable.state_shelter,
+//                it_gender = "1",
+//                it_date = "2020.06.12"
+//            )
+//        )
 
         mpadapter1.notifyDataSetChanged()
 

@@ -10,7 +10,7 @@ import com.example.matdog.R
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     val dog_image: ImageView = view.findViewById(R.id.dog_image)
-    val love: ImageView = view.findViewById(R.id.love)
+    //val love: ImageView = view.findViewById(R.id.love)
     val species: TextView = view.findViewById(R.id.species)
     val gender: ImageView = view.findViewById(R.id.gender)
     val state: ImageView = view.findViewById(R.id.state)
@@ -24,19 +24,19 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             .load(data.it_image)
             .into(dog_image)
 
-        Glide.with(itemView)
-            .load(data.it_love)
-            .into(love)
+//        Glide.with(itemView)
+//            .load(data.it_love)
+//            .into(love)
 
         Glide.with(itemView)
             .load(data.it_gender)
             .into(gender)
 
         Glide.with(itemView)
-            .load(data.it_state)
+            .load(data.it_status)
             .into(state)
 
-        dog_age.text=data.it_age
+        dog_age.text=data.it_age.toString()
         species.text=data.it_species
         date.text=data.it_date
         //dog_place.text=data.it_place

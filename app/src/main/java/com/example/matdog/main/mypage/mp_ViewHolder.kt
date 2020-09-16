@@ -27,16 +27,22 @@ class mp_ViewHolder(view: View):RecyclerView.ViewHolder(view) {
             .into(mp_img)
 
         //성별
-        var dog_gender : Int=data.it_gender
-        if(dog_gender==0){
-            Glide.with(itemView)
-                .load(R.drawable.gender_man)
-                .into(mp_gender)
-        }else{
-            Glide.with(itemView)
-                .load(R.drawable.gender_woman)
-                .into(mp_gender)
-        }
+        //var dog_gender : Int =data.it_gender
+
+          Glide.with(itemView)
+            .load(data.it_gender)
+            .into(mp_gender)
+
+
+//        if(dog_gender==0){
+//            Glide.with(itemView)
+//                .load(R.drawable.gender_man)
+//                .into(mp_gender)
+//        }else{
+//            Glide.with(itemView)
+//                .load(R.drawable.gender_woman)
+//                .into(mp_gender)
+//        }
 
         //등록상태
         var register_state : Int=data.it_status

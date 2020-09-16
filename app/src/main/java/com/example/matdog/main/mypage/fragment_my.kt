@@ -39,55 +39,17 @@ class fragment_my : Fragment(), View.OnClickListener{
        FMrecyclerview.layoutManager= GridLayoutManager(thiscontext,2)
 
 
-       mpadapter2.mp_data= arrayListOf(
-           ListItem(
-               it_image = R.drawable.taepoong3,
-               it_species = "말티즈",
-               it_age = 3,
-               it_status = R.drawable.state_shelter,
-               it_gender = R.drawable.gender_man,
-               it_date = "2020.06.12"
-           ),
-           ListItem(
-               it_image = R.drawable.taepoong2,
-               it_species = "말티즈",
-               it_age = 2,
-               it_status = R.drawable.state_shelter,
-               it_gender = R.drawable.gender_man,
-               it_date = "20200202"
-           ),  ListItem(
-               it_image = R.drawable.taepoong3,
-               it_species = "말티즈",
-               it_age = 3,
-               it_status = R.drawable.state_shelter,
-               it_gender = R.drawable.gender_man,
-               it_date = "2020.06.12"
-           ),
-           ListItem(
-               it_image = R.drawable.taepoong2,
-               it_species = "말티즈",
-               it_age = 2,
-               it_status = R.drawable.state_shelter,
-               it_gender = R.drawable.gender_man,
-               it_date = "20200202"
-           ),
-           ListItem(
-                       it_image = R.drawable.taepoong3,
-               it_species = "말티즈",
-               it_age = 3,
-               it_status = R.drawable.state_shelter,
-               it_gender = R.drawable.gender_man,
-               it_date = "2020.06.12"
-           ),
-           ListItem(
-               it_image = R.drawable.taepoong2,
-               it_species = "말티즈",
-               it_age = 2,
-               it_status = R.drawable.state_shelter,
-               it_gender = R.drawable.gender_man,
-               it_date = "20200202"
-       )
-       )
+//       mpadapter2.mp_data= arrayListOf(
+//           ListItem(
+//               it_image = R.drawable.taepoong,
+//               it_species = "말티즈",
+//               it_age = 3,
+//               it_status = R.drawable.state_shelter,
+//               it_gender = 1,
+//               it_date = "2020.06.12"
+//           )
+//
+//       )
 
 
        //클릭 리스너 등록
