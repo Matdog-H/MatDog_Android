@@ -129,37 +129,4 @@ class Write_Miss_Activity : AppCompatActivity() {
         }
     }
 
-    /*
-    // 앨범 여러개
-    @SuppressLint("MissingSuperCall")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-            if (data == null) { // 앨범에서 뒤로가기를 눌렀을 때 data가 없기때문에 생기는 오류 잡아주기 위함
-                Log.d("1111111111","11111")
-            } else {
-              if (data.clipData == null) {
-                  Log.d("22222222222", "2222222222222222")
-                  Toast.makeText(this, "다중선택이 불가한 기기입니다.", Toast.LENGTH_LONG).show();
-              } else {
-                    val clipData = data.clipData
-                    Log.i("clipdata", Integer.toString(clipData!!.itemCount))
-                  Log.d("3333333","3333333333333")
-                    if (clipData.getItemCount() > 3) { // 사진 3장 이상 선택했을 때
-                        Toast.makeText(this, "사진은 3장까지 선택 가능합니다.", Toast.LENGTH_LONG).show();
-                    } else if (clipData.getItemCount() == 1) { // 사진 1장 선택했을 때
-                        picture_write1_miss.setImageURI(clipData.getItemAt(0).getUri()) // 사진 등록
-                    } else if (clipData.getItemCount() == 2) { // 사진 2장 선택했을 때
-                        picture_write1_miss.setImageURI(clipData.getItemAt(0).getUri()) // 사진 등록
-                        picture_write2_miss.setImageURI(clipData.getItemAt(1).getUri()) // 사진 등록
-                    }else if (clipData.getItemCount() == 3){ // 사진 3장 선택했을 때
-                        picture_write1_miss.setImageURI(clipData.getItemAt(0).getUri()) // 사진 등록
-                        picture_write2_miss.setImageURI(clipData.getItemAt(1).getUri()) // 사진 등록
-                        picture_write3_miss.setImageURI(clipData.getItemAt(2).getUri()) // 사진 등록
-                    }
-
-                }
-
-            }
-        }
-    }*/
 }
