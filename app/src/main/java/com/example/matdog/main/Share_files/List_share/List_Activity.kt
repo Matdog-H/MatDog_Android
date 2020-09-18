@@ -24,9 +24,9 @@ class List_Activity : AppCompatActivity() {
 
     //var state : String = intent.getStringExtra("state")
 
-    private var state0 : String? = null
-    private var state1 : String? = null
-    private var state2 : String? = null
+    private var state0 : String? = null // 보호소 리스트 - 분양공고등록
+    private var state1 : String? = null // 임시보호 리스트 - 실종공고등록
+    private var state2 : String? = null // 실종 리스트 - 임시보호공고등록
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

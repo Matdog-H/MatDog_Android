@@ -83,13 +83,13 @@ class LostCameraActivity : AppCompatActivity() {
 
         finddog.setOnClickListener{
             val i1 = Intent(this, List_Activity::class.java)
-            i1.putExtra("state1","1")
+            i1.putExtra("state1","1") // 임시보호 리스트로
             startActivity(i1)
         }
 
         findjuin.setOnClickListener{
             val i2 = Intent(this, List_Activity::class.java)
-            i2.putExtra("state2","2")
+            i2.putExtra("state2","2") // 실종 리스트로
             startActivity(i2)
         }
 

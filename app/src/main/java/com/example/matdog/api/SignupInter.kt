@@ -1,5 +1,4 @@
 package com.example.matdog.api
-import android.telecom.Call
 import com.google.gson.annotations.SerializedName
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -10,7 +9,6 @@ import retrofit2.http.POST
 //    fun requestSignUp(
 //        @Body signupRequest: SignupRequest
 //    ): Call<SignupResponse>
-//
 //}
 
 //요청
@@ -26,11 +24,11 @@ data class SignupRequest(
     @SerializedName("birth")
     val birth : String,
     @SerializedName("tel")
-    val tel : String,
+    val tel : String?,
     @SerializedName("email")
-    val email : String,
+    val email : String?,
     @SerializedName("dm")
-    val dm : String
+    val dm : String?
 )
 
 
@@ -38,5 +36,5 @@ data class SignupRequest(
 data class SignupResponse(
     val status: Int,
     val message: String,
-    val data: String
+    val data: String?
 )

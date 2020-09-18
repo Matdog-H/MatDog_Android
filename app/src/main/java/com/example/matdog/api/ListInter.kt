@@ -16,6 +16,28 @@ interface ListInter{
     fun listResponse_age(
         //@Header("authorization") key : String // 토큰값
     ): Call<ListResponse>
+
+    //임시보호
+    @GET("/program/allSpot")
+    fun listResponse_new_spot(
+        //@Header("authorization") key : String // 토큰값
+    ): Call<ListResponse>
+
+    @GET("/program/allSpotAge")
+    fun listResponse_age_spot(
+        //@Header("authorization") key : String // 토큰값
+    ): Call<ListResponse>
+
+    //실종
+    @GET("/program/allLost")
+    fun listResponse_new_lost(
+        //@Header("authorization") key : String // 토큰값
+    ): Call<ListResponse>
+
+    @GET("/program/allLostAge")
+    fun listResponse_age_lost(
+        //@Header("authorization") key : String // 토큰값
+    ): Call<ListResponse>
 }
 
 data class ListResponse(
