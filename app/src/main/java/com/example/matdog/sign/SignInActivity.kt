@@ -30,17 +30,12 @@ class SignInActivity : AppCompatActivity() {
             else if (pw.equals(""))
                 Toast.makeText(this,"비밀번호를 입력해주세요", Toast.LENGTH_LONG).show()
             else{
-                Log.v("1111111111","111111111")
                 val callLogin = UserServiceImpl.userService.requestSignIn(SigninRequest(id, pw))
 
-                Log.v("222222222","2222222")
                 callLogin.safeEnqueue(onResponse = {
-                    Log.v("3333333333","3333333333")
                     if(it.isSuccessful){
                         Toast.makeText(this, "로그인 성공", Toast.LENGTH_LONG)
-                        Log.v("4444444444","4444444444")
                         loginData=it.body()!!.data
-                        Log.v("5555555555","55555555")
                         SharedPreferenceController.setUserToken(this, loginData.token)
                         Log.v("token", loginData.token)
                         val login = Intent(this, MainActivity::class.java)
@@ -49,8 +44,6 @@ class SignInActivity : AppCompatActivity() {
 
                     }
                 })
-//                val intent = Intent(this, MainActivity::class.java)
-//                startActivity(intent)
             }
         }
 

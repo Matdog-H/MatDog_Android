@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
 
-    var check = 0
+    var check : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -33,23 +33,31 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.makeText(this,"아이디를 입력해주세요",Toast.LENGTH_LONG).show()
                 }
                 else{
-                    Log.v("1111","1111")
+
                    val callIdCheck = UserServiceImpl.IdCheckService.SignUpIdCheck(signup_id.getText().toString())
-                    Log.v("2222","2222")
+
                     callIdCheck.safeEnqueue {
-                        if(it.isSuccessful){
-                            Log.v("성공","성공")
-                            check =1
-                            Log.v("3333","33333")
-                            Toast.makeText(this, "사용 가능한 아이디입니다.", android.widget.Toast.LENGTH_LONG).show()
-                            Log.v("4444","4444")
-                        }
-                        else{
-                            Log.v("5555","5555")
-                            Toast.makeText(this, "이미 존재하는 아이디입니다. 다시 입력해주세요.", android.widget.Toast.LENGTH_LONG).show()
-                            check =0
+                        if(it.isSuccessful) {
+                            if (it.body()!!.status == 200) {
+                                check = 1
+                                Toast.makeText(
+                                    this,
+                                    "사용 가능한 아이디입니다.",
+                                    android.widget.Toast.LENGTH_LONG
+                                ).show()
+
+                            } else {
+
+                                Toast.makeText(
+                                    this,
+                                    "이미 존재하는 아이디입니다. 다시 입력해주세요.",
+                                    android.widget.Toast.LENGTH_LONG
+                                ).show()
+                                check = 0
+                            }
                         }
                     }
+
                 }
 
             }
@@ -88,10 +96,16 @@ class SignUpActivity : AppCompatActivity() {
             val tel : String?= signup_birth.getText().toString()
             val email : String? = signup_email.getText().toString()
             val dm : String? = signup_dm.getText().toString()
+            Log.v("아이디값", id)
+            Log.v("비밀번호값",pw)
+            Log.v("이름값", name)
+            Log.v("주소값",addr)
+            Log.v("생일",birth)
+            Log.v("전화번호",tel)
 
-            val telcheck : Int
-            val emailcheck : Int
-            val dmcheck : Int
+            var telcheck : Int = 0
+            var emailcheck : Int = 0
+            var dmcheck : Int = 0
 
             //개인정보 공개여부
             if(checkbox_phone.isChecked() === true){
@@ -145,15 +159,21 @@ class SignUpActivity : AppCompatActivity() {
                     if(checkbox_phone.isChecked()||checkbox_email.isChecked()||checkbox_dm.isChecked()) {
                         Log.v("1","1")
                         Log.v("id",id)
-                        val callSignup = UserServiceImpl.SignupService.requestSignUp(SignupRequest(id,pw,name,addr,birth,tel,telcheck,email,emailcheck,dm,dmcheck))
+
+                        val callSignup = UserServiceImpl.SignupService.requestSignUp(signupRequest = SignupRequest(id, pw, name, addr, birth, tel, telcheck, email, emailcheck, dm, dmcheck))
                         Log.v("2","2")
-                        callSignup.safeEnqueue(onResponse={
+
+
+                        callSignup.safeEnqueue {
                             if(it.isSuccessful){
+                                Log.v("callSignup", it.body().toString())
+                                Log.v("데이터베이스에러",callSignup.request().toString())
                                 Log.v("3","3")
+
                                 Toast.makeText(this, "가입이 완료되었습니다.", android.widget.Toast.LENGTH_LONG).show()
                                 finish()
                             }
-                        })
+                        }
                     }
                     else
                         Toast.makeText(this, "개인 정보를 선택해 주세요.", Toast.LENGTH_LONG).show()
