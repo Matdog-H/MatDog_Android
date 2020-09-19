@@ -14,8 +14,12 @@ object UserServiceImpl {
     val userService: UserService = retrofit.create(UserService::class.java)
     val ListService: ListInter = retrofit.create(ListInter::class.java)
     val SignupService: SignupInter = retrofit.create(SignupInter::class.java)
+
     val IdCheckService: IdCheckInter = retrofit.create(IdCheckInter::class.java)
     val EditMyService : EditMypageInter = retrofit.create(EditMypageInter::class.java)
+    val MyService : SearchMyDataInter= retrofit.create(SearchMyDataInter::class.java)
+    val MyListService : MyListInter= retrofit.create(MyListInter::class.java)
+
     val matchingDetailService : CallMatchingDetail = retrofit.create(CallMatchingDetail::class.java)
     val LikeStatusService : LikeStatus = retrofit.create(LikeStatus::class.java)
   }

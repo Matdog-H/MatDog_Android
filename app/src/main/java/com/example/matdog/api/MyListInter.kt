@@ -3,21 +3,17 @@ package com.example.matdog.api
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Header
 
 interface MyListInter{
-    // @GET("/program/allregister")
-    //    fun listResponse_new(
-    //        //@Header("authorization") key : String // 토큰값
-    //    ): Call<ListResponse>
-
     @GET("/user/likes")
     fun listResponse_mylike(
-        //@Header("authorization") key : String // 토큰값
+        @Header("authorization") key : String // 토큰값
     ): Call<My_ListResponse>
 
     @GET("/user/write")
     fun listResponse_mywrite(
-        //@Header("authorization") key : String // 토큰값
+        @Header("authorization") key : String // 토큰값
     ): Call<My_ListResponse>
 }
 

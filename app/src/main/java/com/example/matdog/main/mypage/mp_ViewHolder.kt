@@ -48,17 +48,17 @@ class mp_ViewHolder(view: View):RecyclerView.ViewHolder(view) {
 
         //등록상태
         var register_state : Int=data.it_status
-        if(register_state==0){
+        if(register_state==1){
             Glide.with(itemView)
                 .load(R.drawable.state_shelter)
                 .into(mp_state)
-        }else if(register_state==1){
+        }else if(register_state==2){
             Glide.with(itemView)
                 .load(R.drawable.state_missing)
                 .into(mp_state)
         }else{
             Glide.with(itemView)
-                .load(R.drawable.state_missing)
+                .load(R.drawable.state_protect)
                 .into(mp_state)
         }
 

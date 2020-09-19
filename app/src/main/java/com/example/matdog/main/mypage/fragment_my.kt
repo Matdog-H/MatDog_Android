@@ -10,21 +10,54 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
+import com.example.matdog.api.MyListAllData
+import com.example.matdog.api.SharedPreferenceController
+import com.example.matdog.api.UserServiceImpl
+import com.example.matdog.api.safeEnqueue
 import com.example.matdog.main.Share_files.Recyclerview_share.rv_Adapter
 import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
 import com.example.matdog.main.dog_protect.Detail_Protect_Activity
 
 
 class fragment_my : Fragment(), View.OnClickListener{
-
+    private var token : String = ""
     private lateinit var  FMrecyclerview : RecyclerView
     private var mpadapter2: mp_Adapter = mp_Adapter(R.layout.list_item)
+    var mp_datalist = ArrayList<ArrayList<ListItem>>()
 
    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var mylistview= inflater.inflate(R.layout.my_list, container, false)
         var thiscontext = container!!.getContext()
 
 
+       //--------server---------
+        token = SharedPreferenceController.getUserToken(thiscontext)
+        val callmypost = UserServiceImpl.MyListService.listResponse_mywrite(token)
+       callmypost.safeEnqueue {
+           if(it.isSuccessful) {
+               val myPost = it.body()!!.mylistdata
+               var my_write_List = arrayListOf<ListItem>()
+               for (i in 0 until myPost.size) {
+                   my_write_List.add(
+                       ListItem(
+                           it_species = myPost[i].kindCd,
+                           it_status = myPost[i].registerStatus,
+                           it_gender = myPost[i].sexCd,
+                           it_age = myPost[i].age,
+                           it_date = myPost[i].happenDt,
+                           it_image = myPost[i].filename
+                       )
+                   )
+               }
+
+               mpadapter2.mp_data = my_write_List
+               mpadapter2.notifyDataSetChanged()
+               mp_datalist.add(mpadapter2.mp_data)
+
+           }
+       }
+
+       //--------server---------
        FMrecyclerview = mylistview.findViewById(R.id.ml_recyclerview)
 
        //this로 현재 context 전달

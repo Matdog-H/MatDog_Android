@@ -3,12 +3,13 @@ package com.example.matdog.api
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.PUT
 
 interface EditMypageInter{
     @PUT("/user")
         fun requsetEditmyData(
-        //@Header("authorization") key : String // 토큰값
+        @Header("authorization") key : String, // 토큰값
         @Body editmydataRequest : EditMyDataRequest
     ): Call<EditMydataResponse>
 }
@@ -42,7 +43,7 @@ data class EditMydataResponse(
     @SerializedName("message")
     val message : String,
     @SerializedName("data")
-    val edited_mydata: List<MyEditData>
+    val edited_mydata: MyEditData
 )
 
 data class MyEditData(

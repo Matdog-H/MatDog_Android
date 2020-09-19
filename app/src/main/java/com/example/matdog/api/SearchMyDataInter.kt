@@ -3,11 +3,12 @@ package com.example.matdog.api
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Header
 
 interface SearchMyDataInter{
     @GET("/user/my")
     fun Search_mydata(
-        //@Header("authorization") key : String // 토큰값
+        @Header("authorization") key : String // 토큰값
     ): Call<MydataResponse>
 }
 
@@ -17,7 +18,7 @@ data class MydataResponse(
     @SerializedName("message")
     val message : String,
     @SerializedName("data")
-    val mydata: List<MyData>
+    val mydata: MyData
 )
 
 data class MyData(
