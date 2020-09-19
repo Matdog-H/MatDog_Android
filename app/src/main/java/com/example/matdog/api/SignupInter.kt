@@ -1,6 +1,6 @@
 package com.example.matdog.api
-import android.telecom.Call
 import com.google.gson.annotations.SerializedName
+import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
@@ -15,27 +15,27 @@ interface SignupInter{
 
 //요청
 data class SignupRequest(
-    @SerializedName("id")
+    @SerializedName("id") //아이디
     val id : String,
-    @SerializedName("pw")
+    @SerializedName("pw") //비밀번호
     val pw : String,
-    @SerializedName("name")
+    @SerializedName("name") //이름
     val name : String,
-    @SerializedName("addr")
+    @SerializedName("addr") //주소
     val addr : String,
-    @SerializedName("birth")
+    @SerializedName("birth") //생년월일
     val birth : String,
-    @SerializedName("tel")
-    val tel : String,
-    @SerializedName("telcheck")
+    @SerializedName("tel") //전화번호
+    val tel : String?,
+    @SerializedName("telcheck") //전화번호 공개여부
     val telcheck : Int,
-    @SerializedName("email")
-    val email : String,
-    @SerializedName("emailcheck")
+    @SerializedName("email") //이메일
+    val email : String?,
+    @SerializedName("emailcheck") //이메일 공개여부
     val emailcheck : Int,
-    @SerializedName("dm")
-    val dm : String,
-    @SerializedName("dmcheck")
+    @SerializedName("dm") //DM
+    val dm : String?,
+    @SerializedName("dmcheck") //DM 공개여부
     val dmcheck : Int
 )
 
