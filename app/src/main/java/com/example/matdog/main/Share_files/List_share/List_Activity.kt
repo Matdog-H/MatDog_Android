@@ -22,8 +22,6 @@ import kotlinx.android.synthetic.main.activity_list.*
 
 class List_Activity : AppCompatActivity() {
 
-    //var state : String = intent.getStringExtra("state")
-
     private var state0 : String? = null // 보호소 리스트 - 분양공고등록
     private var state1 : String? = null // 임시보호 리스트 - 실종공고등록
     private var state2 : String? = null // 실종 리스트 - 임시보호공고등록
@@ -32,16 +30,18 @@ class List_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        state0 = intent.getStringExtra("state0")
+        state1 = intent.getStringExtra("state1")
+        state2 = intent.getStringExtra("state2")
 
-        val fragmentAdapter =
-            ViewPager_Shelter_Adapter(
-                supportFragmentManager
-            )
-        list_viewPager.adapter = fragmentAdapter
-        list_tablayout.setupWithViewPager(list_viewPager)
+        if(state1.isNullOrBlank() && state2.isNullOrBlank())
+            list_change(0)
+        else if(state0.isNullOrBlank() && state2.isNullOrBlank())
+            list_change(1)
+        else
+            list_change(2)
 
         init()
-        list_change()
 
     }
 
@@ -81,18 +81,21 @@ class List_Activity : AppCompatActivity() {
         }
     }
 
-    private fun list_change() {
+    private fun list_change(state_result : Int) {
 
-        state0 = intent.getStringExtra("state0")
-        state1 = intent.getStringExtra("state1")
-        state2 = intent.getStringExtra("state2")
+        val fragmentAdapter =
+            ViewPager_Shelter_Adapter(
+                supportFragmentManager, state_result // 상태값에 따라 서버연결 리스트가 변하도록
+            )
+        list_viewPager.adapter = fragmentAdapter
+        list_tablayout.setupWithViewPager(list_viewPager)
 
-
+        // 글등록 버튼
         btn_write.setOnClickListener {
-             if (state1.isNullOrBlank() && state2.isNullOrBlank()) {
+             if (state_result==0) {
                 val intent1 = Intent(this, Write_Shelter_Activity::class.java)
                 startActivity(intent1)
-            } else if (state0.isNullOrBlank() && state2.isNullOrBlank()) {
+            } else if (state_result==1) {
                  val intent2 = Intent(this, Write_Miss_Activity::class.java)
                 startActivity(intent2)
             } else {
@@ -103,4 +106,5 @@ class List_Activity : AppCompatActivity() {
         }
 
     }
+
 }

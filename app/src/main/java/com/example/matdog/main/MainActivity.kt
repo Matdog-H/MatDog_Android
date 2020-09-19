@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
         btn_list.setOnClickListener{
             val intent = Intent(this@MainActivity, List_Activity::class.java)
+            intent.putExtra("state0","0") //보호소 리스트로
             startActivity(intent)
         }
         btn_mypage.setOnClickListener{

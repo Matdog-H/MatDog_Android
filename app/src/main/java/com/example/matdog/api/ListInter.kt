@@ -46,7 +46,7 @@ data class ListResponse(
     @SerializedName("message")
     val message: String,
     @SerializedName("data")
-    val listdata: List<ListAllData>
+    val listdata: ArrayList<ListAllData>
 )
 
 data  class ListAllData(
@@ -65,5 +65,5 @@ data  class ListAllData(
     @SerializedName("happenDt")
     val happenDt : String,
     @SerializedName("filename")
-    val filename : String
+    val filename : String?
 )

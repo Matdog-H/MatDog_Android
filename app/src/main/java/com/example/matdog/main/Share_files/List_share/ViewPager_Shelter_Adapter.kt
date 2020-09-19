@@ -2,13 +2,16 @@ package com.example.matdog.main.Share_files.List_share
 
 import androidx.fragment.app.*
 
-class ViewPager_Shelter_Adapter(fm : FragmentManager): FragmentStatePagerAdapter(fm){
+class ViewPager_Shelter_Adapter(fm : FragmentManager, forStatus: Int): FragmentStatePagerAdapter(fm){
+    // List_Activity에서 받아온 상태값
+    private var data = forStatus
+
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                Fragment_Shelter_New()
+                Fragment_Shelter_New(data)
             }
-            else -> {return Fragment_Shelter_Age()
+            else -> {return Fragment_Shelter_Age(data)
             }
         }
 

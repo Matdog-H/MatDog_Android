@@ -6,5 +6,5 @@ data class ListItem (
     val it_gender:String,
     val it_age : String,
     val it_date: String,
-    val it_image: String
+    val it_image: String?
 )

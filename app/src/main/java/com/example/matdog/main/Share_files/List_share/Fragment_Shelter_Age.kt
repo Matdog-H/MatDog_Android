@@ -15,9 +15,13 @@ import com.example.matdog.api.safeEnqueue
 import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
 import com.example.matdog.main.Share_files.Recyclerview_share.rv_Adapter
 import com.example.matdog.main.dog_miss.Detail_Miss_Activity
+import kotlinx.android.synthetic.main.activity_fragment_age.*
 
 
-class Fragment_Shelter_Age : Fragment(), View.OnClickListener {
+class Fragment_Shelter_Age(i:Int) : Fragment(), View.OnClickListener {
+
+    // 뷰페이저 어댑터에서 받아온 상태값
+    private var status_list_age = i
 
     private lateinit var FArecyclerview: RecyclerView
     var myadapter2: rv_Adapter = rv_Adapter(R.layout.list_item)
@@ -33,40 +37,80 @@ class Fragment_Shelter_Age : Fragment(), View.OnClickListener {
 
         //-------server-----------------------------------------
         val callAgeList = UserServiceImpl.ListService.listResponse_age()
+        val callAgeList_Spot = UserServiceImpl.ListService.listResponse_age_spot() // 임시보호 : 1
+        val callAgeList_Lost = UserServiceImpl.ListService.listResponse_age_lost() // 실종 : 2
 
-        callAgeList.safeEnqueue {
-            if(it.isSuccessful){
-                //추후에 내부에서 status값에 따라 분리하는 코드 작성 요함.
-                val myData = it.body()!!.listdata
-                Log.v("myData의 사이즈 체크", myData.size.toString())
-                var List_age = arrayListOf<ListItem>()
-                for(i in 0 until myData.size) {
-                    List_age.add(
-                        ListItem(
-                            it_species = myData[i].kindCd,
-                            it_status = myData[i].registerStatus,
-                            it_gender = myData[i].sexCd,
-                            it_age = myData[i].age,
-                            it_date = myData[i].happenDt,
-                            it_image = myData[i].filename
+        //리스트 띄우기
+        if(status_list_age==0) {
+            callAgeList.safeEnqueue {
+                if (it.isSuccessful) {
+                    val myData = it.body()!!.listdata
+                    var List_age = arrayListOf<ListItem>()
+                    for (i in 0 until myData.size) {
+                        List_age.add(
+                            ListItem(
+                                it_species = myData[i].kindCd,
+                                it_status = myData[i].registerStatus,
+                                it_gender = myData[i].sexCd,
+                                it_age = myData[i].age,
+                                it_date = myData[i].happenDt,
+                                it_image = myData[i].filename
+                            )
                         )
-                    )
-                    Log.v("item값 체크하기",myData[i].happenDt)
+                    }
+                    myadapter2.data = List_age
+                    myadapter2.notifyDataSetChanged()
+                    rv_datalist.add(myadapter2.data)
                 }
-                myadapter2.data = List_age
-                myadapter2.notifyDataSetChanged()
-                Log.v("내용체크체크체크체크체크체크체크",myadapter2.data.toString())
-                // 에러날 것 같은 부분 ※
-                rv_datalist.add(myadapter2.data)
-                Log.v("rv_datalist 데이터 갯수확인하기",rv_datalist.toString())
+            }
+        } else if(status_list_age==1){
+            callAgeList_Spot.safeEnqueue {
+                if (it.isSuccessful) {
+                    val myData = it.body()!!.listdata
+                    var List_age_spot = arrayListOf<ListItem>()
+                    for (i in 0 until myData.size) {
+                        List_age_spot.add(
+                            ListItem(
+                                it_species = myData[i].kindCd,
+                                it_status = myData[i].registerStatus,
+                                it_gender = myData[i].sexCd,
+                                it_age = myData[i].age,
+                                it_date = myData[i].happenDt,
+                                it_image = myData[i].filename
+                            )
+                        )
+                    }
+                    myadapter2.data = List_age_spot
+                    myadapter2.notifyDataSetChanged()
+                    rv_datalist.add(myadapter2.data)
+                }
+            }
+        } else {
+            callAgeList_Lost.safeEnqueue {
+                if (it.isSuccessful) {
+                    val myData = it.body()!!.listdata
+                    var List_age_lost = arrayListOf<ListItem>()
+                    for (i in 0 until myData.size) {
+                        List_age_lost.add(
+                            ListItem(
+                                it_species = myData[i].kindCd,
+                                it_status = myData[i].registerStatus,
+                                it_gender = myData[i].sexCd,
+                                it_age = myData[i].age,
+                                it_date = myData[i].happenDt,
+                                it_image = myData[i].filename
+                            )
+                        )
+                    }
+                    myadapter2.data = List_age_lost
+                    myadapter2.notifyDataSetChanged()
+                    rv_datalist.add(myadapter2.data)
+                }
             }
         }
         
         //----------------------------------------------------------
         FArecyclerview = view.findViewById(R.id.fa_recyclerview)
-
-        //this로 현재 context 전달
-        //myadapter=Adapter(thiscontext,listAllData)
 
         myadapter2.onItemClick(this)
 
