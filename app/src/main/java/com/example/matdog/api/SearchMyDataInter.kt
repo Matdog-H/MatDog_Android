@@ -2,32 +2,25 @@ package com.example.matdog.api
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.GET
 
-//회원가입
-interface IdCheckInter{
-    //아이디 중복 체크
-    @POST("/user/check/{id}")
-    fun SignUpIdCheck(
+interface SearchMyDataInter{
+    @GET("/user/my")
+    fun Search_mydata(
         //@Header("authorization") key : String // 토큰값
-        @Path("id") id:String
-    ): Call<IdCheckResponse>
+    ): Call<MydataResponse>
 }
 
-
-//아이디 중복 검사
-data class IdCheckResponse(
+data class MydataResponse(
     @SerializedName("status")
     val status : Int,
     @SerializedName("message")
-    val message : String
-//    @SerializedName("data")
-//    val signupdata: SignupData
+    val message : String,
+    @SerializedName("data")
+    val mydata: List<MyData>
 )
 
-data  class SignupData(
+data class MyData(
     @SerializedName("userIdx")
     val userIdx : Int,
     @SerializedName("id")
@@ -53,4 +46,3 @@ data  class SignupData(
     @SerializedName("dmcheck")
     val dmcheck : Int
 )
-

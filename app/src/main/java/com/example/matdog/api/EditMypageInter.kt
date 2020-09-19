@@ -3,31 +3,49 @@ package com.example.matdog.api
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.PUT
 
-//회원가입
-interface IdCheckInter{
-    //아이디 중복 체크
-    @POST("/user/check/{id}")
-    fun SignUpIdCheck(
+interface EditMypageInter{
+    @PUT("/user")
+        fun requsetEditmyData(
         //@Header("authorization") key : String // 토큰값
-        @Path("id") id:String
-    ): Call<IdCheckResponse>
+        @Body editmydataRequest : EditMyDataRequest
+    ): Call<EditMydataResponse>
 }
 
+data class EditMyDataRequest(
+    @SerializedName("name")
+    val name : String,
+    @SerializedName("addr")
+    val addr : String,
+    @SerializedName("birth")
+    val birth : String,
+    @SerializedName("tel")
+    val tel : String,
+    @SerializedName("email")
+    val email : String,
+    @SerializedName("dm")
+    val dm : String,
+    @SerializedName("telcheck")
+    val telcheck : Int,
+    @SerializedName("emailcheck")
+    val emailcheck : Int,
+    @SerializedName("dmcheck")
+    val dmcheck : Int
 
-//아이디 중복 검사
-data class IdCheckResponse(
+
+)
+
+data class EditMydataResponse(
     @SerializedName("status")
     val status : Int,
     @SerializedName("message")
-    val message : String
-//    @SerializedName("data")
-//    val signupdata: SignupData
+    val message : String,
+    @SerializedName("data")
+    val edited_mydata: List<MyEditData>
 )
 
-data  class SignupData(
+data class MyEditData(
     @SerializedName("userIdx")
     val userIdx : Int,
     @SerializedName("id")
@@ -53,4 +71,3 @@ data  class SignupData(
     @SerializedName("dmcheck")
     val dmcheck : Int
 )
-
