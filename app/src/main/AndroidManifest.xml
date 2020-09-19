@@ -3,6 +3,7 @@
     package="com.example.matdog">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -10,6 +11,7 @@
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
+    -
 
     <application
         android:allowBackup="true"
@@ -53,7 +55,8 @@
         <!--dog_shelter-->
         <activity android:name=".main.dog_shelter.Detail_Shelter_Activity">
         </activity>
-        <activity android:name=".main.dog_shelter.Write_Shelter_Activity" />
+        <activity android:name=".main.dog_shelter.Write_Shelter_Activity">
+        </activity>
 
         <!--mypage-->
         <activity android:name=".main.mypage.MyPageActivity" />
