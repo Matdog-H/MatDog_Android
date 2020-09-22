@@ -27,6 +27,15 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         // -----------server--------------
+
+//        val callAgeList = UserServiceImpl.ListService.listResponse_age()
+//        callAgeList.safeEnqueue {
+//            if(it.isSuccessful){
+//                val data = it.body()!!.listdata
+//                registerIdx = data.registerIdx
+//            }
+//        }
+
         token = SharedPreferenceController.getUserToken(this)
         val callDetail = UserServiceImpl.matchingDetailService.matchingDetailResponse(
             token = token,
