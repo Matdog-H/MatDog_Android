@@ -271,9 +271,9 @@
                 app:layout_constraintEnd_toEndOf="@id/view3" />
 
 
-            <!-- 잃어버린 날짜 -->
+            <!-- 잃어버린 장소 -->
             <EditText
-                android:id="@+id/edtmissday_miss"
+                android:id="@+id/edtmissplace_miss"
                 android:layout_width="250dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="89dp"
@@ -291,7 +291,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtmissday_miss" />
+                app:layout_constraintTop_toBottomOf="@id/edtmissplace_miss" />
 
             <TextView
                 android:layout_width="125dp"
@@ -301,12 +301,12 @@
                 android:text="잃어버린 장소"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtmissday_miss"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissplace_miss"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
-            <!-- 잃어버린 장소 -->
+            <!-- 잃어버린 날짜-->
             <EditText
-                android:id="@+id/edtmissplace_miss"
+                android:id="@+id/edtmissday_miss"
                 android:layout_width="250dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="140dp"
@@ -324,7 +324,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtmissplace_miss" />
+                app:layout_constraintTop_toBottomOf="@id/edtmissday_miss" />
 
             <TextView
                 android:layout_width="125dp"
@@ -334,7 +334,7 @@
                 android:text="잃어버린 날짜"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtmissplace_miss"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissday_miss"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
 
