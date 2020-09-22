@@ -23,9 +23,9 @@ class rv_ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             .load(data.it_image)
             .into(dog_image)
 
-        Glide.with(itemView)
-            .load(R.drawable.gender_man)
-            .into(list_gender)
+//        Glide.with(itemView)
+//            .load(R.drawable.gender_man)
+//            .into(list_gender)
         var gender : String = data.it_gender
         if(gender == "M" || gender == "1"){
             Glide.with(itemView)
@@ -37,14 +37,14 @@ class rv_ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                 .into(list_gender)
         }
 
-        //추후에 0,1,2에 따른 상황 수정필요
+
         var registerStatus : Int = data.it_status
-        if(registerStatus==0){
+        if(registerStatus==1){
             Glide.with(itemView)
                 .load(R.drawable.state_shelter)
                 .into(state)
         }
-        else if(registerStatus==1){
+        else if(registerStatus==2){
             Glide.with(itemView)
                 .load(R.drawable.state_missing)
                 .into(state)

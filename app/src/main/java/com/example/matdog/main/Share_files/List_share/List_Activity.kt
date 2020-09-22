@@ -22,27 +22,35 @@ import kotlinx.android.synthetic.main.activity_list.*
 
 class List_Activity : AppCompatActivity() {
 
-    private var state0 : String? = null // 보호소 리스트 - 분양공고등록
-    private var state1 : String? = null // 임시보호 리스트 - 실종공고등록
-    private var state2 : String? = null // 실종 리스트 - 임시보호공고등록
+    //var array_status = arrayOfNulls<Int>(9)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
-        state0 = intent.getStringExtra("state0")
-        state1 = intent.getStringExtra("state1")
-        state2 = intent.getStringExtra("state2")
+        var a1 = intent.getStringExtra("state0") // 보호소 리스트 - 분양공고등록
+        var a2 = intent.getStringExtra("state1") // 임시보호 리스트 - 실종공고등록
+        var a3 = intent.getStringExtra("state2") // 실종 리스트 - 임시보호공고등록
+        var a4 = intent.getStringExtra("state3") // 보호소 리스트 - 품종결과
+        var a5 = intent.getStringExtra("state4") // 임시보호 리스트 - 품종결과
+        var a6 = intent.getStringExtra("state5") // 실종 리스트 - 품종결과
+        var a7 = intent.getStringExtra("state6") // 보호소 리스트 - 검색
+        var a8 = intent.getStringExtra("state7") // 임시보호 리스트 -검색
+        var a9 = intent.getStringExtra("state8") // 실종 리스트 - 검색
 
-        if(state1.isNullOrBlank() && state2.isNullOrBlank())
-            list_change(0)
-        else if(state0.isNullOrBlank() && state2.isNullOrBlank())
-            list_change(1)
-        else
-            list_change(2)
+        var array_status= arrayOf(
+            a1,a2,a3,a4,a5,a6,a7,a8,a9
+        )
+
+        for (i in 0 until array_status.size){
+            if(array_status[i].isNullOrBlank()){}
+            else{
+                list_change(i)
+                break
+            }
+        }
 
         init()
-
     }
 
     // 버튼 클릭 관련 함수
@@ -92,10 +100,10 @@ class List_Activity : AppCompatActivity() {
 
         // 글등록 버튼
         btn_write.setOnClickListener {
-             if (state_result==0) {
+             if (state_result==0 || state_result==3 || state_result==6) {
                 val intent1 = Intent(this, Write_Shelter_Activity::class.java)
                 startActivity(intent1)
-            } else if (state_result==1) {
+            } else if (state_result==1 || state_result==4 || state_result==7) {
                  val intent2 = Intent(this, Write_Miss_Activity::class.java)
                 startActivity(intent2)
             } else {
