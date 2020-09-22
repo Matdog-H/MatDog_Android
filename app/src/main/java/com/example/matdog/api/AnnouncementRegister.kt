@@ -69,6 +69,16 @@ interface AnnouncementRegister{
     ): Call<RegisterResponseProtect>
 }
 
+// 일반(보호소) 공고 응답
+data class RegisterResponse(
+    @SerializedName("status")
+    val status: Int,
+    @SerializedName("message")
+    val message: String,
+    @SerializedName("data")
+    val RegisterRequest: RegisterRequest
+)
+
 // 일반(보호소) 공고 등록 요청
 data class RegisterRequest(
     @SerializedName("registerStatus") //공고 상태값
@@ -101,14 +111,15 @@ data class RegisterRequest(
     val dogimg: String?
 )
 
-// 일반(보호소) 공고 응답
-data class RegisterResponse(
+
+// 실종 공고 응답
+data class RegisterResponseMiss(
     @SerializedName("status")
     val status: Int,
     @SerializedName("message")
     val message: String,
     @SerializedName("data")
-    val RegisterRequest: RegisterRequest
+    val RegisterRequestMiss: RegisterRequestMiss
 )
 
 // 실종 공고 등록 요청
@@ -141,14 +152,14 @@ data class RegisterRequestMiss(
     val dogimg : String?
 )
 
-// 실종 공고 응답
-data class RegisterResponseMiss(
+// 임시보호 공고 응답
+data class RegisterResponseProtect(
     @SerializedName("status")
     val status: Int,
     @SerializedName("message")
     val message: String,
     @SerializedName("data")
-    val RegisterRequestMiss: RegisterRequestMiss
+    val RegisterRequestProtect: RegisterRequestProtect
 )
 
 // 임시보호 공고 등록 요청
@@ -181,14 +192,4 @@ data class RegisterRequestProtect(
     val dm : String?,
     @SerializedName("dogimg") //공고 등록 강아지 사진
     val dogimg : String?
-)
-
-// 임시보호 공고 응답
-data class RegisterResponseProtect(
-    @SerializedName("status")
-    val status: Int,
-    @SerializedName("message")
-    val message: String,
-    @SerializedName("data")
-    val RegisterRequestProtect: RegisterRequestProtect
 )

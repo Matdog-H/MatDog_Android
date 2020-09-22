@@ -287,7 +287,6 @@
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginStart="30dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintStart_toStartOf="@id/imformation"
@@ -304,16 +303,16 @@
                 app:layout_constraintBottom_toBottomOf="@id/edtplace_protect"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
-            <CheckBox
-                android:id="@+id/checkbox_edtplace_protect"
-                android:layout_width="30dp"
-                android:layout_height="25dp"
-                app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintBottom_toBottomOf="@id/edtplace_protect" />
+<!--            <CheckBox-->
+<!--                android:id="@+id/checkbox_edtplace_protect"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                app:layout_constraintStart_toStartOf="@id/imformation"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/edtplace_protect" />-->
 
-            <!-- 잃어버린 날짜 -->
+            <!-- 발견한 장소 -->
             <EditText
-                android:id="@+id/edtmissday_protect"
+                android:id="@+id/edtmissplace_protect"
                 android:layout_width="250dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="140dp"
@@ -331,7 +330,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtmissday_protect" />
+                app:layout_constraintTop_toBottomOf="@id/edtmissplace_protect" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -342,12 +341,12 @@
                 android:text="발견한 장소"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtmissday_protect"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissplace_protect"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
-            <!-- 잃어버린 장소 -->
+            <!-- 발견한 날짜 -->
             <EditText
-                android:id="@+id/edtmissplace_protect"
+                android:id="@+id/edtmissday_protect"
                 android:layout_width="250dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="188dp"
@@ -365,7 +364,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtmissplace_protect" />
+                app:layout_constraintTop_toBottomOf="@id/edtmissday_protect" />
 
             <TextView
                 android:layout_width="125dp"
@@ -375,7 +374,7 @@
                 android:text="발견한 날짜"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtmissplace_protect"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissday_protect"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
 

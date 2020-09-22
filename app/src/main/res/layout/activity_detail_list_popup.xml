@@ -25,25 +25,25 @@
         android:textSize="15dp"
         android:textColor="#f87575"
         android:text="Tel)"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginRight="200dp"
         />
 
     <EditText
         android:id="@+id/list_popup_tel"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/tv_tel"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_tel"
         android:layout_marginLeft="5dp"
-        android:backgroundTint = "#d2d2d2"
+        android:backgroundTint="#d2d2d2"
+        android:maxLength="15"
+        android:maxLines="1"
         android:textColor="#686666"
         android:textSize="15dp"
-        android:maxLines="1"
-        android:maxLength="15"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_tel"
+        app:layout_constraintLeft_toRightOf="@+id/tv_tel"
+        app:layout_constraintTop_toTopOf="@+id/tv_tel" />
 
 
     <TextView
@@ -53,26 +53,26 @@
         android:textSize="15dp"
         android:textColor="#f87575"
         android:text="Email)"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="120dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginRight="200dp"
         />
 
     <EditText
         android:id="@+id/list_popup_email"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/tv_email"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_email"
         android:layout_marginLeft="5dp"
-        android:backgroundTint = "#d2d2d2"
+        android:backgroundTint="#d2d2d2"
+        android:ellipsize="end"
+        android:maxLength="30"
+        android:maxLines="1"
         android:textColor="#686666"
         android:textSize="15dp"
-        android:maxLines="1"
-        android:maxLength="30"
-        android:ellipsize="end"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_email"
+        app:layout_constraintLeft_toRightOf="@+id/tv_email"
+        app:layout_constraintTop_toTopOf="@+id/tv_email" />
 
     <TextView
         android:id="@+id/tv_dm"
@@ -81,10 +81,10 @@
         android:textSize="15dp"
         android:textColor="#f87575"
         android:text="DM)"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="160dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginRight="200dp"
 
         />
 
@@ -92,14 +92,14 @@
         android:id="@+id/list_popup_dm"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/tv_dm"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_dm"
         android:layout_marginLeft="5dp"
-        android:backgroundTint = "#d2d2d2"
+        android:backgroundTint="#d2d2d2"
         android:textColor="#686666"
         android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dm"
+        app:layout_constraintLeft_toRightOf="@+id/tv_dm"
 
-        />
+        app:layout_constraintTop_toTopOf="@+id/tv_dm" />
 
     <TextView
         android:layout_width="wrap_content"
