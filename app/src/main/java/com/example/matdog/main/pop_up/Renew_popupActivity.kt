@@ -1,5 +1,6 @@
 package com.example.matdog.main.pop_up
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,17 +19,19 @@ class Renew_popupActivity : AppCompatActivity() {
         popup_editbutton.setOnClickListener(View.OnClickListener {
             //수정
             // editText란이 하나라도 정보가 기입되지 않은 경우 토스트 띄우기
-            var tel = list_popup_tel.text.toString()
-            var email = list_popup_email.text.toString()
-            var dm = list_popup_dm.text.toString()
+            var tel : String? = list_popup_tel.text.toString()
+            var email:String? = list_popup_email.text.toString()
+            var dm : String? = list_popup_dm.text.toString()
 
-            if(tel.equals(""))
-                Toast.makeText(this, "모든 연락정보를 입력해주세요.", Toast.LENGTH_LONG).show()
-            else if(email.equals(""))
-                Toast.makeText(this, "모든 연락정보를 입력해주세요.", Toast.LENGTH_LONG).show()
-            else if (dm.equals(""))
-                Toast.makeText(this, "모든 연락정보를 입력해주세요.", Toast.LENGTH_LONG).show()
-            else finish()
+            if(tel.equals("") && email.equals("") && dm.equals(""))
+                Toast.makeText(this, "연락정보를 하나이상 입력해주세요.", Toast.LENGTH_LONG).show()
+            else { // 데이터전달
+                val intent = Intent()
+                intent.putExtra("tel", tel)
+                intent.putExtra("email", email)
+                intent.putExtra("dm", dm)
+                finish()
+            }
         })
     }
 
