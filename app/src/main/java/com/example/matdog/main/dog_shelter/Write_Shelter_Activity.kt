@@ -21,8 +21,6 @@ import android.os.Bundle
 import android.util.Log
 import android.util.SparseIntArray
 import android.widget.Toast
-import androidx.core.net.toFile
-import com.bumptech.glide.Glide
 import com.example.matdog.R
 import com.example.matdog.api.*
 import com.example.matdog.main.pop_up.Renew_popupActivity
@@ -113,75 +111,86 @@ class Write_Shelter_Activity : AppCompatActivity() {
 
         btn_okwrite.setOnClickListener { // 등록하기 버튼 눌렀을 때
 
-            // ---------- 데이터저장------------
-            var kindCd = RequestBody.create(MediaType.parse("text/plain"),species_name.getText().toString()) // 종
-            var sexCd_rb = RequestBody.create(MediaType.parse("text/plain"),sexCd)  //성별
-            var neuterYn_rb= RequestBody.create(MediaType.parse("text/plain"),neuterYn) //중성화여부
-            var weight = RequestBody.create(MediaType.parse("text/plain"),edtweight.getText().toString()) // 몸무게
-            var age = RequestBody.create(MediaType.parse("text/plain"),edtyear.getText().toString()) // 나이
-            var orgNm = RequestBody.create(MediaType.parse("text/plain"),edtShlter.getText().toString()) // 관할기관
-            var careAddr = RequestBody.create(MediaType.parse("text/plain"),edtplace.getText().toString()) // 보호장소
+            if(species_name.getText().toString().equals(""))
+                Toast.makeText(this, "종을 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtweight.getText().toString().equals(""))
+                Toast.makeText(this, "몸무게를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtyear.getText().toString().equals(""))
+                Toast.makeText(this, "나이를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtplace.getText().toString().equals(""))
+                Toast.makeText(this, "보호장소를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtShlter.getText().toString().equals(""))
+                Toast.makeText(this, "관할기관을 입력해주세요.", Toast.LENGTH_LONG).show()
+            else{
+                // ---------- 데이터저장------------
+                var kindCd = RequestBody.create(MediaType.parse("text/plain"),species_name.getText().toString()) // 종
+                var sexCd_rb = RequestBody.create(MediaType.parse("text/plain"),sexCd)  //성별
+                var neuterYn_rb= RequestBody.create(MediaType.parse("text/plain"),neuterYn) //중성화여부
+                var weight = RequestBody.create(MediaType.parse("text/plain"),edtweight.getText().toString()) // 몸무게
+                var age = RequestBody.create(MediaType.parse("text/plain"),edtyear.getText().toString()) // 나이
+                var orgNm = RequestBody.create(MediaType.parse("text/plain"),edtShlter.getText().toString()) // 관할기관
+                var careAddr = RequestBody.create(MediaType.parse("text/plain"),edtplace.getText().toString()) // 보호장소
 
-            // 등록일
-            val now = LocalDateTime.now()
-            val happenDt = RequestBody.create(MediaType.parse("text/plain"),now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+                // 등록일
+                val now = LocalDateTime.now()
+                val happenDt = RequestBody.create(MediaType.parse("text/plain"),now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))
 
-            var specialMark = RequestBody.create(MediaType.parse("text/plain"),edtfeature.getText().toString()) //특징
+                var specialMark = RequestBody.create(MediaType.parse("text/plain"),edtfeature.getText().toString()) //특징
 
-            //연락처 수정
-            var careTel :RequestBody? = null
-            if(intent.hasExtra("tel")){
-                careTel = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("tel").toString())
-            }
-            var email : RequestBody? = null
-            if(intent.hasExtra("email")){
-                email = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("email").toString())
-            }
-            var dm : RequestBody? = null
-            if(intent.hasExtra("dm")){
-                dm = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("dm").toString())
-            }
-
-            // ------------server -------------
-            token = SharedPreferenceController.getUserToken(this)
-            val callRegisterResponse = UserServiceImpl.AnnouncementRegisterService.announcementRegister(
-                token,
-                registerStatus,
-                kindCd,
-                sexCd_rb,
-                neuterYn_rb,
-                weight,
-                age,
-                orgNm,
-                careAddr,
-                happenDt,
-                specialMark,
-                careTel,
-                email,
-                dm,
-                dogfile
-            )
-
-            callRegisterResponse.enqueue(object : Callback<RegisterResponse> {
-                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                    Log.d("*****Write_Shelter_Activity::", t.toString())
+                //연락처 수정
+                var careTel :RequestBody? = null
+                if(intent.hasExtra("tel")){
+                    careTel = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("tel").toString())
+                }
+                var email : RequestBody? = null
+                if(intent.hasExtra("email")){
+                    email = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("email").toString())
+                }
+                var dm : RequestBody? = null
+                if(intent.hasExtra("dm")){
+                    dm = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("dm").toString())
                 }
 
-                override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
-                    if (response.isSuccessful) {
-//                        Log.v("check", callRegisterResponse.safeEnqueue().toString())
-                        Log.v("보호소공고등록성공", response.body()!!.message)
-                        Log.v("공고등록응답확인", response.body()!!.toString())
+                // ------------server -------------
+                token = SharedPreferenceController.getUserToken(this)
+                val callRegisterResponse = UserServiceImpl.AnnouncementRegisterService.announcementRegister(
+                    token,
+                    registerStatus,
+                    kindCd,
+                    sexCd_rb,
+                    neuterYn_rb,
+                    weight,
+                    age,
+                    orgNm,
+                    careAddr,
+                    happenDt,
+                    specialMark,
+                    careTel,
+                    email,
+                    dm,
+                    dogfile
+                )
 
-                        finish()
-                    } else {
-                        Log.v("보호소공고등록(notsucess)", response.body()!!.message)
-                        Log.v("공고등록응답확인(notsucess)", response.body()!!.toString())
+                callRegisterResponse.enqueue(object : Callback<RegisterResponse> {
+                    override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                        Log.d("*****Write_Shelter_Activity::", t.toString())
                     }
-                }
-            })
 
+                    override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                        if (response.isSuccessful) {
+//                        Log.v("check", callRegisterResponse.safeEnqueue().toString())
+                            Log.v("보호소공고등록성공", response.body()!!.message)
+                            Log.v("공고등록응답확인", response.body()!!.toString())
 
+                            finish()
+                        } else {
+                            Log.v("보호소공고등록(notsucess)", response.body()!!.message)
+                            Log.v("공고등록응답확인(notsucess)", response.body()!!.toString())
+                        }
+                    }
+                })
+
+            }
         }
 
         species_modify.setOnClickListener { // 종 수정버튼 눌렀을 때,
@@ -265,7 +274,7 @@ class Write_Shelter_Activity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-             data?.let{
+            data?.let{
                 var selectedPictureUri= it.data
                 val options = BitmapFactory.Options()
                 val inputStream: InputStream? = contentResolver.openInputStream(selectedPictureUri!!) // !! 강제로 not null로 바꿔줌..
@@ -292,9 +301,9 @@ class Write_Shelter_Activity : AppCompatActivity() {
                 // Glide을 사진 URI를 ImageView에 넣은 방식. 외부 uri가 아니라 굳이 이렇게 안넣어도됨..
 //               Glide.with(this).load(seletedPictureUri).thumbnail(0.1f)
 //                   .into(picture_write1)
-                 picture_write1.setImageURI(data?.data)
+                picture_write1.setImageURI(data?.data)
 
-             }
+            }
 
         }
     }

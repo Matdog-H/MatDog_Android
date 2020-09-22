@@ -82,75 +82,89 @@ class Write_Protect_Activity : AppCompatActivity() {
         }
 
         btn_okwrite_protect.setOnClickListener {// 등록하기 버튼 눌렀을 때
-            // ---------- 데이터저장------------
-            var kindCd = RequestBody.create(MediaType.parse("text/plain"),species_name_protect.getText().toString()) // 종
-            var sexCd_rb = RequestBody.create(MediaType.parse("text/plain"),sexCd)  //성별
-            var weight = RequestBody.create(MediaType.parse("text/plain"),edtweight_protect.getText().toString()) // 몸무게
-            var age = RequestBody.create(MediaType.parse("text/plain"),edtyear_protect.getText().toString()) // 나이
-            var careAddr = RequestBody.create(MediaType.parse("text/plain"),edtplace_protect.getText().toString()) // 보호장소
-            var findPlace = RequestBody.create(MediaType.parse("text/plain"),edtmissplace_protect.getText().toString()) // 발견장소
-            var findDate = RequestBody.create(MediaType.parse("text/plain"),edtmissday_protect.getText().toString()) // 발견날짜
 
+            if(species_name_protect.getText().toString().equals(""))
+                Toast.makeText(this, "종을 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtweight_protect.getText().toString().equals(""))
+                Toast.makeText(this, "몸무게를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtyear_protect.getText().toString().equals(""))
+                Toast.makeText(this, "나이를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtplace_protect.getText().toString().equals(""))
+                Toast.makeText(this, "보호장소를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtmissplace_protect.getText().toString().equals(""))
+                Toast.makeText(this, "발견한 장소를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtmissday_protect.getText().toString().equals(""))
+                Toast.makeText(this, "발견한 날짜를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else{
+                // ---------- 데이터저장------------
+                var kindCd = RequestBody.create(MediaType.parse("text/plain"),species_name_protect.getText().toString()) // 종
+                var sexCd_rb = RequestBody.create(MediaType.parse("text/plain"),sexCd)  //성별
+                var weight = RequestBody.create(MediaType.parse("text/plain"),edtweight_protect.getText().toString()) // 몸무게
+                var age = RequestBody.create(MediaType.parse("text/plain"),edtyear_protect.getText().toString()) // 나이
+                var careAddr = RequestBody.create(MediaType.parse("text/plain"),edtplace_protect.getText().toString()) // 보호장소
+                var findPlace = RequestBody.create(MediaType.parse("text/plain"),edtmissplace_protect.getText().toString()) // 발견장소
+                var findDate = RequestBody.create(MediaType.parse("text/plain"),edtmissday_protect.getText().toString()) // 발견날짜
 
-            // 등록일
-            val now = LocalDateTime.now()
-            val happenDt = RequestBody.create(
-                MediaType.parse("text/plain"),now.format(
-                    DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+                // 등록일
+                val now = LocalDateTime.now()
+                val happenDt = RequestBody.create(
+                    MediaType.parse("text/plain"),now.format(
+                        DateTimeFormatter.ofPattern("yyyy-MM-dd")))
 
-            var specialMark = RequestBody.create(MediaType.parse("text/plain"),edtfeature_protect.getText().toString()) //특징
+                var specialMark = RequestBody.create(MediaType.parse("text/plain"),edtfeature_protect.getText().toString()) //특징
 
-            //연락처 수정
-            var careTel : RequestBody? = null
-            if(intent.hasExtra("tel")){
-                careTel = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("tel").toString())
-            }
-            var email : RequestBody? = null
-            if(intent.hasExtra("email")){
-                email = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("email").toString())
-            }
-            var dm : RequestBody? = null
-            if(intent.hasExtra("dm")){
-                dm = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("dm").toString())
-            }
-
-            // ------------server -------------
-            token = SharedPreferenceController.getUserToken(this)
-            val callRegisterResponseProtect = UserServiceImpl.AnnouncementRegisterService.announcementRegister_protect(
-                token,
-                registerStatus,
-                kindCd,
-                sexCd_rb,
-                weight,
-                age,
-                careAddr,
-                findPlace,
-                findDate,
-                happenDt,
-                specialMark,
-                careTel,
-                email,
-                dm,
-                dogfile
-            )
-
-            callRegisterResponseProtect.enqueue(object : Callback<RegisterResponseProtect> {
-                override fun onFailure(call: Call<RegisterResponseProtect>, t: Throwable) {
-                    Log.d("*****Write_Protect_Activity::", t.toString())
+                //연락처 수정
+                var careTel : RequestBody? = null
+                if(intent.hasExtra("tel")){
+                    careTel = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("tel").toString())
+                }
+                var email : RequestBody? = null
+                if(intent.hasExtra("email")){
+                    email = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("email").toString())
+                }
+                var dm : RequestBody? = null
+                if(intent.hasExtra("dm")){
+                    dm = RequestBody.create(MediaType.parse("text/plain"),intent.getStringExtra("dm").toString())
                 }
 
-                override fun onResponse(call: Call<RegisterResponseProtect>, response: Response<RegisterResponseProtect>) {
-                    if (response.isSuccessful) {
-                        Log.v("임시보호공고등록성공", response.body()!!.message)
-                        Log.v("공고등록응답확인", response.body()!!.toString())
+                // ------------server -------------
+                token = SharedPreferenceController.getUserToken(this)
+                val callRegisterResponseProtect = UserServiceImpl.AnnouncementRegisterService.announcementRegister_protect(
+                    token,
+                    registerStatus,
+                    kindCd,
+                    sexCd_rb,
+                    weight,
+                    age,
+                    careAddr,
+                    findPlace,
+                    findDate,
+                    happenDt,
+                    specialMark,
+                    careTel,
+                    email,
+                    dm,
+                    dogfile
+                )
 
-                        finish()
-                    } else {
-                        Log.v("임시보호공고등록(notsucess)", response.body()!!.message)
-                        Log.v("공고등록응답확인(notsucess)", response.body()!!.toString())
+                callRegisterResponseProtect.enqueue(object : Callback<RegisterResponseProtect> {
+                    override fun onFailure(call: Call<RegisterResponseProtect>, t: Throwable) {
+                        Log.d("*****Write_Protect_Activity::", t.toString())
                     }
-                }
-            })
+
+                    override fun onResponse(call: Call<RegisterResponseProtect>, response: Response<RegisterResponseProtect>) {
+                        if (response.isSuccessful) {
+                            Log.v("임시보호공고등록성공", response.body()!!.message)
+                            Log.v("공고등록응답확인", response.body()!!.toString())
+
+                            finish()
+                        } else {
+                            Log.v("임시보호공고등록(notsucess)", response.body()!!.message)
+                            Log.v("공고등록응답확인(notsucess)", response.body()!!.toString())
+                        }
+                    }
+                })
+            }
         }
 
         species_modify_protect.setOnClickListener {// 종 수정버튼 눌렀을 때,
