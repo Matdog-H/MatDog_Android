@@ -53,7 +53,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
-        android:id="@+id/ic_back"
+        android:id="@+id/ic_back_protect"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
@@ -77,7 +77,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <EditText
-            android:id="@+id/species_name"
+            android:id="@+id/species_name_protect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -94,7 +94,7 @@
             />
 
         <Button
-            android:id="@+id/species_modify"
+            android:id="@+id/species_modify_protect"
             android:layout_width="51dp"
             android:layout_height="26dp"
             android:layout_marginTop="63dp"
@@ -120,7 +120,7 @@
 
             <!-- 성별 라디오 버튼 -->
             <RadioGroup
-                android:id="@+id/radioGroupgender"
+                android:id="@+id/radioGroupgender_protect"
                 android:layout_width="201dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="20dp"
@@ -130,7 +130,7 @@
                 app:layout_constraintTop_toTopOf="@id/imformation">
 
                 <RadioButton
-                    android:id="@+id/radioFemale"
+                    android:id="@+id/radioFemale_protect"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -144,7 +144,7 @@
                     android:textColor="@drawable/rbtn_textcolor_selector" />
 
                 <RadioButton
-                    android:id="@+id/radioMale"
+                    android:id="@+id/radioMale_protect"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -174,7 +174,7 @@
 
             <!-- 체충 -->
             <EditText
-                android:id="@+id/edtweight"
+                android:id="@+id/edtweight_protect"
                 android:layout_width="100dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="44dp"
@@ -195,7 +195,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/view3"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtweight" />
+                app:layout_constraintTop_toBottomOf="@id/edtweight_protect" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
                 android:textColor="#84cdc2"
                 android:textStyle="bold"
                 android:paddingBottom="5dp"
-                app:layout_constraintStart_toEndOf="@id/edtweight"
+                app:layout_constraintStart_toEndOf="@id/edtweight_protect"
                 app:layout_constraintBottom_toBottomOf="@id/view1"
                 />
 
@@ -217,13 +217,13 @@
                 android:text="체중"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtweight"
+                app:layout_constraintBottom_toBottomOf="@id/edtweight_protect"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintEnd_toEndOf="@id/view1" />
 
             <!-- 나이 -->
             <EditText
-                android:id="@+id/edtyear"
+                android:id="@+id/edtyear_protect"
                 android:layout_width="63dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="44dp"
@@ -243,7 +243,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtyear" />
+                app:layout_constraintTop_toBottomOf="@id/edtyear_protect" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -253,7 +253,7 @@
                 android:textColor="#84cdc2"
                 android:textStyle="bold"
                 android:paddingBottom="5dp"
-                app:layout_constraintStart_toEndOf="@id/edtyear"
+                app:layout_constraintStart_toEndOf="@id/edtyear_protect"
                 app:layout_constraintBottom_toBottomOf="@id/view3"
                 />
 
@@ -265,12 +265,12 @@
                 android:text="나이"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtyear"
+                app:layout_constraintBottom_toBottomOf="@id/edtyear_protect"
                 app:layout_constraintEnd_toEndOf="@id/view3" />
 
             <!-- 보호장소 -->
             <EditText
-                android:id="@+id/edtplace"
+                android:id="@+id/edtplace_protect"
                 android:layout_width="250dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="89dp"
@@ -287,11 +287,10 @@
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginStart="30dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtplace" />
+                app:layout_constraintTop_toBottomOf="@id/edtplace_protect" />
 
             <TextView
                 android:layout_width="80dp"
@@ -301,19 +300,19 @@
                 android:text="보호장소"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtplace"
+                app:layout_constraintBottom_toBottomOf="@id/edtplace_protect"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
-            <CheckBox
-                android:id="@+id/checkbox_edtplace"
-                android:layout_width="30dp"
-                android:layout_height="25dp"
-                app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintBottom_toBottomOf="@id/edtplace" />
+<!--            <CheckBox-->
+<!--                android:id="@+id/checkbox_edtplace_protect"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                app:layout_constraintStart_toStartOf="@id/imformation"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/edtplace_protect" />-->
 
-            <!-- 잃어버린 날짜 -->
+            <!-- 발견한 장소 -->
             <EditText
-                android:id="@+id/edtmissday"
+                android:id="@+id/edtmissplace_protect"
                 android:layout_width="250dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="140dp"
@@ -331,7 +330,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtmissday" />
+                app:layout_constraintTop_toBottomOf="@id/edtmissplace_protect" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -342,12 +341,12 @@
                 android:text="발견한 장소"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtmissday"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissplace_protect"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
-            <!-- 잃어버린 장소 -->
+            <!-- 발견한 날짜 -->
             <EditText
-                android:id="@+id/edtmissplace"
+                android:id="@+id/edtmissday_protect"
                 android:layout_width="250dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="188dp"
@@ -365,7 +364,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtmissplace" />
+                app:layout_constraintTop_toBottomOf="@id/edtmissday_protect" />
 
             <TextView
                 android:layout_width="125dp"
@@ -375,7 +374,7 @@
                 android:text="발견한 날짜"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtmissplace"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissday_protect"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
 
@@ -392,7 +391,7 @@
 
 
             <EditText
-                android:id="@+id/edtfeature"
+                android:id="@+id/edtfeature_protect"
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
                 android:layout_marginTop="260dp"
@@ -415,13 +414,13 @@
                 android:text="특징"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/edtfeature"
+                app:layout_constraintBottom_toTopOf="@id/edtfeature_protect"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- 연락처 라디오 버튼 -->
         <RadioGroup
-            android:id="@+id/radioContact"
+            android:id="@+id/radioContact_protect"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -435,7 +434,7 @@
             app:layout_constraintTop_toBottomOf="@id/imformation">
 
             <RadioButton
-                android:id="@+id/radioretouch"
+                android:id="@+id/radioretouch_protect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -449,7 +448,7 @@
                 android:textColor="@drawable/rbtn_textcolor_selector" />
 
             <RadioButton
-                android:id="@+id/radionotouch"
+                android:id="@+id/radionotouch_protect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -466,7 +465,7 @@
 
     <!--공고 등록버튼 -->
     <Button
-        android:id="@+id/btn_okwrite"
+        android:id="@+id/btn_okwrite_protect"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#fb777a"

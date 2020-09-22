@@ -103,7 +103,7 @@ class CameraActivity : AppCompatActivity() {
         //추천 공고 보기
         btn_camera_list.setOnClickListener {
             val intent1 = Intent(this, List_Activity::class.java)
-            intent1.putExtra("state0","0") //보호소 리스트로
+            intent1.putExtra("state3","3") //보호소 리스트로
             startActivity(intent1)
         }
 
