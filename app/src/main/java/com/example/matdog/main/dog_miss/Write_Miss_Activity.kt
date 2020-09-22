@@ -15,22 +15,14 @@ import android.media.ExifInterface
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.util.SparseIntArray
 import android.widget.Toast
 import com.example.matdog.R
-import com.example.matdog.main.camera.CameraActivity
 import com.example.matdog.main.pop_up.Renew_popupActivity
-import kotlinx.android.synthetic.main.activity_camera.*
 import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write_miss.*
-import kotlinx.android.synthetic.main.activity_write_miss.btn_okwrite
-import kotlinx.android.synthetic.main.activity_write_miss.ic_back
-import kotlinx.android.synthetic.main.activity_write_miss.radionotouch
-import kotlinx.android.synthetic.main.activity_write_miss.species_modify
-import kotlinx.android.synthetic.main.activity_write_miss.species_name
-import kotlinx.android.synthetic.main.activity_write_protect.*
+
 
 class Write_Miss_Activity : AppCompatActivity() {
 
@@ -38,21 +30,21 @@ class Write_Miss_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_miss)
 
-        ic_back.setOnClickListener {// 뒤로가기 버튼 눌렀을 때
+        ic_back_miss.setOnClickListener {// 뒤로가기 버튼 눌렀을 때
             finish()
         }
 
-        btn_okwrite.setOnClickListener {// 등록하기 버튼 눌렀을 때
+        btn_okwrite_miss.setOnClickListener {// 등록하기 버튼 눌렀을 때
             finish()
         }
 
-        species_modify.setOnClickListener {// 종 수정버튼 눌렀을 때,
+        species_modify_miss.setOnClickListener {// 종 수정버튼 눌렀을 때,
             // 종 수정가능해짐
-            species_name.isEnabled = true
+            species_name_miss.isEnabled = true
         }
 
 
-        radionotouch.setOnClickListener {// 연락처수정 라디오버튼을 눌렀을 때,
+        radionotouch_miss.setOnClickListener {// 연락처수정 라디오버튼을 눌렀을 때,
             // 연락처수정할 수 있는 팝업창 띄움
             val i = Intent(this, Renew_popupActivity::class.java)
             startActivity(i)
