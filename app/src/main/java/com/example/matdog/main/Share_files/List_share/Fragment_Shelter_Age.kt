@@ -15,6 +15,8 @@ import com.example.matdog.api.safeEnqueue
 import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
 import com.example.matdog.main.Share_files.Recyclerview_share.rv_Adapter
 import com.example.matdog.main.dog_miss.Detail_Miss_Activity
+import com.example.matdog.main.dog_protect.Detail_Protect_Activity
+import com.example.matdog.main.dog_shelter.Detail_Shelter_Activity
 import kotlinx.android.synthetic.main.activity_fragment_age.*
 
 
@@ -27,6 +29,7 @@ class Fragment_Shelter_Age(i:Int) : Fragment(), View.OnClickListener {
     var myadapter2: rv_Adapter = rv_Adapter(R.layout.list_item)
 
     var rv_datalist = ArrayList<ArrayList<ListItem>>()
+    var post_registerIdx = ArrayList<Int>() //아이디값 저장 리스트
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,6 +61,7 @@ class Fragment_Shelter_Age(i:Int) : Fragment(), View.OnClickListener {
                                 it_image = myData[i].filename
                             )
                         )
+                        post_registerIdx.add(myData[i].registerIdx)
                     }
                     myadapter2.data = List_age
                     myadapter2.notifyDataSetChanged()
@@ -80,6 +84,7 @@ class Fragment_Shelter_Age(i:Int) : Fragment(), View.OnClickListener {
                                 it_image = myData[i].filename
                             )
                         )
+                        post_registerIdx.add(myData[i].registerIdx)
                     }
                     myadapter2.data = List_age_spot
                     myadapter2.notifyDataSetChanged()
@@ -102,6 +107,7 @@ class Fragment_Shelter_Age(i:Int) : Fragment(), View.OnClickListener {
                                 it_image = myData[i].filename
                             )
                         )
+                        post_registerIdx.add(myData[i].registerIdx)
                     }
                     myadapter2.data = List_age_lost
                     myadapter2.notifyDataSetChanged()
@@ -124,6 +130,8 @@ class Fragment_Shelter_Age(i:Int) : Fragment(), View.OnClickListener {
                                 it_image = myData[i].filename
                             )
                         )
+                        post_registerIdx.add(myData[i].registerIdx)
+
                     }
                     myadapter2.data = List_result_age
                     myadapter2.notifyDataSetChanged()
@@ -135,7 +143,36 @@ class Fragment_Shelter_Age(i:Int) : Fragment(), View.OnClickListener {
         //----------------------------------------------------------
         FArecyclerview = view.findViewById(R.id.fa_recyclerview)
 
-        myadapter2.onItemClick(this)
+        //myadapter2.onItemClick(this)
+        myadapter2.setItemClickListener(object :rv_Adapter.ItemClickListener{
+                    override fun onClick(view: View, position: Int) {
+                        Log.d("SSS", "${position}번 리스트 선택")
+                        //상태값에 따라 상세화면 바뀌게
+                        if (view?.parent == FArecyclerview) {
+                            Log.d("SSS", "들어옴")
+                            if (status_list_age== 1) {//강아지를 찾아주세요(임시보호)
+                                val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
+                                intent.putExtra("registerIdx",post_registerIdx[position])
+                                startActivity(intent)
+                            }
+                            else if (status_list_age == 2) {//주인을 찾아주세요(실종)
+                                val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
+                                intent.putExtra("registerIdx",post_registerIdx[position])
+                                startActivity(intent)
+                            }
+                            else if(status_list_age==3){//추천공고보기
+                                val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
+                                intent.putExtra("registerIdx",post_registerIdx[position])
+                                startActivity(intent)
+                            }
+                            else{//분양공고보기
+                                val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
+                                intent.putExtra("registerIdx",post_registerIdx[position])
+                                startActivity(intent)
+                            }
+                        }
+                    }
+                })
 
         //리사이클러뷰의 어댑터 세팅
         FArecyclerview.adapter=myadapter2
@@ -156,14 +193,14 @@ class Fragment_Shelter_Age(i:Int) : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-
-        FArecyclerview = view?.findViewById(R.id.fa_recyclerview)!!
-
-        if (v?.parent == FArecyclerview){
-            val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
-            //intent.putExtra("matchingIdx", matchingData[rv.getChildAdapterPosition(v)].matchingIdx)
-            startActivity(intent)
-        }
+//
+//        FArecyclerview = view?.findViewById(R.id.fa_recyclerview)!!
+//
+//        if (v?.parent == FArecyclerview){
+//            val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
+//            //intent.putExtra("matchingIdx", matchingData[rv.getChildAdapterPosition(v)].matchingIdx)
+//            startActivity(intent)
+//        }
 
     }
 

@@ -33,6 +33,8 @@ class Fragment_Shelter_New(i: Int) : Fragment(), View.OnClickListener {
 
     //서버에서 registerIdx 필요
     var myData: ArrayList<ListAllData> = arrayListOf()
+    var post_registerIdx = ArrayList<Int>() //아이디값 저장 리스트
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,6 +67,7 @@ class Fragment_Shelter_New(i: Int) : Fragment(), View.OnClickListener {
                                 it_image = myData[i].filename
                             )
                         )
+                        post_registerIdx.add(myData[i].registerIdx)
                     }
                     myadapter1.data = List_new
                     myadapter1.notifyDataSetChanged()
@@ -87,6 +90,7 @@ class Fragment_Shelter_New(i: Int) : Fragment(), View.OnClickListener {
                                 it_image = myData[i].filename
                             )
                         )
+                        post_registerIdx.add(myData[i].registerIdx)
                     }
                     myadapter1.data = List_new_spot
                     myadapter1.notifyDataSetChanged()
@@ -109,6 +113,7 @@ class Fragment_Shelter_New(i: Int) : Fragment(), View.OnClickListener {
                                 it_image = myData[i].filename
                             )
                         )
+                        post_registerIdx.add(myData[i].registerIdx)
                     }
                     myadapter1.data = List_new_lost
                     myadapter1.notifyDataSetChanged()
@@ -131,6 +136,7 @@ class Fragment_Shelter_New(i: Int) : Fragment(), View.OnClickListener {
                                 it_image = myData[i].filename
                             )
                         )
+                        post_registerIdx.add(myData[i].registerIdx)
                     }
                     myadapter1.data = List_result_new
                     myadapter1.notifyDataSetChanged()
@@ -143,7 +149,38 @@ class Fragment_Shelter_New(i: Int) : Fragment(), View.OnClickListener {
 
         FNrecyclerview = view.findViewById(R.id.fn_recyclerview)
 
-        myadapter1.onItemClick(this)
+        //myadapter1.onItemClick(this)
+         myadapter1.setItemClickListener(object :rv_Adapter.ItemClickListener{
+                            override fun onClick(view: View, position: Int) {
+                                Log.d("SSS", "${position}번 리스트 선택")
+                                //상태값에 따라 상세화면 바뀌게
+                                if (view?.parent == FNrecyclerview) {
+                                    Log.d("SSS", "들어옴")
+                                    if (status_list== 1) {//강아지를 찾아주세요(임시보호)
+                                        val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
+                                        intent.putExtra("registerIdx",post_registerIdx[position])
+                                        startActivity(intent)
+                                    }
+                                    else if (status_list == 2) {//주인을 찾아주세요(실종)
+                                        val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
+                                        intent.putExtra("registerIdx",post_registerIdx[position])
+                                        startActivity(intent)
+                                    }
+                                    else if(status_list==3){//추천공고보기
+                                        val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
+                                        intent.putExtra("registerIdx",post_registerIdx[position])
+                                        startActivity(intent)
+                                    }
+                                    else{//분양공고보기
+                                        val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
+                                        intent.putExtra("registerIdx",post_registerIdx[position])
+                                        startActivity(intent)
+                                    }
+                                }
+                            }
+                        })
+
+
         FNrecyclerview.adapter = myadapter1
 
         //리사이클러뷰 배치
@@ -162,32 +199,31 @@ class Fragment_Shelter_New(i: Int) : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
-        if (v?.parent == FNrecyclerview) {
-            if (status_list == 0 || status_list == 3 || status_list == 6) {
-                val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
-//                intent.putExtra(
-//                    "register_idx_new_shelter",
-//                    myData[FNrecyclerview.getChildAdapterPosition(v)].registerIdx
-//                )
-                startActivity(intent)
-            } else if (status_list == 1 || status_list == 4 || status_list == 7) {
-                val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
-//                    Log.v("FNrecyclerview.getChildAdapterPosition(v)",FNrecyclerview.getChildAdapterPosition(v).toString())
-//                intent.putExtra(
-//                    "register_idx_new_protect",
-//                    myData[FNrecyclerview.getChildAdapterPosition(v)].registerIdx
-//                )
-                startActivity(intent)
-            } else {
-                val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
-//                    intent.putExtra(
-//                        "register_idx_new_miss",
-//                        myData[FNrecyclerview.getChildAdapterPosition(v)].registerIdx
-                        //detailData[FNrecyclerview.getChildAdapterPosition(v)].registerIdx
-//                    )
-                startActivity(intent)
-            }
+//        if (v?.parent == FNrecyclerview) {
+//            if (status_list == 0 || status_list == 3 || status_list == 6) {
+//                val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
+////                intent.putExtra(
+////                    "register_idx_new_shelter",
+////                    myData[FNrecyclerview.getChildAdapterPosition(v)].registerIdx
+////                )
+//                startActivity(intent)
+//            } else if (status_list == 1 || status_list == 4 || status_list == 7) {
+//                val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
+////                    Log.v("FNrecyclerview.getChildAdapterPosition(v)",FNrecyclerview.getChildAdapterPosition(v).toString())
+////                intent.putExtra(
+////                    "register_idx_new_protect",
+////                    myData[FNrecyclerview.getChildAdapterPosition(v)].registerIdx
+////                )
+//                startActivity(intent)
+//            } else {
+//                val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
+////                    intent.putExtra(
+////                        "register_idx_new_miss",
+////                        myData[FNrecyclerview.getChildAdapterPosition(v)].registerIdx
+//                        //detailData[FNrecyclerview.getChildAdapterPosition(v)].registerIdx
+////                    )
+//                startActivity(intent)
+//            }
         }
     }
 
-}

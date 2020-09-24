@@ -24,6 +24,11 @@ class Detail_Protect_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_protect)
 
+
+
+        val registerIdx_intent = intent /*데이터 수신*/
+        val registerIdx = intent.getIntExtra("registerIdx",0)
+
         // -----------server--------------
         token = SharedPreferenceController.getUserToken(this)
         val callProtectDetail = UserServiceImpl.matchingDetailService.matchingDetailResponse_protect(

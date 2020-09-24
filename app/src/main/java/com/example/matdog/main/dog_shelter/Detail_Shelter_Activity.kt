@@ -36,6 +36,12 @@ class Detail_Shelter_Activity : AppCompatActivity() {
 //            }
 //        }
 
+
+        /*데이터 수신*/
+        val registerIdx_intent = intent
+        registerIdx = intent.getIntExtra("registerIdx",0)
+
+
         token = SharedPreferenceController.getUserToken(this)
         val callDetail = UserServiceImpl.matchingDetailService.matchingDetailResponse(
             token = token,

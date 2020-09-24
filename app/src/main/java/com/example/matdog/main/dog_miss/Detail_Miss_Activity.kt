@@ -24,6 +24,10 @@ class Detail_Miss_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_miss)
 
+
+        val registerIdx_intent = intent /*데이터 수신*/
+        val registerIdx = intent.getIntExtra("registerIdx",0)
+
         // -----------server--------------
         token = SharedPreferenceController.getUserToken(this)
         val callDetailMiss = UserServiceImpl.matchingDetailService.matchingDetailResponse_miss(

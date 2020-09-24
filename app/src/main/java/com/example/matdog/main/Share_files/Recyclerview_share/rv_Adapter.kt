@@ -7,20 +7,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
 
-// 1.람다식 itemClick
-//class Adapter(private val context: Context, val itemClick:(ListItem)->Unit) : RecyclerView.Adapter<ViewHolder>(){
 class rv_Adapter(rv_item: Int) : RecyclerView.Adapter<rv_ViewHolder>(){
-//private val context: Context, private var listAllData: ArrayList<ListAllData>
     //데이터 저장할 아이템리스트
     var data= arrayListOf<ListItem>()
-    private var onItemClickListener: View.OnClickListener? = null
+    //private var onItemClickListener: View.OnClickListener? = null
     val rv_item=rv_item
 
     //뷰 홀더 생성
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): rv_ViewHolder {
         //리스트 아이템 인플레이터
         val view = LayoutInflater.from(parent.context).inflate(rv_item,parent,false)
-        view.setOnClickListener(onItemClickListener)
+        //view.setOnClickListener(onItemClickListener)
         return rv_ViewHolder(view)
     }
 
@@ -39,11 +36,25 @@ class rv_Adapter(rv_item: Int) : RecyclerView.Adapter<rv_ViewHolder>(){
     //바인드뷰홀더 생성
     override fun onBindViewHolder(holder: rv_ViewHolder, position: Int) {
         holder.bind(data[position])
+        holder.itemView.setOnClickListener{
+            itemClickListner.onClick(it,position)
+        }
     }
 
-    fun onItemClick(l: View.OnClickListener){
-        onItemClickListener = l
+    /*클릭이벤트 정의*/
+    interface ItemClickListener{
+        fun onClick(view: View,position: Int)
     }
+    //를릭 리스너
+    private lateinit var itemClickListner: ItemClickListener
+    fun setItemClickListener(itemClickListener: ItemClickListener) {
+        this.itemClickListner = itemClickListener
+    }
+
+
+//    fun onItemClick(l: View.OnClickListener){
+//        onItemClickListener = l
+//    }
 
 
 }

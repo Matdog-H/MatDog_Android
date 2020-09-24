@@ -26,8 +26,8 @@ class fragment_like() : Fragment(), View.OnClickListener{
     private lateinit var  FLrecyclerview : RecyclerView
     private var mpadapter1: mp_Adapter = mp_Adapter(R.layout.list_item)
     var mp_datalist = ArrayList<ArrayList<ListItem>>()
-    var post_status = ArrayList<Int>() //상태값 저장 배열
-
+    var post_status = ArrayList<Int>() //상태값 저장 리스트
+    var post_registerIdx = ArrayList<Int>() //아이디값 저장 리스트
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -53,7 +53,8 @@ class fragment_like() : Fragment(), View.OnClickListener{
                            it_image = LikePost[i].filename
                        )
                    )
-                    post_status.add(LikePost[i].registerStatus) // 클릭 아이템 공고 상태값
+                    post_status.add(LikePost[i].registerStatus) // 클릭 아이템 공고 상태값 저장
+                    post_registerIdx.add(LikePost[i].registerIdx) //클릭 아이템 공고 아이디 값 저장
                 }
 
                mpadapter1.mp_data = my_like_list
@@ -81,16 +82,19 @@ class fragment_like() : Fragment(), View.OnClickListener{
                     if (post_status[position] == 1) {
                         val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
                         intent.putExtra("delete","delete_shelter")
+                        intent.putExtra("registerIdx",post_registerIdx[position])
                         startActivity(intent)
                     }
                     else if (post_status[position] == 2) {
                         val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
                         intent.putExtra("delete","delete_miss")
+                        intent.putExtra("registerIdx",post_registerIdx[position])
                         startActivity(intent)
                     }
                     else{
                         val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
                         intent.putExtra("delete","delete_protect")
+                        intent.putExtra("registerIdx",post_registerIdx[position])
                         startActivity(intent)
                     }
                 }
