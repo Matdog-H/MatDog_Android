@@ -5,11 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
-import com.example.matdog.main.Share_files.Recyclerview_share.rv_ViewHolder
 
 class mp_Adapter(mp_item: Int) : RecyclerView.Adapter<mp_ViewHolder>(){
     var mp_data= arrayListOf<ListItem>()
-    private var onItemClickListener: View.OnClickListener? = null
+    //private var onItemClickListener: View.OnClickListener? = null
     val mp_item=mp_item
 
 
@@ -17,7 +16,7 @@ class mp_Adapter(mp_item: Int) : RecyclerView.Adapter<mp_ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): mp_ViewHolder {
         //리스트 아이템 인플레이터
         val view = LayoutInflater.from(parent.context).inflate(mp_item,parent,false)
-        view.setOnClickListener(onItemClickListener)
+        //view.setOnClickListener(onItemClickListener)
         return mp_ViewHolder(view)
     }
     //아이템 사이즈
@@ -34,11 +33,24 @@ class mp_Adapter(mp_item: Int) : RecyclerView.Adapter<mp_ViewHolder>(){
     //바인드뷰홀더 생성
     override fun onBindViewHolder(holder: mp_ViewHolder, position: Int) {
         holder.bind(mp_data[position])
+        holder.itemView.setOnClickListener{
+            itemClickListner.onClick(it,position)
+        }
     }
 
-    fun onItemClick(l: View.OnClickListener){
-        onItemClickListener = l
+
+    /*클릭이벤트 정의*/
+    interface ItemClickListener{
+        fun onClick(view: View,position: Int)
+    }
+    //를릭 리스너
+    private lateinit var itemClickListner: ItemClickListener
+    fun setItemClickListener(itemClickListener: ItemClickListener) {
+        this.itemClickListner = itemClickListener
     }
 
+//    fun onItemClick(l: View.OnClickListener){
+//        onItemClickListener = l
+//    }
 
 }

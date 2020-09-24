@@ -82,6 +82,14 @@ class MyPageActivity : AppCompatActivity() {
         }
         //----------------------------------
 
+        //private fun list_change(state_result : Int) {
+        //
+        //        val fragmentAdapter =
+        //            ViewPager_Shelter_Adapter(
+        //                supportFragmentManager, state_result // 상태값에 따라 서버연결 리스트가 변하도록
+        //            )
+        //        list_viewPager.adapter = fragmentAdapter
+        //        list_tablayout.setupWithViewPager(list_viewPager)
 
         val mypage_fragmentAdapter = Viewpager_mypage_adapter(supportFragmentManager)
         mypage_viewPager.adapter = mypage_fragmentAdapter
