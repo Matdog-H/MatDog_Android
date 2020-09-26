@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.matdog.R
 import com.example.matdog.api.SharedPreferenceController
@@ -95,6 +96,19 @@ class Detail_Protect_Activity : AppCompatActivity() {
             //삭제 버튼
             btn_delete_protect.setOnClickListener {
                 //해당 공고 삭제
+                val calldelete = UserServiceImpl.DeleteService.delete_request_protected(token,registerIdx =registerIdx )
+                calldelete.safeEnqueue {
+                    if(it.isSuccessful){
+                        val fragmentbundle = Bundle()
+                        fragmentbundle.putString("result","success")
+                        Log.d("SSS", "1")
+
+                        Toast.makeText(this,"삭제되었습니다.", Toast.LENGTH_LONG).show()
+                        Log.d("SSS", "2")
+
+                    }
+                }
+
                 finish()
             }
         }

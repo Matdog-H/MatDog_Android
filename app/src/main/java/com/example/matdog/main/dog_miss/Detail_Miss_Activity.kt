@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.matdog.R
 import com.example.matdog.api.SharedPreferenceController
 import com.example.matdog.api.UserServiceImpl
 import com.example.matdog.api.safeEnqueue
+import com.example.matdog.main.mypage.fragment_my
 import com.example.matdog.main.pop_up.Call_Miss_popupActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail_miss.*
@@ -20,6 +22,7 @@ class Detail_Miss_Activity : AppCompatActivity() {
     private var registerIdx: Int = 8 //공고 id -> 나중에 값 받아옴
     private var CHECK_NUM = 0 // 찜 상태
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_miss)
@@ -27,7 +30,7 @@ class Detail_Miss_Activity : AppCompatActivity() {
 
         val registerIdx_intent = intent /*데이터 수신*/
         val registerIdx = intent.getIntExtra("registerIdx",0)
-
+        Log.d("post_registerIdx",registerIdx.toString())
         // -----------server--------------
         token = SharedPreferenceController.getUserToken(this)
         val callDetailMiss = UserServiceImpl.matchingDetailService.matchingDetailResponse_miss(
@@ -91,7 +94,22 @@ class Detail_Miss_Activity : AppCompatActivity() {
             //삭제 버튼
             btn_delete_miss.setOnClickListener {
                 //해당 공고 삭제
-                finish()
+                val calldelete = UserServiceImpl.DeleteService.delete_request_miss(token,registerIdx =registerIdx )
+                calldelete.safeEnqueue {
+                    if(it.isSuccessful){
+
+                        Log.d("SSS", "1")
+
+                       // val fragmentbundle = Bundle()
+                       // fragmentbundle.putString("result","success")
+                        Log.d("SSS", "2")
+                        Toast.makeText(this,"삭제되었습니다.", Toast.LENGTH_LONG).show()
+                        finish()
+                        Log.d("SSS", "2.5")
+                    }
+                }
+
+
             }
         }
 
