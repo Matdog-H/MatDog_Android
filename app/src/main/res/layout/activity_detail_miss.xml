@@ -158,14 +158,16 @@
 
                 <TextView
                     android:id="@+id/txt_detail_missing_location"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
+                    android:layout_marginEnd="20dp"
                     android:text="서울시 은평구"
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/img_detail_missing_location"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/img_detail_missing_location"
                     app:layout_constraintTop_toTopOf="@id/img_detail_missing_location" />
 
