@@ -115,6 +115,7 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         //연락처 팝업버튼
         btn_detail_call.setOnClickListener {
             val i = Intent(this, Call_popupActivity::class.java)
+            i.putExtra("registerIdx_shelter",registerIdx)
             startActivity(i)
         }
 

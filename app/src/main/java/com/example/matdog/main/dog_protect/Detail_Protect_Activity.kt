@@ -108,6 +108,7 @@ class Detail_Protect_Activity : AppCompatActivity() {
         //연락처 팝업버튼
         btn_detail_call_protect.setOnClickListener {
             val i = Intent(this, Call_Protect_popupActivity::class.java)
+            i.putExtra("registerIdx_protect",registerIdx)
             startActivity(i)
         }
 

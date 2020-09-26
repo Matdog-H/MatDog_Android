@@ -18,6 +18,10 @@ class Call_popupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_popup)
 
+        // 상세화면에서 공고 id 받아옴
+        var registerIdx =intent.getIntExtra("registerIdx_shelter",1)
+
+
         // -----------server--------------
         val callpopupDetail = UserServiceImpl.matchingDetailService.matchingDetailResponse(
             token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNYXREb2ciLCJ1c2VySWR4Ijo2fQ.IuYm_J1zncxiL00mMH5n_Sc7eBmT5elC9_8H86lKiH0",

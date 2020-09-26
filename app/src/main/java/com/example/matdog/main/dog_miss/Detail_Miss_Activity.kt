@@ -103,6 +103,7 @@ class Detail_Miss_Activity : AppCompatActivity() {
         //연락처 팝업버튼
         btn_detail_call_missing.setOnClickListener {
             val i = Intent(this, Call_Miss_popupActivity::class.java)
+            i.putExtra("registerIdx_miss",registerIdx)
             startActivity(i)
         }
 
