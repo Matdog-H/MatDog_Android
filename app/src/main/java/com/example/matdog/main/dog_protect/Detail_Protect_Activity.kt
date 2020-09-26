@@ -24,10 +24,8 @@ class Detail_Protect_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_protect)
 
-
-
         val registerIdx_intent = intent /*데이터 수신*/
-        val registerIdx = intent.getIntExtra("registerIdx",0)
+        registerIdx = intent.getIntExtra("registerIdx",0)
 
         // -----------server--------------
         token = SharedPreferenceController.getUserToken(this)
@@ -108,6 +106,7 @@ class Detail_Protect_Activity : AppCompatActivity() {
         //연락처 팝업버튼
         btn_detail_call_protect.setOnClickListener {
             val i = Intent(this, Call_Protect_popupActivity::class.java)
+            i.putExtra("token_protect",token)
             i.putExtra("registerIdx_protect",registerIdx)
             startActivity(i)
         }

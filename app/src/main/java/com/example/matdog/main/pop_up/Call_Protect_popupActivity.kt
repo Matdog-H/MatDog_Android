@@ -18,12 +18,13 @@ class Call_Protect_popupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_popup)
 
-        // 상세화면에서 공고 id 받아옴
+        // 상세화면에서 token과 공고 id 받아옴
+        var token = intent.getStringExtra("token_protect")
         var registerIdx =intent.getIntExtra("registerIdx_protect",1)
 
         // -----------server--------------
         val callpopupProtect = UserServiceImpl.matchingDetailService.matchingDetailResponse_protect(
-            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNYXREb2ciLCJ1c2VySWR4Ijo2fQ.IuYm_J1zncxiL00mMH5n_Sc7eBmT5elC9_8H86lKiH0",
+            token = token,
             registerStatus = 3, //상태 "실종" 고정
             registerIdx = registerIdx  // 공고 id
         )
