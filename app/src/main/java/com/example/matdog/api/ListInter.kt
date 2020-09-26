@@ -49,35 +49,32 @@ interface ListInter{
     @GET("/program/lost/finddog/{sort}")
     fun list_lost_result(
         @Path("sort") sort : Int,
-        @Field("kindCd") kindCd: String
+        @Query("kindCd") kindCd: String
     ): Call<ListResponse>
 
     @GET("/program/spot/finddog/{sort}")
     fun list_spot_result(
         @Path("sort") sort : Int,
-        @Field("kindCd") kindCd: String
+        @Query("kindCd") kindCd: String
     ): Call<ListResponse>
 
     //-----------공고 검색----------------------
     @GET("/program/register/search/{sort}")
     fun list_register_search(
         @Path("sort") sort : Int,
-        @Field("kindCd") kindCd: String,
-        @Field("careAddr") careAddr: String
+        @Query("keyword") keyword: String?
     ): Call<ListResponse>
 
     @GET("/program/lost/search/{sort}")
     fun list_lost_search(
         @Path("sort") sort : Int,
-        @Field("kindCd") kindCd: String,
-        @Field("careAddr") careAddr: String
+        @Query("keyword") keyword: String?
     ): Call<ListResponse>
 
     @GET("/program/spot/search/{sort}")
     fun list_spot_search(
         @Path("sort") sort : Int,
-        @Field("kindCd") kindCd: String,
-        @Field("careAddr") careAddr: String
+        @Query("keyword") keyword: String?
     ): Call<ListResponse>
 
 }
@@ -88,7 +85,7 @@ data class ListResponse(
     @SerializedName("message")
     val message: String,
     @SerializedName("data")
-    val listdata: ArrayList<ListAllData>
+    val listdata: ArrayList<ListAllData>?
 )
 
 data  class ListAllData(
