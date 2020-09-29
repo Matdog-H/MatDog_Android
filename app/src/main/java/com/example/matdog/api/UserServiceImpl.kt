@@ -23,4 +23,7 @@ object UserServiceImpl {
     val matchingDetailService : CallMatchingDetail = retrofit.create(CallMatchingDetail::class.java)
     val LikeStatusService : LikeStatus = retrofit.create(LikeStatus::class.java)
     val AnnouncementRegisterService : AnnouncementRegister = retrofit.create((AnnouncementRegister::class.java))
+
+    val DeleteService : DeleteInter = retrofit.create(DeleteInter::class.java)
+
 }
