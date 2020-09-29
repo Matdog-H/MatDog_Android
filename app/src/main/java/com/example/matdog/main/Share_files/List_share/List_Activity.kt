@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.example.matdog.R
 import com.example.matdog.api.ListAllData
 import com.example.matdog.api.UserServiceImpl
@@ -62,34 +64,25 @@ class List_Activity : AppCompatActivity() {
     private fun list_change(state_result : Int) {
 
         if(state_result==0 || state_result==1 || state_result==2) {
-            val search_edt = EditText(applicationContext)
-            val p = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-
-            search_edt.layoutParams = p
-            search_edt.setHint("검색어를 입력하세요.")
-            search_edt.setPadding(50, 0, 50, 0)
-            search_edt.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15F)
-
-            search_edt.setBackgroundDrawable(getResources().getDrawable(R.drawable.txt_box))
-
-            searchview.addView(search_edt)
+            edt_search.isVisible=true
+            btn_search.isVisible=true
 
             btn_search.setOnClickListener {
-                search_data = search_edt.getText().toString()
-                Log.v("seardata값", search_data)
+                search_data = edt_search.getText().toString()
+                Log.v("searchdata값", search_data)
 
                 var fragmentAdapter =
                     ViewPager_Shelter_Adapter(
                         supportFragmentManager, state_result, search_data // 상태값에 따라 서버연결 리스트가 변하도록
                     )
 
-                Log.v("seardata값", search_data)
+                Log.v("searchdata값", search_data)
                 list_viewPager.adapter = fragmentAdapter
                 list_tablayout.setupWithViewPager(list_viewPager)
             }
+        } else{
+            edt_search.isVisible=false
+            btn_search.isVisible=false
         }
 
         var fragmentAdapter =
@@ -104,17 +97,44 @@ class List_Activity : AppCompatActivity() {
         btn_write.setOnClickListener {
              if (state_result==0 || state_result==3) {
                 val intent1 = Intent(this, Write_Shelter_Activity::class.java)
-                startActivity(intent1)
+                startActivityForResult(intent1,2000)
             } else if (state_result==1 || state_result==4) {
                  val intent2 = Intent(this, Write_Miss_Activity::class.java)
-                startActivity(intent2)
+                startActivityForResult(intent2,3000)
             } else {
                  val intent3 = Intent(this, Write_Protect_Activity::class.java)
-                startActivity(intent3)
+                startActivityForResult(intent3,4000)
             }
 
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+            if (requestCode == 2000) {
+            Log.v("requestCode로 들어옴","requestCode로 들어왔음")
+            var a1 = intent.getStringExtra("state0") // 보호소 리스트 - 분양공고등록
+            var a2 = intent.getStringExtra("state1") // 임시보호 리스트 - 실종공고등록
+            var a3 = intent.getStringExtra("state2") // 실종 리스트 - 임시보호공고등록
+            var a4 = intent.getStringExtra("state3") // 보호소 리스트 - 품종결과
+            var a5 = intent.getStringExtra("state4") // 임시보호 리스트 - 품종결과
+            var a6 = intent.getStringExtra("state5") // 실종 리스트 - 품종결과
+
+            var array_status = arrayOf(
+                a1, a2, a3, a4, a5, a6
+            )
+
+            for (i in 0 until array_status.size) {
+                if (array_status[i].isNullOrBlank()) {
+                } else {
+                    list_change(i)
+                    break
+                }
+            }
+
+            init()
+        }
     }
 
 }
