@@ -190,12 +190,7 @@ class Fragment_Shelter_New(i: Int, searchData: String?) : Fragment(), View.OnCli
                         val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
                         intent.putExtra("registerIdx", post_registerIdx[position])
                         startActivity(intent)
-                    } else if (status_list == 3) {//추천공고보기
-                        val intent: Intent =
-                            Intent(getActivity(), Detail_Shelter_Activity::class.java)
-                        intent.putExtra("registerIdx", post_registerIdx[position])
-                        startActivity(intent)
-                    } else {//분양공고보기
+                    } else {//추천공고보기
                         val intent: Intent =
                             Intent(getActivity(), Detail_Shelter_Activity::class.java)
                         intent.putExtra("registerIdx", post_registerIdx[position])
