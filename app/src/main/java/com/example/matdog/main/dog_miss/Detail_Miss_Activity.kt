@@ -27,7 +27,7 @@ class Detail_Miss_Activity : AppCompatActivity() {
 
         val registerIdx_intent = intent /*데이터 수신*/
         registerIdx = intent.getIntExtra("registerIdx",0)
-
+        Log.d("post_registerIdx",registerIdx.toString())
         // -----------server--------------
         token = SharedPreferenceController.getUserToken(this)
         val callDetailMiss = UserServiceImpl.matchingDetailService.matchingDetailResponse_miss(
@@ -91,7 +91,22 @@ class Detail_Miss_Activity : AppCompatActivity() {
             //삭제 버튼
             btn_delete_miss.setOnClickListener {
                 //해당 공고 삭제
-                finish()
+                val calldelete = UserServiceImpl.DeleteService.delete_request_miss(token,registerIdx =registerIdx )
+                calldelete.safeEnqueue {
+                    if(it.isSuccessful){
+
+                        Log.d("SSS", "1")
+
+                       // val fragmentbundle = Bundle()
+                       // fragmentbundle.putString("result","success")
+                        Log.d("SSS", "2")
+                        Toast.makeText(this,"삭제되었습니다.", Toast.LENGTH_LONG).show()
+                        finish()
+                        Log.d("SSS", "2.5")
+                    }
+                }
+
+
             }
         }
 
@@ -103,7 +118,6 @@ class Detail_Miss_Activity : AppCompatActivity() {
         //연락처 팝업버튼
         btn_detail_call_missing.setOnClickListener {
             val i = Intent(this, Call_Miss_popupActivity::class.java)
-            Log.v("실종 상세화면 연락처팝업",token+registerIdx)
             i.putExtra("token_miss",token)
             i.putExtra("registerIdx_miss",registerIdx)
             startActivity(i)

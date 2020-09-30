@@ -81,19 +81,16 @@ class fragment_like() : Fragment(), View.OnClickListener{
                 if (view?.parent == FLrecyclerview) {
                     if (post_status[position] == 1) {
                         val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
-                        intent.putExtra("delete","delete_shelter")
                         intent.putExtra("registerIdx",post_registerIdx[position])
                         startActivity(intent)
                     }
                     else if (post_status[position] == 2) {
                         val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
-                        intent.putExtra("delete","delete_miss")
                         intent.putExtra("registerIdx",post_registerIdx[position])
                         startActivity(intent)
                     }
                     else{
                         val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
-                        intent.putExtra("delete","delete_protect")
                         intent.putExtra("registerIdx",post_registerIdx[position])
                         startActivity(intent)
                     }

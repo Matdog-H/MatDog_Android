@@ -26,7 +26,7 @@ class rv_ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 //        Glide.with(itemView)
 //            .load(R.drawable.gender_man)
 //            .into(list_gender)
-        var gender : String = data.it_gender
+        var gender : String? = data.it_gender
         if(gender == "M" || gender == "1"){
             Glide.with(itemView)
                 .load(R.drawable.gender_man)
@@ -38,7 +38,7 @@ class rv_ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
 
 
-        var registerStatus : Int = data.it_status
+        var registerStatus : Int? = data.it_status
         if(registerStatus==1){
             Glide.with(itemView)
                 .load(R.drawable.state_shelter)

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.matdog.R
@@ -21,6 +22,7 @@ class Detail_Shelter_Activity : AppCompatActivity() {
     private val registerStatus: Int = 1 //공고 상태 "보호소-shelter" 고정
     private var registerIdx: Int = 10 //공고 id -> 나중에 값 받아옴
     private var CHECK_NUM = 0 // 찜 상태
+    private var position: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +42,7 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         /*데이터 수신*/
         val registerIdx_intent = intent
         registerIdx = intent.getIntExtra("registerIdx",0)
-
+        position = intent.getIntExtra("position",0)
 
         token = SharedPreferenceController.getUserToken(this)
         val callDetail = UserServiceImpl.matchingDetailService.matchingDetailResponse(
@@ -95,6 +97,8 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         val intent = intent /*데이터 수신*/
         val delete_state = intent.getStringExtra("delete")
 
+
+
         //마이페이지에서 넘어왔을 때
         if (delete_state != null && delete_state.equals("delete_shelter")) {
             btn_delete.setVisibility(View.VISIBLE)
@@ -103,7 +107,20 @@ class Detail_Shelter_Activity : AppCompatActivity() {
             //삭제 버튼
             btn_delete.setOnClickListener {
                 //해당 공고 삭제
-                finish()
+               val calldelete = UserServiceImpl.DeleteService.delete_request_shelter(token,registerIdx =registerIdx )
+                calldelete.safeEnqueue {
+                    if(it.isSuccessful){
+                        finish()
+                        Log.d("SSS", "1")
+                         val fragmentbundle = Bundle()
+                         fragmentbundle.putString("result","success")
+                         fragmentbundle.putInt("position",position)
+                        Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_LONG).show()
+                        Log.d("SSS", "2")
+                    }
+                }
+
+
             }
         }
 
