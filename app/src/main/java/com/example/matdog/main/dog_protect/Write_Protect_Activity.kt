@@ -26,6 +26,7 @@ import com.example.matdog.api.SharedPreferenceController
 import com.example.matdog.api.UserServiceImpl
 import com.example.matdog.main.pop_up.Renew_popupActivity
 import kotlinx.android.synthetic.main.activity_write.*
+import kotlinx.android.synthetic.main.activity_write_miss.*
 import kotlinx.android.synthetic.main.activity_write_protect.*
 import kotlinx.android.synthetic.main.activity_write_protect.btn_okwrite_protect
 import kotlinx.android.synthetic.main.activity_write_protect.ic_back_protect
@@ -48,6 +49,10 @@ class Write_Protect_Activity : AppCompatActivity() {
     private var token : String = ""
     private val registerStatus: Int = 3 //공고 상태 "임시보호-protect" 고정
     var dogfile : MultipartBody.Part? = null // dogimg
+    // 연락처 수정 팝업
+    var careTel_rb : RequestBody? = null//전화번호
+    var email_rb : RequestBody?  = null
+    var dm_rb : RequestBody? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -172,10 +177,17 @@ class Write_Protect_Activity : AppCompatActivity() {
             species_name_protect.isEnabled = true
         }
 
+        radioretouch_protect.setOnClickListener{ // "이전 연락처 그대로" 라디오버튼 눌렀을때,
+            // 연락처 다시 null값으로 초기화
+            careTel_rb= null//전화번호
+            email_rb = null
+            dm_rb = null
+        }
 
         radionotouch_protect.setOnClickListener {// 연락처수정 라디오버튼을 눌렀을 때,
             // 연락처수정할 수 있는 팝업창 띄움
             val i = Intent(this, Renew_popupActivity::class.java)
+            startActivityForResult(i,33333)
             startActivity(i)
 
         }
@@ -267,6 +279,20 @@ class Write_Protect_Activity : AppCompatActivity() {
                 Log.v("강아지사진",dogfile.toString())
 
                 picture_write1_protect.setImageURI(data?.data)
+            }
+        }else if(resultCode == 12345) {
+            if (requestCode == 33333) {
+                var careTel = data?.getStringExtra("tel")
+                var email = data?.getStringExtra("email")
+                var dm = data?.getStringExtra("dm")
+
+                Log.v("연락처 수정","전화번호:"+careTel+"이메일"+email+"디엠"+dm)
+                //연락처 수정
+                careTel_rb = RequestBody.create(MediaType.parse("text/plain"), careTel.toString())
+                email_rb = RequestBody.create(MediaType.parse("text/plain"), email.toString())
+                dm_rb = RequestBody.create(MediaType.parse("text/plain"), dm.toString())
+
+                Log.v("연락처 수정rb","전화번호:"+careTel_rb+"이메일"+email_rb+"디엠"+dm_rb)
             }
         }
     }

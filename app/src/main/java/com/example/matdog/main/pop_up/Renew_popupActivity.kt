@@ -30,7 +30,7 @@ class Renew_popupActivity : AppCompatActivity() {
                 intent.putExtra("tel", tel)
                 intent.putExtra("email", email)
                 intent.putExtra("dm", dm)
-                setResult(11111,intent)
+                setResult(12345,intent)
                 finish()
             }
         })

@@ -25,7 +25,6 @@ import com.example.matdog.api.RegisterResponseMiss
 import com.example.matdog.api.SharedPreferenceController
 import com.example.matdog.api.UserServiceImpl
 import com.example.matdog.main.pop_up.Renew_popupActivity
-import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write_miss.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -154,11 +153,17 @@ class Write_Miss_Activity : AppCompatActivity() {
             species_name_miss.isEnabled = true
         }
 
+        radioretouch_miss.setOnClickListener{ // "이전 연락처 그대로" 라디오버튼 눌렀을때,
+            // 연락처 다시 null값으로 초기화
+            careTel_rb= null//전화번호
+            email_rb = null
+            dm_rb = null
+        }
 
-        radionotouch_miss.setOnClickListener {// 연락처수정 라디오버튼을 눌렀을 때,
+        radionotouch_miss.setOnClickListener {// "연락처수정" 라디오버튼을 눌렀을 때,
             // 연락처수정할 수 있는 팝업창 띄움
             val i = Intent(this, Renew_popupActivity::class.java)
-            startActivityForResult(i,1234)
+            startActivityForResult(i,22222)
             startActivity(i)
 
         }
@@ -251,8 +256,8 @@ class Write_Miss_Activity : AppCompatActivity() {
 
                 picture_write1_miss.setImageURI(data?.data)
             }
-        }else if(resultCode == 11111) {
-            if (requestCode == 1234) {
+        }else if(resultCode == 12345) {
+            if (requestCode == 22222) {
                 var careTel = data?.getStringExtra("tel")
                 var email = data?.getStringExtra("email")
                 var dm = data?.getStringExtra("dm")
