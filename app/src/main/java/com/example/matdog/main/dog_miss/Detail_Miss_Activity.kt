@@ -26,7 +26,7 @@ class Detail_Miss_Activity : AppCompatActivity() {
 
 
         val registerIdx_intent = intent /*데이터 수신*/
-        val registerIdx = intent.getIntExtra("registerIdx",0)
+        registerIdx = intent.getIntExtra("registerIdx",0)
 
         // -----------server--------------
         token = SharedPreferenceController.getUserToken(this)
@@ -103,6 +103,7 @@ class Detail_Miss_Activity : AppCompatActivity() {
         //연락처 팝업버튼
         btn_detail_call_missing.setOnClickListener {
             val i = Intent(this, Call_Miss_popupActivity::class.java)
+            Log.v("실종 상세화면 연락처팝업",token+registerIdx)
             i.putExtra("token_miss",token)
             i.putExtra("registerIdx_miss",registerIdx)
             startActivity(i)
