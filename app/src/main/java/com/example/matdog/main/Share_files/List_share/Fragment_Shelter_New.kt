@@ -55,12 +55,13 @@ class Fragment_Shelter_New(i: Int, searchData: String?) : Fragment(), View.OnCli
         val callNewList_Lost =
             UserServiceImpl.ListService.list_lost_search(2, search_data) // 실종 : 2
         val callNewList_result =
-            UserServiceImpl.ListService.list_register_result(2, "포메") // 보호소 / 인식품종바탕결과
+            UserServiceImpl.ListService.list_register_result(2, "푸") // 보호소 / 인식품종바탕결과
         val callNewList_result_Spot =
             UserServiceImpl.ListService.list_spot_result(2, "포메") // 보호소 / 인식품종바탕결과
         val callNewList_result_Lost =
             UserServiceImpl.ListService.list_lost_result(2, "포메") // 보호소 / 인식품종바탕결과
 
+        Log.v("statusCode 값 확인",status_list.toString())
         //리스트 띄우기
         if (status_list == 0) {
             callNewList.safeEnqueue {
