@@ -69,16 +69,25 @@ class List_Activity : AppCompatActivity() {
 
             btn_search.setOnClickListener {
                 search_data = edt_search.getText().toString()
-                Log.v("searchdata값", search_data)
 
-                var fragmentAdapter =
-                    ViewPager_Shelter_Adapter(
-                        supportFragmentManager, state_result, search_data // 상태값에 따라 서버연결 리스트가 변하도록
-                    )
-
+                if(search_data==null){
+                    var fragmentAdapter =
+                        ViewPager_Shelter_Adapter(
+                            supportFragmentManager, state_result, " " // 상태값에 따라 서버연결 리스트가 변하도록
+                        )
+                    list_viewPager.adapter = fragmentAdapter
+                    list_tablayout.setupWithViewPager(list_viewPager)
+                }else {
+                    var fragmentAdapter =
+                        ViewPager_Shelter_Adapter(
+                            supportFragmentManager,
+                            state_result,
+                            search_data // 상태값에 따라 서버연결 리스트가 변하도록
+                        )
+                    list_viewPager.adapter = fragmentAdapter
+                    list_tablayout.setupWithViewPager(list_viewPager)
+                }
                 Log.v("searchdata값", search_data)
-                list_viewPager.adapter = fragmentAdapter
-                list_tablayout.setupWithViewPager(list_viewPager)
             }
         } else{
             edt_search.isVisible=false
@@ -112,7 +121,7 @@ class List_Activity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-            if (requestCode == 2000) {
+            if (requestCode == 2000 || requestCode==3000 || requestCode==4000) {
             Log.v("requestCode로 들어옴","requestCode로 들어왔음")
             var a1 = intent.getStringExtra("state0") // 보호소 리스트 - 분양공고등록
             var a2 = intent.getStringExtra("state1") // 임시보호 리스트 - 실종공고등록
