@@ -4,7 +4,7 @@
 ## Environment
 ![](https://img.shields.io/badge/Android-29-green) ![](https://img.shields.io/badge/Kotlin-1.3.41-orange)
 
-## Logo
+## 로고
 <img width="380" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312413-40201700-df3f-11ea-9c47-f413c15f6d32.png">
 <img width="380" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312416-431b0780-df3f-11ea-93c4-0e1c196b141a.png">     
 
