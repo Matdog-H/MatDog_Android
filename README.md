@@ -2,7 +2,7 @@
 #### 분양·유기견을 위한 강아지 종 인식 및 매칭 서비스
 
 ## 환경
-![](https://img.shields.io/badge/Android-29-green) ![](https://img.shields.io/badge/Kotlin-1.3.41-orange)
+![](https://img.shields.io/badge/Android-29-green) ![](https://img.shields.io/badge/Kotlin-1.3.41-blue)
 
 ## 로고
 <img width="380" alt="matdog" src="https://user-images.githubusercontent.com/43837954/90312413-40201700-df3f-11ea-9c47-f413c15f6d32.png">
