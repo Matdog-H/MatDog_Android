@@ -36,8 +36,8 @@
          
 
 ## Member
-- [![](https://img.shields.io/badge/강수빈-skyblue)](https://github.com/ksb0511)
-- [![](https://img.shields.io/badge/나혜지-skyblue)](https://github.com/nhj7911)
+- [강수빈](https://github.com/ksb0511)
+- [나혜지](https://github.com/nhj7911)
 - [![](https://img.shields.io/badge/여은지-skyblue)](https://github.com/eunnj)
 
 
