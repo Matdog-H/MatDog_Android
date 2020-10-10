@@ -158,12 +158,16 @@ class Write_Miss_Activity : AppCompatActivity() {
                         call: Call<RegisterResponseMiss>,
                         response: Response<RegisterResponseMiss>
                     ) {
-                        if (response.isSuccessful) {
-//                        Log.v("check", callRegisterResponse.safeEnqueue().toString())
+                        if(response.isSuccessful) {
                             Log.v("실종공고등록성공", response.body()!!.message)
                             Log.v("공고등록응답확인", response.body()!!.toString())
 
                             finish()
+                            Toast.makeText(
+                                this@Write_Miss_Activity,
+                                "등록되었습니다.",
+                                Toast.LENGTH_LONG
+                            ).show()
                         } else {
                             Log.v("실종공고등록(notsucess)", response.body()!!.message)
                             Log.v("공고등록응답확인(notsucess)", response.body()!!.toString())
@@ -172,6 +176,8 @@ class Write_Miss_Activity : AppCompatActivity() {
                 })
             }
         }
+
+
 
         species_modify_miss.setOnClickListener {// 종 수정버튼 눌렀을 때,
             // 종 수정가능해짐

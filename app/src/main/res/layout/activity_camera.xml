@@ -55,12 +55,11 @@
         android:layout_height="match_parent"
         />
 
-
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/img_preview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent"/>
+
     <ImageButton
         android:id="@+id/btn_convert"
         android:layout_width="40dp"
@@ -69,6 +68,15 @@
         />
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/black_blind"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="90dp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/picture_button1"
@@ -101,6 +109,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/button_camera"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ic_camera"/>
 
 
     <TextView

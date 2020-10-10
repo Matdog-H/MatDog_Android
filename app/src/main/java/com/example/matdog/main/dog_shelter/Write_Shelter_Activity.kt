@@ -166,28 +166,7 @@ class Write_Shelter_Activity : AppCompatActivity() {
                     edtfeature.getText().toString()
                 ) //특징
 
-                //연락처 수정
-                var careTel: RequestBody? = null
-                if (intent.hasExtra("tel")) {
-                    careTel = RequestBody.create(
-                        MediaType.parse("text/plain"),
-                        intent.getStringExtra("tel").toString()
-                    )
-                }
-                var email: RequestBody? = null
-                if (intent.hasExtra("email")) {
-                    email = RequestBody.create(
-                        MediaType.parse("text/plain"),
-                        intent.getStringExtra("email").toString()
-                    )
-                }
-                var dm: RequestBody? = null
-                if (intent.hasExtra("dm")) {
-                    dm = RequestBody.create(
-                        MediaType.parse("text/plain"),
-                        intent.getStringExtra("dm").toString()
-                    )
-                }
+
 
                 // ------------server -------------
                 token = SharedPreferenceController.getUserToken(this)
@@ -204,9 +183,9 @@ class Write_Shelter_Activity : AppCompatActivity() {
                         careAddr,
                         happenDt,
                         specialMark,
-                        careTel,
-                        email,
-                        dm,
+                        careTel_rb,
+                        email_rb,
+                        dm_rb,
                         dogfile
                     )
 
@@ -223,8 +202,12 @@ class Write_Shelter_Activity : AppCompatActivity() {
 //                        Log.v("check", callRegisterResponse.safeEnqueue().toString())
                             Log.v("보호소공고등록성공", response.body()!!.message)
                             Log.v("공고등록응답확인", response.body()!!.toString())
-
                             finish()
+                            Toast.makeText(
+                                this@Write_Shelter_Activity,
+                                "등록되었습니다.",
+                                Toast.LENGTH_LONG
+                            ).show()
                         } else {
                             Log.v("보호소공고등록(notsucess)", response.body()!!.message)
                             Log.v("공고등록응답확인(notsucess)", response.body()!!.toString())
