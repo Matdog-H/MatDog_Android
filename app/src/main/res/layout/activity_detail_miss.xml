@@ -197,8 +197,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_missing_date"
-                    app:layout_constraintStart_toEndOf="@id/img_detail_missing_date"
+                     app:layout_constraintStart_toEndOf="@id/img_detail_missing_date"
                     app:layout_constraintTop_toBottomOf="@+id/txt_detail_missing_location" />
 
 
