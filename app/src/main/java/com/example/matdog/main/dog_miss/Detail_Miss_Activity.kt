@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail_miss.*
 
 class Detail_Miss_Activity : AppCompatActivity() {
-    private var token : String = ""
+    private var token: String = ""
     private val registerStatus: Int = 2 // 공고 상태 "실종-miss" 고정
     private var registerIdx: Int = 8 //공고 id -> 나중에 값 받아옴
     private var CHECK_NUM = 0 // 찜 상태
@@ -27,8 +27,8 @@ class Detail_Miss_Activity : AppCompatActivity() {
 
 
         val registerIdx_intent = intent /*데이터 수신*/
-        registerIdx = intent.getIntExtra("registerIdx",0)
-        Log.d("post_registerIdx",registerIdx.toString())
+        registerIdx = intent.getIntExtra("registerIdx", 0)
+        Log.d("post_registerIdx", registerIdx.toString())
         // -----------server--------------
         token = SharedPreferenceController.getUserToken(this)
         val callDetailMiss = UserServiceImpl.matchingDetailService.matchingDetailResponse_miss(
@@ -38,30 +38,30 @@ class Detail_Miss_Activity : AppCompatActivity() {
         )
 
         callDetailMiss.safeEnqueue {
-            if(it.isSuccessful){
+            if (it.isSuccessful) {
                 val missregister = it.body()!!.missregister
                 // 데이터 줌
                 txt_detail_happenDt_missing.setText(missregister.happenDt) // 등록일
                 txt_detail_jong_missing.setText(missregister.kindCd) //종
-                txt_detail_age_missing.setText("나이 "+missregister.age) //나이
+                txt_detail_age_missing.setText("나이 " + missregister.age) //나이
                 txt_detail_scale_missing.setText(missregister.weight) //체중
                 txt_detail_missing_location.setText(missregister.lostPlace) //잃어버린 장소
                 txt_detail_missing_date.setText(missregister.lostDate) //잃어버린 날짜
                 txt_detail_feature_miss.setText(missregister.specialMark) //특징
 
-                Log.v("이미지주소"+missregister.filename,"개이미지") //개이미지 string 못받아옴 null값
+                Log.v("이미지주소" + missregister.filename, "개이미지") //개이미지 string 못받아옴 null값
                 Glide.with(this)
                     .load(missregister.filename)
                     .into(detail_miss_img) //사진
 
                 //성별
-                var sexCd : String = missregister.sexCd
-                if(sexCd == "M"){
+                var sexCd: String = missregister.sexCd
+                if (sexCd == "M") {
                     //detail_sex.setImageResource(R.drawable.gender_man)
                     Glide.with(this)
                         .load(R.drawable.gender_man)
                         .into(detail_sex_miss)
-                }else{
+                } else {
                     //detail_sex.setImageResource(R.drawable.gender_woman)
                     Glide.with(this)
                         .load(R.drawable.gender_woman)
@@ -85,23 +85,26 @@ class Detail_Miss_Activity : AppCompatActivity() {
         val delete_state = intent.getStringExtra("delete")
 
         //마이페이지에서 넘어왔을 때
-        if (delete_state != null && delete_state.equals("delete_miss")){
+        if (delete_state != null && delete_state.equals("delete_miss")) {
             btn_delete_miss.setVisibility(View.VISIBLE)
-            btn_delete_miss.isEnabled=true
+            btn_delete_miss.isEnabled = true
 
             //삭제 버튼
             btn_delete_miss.setOnClickListener {
                 //해당 공고 삭제
-                val calldelete = UserServiceImpl.DeleteService.delete_request_miss(token,registerIdx =registerIdx )
+                val calldelete = UserServiceImpl.DeleteService.delete_request_miss(
+                    token,
+                    registerIdx = registerIdx
+                )
                 calldelete.safeEnqueue {
-                    if(it.isSuccessful){
+                    if (it.isSuccessful) {
 
                         Log.d("SSS", "1")
 
-                       // val fragmentbundle = Bundle()
-                       // fragmentbundle.putString("result","success")
+                        // val fragmentbundle = Bundle()
+                        // fragmentbundle.putString("result","success")
                         Log.d("SSS", "2")
-                        Toast.makeText(this,"삭제되었습니다.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_LONG).show()
                         finish()
                         Log.d("SSS", "2.5")
                     }
@@ -115,12 +118,12 @@ class Detail_Miss_Activity : AppCompatActivity() {
 
     }
 
-    private fun init(){
+    private fun init() {
         //연락처 팝업버튼
         btn_detail_call_missing.setOnClickListener {
             val i = Intent(this, Call_Miss_popupActivity::class.java)
-            i.putExtra("token_miss",token)
-            i.putExtra("registerIdx_miss",registerIdx)
+            i.putExtra("token_miss", token)
+            i.putExtra("registerIdx_miss", registerIdx)
             startActivity(i)
         }
 
@@ -132,13 +135,13 @@ class Detail_Miss_Activity : AppCompatActivity() {
         // 찜버튼
         btn_zzim_missing.setOnClickListener {
 
-            if(CHECK_NUM==0){
+            if (CHECK_NUM == 0) {
                 //btn_zzim.setBackgroundResource(R.drawable.ic_heart)
                 btn_zzim_missing.setSelected(true)
-                CHECK_NUM=1
-            }else{
+                CHECK_NUM = 1
+            } else {
                 btn_zzim_missing.setSelected(false)
-                CHECK_NUM=0
+                CHECK_NUM = 0
             }
 
             // 찜상태 서버에 전송
@@ -150,7 +153,7 @@ class Detail_Miss_Activity : AppCompatActivity() {
             )
             LikeStatusService.safeEnqueue {
                 if (it.isSuccessful) {
-                    Log.v("miss찜공고상태변화:"+CHECK_NUM, it.body()!!.message)
+                    Log.v("miss찜공고상태변화:" + CHECK_NUM, it.body()!!.message)
                 }
 
             }

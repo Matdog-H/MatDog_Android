@@ -16,9 +16,8 @@ import com.example.matdog.main.pop_up.Call_popupActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 
 
-
 class Detail_Shelter_Activity : AppCompatActivity() {
-    private var token : String = ""
+    private var token: String = ""
     private val registerStatus: Int = 1 //공고 상태 "보호소-shelter" 고정
     private var registerIdx: Int = 10 //공고 id -> 나중에 값 받아옴
     private var CHECK_NUM = 0 // 찜 상태
@@ -41,8 +40,8 @@ class Detail_Shelter_Activity : AppCompatActivity() {
 
         /*데이터 수신*/
         val registerIdx_intent = intent
-        registerIdx = intent.getIntExtra("registerIdx",0)
-        position = intent.getIntExtra("position",0)
+        registerIdx = intent.getIntExtra("registerIdx", 0)
+        position = intent.getIntExtra("position", 0)
 
         token = SharedPreferenceController.getUserToken(this)
         val callDetail = UserServiceImpl.matchingDetailService.matchingDetailResponse(
@@ -98,7 +97,6 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         val delete_state = intent.getStringExtra("delete")
 
 
-
         //마이페이지에서 넘어왔을 때
         if (delete_state != null && delete_state.equals("delete_shelter")) {
             btn_delete.setVisibility(View.VISIBLE)
@@ -107,16 +105,14 @@ class Detail_Shelter_Activity : AppCompatActivity() {
             //삭제 버튼
             btn_delete.setOnClickListener {
                 //해당 공고 삭제
-               val calldelete = UserServiceImpl.DeleteService.delete_request_shelter(token,registerIdx =registerIdx )
+                val calldelete = UserServiceImpl.DeleteService.delete_request_shelter(
+                    token,
+                    registerIdx = registerIdx
+                )
                 calldelete.safeEnqueue {
-                    if(it.isSuccessful){
+                    if (it.isSuccessful) {
                         finish()
-                        Log.d("SSS", "1")
-                         val fragmentbundle = Bundle()
-                         fragmentbundle.putString("result","success")
-                         fragmentbundle.putInt("position",position)
-                        Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_LONG).show()
-                        Log.d("SSS", "2")
+                        Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_LONG).show()
                     }
                 }
 
@@ -132,8 +128,8 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         //연락처 팝업버튼
         btn_detail_call.setOnClickListener {
             val i = Intent(this, Call_popupActivity::class.java)
-            i.putExtra("token_shelter",token)
-            i.putExtra("registerIdx_shelter",registerIdx)
+            i.putExtra("token_shelter", token)
+            i.putExtra("registerIdx_shelter", registerIdx)
             startActivity(i)
         }
 
@@ -163,7 +159,7 @@ class Detail_Shelter_Activity : AppCompatActivity() {
             )
             LikeStatusService.safeEnqueue {
                 if (it.isSuccessful) {
-                    Log.v("shelter찜공고상태변화:"+CHECK_NUM, it.body()!!.message)
+                    Log.v("shelter찜공고상태변화:" + CHECK_NUM, it.body()!!.message)
                 }
 
             }

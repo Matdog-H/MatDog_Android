@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_detail_miss.*
 import kotlinx.android.synthetic.main.activity_detail_protect.*
 
 class Detail_Protect_Activity : AppCompatActivity() {
-    private var token : String = ""
+    private var token: String = ""
     private val registerStatus: Int = 3 // 공고 상태 "임시보호-protect" 고정
     private var registerIdx: Int = 31 //공고 id -> 나중에 값 받아옴
     private var CHECK_NUM = 0 // 찜 상태
@@ -26,42 +26,43 @@ class Detail_Protect_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_detail_protect)
 
         val registerIdx_intent = intent /*데이터 수신*/
-        registerIdx = intent.getIntExtra("registerIdx",0)
+        registerIdx = intent.getIntExtra("registerIdx", 0)
 
         // -----------server--------------
         token = SharedPreferenceController.getUserToken(this)
-        val callProtectDetail = UserServiceImpl.matchingDetailService.matchingDetailResponse_protect(
-            token = token,
-            registerStatus = registerStatus, //상태 "임시보호-protect" 고정
-            registerIdx = registerIdx // 공고 id
-        )
+        val callProtectDetail =
+            UserServiceImpl.matchingDetailService.matchingDetailResponse_protect(
+                token = token,
+                registerStatus = registerStatus, //상태 "임시보호-protect" 고정
+                registerIdx = registerIdx // 공고 id
+            )
 
         callProtectDetail.safeEnqueue {
-            if(it.isSuccessful){
+            if (it.isSuccessful) {
                 val protectregister = it.body()!!.protectregister
                 // 데이터 줌
                 txt_detail_happenDt_protect.setText(protectregister.happenDt) // 등록일
                 txt_detail_jong_protect.setText(protectregister.kindCd) //종
-                txt_detail_age_protect.setText("나이 "+protectregister.age) //나이
+                txt_detail_age_protect.setText("나이 " + protectregister.age) //나이
                 txt_detail_scale_protect.setText(protectregister.weight) //체중
                 txt_detail_protect_location.setText(protectregister.findPlace) //발견장소
                 txt_detail_protect_date.setText(protectregister.findDate) //발견날짜
                 txt_detail_protect_location_missing.setText(protectregister.careAddr) // 보호장소
                 txt_detail_feature_protect.setText(protectregister.specialMark) //특징
 
-                Log.v("이미지주소"+protectregister.filename,"개이미지") //개이미지 string 못받아옴 null값
+                Log.v("이미지주소" + protectregister.filename, "개이미지") //개이미지 string 못받아옴 null값
                 Glide.with(this)
                     .load(protectregister.filename)
                     .into(detail_protect_img) //사진
 
                 //성별
-                var sexCd : String = protectregister.sexCd
-                if(sexCd == "M"){
+                var sexCd: String = protectregister.sexCd
+                if (sexCd == "M") {
                     //detail_sex.setImageResource(R.drawable.gender_man)
                     Glide.with(this)
                         .load(R.drawable.gender_man)
                         .into(detail_sex_protect)
-                }else{
+                } else {
                     //detail_sex.setImageResource(R.drawable.gender_woman)
                     Glide.with(this)
                         .load(R.drawable.gender_woman)
@@ -87,21 +88,24 @@ class Detail_Protect_Activity : AppCompatActivity() {
         detail_protect_img.setImageResource(R.drawable.taepoong2)
 
         //마이페이지에서 넘어왔을 때
-        if (delete_state != null && delete_state.equals("delete_protect")){
+        if (delete_state != null && delete_state.equals("delete_protect")) {
             btn_delete_protect.setVisibility(View.VISIBLE)
-            btn_delete_protect.isEnabled=true
+            btn_delete_protect.isEnabled = true
 
             //삭제 버튼
             btn_delete_protect.setOnClickListener {
                 //해당 공고 삭제
-                val calldelete = UserServiceImpl.DeleteService.delete_request_protected(token,registerIdx =registerIdx )
+                val calldelete = UserServiceImpl.DeleteService.delete_request_protected(
+                    token,
+                    registerIdx = registerIdx
+                )
                 calldelete.safeEnqueue {
-                    if(it.isSuccessful){
+                    if (it.isSuccessful) {
                         val fragmentbundle = Bundle()
-                        fragmentbundle.putString("result","success")
+                        fragmentbundle.putString("result", "success")
                         Log.d("SSS", "1")
 
-                        Toast.makeText(this,"삭제되었습니다.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_LONG).show()
                         Log.d("SSS", "2")
 
                     }
@@ -116,12 +120,12 @@ class Detail_Protect_Activity : AppCompatActivity() {
 
     }
 
-    private fun init(){
+    private fun init() {
         //연락처 팝업버튼
         btn_detail_call_protect.setOnClickListener {
             val i = Intent(this, Call_Protect_popupActivity::class.java)
-            i.putExtra("token_protect",token)
-            i.putExtra("registerIdx_protect",registerIdx)
+            i.putExtra("token_protect", token)
+            i.putExtra("registerIdx_protect", registerIdx)
             startActivity(i)
         }
 
@@ -132,13 +136,13 @@ class Detail_Protect_Activity : AppCompatActivity() {
 
         // 찜버튼
         btn_zzim_protect.setOnClickListener {
-            if(CHECK_NUM==0){
+            if (CHECK_NUM == 0) {
                 //btn_zzim.setBackgroundResource(R.drawable.ic_heart)
                 btn_zzim_protect.setSelected(true)
-                CHECK_NUM=1
-            }else{
+                CHECK_NUM = 1
+            } else {
                 btn_zzim_protect.setSelected(false)
-                CHECK_NUM=0
+                CHECK_NUM = 0
             }
 
             // 찜상태 서버에 전송
@@ -150,7 +154,7 @@ class Detail_Protect_Activity : AppCompatActivity() {
             )
             LikeStatusService.safeEnqueue {
                 if (it.isSuccessful) {
-                    Log.v("miss찜공고상태변화:"+CHECK_NUM, it.body()!!.message)
+                    Log.v("miss찜공고상태변화:" + CHECK_NUM, it.body()!!.message)
                 }
 
             }
