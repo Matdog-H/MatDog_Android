@@ -7,7 +7,20 @@
     android:background="#BFBFBF"
     tools:context=".main.dog_shelter.Write_Shelter_Activity">
 
-    <!-- 사진올리기 -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_okwrite_miss"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+        <!-- 사진올리기 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/write_picture"
         android:layout_width="match_parent"
@@ -16,7 +29,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -34,17 +46,16 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/imageplus"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="@id/picture_write1_miss"
             app:layout_constraintBottom_toBottomOf="@id/picture_write1_miss"
-            />
+            app:layout_constraintEnd_toEndOf="@id/picture_write1_miss"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="※얼굴이 잘 보이는 사진으로 등록해주세요.※"
-            android:textSize="14sp"
             android:textColor="#999797"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/write_picture"
             app:layout_constraintEnd_toEndOf="@id/write_picture"
             app:layout_constraintHorizontal_bias="0.547"
@@ -53,6 +64,7 @@
             app:layout_constraintVertical_bias="0.193" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ImageButton
         android:id="@+id/ic_back_miss"
@@ -65,6 +77,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <!-- 분양 공고 정보란 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imformation_view"
@@ -72,28 +85,28 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/imfo_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_okwrite_miss"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/write_picture"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="NotSibling">
 
         <EditText
             android:id="@+id/species_name_miss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:backgroundTint="#5ea096"
+            android:enabled="false"
+            android:shadowColor="#5ea096"
             android:text="푸들"
             android:textColor="#5ea096"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:backgroundTint="#5ea096"
-            android:shadowColor="#5ea096"
-            android:enabled="false"
             app:layout_constraintEnd_toEndOf="@id/imformation_view"
             app:layout_constraintStart_toStartOf="@id/imformation_view"
-            app:layout_constraintTop_toTopOf="@id/imformation_view"
-            />
+            app:layout_constraintTop_toTopOf="@id/imformation_view" />
 
         <Button
             android:id="@+id/species_modify_miss"
@@ -142,8 +155,8 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="여"
-                    android:textSize="20sp"
-                    android:textColor="@drawable/rbtn_textcolor_selector" />
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/radioMale_miss"
@@ -155,8 +168,8 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="남"
-                    android:textSize="20sp"
-                    android:textColor="@drawable/rbtn_textcolor_selector" />
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="20sp" />
             </RadioGroup>
 
             <TextView
@@ -202,14 +215,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="kg"
-                android:textSize="20sp"
-                android:textColor="#84cdc2"
-                android:textStyle="bold"
                 android:paddingBottom="5dp"
-                app:layout_constraintStart_toEndOf="@id/edtweight_miss"
+                android:text="kg"
+                android:textColor="#84cdc2"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/view1"
-                />
+                app:layout_constraintStart_toEndOf="@id/edtweight_miss" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -220,8 +232,8 @@
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@id/edtweight_miss"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintEnd_toEndOf="@id/view1" />
+                app:layout_constraintEnd_toEndOf="@id/view1"
+                app:layout_constraintHorizontal_bias="0.0" />
 
             <!-- 나이 -->
             <EditText
@@ -233,9 +245,9 @@
                 android:background="#00000000"
                 android:gravity="right"
                 android:hint="2"
+                android:inputType="number"
                 android:textColor="#84cdc2"
                 android:textSize="20sp"
-                android:inputType="number"
                 app:layout_constraintEnd_toEndOf="@id/imformation"
                 app:layout_constraintTop_toTopOf="@id/imformation" />
 
@@ -250,14 +262,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="살"
-                android:textSize="20sp"
-                android:textColor="#84cdc2"
-                android:textStyle="bold"
                 android:paddingBottom="5dp"
-                app:layout_constraintStart_toEndOf="@id/edtyear_miss"
+                android:text="살"
+                android:textColor="#84cdc2"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/view3"
-                />
+                app:layout_constraintStart_toEndOf="@id/edtyear_miss" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -382,12 +393,12 @@
             android:id="@+id/radioContact_miss"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="15dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="@id/imformation_view"
             app:layout_constraintStart_toStartOf="@id/imformation_view"
             app:layout_constraintTop_toBottomOf="@id/imformation">
@@ -403,8 +414,8 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="이전 연락처 그대로"
-                android:textSize="20sp"
-                android:textColor="@drawable/rbtn_textcolor_selector" />
+                android:textColor="@drawable/rbtn_textcolor_selector"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radionotouch_miss"
@@ -416,11 +427,13 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="연락처 수정"
-                android:textSize="20sp"
-                android:textColor="@drawable/rbtn_textcolor_selector" />
+                android:textColor="@drawable/rbtn_textcolor_selector"
+                android:textSize="20sp" />
         </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <!--공고 등록버튼 -->
     <Button

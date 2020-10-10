@@ -7,6 +7,18 @@
     android:background="#BFBFBF"
     tools:context=".main.dog_shelter.Write_Shelter_Activity">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_okwrite"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
     <!-- 사진올리기 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/write_picture"
@@ -71,11 +83,12 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/imfo_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_okwrite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/write_picture"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="NotSibling">
 
         <EditText
             android:id="@+id/species_name"
@@ -483,7 +496,8 @@
         </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
     <!--공고 등록버튼 -->
     <Button
         android:id="@+id/btn_okwrite"
