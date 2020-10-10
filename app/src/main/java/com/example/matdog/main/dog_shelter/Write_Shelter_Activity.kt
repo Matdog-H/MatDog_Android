@@ -31,6 +31,7 @@ import kotlinx.android.synthetic.main.activity_write.radionotouch
 import kotlinx.android.synthetic.main.activity_write.species_modify
 import kotlinx.android.synthetic.main.activity_write.species_name
 import kotlinx.android.synthetic.main.activity_write_miss.*
+import kotlinx.android.synthetic.main.activity_write_protect.*
 import retrofit2.Callback
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -203,12 +204,20 @@ class Write_Shelter_Activity : AppCompatActivity() {
             species_name.isEnabled = true
         }
         radioretouch.setOnClickListener{ // "이전 연락처 그대로" 라디오버튼 눌렀을때,
+            if(radioretouch.isChecked == true){
+                radioretouch.isChecked = true
+                radionotouch.isChecked = false
+            }
             // 연락처 다시 null값으로 초기화
             careTel_rb= null//전화번호
             email_rb = null
             dm_rb = null
         }
         radionotouch.setOnClickListener { // 연락처수정 라디오버튼을 눌렀을 때,
+            if(radionotouch.isChecked == true){
+                radionotouch.isChecked = true
+                radioretouch.isChecked = false
+            }
             // 연락처수정할 수 있는 팝업창 띄움
             val i = Intent(this, Renew_popupActivity::class.java)
             startActivityForResult(i,11111)

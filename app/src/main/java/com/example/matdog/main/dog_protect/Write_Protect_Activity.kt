@@ -178,6 +178,10 @@ class Write_Protect_Activity : AppCompatActivity() {
         }
 
         radioretouch_protect.setOnClickListener{ // "이전 연락처 그대로" 라디오버튼 눌렀을때,
+            if(radioretouch_protect.isChecked == true){
+                radioretouch_protect.isChecked = true
+                radionotouch_protect.isChecked = false
+            }
             // 연락처 다시 null값으로 초기화
             careTel_rb= null//전화번호
             email_rb = null
@@ -185,6 +189,10 @@ class Write_Protect_Activity : AppCompatActivity() {
         }
 
         radionotouch_protect.setOnClickListener {// 연락처수정 라디오버튼을 눌렀을 때,
+            if(radionotouch_protect.isChecked == true){
+                radionotouch_protect.isChecked = true
+                radioretouch_protect.isChecked = false
+            }
             // 연락처수정할 수 있는 팝업창 띄움
             val i = Intent(this, Renew_popupActivity::class.java)
             startActivityForResult(i,33333)
