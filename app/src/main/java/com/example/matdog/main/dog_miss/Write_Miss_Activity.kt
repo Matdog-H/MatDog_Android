@@ -178,7 +178,11 @@ class Write_Miss_Activity : AppCompatActivity() {
             species_name_miss.isEnabled = true
         }
 
-        radioretouch_miss.setOnClickListener { // "이전 연락처 그대로" 라디오버튼 눌렀을때,
+        radioretouch_miss.setOnClickListener{ // "이전 연락처 그대로" 라디오버튼 눌렀을때,
+            if(radioretouch_miss.isChecked == true){
+                radioretouch_miss.isChecked = true
+                radionotouch_miss.isChecked = false
+            }
             // 연락처 다시 null값으로 초기화
             careTel_rb = null//전화번호
             email_rb = null
@@ -186,6 +190,10 @@ class Write_Miss_Activity : AppCompatActivity() {
         }
 
         radionotouch_miss.setOnClickListener {// "연락처수정" 라디오버튼을 눌렀을 때,
+            if(radionotouch_miss.isChecked == true){
+                radioretouch_miss.isChecked = false
+                radionotouch_miss.isChecked = true
+            }
             // 연락처수정할 수 있는 팝업창 띄움
             val i = Intent(this, Renew_popupActivity::class.java)
             startActivityForResult(i, 22222)
