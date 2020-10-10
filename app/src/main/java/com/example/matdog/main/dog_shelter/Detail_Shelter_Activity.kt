@@ -28,17 +28,6 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        // -----------server--------------
-
-//        val callAgeList = UserServiceImpl.ListService.listResponse_age()
-//        callAgeList.safeEnqueue {
-//            if(it.isSuccessful){
-//                val data = it.body()!!.listdata
-//                registerIdx = data.registerIdx
-//            }
-//        }
-
-
         /*데이터 수신*/
         val registerIdx_intent = intent
         registerIdx = intent.getIntExtra("registerIdx",0)
@@ -110,13 +99,8 @@ class Detail_Shelter_Activity : AppCompatActivity() {
                val calldelete = UserServiceImpl.DeleteService.delete_request_shelter(token,registerIdx =registerIdx )
                 calldelete.safeEnqueue {
                     if(it.isSuccessful){
-                        finish()
-                        Log.d("SSS", "1")
-                         val fragmentbundle = Bundle()
-                         fragmentbundle.putString("result","success")
-                         fragmentbundle.putInt("position",position)
                         Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_LONG).show()
-                        Log.d("SSS", "2")
+                        finish()
                     }
                 }
 

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
+import com.example.matdog.api.MyListAllData
 import com.example.matdog.api.SharedPreferenceController
 import com.example.matdog.api.UserServiceImpl
 import com.example.matdog.api.safeEnqueue
@@ -28,59 +29,23 @@ class fragment_my() : Fragment(), View.OnClickListener{
     private lateinit var  FMrecyclerview : RecyclerView
     private var mpadapter2: mp_Adapter = mp_Adapter(R.layout.list_item)
     var mp_datalist = ArrayList<ArrayList<ListItem>>()
-    var post_status = ArrayList<Int>()
-    var post_registerIdx = ArrayList<Int>() //아이디값 저장 리스트
-    //var this_viewgroup : ViewGroup = ViewGroup
 
-
-    private fun updateMpDataList(){
-        mp_datalist.clear()
-        mp_datalist.add(mpadapter2.mp_data)
-        mpadapter2.notifyDataSetChanged()
-
-    }
-
+    var my_write_List_server = arrayListOf<MyListAllData>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var mylistview = inflater.inflate(R.layout.my_list, container, false)
         var thiscontext = container!!.getContext()
         FMrecyclerview = mylistview.findViewById(R.id.ml_recyclerview)
 
-        //--------server---------
         server(thiscontext)
-       //--------server---------
-
-
-
-       //this로 현재 context 전달
-       //mpadapter2= Adapter(thiscontext)
-
-       //mpadapter2.onItemClick(this)
-
-       //리사이클러뷰의 어댑터 세팅
-       FMrecyclerview.adapter=mpadapter2
-
-       //리/사이클러뷰 배치
-       FMrecyclerview.layoutManager= GridLayoutManager(thiscontext,2)
-
-
-
-
-
-//       mpadapter2.notifyDataSetChanged()
-
-
 
        return mylistview
 
     }
 
-    override fun onClick(v: View?) {
-
-    }
+    override fun onClick(v: View?) {}
 //,container: ViewGroup?
     fun server(thiscontext:Context){
-
 
         token = SharedPreferenceController.getUserToken(thiscontext)
         val callmypost = UserServiceImpl.MyListService.listResponse_mywrite(token)
@@ -101,9 +66,17 @@ class fragment_my() : Fragment(), View.OnClickListener{
                             it_image = myPost[i].filename
                         )
                     )
-                    post_status.add(myPost[i].registerStatus) // 클릭 아이템 공고 상태값
-                    post_registerIdx.add(myPost[i].registerIdx) //클릭 아이템 공고 아이디 값 저장
+                    //post_status.add(myPost[i].registerStatus) // 클릭 아이템 공고 상태값
+                    //post_registerIdx.add(myPost[i].registerIdx) //클릭 아이템 공고 아이디 값 저장
+
+                    my_write_List_server= myPost as ArrayList<MyListAllData>
                 }
+
+                //리사이클러뷰의 어댑터 세팅
+                FMrecyclerview.adapter=mpadapter2
+
+                //리/사이클러뷰 배치
+                FMrecyclerview.layoutManager= GridLayoutManager(thiscontext,2)
 
 
 
@@ -114,7 +87,6 @@ class fragment_my() : Fragment(), View.OnClickListener{
             }
         }
 
-
         mpadapter2.notifyDataSetChanged()
 
     mpadapter2.setItemClickListener(object :mp_Adapter.ItemClickListener{
@@ -122,55 +94,40 @@ class fragment_my() : Fragment(), View.OnClickListener{
             Log.d("SSS", "${position}번 리스트 선택")
             //상태값에 따라 상세화면 바뀌게
             if (view?.parent == FMrecyclerview) {
-                if (post_status[position] == 1) {
+                if (my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerStatus == 1) {
                     val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
                     intent.putExtra("delete","delete_shelter")
-                    intent.putExtra("registerIdx",post_registerIdx[position])
+                    intent.putExtra("registerIdx",my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
                     intent.putExtra("position",position)
+                    //matchingData[rv.getChildAdapterPosition(v)].matchingIdx
+                    Log.v("리스트 포지션 값",my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerIdx.toString())
+                    Log.v("리스트 포지션 값",my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerStatus.toString())
                     startActivityForResult(intent,1000)
                 }
-                else if (post_status[position] == 2) {
+                else if (my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerStatus == 2) {
                     val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
                     intent.putExtra("delete","delete_miss")
-                    intent.putExtra("registerIdx",post_registerIdx[position])
+                    intent.putExtra("registerIdx",my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
                     intent.putExtra("position",position)
                     startActivityForResult(intent,1000)
                 }
                 else{
                     val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
                     intent.putExtra("delete","delete_protect")
-                    intent.putExtra("registerIdx",post_registerIdx[position])
+                    intent.putExtra("registerIdx",my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
                     intent.putExtra("position",position)
                     startActivityForResult(intent,1000)
                 }
             }
         }
     })
-        click()
 }
-
-
-    fun click(){
-
-
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==1000){
-            //var v = context?.windowManager?.defaultDisplay
-            updateMpDataList()
             server(activity!!)
-            //mpadapter2.notifyDataSetChanged()
-
-            val bundle = arguments
-            val result = bundle?.getString("result")
-            val p = bundle?.getInt("position")
-            if(result.equals("success")){
-//                myPost[p].delete()
-                Log.d("position = ", p.toString())
-
-            }
+            mpadapter2.notifyDataSetChanged()
         }
     }
 
