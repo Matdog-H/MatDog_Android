@@ -27,17 +27,6 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        // -----------server--------------
-
-//        val callAgeList = UserServiceImpl.ListService.listResponse_age()
-//        callAgeList.safeEnqueue {
-//            if(it.isSuccessful){
-//                val data = it.body()!!.listdata
-//                registerIdx = data.registerIdx
-//            }
-//        }
-
-
         /*데이터 수신*/
         val registerIdx_intent = intent
         registerIdx = intent.getIntExtra("registerIdx", 0)
@@ -97,6 +86,7 @@ class Detail_Shelter_Activity : AppCompatActivity() {
         val delete_state = intent.getStringExtra("delete")
 
 
+
         //마이페이지에서 넘어왔을 때
         if (delete_state != null && delete_state.equals("delete_shelter")) {
             btn_delete.setVisibility(View.VISIBLE)
@@ -110,9 +100,9 @@ class Detail_Shelter_Activity : AppCompatActivity() {
                     registerIdx = registerIdx
                 )
                 calldelete.safeEnqueue {
-                    if (it.isSuccessful) {
+                    if(it.isSuccessful){
+                        Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_LONG).show()
                         finish()
-                        Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_LONG).show()
                     }
                 }
 

@@ -430,7 +430,6 @@
                 android:textColor="@drawable/rbtn_textcolor_selector"
                 android:textSize="20sp" />
         </RadioGroup>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -446,5 +445,6 @@
         android:textColor="#ffffff"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

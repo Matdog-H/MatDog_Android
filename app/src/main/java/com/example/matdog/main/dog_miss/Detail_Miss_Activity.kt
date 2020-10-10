@@ -97,16 +97,9 @@ class Detail_Miss_Activity : AppCompatActivity() {
                     registerIdx = registerIdx
                 )
                 calldelete.safeEnqueue {
-                    if (it.isSuccessful) {
-
-                        Log.d("SSS", "1")
-
-                        // val fragmentbundle = Bundle()
-                        // fragmentbundle.putString("result","success")
-                        Log.d("SSS", "2")
-                        Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_LONG).show()
+                    if(it.isSuccessful){
+                        Toast.makeText(this,"삭제되었습니다.", Toast.LENGTH_LONG).show()
                         finish()
-                        Log.d("SSS", "2.5")
                     }
                 }
 
