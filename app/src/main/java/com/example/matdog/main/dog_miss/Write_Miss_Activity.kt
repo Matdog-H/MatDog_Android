@@ -206,10 +206,10 @@ class Write_Miss_Activity : AppCompatActivity() {
         private val ORIENTATIONS = SparseIntArray()
 
         init {
-            ORIENTATIONS.append(ExifInterface.ORIENTATION_NORMAL, 0)
-            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_90, 90)
-            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_180, 180)
-            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_270, 270)
+            ORIENTATIONS.append(ExifInterface.ORIENTATION_NORMAL, 90)
+            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_90, 180)
+            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_180, 270)
+            ORIENTATIONS.append(ExifInterface.ORIENTATION_ROTATE_270, 360)
         }
     }
 
