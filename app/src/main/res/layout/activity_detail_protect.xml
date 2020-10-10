@@ -144,8 +144,7 @@
                     android:id="@+id/img_detail_missing_location"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="37dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="36dp"
                     android:background="@drawable/itembox"
                     android:gravity="center"
                     android:paddingTop="5dp"
@@ -155,29 +154,29 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_scale_protect" />
+                    app:layout_constraintTop_toTopOf="@+id/txt_detail_protect_location" />
 
                 <TextView
                     android:id="@+id/txt_detail_protect_location"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="20dp"
                     android:text="서울시 은평구"
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_missing_location"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@id/img_detail_missing_location"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_missing_location" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_detail_scale_protect" />
 
                 <TextView
                     android:id="@+id/img_detail_missing_date"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/itembox"
                     android:gravity="center"
                     android:paddingTop="5dp"
@@ -187,7 +186,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_missing_location" />
+                    app:layout_constraintTop_toTopOf="@id/txt_detail_protect_date" />
 
                 <TextView
                     android:id="@+id/txt_detail_protect_date"
@@ -198,16 +197,15 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_missing_date"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintStart_toEndOf="@id/img_detail_missing_date"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_missing_date" />
+                    app:layout_constraintTop_toBottomOf="@id/txt_detail_protect_location" />
 
                 <TextView
                     android:id="@+id/img_detail_protect_location_missing"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/itembox"
                     android:gravity="center"
                     android:paddingTop="5dp"
@@ -217,7 +215,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_missing_date" />
+                    app:layout_constraintTop_toTopOf="@id/txt_detail_protect_location_missing" />
 
                 <TextView
                     android:id="@+id/txt_detail_protect_location_missing"
@@ -229,10 +227,10 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_protect_location_missing"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="20dp"
+                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/img_detail_protect_location_missing"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_protect_location_missing" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_detail_protect_date" />
 
 
                 <TextView
@@ -240,7 +238,6 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/itembox"
                     android:gravity="center"
                     android:paddingTop="5dp"
@@ -250,7 +247,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_protect_location_missing" />
+                    app:layout_constraintTop_toTopOf="@id/txt_detail_feature_protect" />
 
                 <TextView
                     android:id="@+id/txt_detail_feature_protect"
@@ -258,14 +255,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
                     android:layout_marginEnd="20dp"
-                    android:text="장난기가 많음. 중이염을 앓고 있음."
                     android:paddingTop="1dp"
+                    android:text="장난기가 많음. 중이염을 앓고 있음."
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/img_detail_feature"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_feature" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_detail_protect_location_missing" />
 
 
                 <Button

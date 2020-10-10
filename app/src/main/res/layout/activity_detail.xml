@@ -171,7 +171,6 @@
                     android:layout_width="83dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/itembox"
                     android:gravity="center"
                     android:paddingTop="5dp"
@@ -181,7 +180,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_transgender" />
+                    app:layout_constraintTop_toTopOf="@id/txt_detail_location" />
 
                 <TextView
                     android:id="@+id/txt_detail_location"
@@ -193,17 +192,16 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_protect_location"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/img_detail_protect_location"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_protect_location" />
+                    app:layout_constraintTop_toBottomOf="@id/img_detail_transgender" />
 
                 <TextView
                     android:id="@+id/img_detail_institution"
                     android:layout_width="83dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/itembox"
                     android:gravity="center"
                     android:paddingTop="5dp"
@@ -213,7 +211,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_protect_location" />
+                    app:layout_constraintTop_toTopOf="@id/txt_detail_institution" />
 
                 <TextView
                     android:id="@+id/txt_detail_institution"
@@ -224,17 +222,18 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/img_detail_institution"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@id/img_detail_institution"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_institution" />
+                    app:layout_constraintTop_toBottomOf="@id/txt_detail_location"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/img_detail_feature"
                     android:layout_width="83dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/itembox"
                     android:gravity="center"
                     android:paddingTop="5dp"
@@ -244,7 +243,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_detail_institution" />
+                    app:layout_constraintTop_toTopOf="@id/txt_detail_feature" />
 
                 <TextView
                     android:id="@+id/txt_detail_feature"
@@ -257,9 +256,10 @@
                     android:textColor="#848484"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/img_detail_feature"
-                    app:layout_constraintTop_toTopOf="@id/img_detail_feature" />
+                    app:layout_constraintTop_toBottomOf="@id/txt_detail_institution" />
 
                 <Button
                     android:id="@+id/btn_delete"
