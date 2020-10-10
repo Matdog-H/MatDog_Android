@@ -369,6 +369,11 @@ class Write_Shelter_Activity : AppCompatActivity() {
                 dm_rb = RequestBody.create(MediaType.parse("text/plain"), dm.toString())
 
                 Log.v("연락처 수정rb", "전화번호:" + careTel_rb + "이메일" + email_rb + "디엠" + dm_rb)
+                Toast.makeText(
+                    this,
+                    "수정되었습니다.",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
             }
         }
     }
