@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_list.*
 class List_Activity : AppCompatActivity() {
 
     //var array_status = arrayOfNulls<Int>(9)
-    private var search_data : String? = " "
+    private var search_data : String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
