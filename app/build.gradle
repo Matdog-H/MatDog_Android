@@ -84,4 +84,5 @@ dependencies {
 
     //Splitties
     implementation 'com.louiscad.splitties:splitties-toast:2.1.1'
+
 }

@@ -1,6 +1,5 @@
 package com.example.matdog.main.camera
 
-
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -9,15 +8,16 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Camera
+import android.graphics.Color
 import android.graphics.ImageFormat
+import android.hardware.Camera
+import android.hardware.Camera.PictureCallback
 import android.hardware.Sensor
 import android.hardware.SensorManager
 import android.hardware.camera2.*
 import android.media.ExifInterface
 import android.media.ImageReader
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
@@ -29,8 +29,8 @@ import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.view.isGone
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.List_share.List_Activity
 import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
@@ -38,6 +38,7 @@ import kotlinx.android.synthetic.main.activity_camera.*
 import splitties.toast.toast
 
 class CameraActivity : AppCompatActivity() {
+
 
     private lateinit var mSurfaceViewHolder: SurfaceHolder
     private lateinit var mImageReader: ImageReader
@@ -53,11 +54,11 @@ class CameraActivity : AppCompatActivity() {
 
     private val deviceOrientation: DeviceOrientation by lazy { DeviceOrientation() }
     private var mHeight: Int = 0
-    private var mWidth:Int = 0
+    private var mWidth: Int = 0
 
     var mCameraId = CAMERA_BACK
 
-    companion object{
+    companion object {
         private val IMAGE_PICK_CODE = 1000
         private val PERMISSION_CODE = 1001
 
@@ -92,10 +93,10 @@ class CameraActivity : AppCompatActivity() {
         initView()
     }
 
-    private fun init(){
+    private fun init() {
 
         //뒤로가기
-        ic_back.setOnClickListener{
+        ic_back.setOnClickListener {
             finish()
         }
 
@@ -103,15 +104,20 @@ class CameraActivity : AppCompatActivity() {
         //추천 공고 보기
         btn_camera_list.setOnClickListener {
             val intent1 = Intent(this, List_Activity::class.java)
-            intent1.putExtra("state3","3") //보호소 리스트로
+            intent1.putExtra("state3", "3") //보호소 리스트로
             startActivity(intent1)
         }
 
 
         //분양 공고 등록
         btn_camera_register.setOnClickListener {
-            val intent2 = Intent(this,Write_Shelter_Activity::class.java)
+            val intent2 = Intent(this, Write_Shelter_Activity::class.java)
             startActivity(intent2)
+        }
+
+        button_camera.isEnabled = true
+        button_camera.setOnClickListener {
+            //capture()
         }
 
     }
@@ -121,12 +127,14 @@ class CameraActivity : AppCompatActivity() {
         // 앨범(갤러리에서) 사진 가져오기
         get_photo.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                black_blind.setBackgroundColor(Color.WHITE)
+                button_camera.isEnabled = false
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_DENIED
                 ) {
-
                     val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                    requestPermissions(permissions,
+                    requestPermissions(
+                        permissions,
                         PERMISSION_CODE
                     )
                 } else {
@@ -134,13 +142,15 @@ class CameraActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
     //앨범에서 이미지 가져오기
-    private fun pickImageFromGallery(){
+    private fun pickImageFromGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        startActivityForResult(intent,
+        startActivityForResult(
+            intent,
             IMAGE_PICK_CODE
         )
     }
@@ -150,13 +160,13 @@ class CameraActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        when(requestCode){
+        when (requestCode) {
             PERMISSION_CODE -> {
                 if (grantResults.size > 0 && grantResults[0] ==
-                    PackageManager.PERMISSION_GRANTED){
+                    PackageManager.PERMISSION_GRANTED
+                ) {
                     pickImageFromGallery()
-                }
-                else{
+                } else {
                     Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -165,7 +175,7 @@ class CameraActivity : AppCompatActivity() {
 
     @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             picture_button1.setImageURI(data?.data)
         }
     }
@@ -180,7 +190,7 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        with(DisplayMetrics()){
+        with(DisplayMetrics()) {
             windowManager.defaultDisplay.getMetrics(this)
             mHeight = heightPixels
             mWidth = widthPixels
@@ -208,7 +218,7 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun switchCamera() {
-        when(mCameraId){
+        when (mCameraId) {
             CAMERA_BACK -> {
                 mCameraId = CAMERA_FRONT
                 mCameraDevice.close()
@@ -281,7 +291,9 @@ class CameraActivity : AppCompatActivity() {
         mPreviewBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
         mPreviewBuilder.addTarget(mSurfaceViewHolder.surface)
         mCameraDevice.createCaptureSession(
-            listOf(mSurfaceViewHolder.surface, mImageReader.surface), mSessionPreviewStateCallback, mHandler
+            listOf(mSurfaceViewHolder.surface, mImageReader.surface),
+            mSessionPreviewStateCallback,
+            mHandler
         )
     }
 
@@ -346,4 +358,26 @@ class CameraActivity : AppCompatActivity() {
         Log.d("ViewSize", "TextureView Width : $viewWidth TextureView Height : $viewHeight")
         surfaceView.layoutParams = FrameLayout.LayoutParams(viewWidth, viewHeight)
     }
+
+//    fun capture() {
+//        captures(Camera.PictureCallback { bytes: ByteArray, camera: Camera ->
+//            fun onPictureTaken(data: ByteArray, camera: Camera) {
+//                val options: BitmapFactory.Options = BitmapFactory.Options()
+//                options.inSampleSize = 8
+//                val bitmap: Bitmap = BitmapFactory.decodeByteArray(data, 0, data.size)
+//                img_preview.setImageBitmap(bitmap)
+//                camera.startPreview()
+//            }
+//        })
+//    }
+//
+//    lateinit var camera: Camera
+//    fun captures(callback: PictureCallback?): Boolean {
+//        return if (camera != null) {
+//            camera.takePicture(null, null, callback)
+//            true
+//        } else {
+//            false
+//        }
+//    }
 }
