@@ -359,6 +359,7 @@ class CameraActivity : AppCompatActivity() {
         surfaceView.layoutParams = FrameLayout.LayoutParams(viewWidth, viewHeight)
     }
 
+    //캡처기능 해야함
 //    fun capture() {
 //        captures(Camera.PictureCallback { bytes: ByteArray, camera: Camera ->
 //            fun onPictureTaken(data: ByteArray, camera: Camera) {
