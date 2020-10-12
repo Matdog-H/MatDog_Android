@@ -6,10 +6,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.ImageFormat
+import android.graphics.*
 import android.hardware.Camera
 import android.hardware.Camera.PictureCallback
 import android.hardware.Sensor
@@ -17,10 +14,8 @@ import android.hardware.SensorManager
 import android.hardware.camera2.*
 import android.media.ExifInterface
 import android.media.ImageReader
-import android.os.Build
-import android.os.Bundle
-import android.os.Handler
-import android.os.HandlerThread
+import android.net.Uri
+import android.os.*
 import android.util.DisplayMetrics
 import android.util.Log
 import android.util.SparseIntArray
@@ -36,6 +31,13 @@ import com.example.matdog.main.Share_files.List_share.List_Activity
 import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
 import kotlinx.android.synthetic.main.activity_camera.*
 import splitties.toast.toast
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.Collections.rotate
 
 class CameraActivity : AppCompatActivity() {
 
@@ -45,6 +47,7 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var mCameraDevice: CameraDevice
     private lateinit var mPreviewBuilder: CaptureRequest.Builder
     private lateinit var mSession: CameraCaptureSession
+    private lateinit var mCamera: Camera
 
     private var mHandler: Handler? = null
 
@@ -61,6 +64,7 @@ class CameraActivity : AppCompatActivity() {
     companion object {
         private val IMAGE_PICK_CODE = 1000
         private val PERMISSION_CODE = 1001
+        private val MEDIA_IMAGE_TYPE = 1002
 
         //카메라
         const val CAMERA_BACK = "0"
@@ -118,6 +122,8 @@ class CameraActivity : AppCompatActivity() {
         button_camera.isEnabled = true
         button_camera.setOnClickListener {
             //capture()
+            //takePicture()
+            //카메라 다시 갈아엎어버릴수도있음..
         }
 
     }
@@ -358,6 +364,70 @@ class CameraActivity : AppCompatActivity() {
         Log.d("ViewSize", "TextureView Width : $viewWidth TextureView Height : $viewHeight")
         surfaceView.layoutParams = FrameLayout.LayoutParams(viewWidth, viewHeight)
     }
+
+
+    private val mPicture = Camera.PictureCallback{data, _ ->
+        val pictureFile: File = getOutputMediaFile(MEDIA_IMAGE_TYPE) ?: run {
+            return@PictureCallback
+        }
+        try {
+            val fos = FileOutputStream(pictureFile)
+
+            var realImage : Bitmap = BitmapFactory.decodeByteArray(data, 0, data.size)
+            var exif = ExifInterface(pictureFile.toString())
+
+            if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equals("6")){
+                realImage = rotate(realImage, 90f)
+            }else if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equals("8")){
+                realImage = rotate(realImage, 270f)
+            }else if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equals("3")){
+                realImage = rotate(realImage, 180f)
+            }else if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equals("0")){
+                realImage = rotate(realImage, 90f)
+            }
+            realImage.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+            //fos.wirte(data)
+            fos.close()
+            sendBroadcast(Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://$pictureFile")))
+
+        }catch (e: FileNotFoundException){
+            Toast.makeText(this, "file not found : ${e.message}", Toast.LENGTH_SHORT).show()
+        }catch (e: IOException){
+            Toast.makeText(this, "IOException : ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun rotate(bitmap: Bitmap, degree:Float): Bitmap{
+        var width = bitmap.width
+        var height = bitmap.height
+
+        var mtx:Matrix = Matrix()
+        mtx.setRotate(degree)
+
+        return Bitmap.createBitmap(bitmap, 0, 0, width, height, mtx, true)
+    }
+    private fun getOutputMediaFile(type: Int) : File?{
+        val mediaStorageDir = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "basicCameraApp")
+
+        mediaStorageDir.apply {
+            if(!exists()){
+                if(!mkdirs()) {
+                    Log.d("BasicCamera", "failed to create directory")
+                    return null
+                }
+            }
+        }
+        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        return File("${mediaStorageDir.absolutePath}${File.separator}IMG_$timeStamp.jpg")
+    }
+
+
+
+    private fun takePicture(){
+        mCamera?.takePicture(null, null, mPicture)
+    }
+
+
 
     //캡처기능 해야함
 //    fun capture() {
