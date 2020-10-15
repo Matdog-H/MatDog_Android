@@ -16,11 +16,19 @@ class Renew_popupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_list_popup)
 
+        btn_close.setOnClickListener {
+            finish()
+        }
+
         popup_editbutton.setOnClickListener(View.OnClickListener {
             //수정버튼
             var tel : String? = list_popup_tel.getText().toString()
             var email : String? = list_popup_email.getText().toString()
             var dm : String? = list_popup_dm.getText().toString()
+
+            if(tel.equals("")) tel="비공개"
+            if(email.equals("")) email="비공개"
+            if(dm.equals("")) dm="비공개"
 
             if(tel.equals("") && email.equals("") && dm.equals(""))
                 // editText란이 하나라도 정보가 기입되지 않은 경우 토스트 띄우기
