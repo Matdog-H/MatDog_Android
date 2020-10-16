@@ -232,7 +232,6 @@ class Write_Shelter_Activity : AppCompatActivity() {
             val i = Intent(this, Renew_popupActivity::class.java)
             startActivityForResult(i, 11111)
 
-
         }
 
     }

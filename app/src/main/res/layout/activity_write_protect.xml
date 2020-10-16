@@ -358,26 +358,127 @@
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
             <!-- 발견한 날짜 -->
+<!--            <EditText-->
+<!--                android:id="@+id/edtmissday_protect"-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="28dp"-->
+<!--                android:layout_marginTop="188dp"-->
+<!--                android:background="#00000000"-->
+<!--                android:gravity="center"-->
+<!--                android:hint="2020-06-20"-->
+<!--                android:textColor="#84cdc2"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintStart_toStartOf="@id/imformation"-->
+<!--                app:layout_constraintTop_toTopOf="@id/imformation" />-->
+<!--            -->
+
             <EditText
-                android:id="@+id/edtmissday_protect"
-                android:layout_width="250dp"
+            android:id="@+id/edt_findday_year"
+            android:layout_width="60dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="188dp"
+            android:background="#00000000"
+            android:gravity="center"
+            android:hint="2020"
+            android:textColor="#84cdc2"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/imformation"
+            app:layout_constraintTop_toTopOf="@id/imformation"
+            android:maxLength="4"/>
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="60dp"
+                android:layout_height="2dp"
+                android:background="@drawable/write_line"
+                app:layout_constraintStart_toStartOf="@id/imformation"
+                app:layout_constraintTop_toBottomOf="@id/edt_findday_year" />
+
+            <TextView
+                android:id="@+id/tv_find_year"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="년"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="2dp"
+                android:textColor="#fb777a"
+                app:layout_constraintTop_toBottomOf="@id/view4"
+                app:layout_constraintLeft_toRightOf="@id/edt_findday_year"/>
+
+            <EditText
+                android:id="@+id/edt_findday_month"
+                android:layout_width="33dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="188dp"
                 android:background="#00000000"
                 android:gravity="center"
-                android:hint="2020-06-20"
+                android:hint="10"
                 android:textColor="#84cdc2"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toTopOf="@id/imformation" />
+                android:layout_marginLeft="5dp"
+                app:layout_constraintTop_toTopOf="@id/imformation"
+                app:layout_constraintLeft_toRightOf="@+id/tv_find_year"
+                android:maxLength="2"/>
 
             <View
-                android:id="@+id/view5"
-                android:layout_width="match_parent"
+                android:id="@+id/view6"
+                android:layout_width="30dp"
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
-                app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtmissday_protect" />
+                android:layout_marginLeft="5dp"
+                app:layout_constraintLeft_toRightOf="@+id/tv_find_year"
+                app:layout_constraintTop_toBottomOf="@id/edt_findday_month"
+               />
+
+            <TextView
+                android:id="@+id/tv_find_month"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="월"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="2dp"
+                android:textColor="#fb777a"
+                app:layout_constraintTop_toBottomOf="@id/view4"
+                app:layout_constraintLeft_toRightOf="@id/edt_findday_month"/>
+
+            <EditText
+                android:id="@+id/edt_findday_day"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="188dp"
+                android:background="#00000000"
+                android:gravity="center"
+                android:hint="10"
+                android:textColor="#84cdc2"
+                android:textSize="20sp"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintTop_toTopOf="@id/imformation"
+                app:layout_constraintLeft_toRightOf="@+id/tv_find_month"
+                android:maxLength="2"/>
+
+            <View
+                android:id="@+id/view7"
+                android:layout_width="30dp"
+                android:layout_height="2dp"
+                android:background="@drawable/write_line"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintLeft_toRightOf="@+id/tv_find_month"
+                app:layout_constraintTop_toBottomOf="@id/edt_findday_day"
+                />
+
+            <TextView
+                android:id="@+id/tv_find_day"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="일"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#fb777a"
+                app:layout_constraintTop_toBottomOf="@id/view4"
+                app:layout_constraintLeft_toRightOf="@id/edt_findday_day"/>
 
             <TextView
                 android:layout_width="125dp"
@@ -387,7 +488,7 @@
                 android:text="발견한 날짜"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtmissday_protect"
+                app:layout_constraintBottom_toBottomOf="@id/edt_findday_year"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
 

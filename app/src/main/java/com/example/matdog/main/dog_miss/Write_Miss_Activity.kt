@@ -90,8 +90,14 @@ class Write_Miss_Activity : AppCompatActivity() {
                 Toast.makeText(this, "나이를 입력해주세요.", Toast.LENGTH_LONG).show()
             else if (edtmissplace_miss.getText().toString().equals(""))
                 Toast.makeText(this, "잃어버린장소 입력해주세요.", Toast.LENGTH_LONG).show()
-            else if (edtmissday_miss.getText().toString().equals(""))
-                Toast.makeText(this, "잃어버린날짜을 입력해주세요.", Toast.LENGTH_LONG).show()
+//            else if (edtmissday_miss.getText().toString().equals(""))
+//                Toast.makeText(this, "잃어버린날짜을 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtmissday_year.getText().toString().equals(""))
+                Toast.makeText(this, "잃어버린 년도를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtmissday_month.getText().toString().equals(""))
+                Toast.makeText(this, "잃어버린 달을 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtmissday_day.getText().toString().equals(""))
+                Toast.makeText(this, "잃어버린 날을 입력해주세요.", Toast.LENGTH_LONG).show()
             else {
                 // ---------- 데이터저장------------
                 var kindCd = RequestBody.create(
@@ -111,9 +117,21 @@ class Write_Miss_Activity : AppCompatActivity() {
                     MediaType.parse("text/plain"),
                     edtmissplace_miss.getText().toString()
                 ) // 실종 장소 = 잃어버린 장소
+
+
+//                var lostDate = RequestBody.create(
+//                    MediaType.parse("text/plain"),
+//                    edtmissday_miss.getText().toString()
+//                ) // 실종 날짜 = 잃어버린 날짜
+
+                var miss_day_year :String = edtmissday_year.text.toString()
+                var miss_day_month :String = edtmissday_month.text.toString()
+                var miss_day_day :String = edtmissday_day.text.toString()
+                var miss_date : String =miss_day_year+"-"+miss_day_month+"-"+miss_day_day
+
                 var lostDate = RequestBody.create(
                     MediaType.parse("text/plain"),
-                    edtmissday_miss.getText().toString()
+                    miss_date
                 ) // 실종 날짜 = 잃어버린 날짜
 
                 // 등록일
@@ -161,7 +179,6 @@ class Write_Miss_Activity : AppCompatActivity() {
                         if(response.isSuccessful) {
                             Log.v("실종공고등록성공", response.body()!!.message)
                             Log.v("공고등록응답확인", response.body()!!.toString())
-
                             finish()
                             Toast.makeText(
                                 this@Write_Miss_Activity,

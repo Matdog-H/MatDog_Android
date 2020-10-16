@@ -316,26 +316,127 @@
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
 
             <!-- 잃어버린 날짜-->
+<!--            <EditText-->
+<!--                android:id="@+id/edtmissday_miss"-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="28dp"-->
+<!--                android:layout_marginTop="140dp"-->
+<!--                android:background="#00000000"-->
+<!--                android:gravity="center"-->
+<!--                android:hint="2020-08-26"-->
+<!--                android:textColor="#84cdc2"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintStart_toStartOf="@id/imformation"-->
+<!--                app:layout_constraintTop_toTopOf="@id/imformation"-->
+<!--                />-->
+
             <EditText
-                android:id="@+id/edtmissday_miss"
-                android:layout_width="250dp"
+                android:id="@+id/edtmissday_year"
+                android:layout_width="60dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="140dp"
                 android:background="#00000000"
                 android:gravity="center"
-                android:hint="2020-08-26"
+                android:hint="2020"
                 android:textColor="#84cdc2"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toTopOf="@id/imformation" />
+                app:layout_constraintTop_toTopOf="@id/imformation"
+                android:maxLength="4"
+                />
 
             <View
                 android:id="@+id/view5"
-                android:layout_width="match_parent"
+                android:layout_width="60dp"
                 android:layout_height="2dp"
                 android:background="@drawable/write_line"
                 app:layout_constraintStart_toStartOf="@id/imformation"
-                app:layout_constraintTop_toBottomOf="@id/edtmissday_miss" />
+                app:layout_constraintTop_toBottomOf="@id/edtmissday_year" />
+
+            <TextView
+                android:id="@+id/tv_miss_year"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="년"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="2dp"
+                android:textColor="#fb777a"
+                app:layout_constraintTop_toBottomOf="@id/view4"
+                app:layout_constraintLeft_toRightOf="@id/edtmissday_year"/>
+
+            <EditText
+                android:id="@+id/edtmissday_month"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="140dp"
+                android:background="#00000000"
+                android:gravity="center"
+                android:hint="10"
+                android:textColor="#84cdc2"
+                android:textSize="20sp"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintLeft_toRightOf="@+id/tv_miss_year"
+                app:layout_constraintTop_toTopOf="@id/imformation"
+                android:maxLength="2"
+                />
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="30dp"
+                android:layout_height="2dp"
+                android:background="@drawable/write_line"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintLeft_toRightOf="@+id/tv_miss_year"
+                app:layout_constraintTop_toBottomOf="@id/tv_miss_year"/>
+
+            <TextView
+                android:id="@+id/tv_miss_month"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="월"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="2dp"
+                android:textColor="#fb777a"
+                app:layout_constraintTop_toBottomOf="@id/view4"
+                app:layout_constraintLeft_toRightOf="@id/edtmissday_month"/>
+
+            <EditText
+                android:id="@+id/edtmissday_day"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="140dp"
+                android:background="#00000000"
+                android:gravity="center"
+                android:hint="10"
+                android:textColor="#84cdc2"
+                android:textSize="20sp"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintLeft_toRightOf="@+id/tv_miss_month"
+                app:layout_constraintTop_toTopOf="@id/imformation"
+                android:maxLength="2"
+                />
+
+            <View
+                android:id="@+id/view7"
+                android:layout_width="30dp"
+                android:layout_height="2dp"
+                android:background="@drawable/write_line"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintLeft_toRightOf="@+id/tv_miss_month"
+                app:layout_constraintTop_toBottomOf="@id/tv_miss_month"/>
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="일"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#fb777a"
+                app:layout_constraintTop_toBottomOf="@id/view4"
+                app:layout_constraintLeft_toRightOf="@id/edtmissday_day"/>
 
             <TextView
                 android:layout_width="125dp"
@@ -345,8 +446,9 @@
                 android:text="잃어버린 날짜"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/edtmissday_miss"
+                app:layout_constraintBottom_toBottomOf="@id/edtmissday_year"
                 app:layout_constraintEnd_toEndOf="@id/imformation" />
+
 
 
             <!-- 특징 -->
