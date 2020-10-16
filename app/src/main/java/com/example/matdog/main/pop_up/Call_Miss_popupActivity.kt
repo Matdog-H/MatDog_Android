@@ -32,10 +32,17 @@ class Call_Miss_popupActivity : AppCompatActivity() {
         callpopupMiss.safeEnqueue {
             if(it.isSuccessful){
                 val missregister = it.body()!!.missregister
-                // 연락처 데이터 줌
-                popup_tel?.setText(missregister.careTel) //전화번호
-                popup_email?.setText(missregister.email) //이메일
-                popup_dm?.setText(missregister.dm) //DM
+                val missvalue = it.body()!!.contactopen
+
+                if(missvalue.telcheck==1) popup_tel?.setText(missregister.careTel) //전화번호
+                else popup_tel?.setText("비공개")
+
+                if(missvalue.emailcheck==1)  popup_email?.setText(missregister.email) //이메일
+                else popup_email?.setText("비공개")
+
+                if(missvalue.dmcheck==1) popup_dm?.setText(missregister.dm) //DM
+                else popup_dm?.setText("비공개")
+
                 Log.v("실종 공고 연락처팝업","성공적")
 
             }

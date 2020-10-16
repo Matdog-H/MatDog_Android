@@ -32,10 +32,17 @@ class Call_Protect_popupActivity : AppCompatActivity() {
         callpopupProtect.safeEnqueue {
             if(it.isSuccessful){
                 val protectregister = it.body()!!.protectregister
-                // 연락처 데이터 줌
-                popup_tel?.setText(protectregister.careTel) //전화번호
-                popup_email?.setText(protectregister.email) //이메일
-                popup_dm?.setText(protectregister.dm) //DM
+                val protectvalue = it.body()!!.contactopen
+
+                if(protectvalue.telcheck==1) popup_tel?.setText(protectregister.careTel) //전화번호
+                else popup_tel?.setText("비공개")
+
+                if(protectvalue.emailcheck==1)  popup_email?.setText(protectregister.email) //이메일
+                else popup_email?.setText("비공개")
+
+                if(protectvalue.dmcheck==1) popup_dm?.setText(protectregister.dm) //DM
+                else popup_dm?.setText("비공개")
+
                 Log.v("임시보호 공고 연락처팝업","성공적")
             }
         }

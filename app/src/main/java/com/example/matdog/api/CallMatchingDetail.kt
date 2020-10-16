@@ -39,7 +39,9 @@ data class DetailResponse(
     @SerializedName("register")
     val detailregister: DetailData,
     @SerializedName("likeStatus") // 찜 상태
-    val likeStatus: Int
+    val likeStatus: Int,
+    @SerializedName("contactopen") // 개인정보 상태값
+    val contactopen: StateValue
 )
 
 //register
@@ -74,6 +76,15 @@ data class DetailData(
     val filename : String?
 )
 
+data class StateValue(
+    @SerializedName("telcheck")
+    val telcheck : Int,
+    @SerializedName("emailcheck")
+    val emailcheck : Int,
+    @SerializedName("dmcheck")
+    val dmcheck : Int
+
+)
 
 // 실종 공고
 data class DetailResponseMiss(
@@ -84,8 +95,11 @@ data class DetailResponseMiss(
     @SerializedName("register")
     val missregister: DetailDataMiss,
     @SerializedName("likeStatus") // 찜 상태
-    val likeStatus: Int
+    val likeStatus: Int,
+    @SerializedName("contactopen") // 개인정보 상태값
+    val contactopen: StateValue
 )
+
 //lost
 data class DetailDataMiss(
     @SerializedName("registerStatus") //공고 상태값
@@ -125,7 +139,9 @@ data class DetailResponseProtect(
     @SerializedName("register")
     val protectregister: DetailDataProtect,
     @SerializedName("likeStatus") // 찜 상태
-    val likeStatus: Int
+    val likeStatus: Int,
+    @SerializedName("contactopen") // 개인정보 상태값
+    val contactopen: StateValue
 )
 //spot->protect?로 이름 바꾸는거 좋을듯
 data class DetailDataProtect(
