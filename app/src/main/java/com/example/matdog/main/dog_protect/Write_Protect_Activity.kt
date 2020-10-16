@@ -99,8 +99,14 @@ class Write_Protect_Activity : AppCompatActivity() {
                 Toast.makeText(this, "보호장소를 입력해주세요.", Toast.LENGTH_LONG).show()
             else if (edtmissplace_protect.getText().toString().equals(""))
                 Toast.makeText(this, "발견한 장소를 입력해주세요.", Toast.LENGTH_LONG).show()
-            else if (edtmissday_protect.getText().toString().equals(""))
-                Toast.makeText(this, "발견한 날짜를 입력해주세요.", Toast.LENGTH_LONG).show()
+            //else if (edtmissday_protect.getText().toString().equals(""))
+                //Toast.makeText(this, "발견한 날짜를 입력해주세요.", Toast.LENGTH_LONG).show()
+             else if(edt_findday_year.getText().toString().equals(""))
+                Toast.makeText(this, "발견 년도를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edt_findday_month.getText().toString().equals(""))
+                Toast.makeText(this, "발견된 달을 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edt_findday_day.getText().toString().equals(""))
+                Toast.makeText(this, "발견된 날을 입력해주세요.", Toast.LENGTH_LONG).show()
             else {
                 // ---------- 데이터저장------------
                 var kindCd = RequestBody.create(
@@ -124,10 +130,22 @@ class Write_Protect_Activity : AppCompatActivity() {
                     MediaType.parse("text/plain"),
                     edtmissplace_protect.getText().toString()
                 ) // 발견장소
+
+                //var findDate = RequestBody.create(
+//                    MediaType.parse("text/plain"),
+//                    edtmissday_protect.getText().toString()
+//                ) // 발견날짜
+
+                var find_day_year :String = edt_findday_year.text.toString()
+                var find_day_month :String = edt_findday_month.text.toString()
+                var find_day_day :String = edt_findday_day.text.toString()
+                var find_date : String =find_day_year+"-"+find_day_month+"-"+find_day_day
+
                 var findDate = RequestBody.create(
                     MediaType.parse("text/plain"),
-                    edtmissday_protect.getText().toString()
+                   find_date
                 ) // 발견날짜
+
 
                 // 등록일
                 val now = LocalDateTime.now()
@@ -198,8 +216,12 @@ class Write_Protect_Activity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             Log.v("임시보호공고등록성공", response.body()!!.message)
                             Log.v("공고등록응답확인", response.body()!!.toString())
-
                             finish()
+                            Toast.makeText(
+                                this@Write_Protect_Activity,
+                                "등록되었습니다.",
+                                Toast.LENGTH_LONG
+                            ).show()
                         } else {
                             Log.v("임시보호공고등록(notsucess)", response.body()!!.message)
                             Log.v("공고등록응답확인(notsucess)", response.body()!!.toString())

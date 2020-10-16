@@ -131,7 +131,7 @@ data class RegisterRequestMiss(
     @SerializedName("sexCd") //성별
     val sexCd : String,
     @SerializedName("weight") //몸무게
-    val weight : String,
+    val weight : String?,
     @SerializedName("age") //나이
     val age	: String,
     @SerializedName("happenDt") //등록일
