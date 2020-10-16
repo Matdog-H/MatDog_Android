@@ -94,6 +94,8 @@ class Write_Miss_Activity : AppCompatActivity() {
 //                Toast.makeText(this, "잃어버린날짜을 입력해주세요.", Toast.LENGTH_LONG).show()
             else if(edtmissday_year.getText().toString().equals(""))
                 Toast.makeText(this, "잃어버린 년도를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edtmissday_year.length()!=4)
+                Toast.makeText(this, "올바른 년도 형식을 입력해주세요.", Toast.LENGTH_LONG).show()
             else if(edtmissday_month.getText().toString().equals(""))
                 Toast.makeText(this, "잃어버린 달을 입력해주세요.", Toast.LENGTH_LONG).show()
             else if(edtmissday_day.getText().toString().equals(""))

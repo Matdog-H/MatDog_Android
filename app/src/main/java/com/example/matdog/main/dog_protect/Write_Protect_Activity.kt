@@ -103,6 +103,8 @@ class Write_Protect_Activity : AppCompatActivity() {
                 //Toast.makeText(this, "발견한 날짜를 입력해주세요.", Toast.LENGTH_LONG).show()
              else if(edt_findday_year.getText().toString().equals(""))
                 Toast.makeText(this, "발견 년도를 입력해주세요.", Toast.LENGTH_LONG).show()
+            else if(edt_findday_year.length()!=4)
+                Toast.makeText(this, "올바른 년도 형식을 입력해주세요.", Toast.LENGTH_LONG).show()
             else if(edt_findday_month.getText().toString().equals(""))
                 Toast.makeText(this, "발견된 달을 입력해주세요.", Toast.LENGTH_LONG).show()
             else if(edt_findday_day.getText().toString().equals(""))
