@@ -2,5 +2,5 @@
     <string name="app_name">MatDog</string>
     <string name="what_is_this_dog">What\'s this dog? Tap on the camera!</string>
     <string name="error">Sorry, FireBase MLKIT fail :(</string>
-    <string name="dog_result">This dog is a %1$s (%2$.2f)</string>
+    <string name="dog_result"> %1$s 로 (%2$.2f)추정됩니다.</string>
 </resources>
