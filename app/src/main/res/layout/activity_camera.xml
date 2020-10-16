@@ -54,14 +54,6 @@
         app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintBottom_toTopOf="@id/camera_background"/>
 
-    <ImageView
-        android:id="@+id/black_blind"
-        android:layout_width="match_parent"
-        android:layout_height="540dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="90dp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/picture_button1"
@@ -128,6 +120,7 @@
         android:background="@drawable/graybtn"
         android:text="추천 공고 보기"
         android:textStyle="bold"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent" />
@@ -140,6 +133,7 @@
         android:layout_marginBottom="64dp"
         android:background="@drawable/graybtn"
         android:text="분양 공고 등록"
+        android:enabled="false"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

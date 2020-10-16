@@ -9,16 +9,24 @@ import android.graphics.*
 import android.media.ExifInterface
 import android.os.*
 import android.provider.MediaStore
+import android.util.Log
 import android.util.SparseIntArray
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.List_share.List_Activity
 import com.example.matdog.main.camera.image.DogDetector
 import com.example.matdog.main.camera.image.DogView
 import com.example.matdog.main.dog_shelter.Write_Shelter_Activity
 import kotlinx.android.synthetic.main.activity_camera.*
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.InputStream
 import java.util.*
 
 class CameraActivity : AppCompatActivity() , DogView {
@@ -74,8 +82,10 @@ class CameraActivity : AppCompatActivity() , DogView {
             startActivity(intent2)
         }
 
-        button_camera.isEnabled = true
         button_camera.setOnClickListener {
+            picture_button1.isVisible=false
+            imageView.isVisible=true
+            enable()
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).let {
                 if (it.resolveActivity(packageManager) != null) {
                     startActivityForResult(it, REQUEST_IMAGE_CAPTURE)
@@ -85,13 +95,23 @@ class CameraActivity : AppCompatActivity() , DogView {
 
     }
 
+    @SuppressLint("ResourceAsColor")
+    private fun enable(){
+        btn_camera_list.isEnabled=true
+        //btn_camera_list.setBackgroundColor(R.color.colorAccent)
+        btn_camera_register.isEnabled=true
+        //btn_camera_register.setBackgroundColor(R.color.colorAccent)
+    }
 
     private fun picture() {
         // 앨범(갤러리에서) 사진 가져오기
         get_photo.setOnClickListener {
+            picture_button1.isVisible=true
+            imageView.isVisible=false
+            enable()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                black_blind.setBackgroundColor(Color.WHITE)
-                button_camera.isEnabled = false
+                //black_blind.setBackgroundColor(Color.WHITE)
+                //button_camera.isEnabled = false
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_DENIED
                 ) {
@@ -139,7 +159,17 @@ class CameraActivity : AppCompatActivity() , DogView {
     @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-            picture_button1.setImageURI(data?.data)
+            data?.let {
+                var selectedPictureUri = it.data
+                val options = BitmapFactory.Options()
+                val inputStream: InputStream? =
+                    contentResolver.openInputStream(selectedPictureUri!!) // !! 강제로 not null로 바꿔줌..
+                val bitmap:Bitmap = BitmapFactory.decodeStream(inputStream, null, options)!!
+
+                dogDetector.recognizeDog(bitmap=bitmap)
+
+                picture_button1.setImageURI(data?.data)
+            }
         }
         else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             (data?.extras?.get("data") as Bitmap).apply {
@@ -160,18 +190,6 @@ class CameraActivity : AppCompatActivity() , DogView {
         dogDetector.view = null
         super.onDestroy()
     }
-
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-//            (data?.extras?.get("data") as Bitmap).apply {
-//                Bitmap.createBitmap(this, 0, height / 2 - width / 2, width, width).let {
-//                    imageView.setImageBitmap(it)
-//                    imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-//                    dogDetector.recognizeDog(bitmap = it)
-//                }
-//            }
-//        }
-//    }
 
     override fun displayDogBreed(dogBreed: String, winPercent: Float) {
         textView.text = String.format(
