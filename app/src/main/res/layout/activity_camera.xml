@@ -39,35 +39,20 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="27dp"/>
 
-    <FrameLayout
-        android:id="@+id/camera_view"
-        android:layout_width="match_parent"
-        android:layout_height="540dp"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageView
+        android:contentDescription="@null"
+        android:id="@+id/imageView"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:scaleType="center"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="90dp">
-
-
-    <SurfaceView
-        android:id="@+id/surfaceView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-        <ImageView
-            android:id="@+id/img_preview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    <ImageButton
-        android:id="@+id/btn_convert"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/ic_baseline_cached_24"
-        />
-
-    </FrameLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintBottom_toTopOf="@id/camera_background"/>
 
     <ImageView
         android:id="@+id/black_blind"
@@ -120,6 +105,7 @@
 
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="143dp"

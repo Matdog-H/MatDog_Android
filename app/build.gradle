@@ -14,6 +14,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true //important
     }
     buildTypes {
         release {
@@ -31,6 +33,9 @@ android {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/ASL2.0'
         exclude("META-INF/*.kotlin_module")
+    }
+    aaptOptions {
+        noCompress "tflite"
     }
 }
 
@@ -85,4 +90,11 @@ dependencies {
     //Splitties
     implementation 'com.louiscad.splitties:splitties-toast:2.1.1'
 
+
+    //firebase
+    implementation 'com.google.firebase:firebase-core:15.0.2'
+    implementation 'com.google.firebase:firebase-ml-model-interpreter:15.0.0'
+
 }
+
+apply plugin: 'com.google.gms.google-services'
