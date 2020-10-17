@@ -25,6 +25,7 @@ import com.example.matdog.api.RegisterResponseMiss
 import com.example.matdog.api.SharedPreferenceController
 import com.example.matdog.api.UserServiceImpl
 import com.example.matdog.main.pop_up.Renew_popupActivity
+import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write_miss.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -53,6 +54,10 @@ class Write_Miss_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_miss)
+
+        var dog_breed = intent.getStringExtra("breed") // 보호소 리스트 - 분석결과값
+
+        species_name_miss.setText(dog_breed)
 
         picture() // 앨범에서 사진 가져오기
 
@@ -257,10 +262,6 @@ class Write_Miss_Activity : AppCompatActivity() {
     companion object {
         private val IMAGE_PICK_CODE = 1000
         private val PERMISSION_CODE = 1001
-
-        //카메라
-        const val CAMERA_BACK = "0"
-        const val CAMERA_FRONT = "1"
 
         private val ORIENTATIONS = SparseIntArray()
 

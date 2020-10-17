@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.activity_list.*
 
 class List_Activity : AppCompatActivity() {
 
-    //var array_status = arrayOfNulls<Int>(9)
     private var search_data: String? = ""
     private var dog_breed: String? = ""
 
@@ -57,8 +56,6 @@ class List_Activity : AppCompatActivity() {
                 dog_breed = array_breed[i]
             }
         }
-
-
 
         for (i in 0 until array_status.size) {
             if (array_status[i].isNullOrBlank()) {
@@ -102,6 +99,7 @@ class List_Activity : AppCompatActivity() {
                         )
                     list_viewPager.adapter = fragmentAdapter
                     list_tablayout.setupWithViewPager(list_viewPager)
+                    Log.v("searchdata값", search_data)
                 } else {
                     var fragmentAdapter =
                         ViewPager_Shelter_Adapter(
@@ -126,18 +124,22 @@ class List_Activity : AppCompatActivity() {
                 )
             list_viewPager.adapter = fragmentAdapter
             list_tablayout.setupWithViewPager(list_viewPager)
+            Log.v("dog_breed값", dog_breed)
         }
 
         // 글등록 버튼
         btn_write.setOnClickListener {
             if (state_result == 0 || state_result == 3) {
                 val intent1 = Intent(this, Write_Shelter_Activity::class.java)
+                intent1.putExtra("breed", dog_breed)
                 startActivityForResult(intent1, 2000)
             } else if (state_result == 1 || state_result == 4) {
                 val intent2 = Intent(this, Write_Miss_Activity::class.java)
+                intent2.putExtra("breed", dog_breed)
                 startActivityForResult(intent2, 3000)
             } else {
                 val intent3 = Intent(this, Write_Protect_Activity::class.java)
+                intent3.putExtra("breed", dog_breed)
                 startActivityForResult(intent3, 4000)
             }
 

@@ -54,6 +54,7 @@ class CameraActivity : AppCompatActivity() , DogView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
 
+        breed_data= ""
         dogDetector = DogDetector(this)
         dogDetector.view = this
 
@@ -133,7 +134,6 @@ class CameraActivity : AppCompatActivity() , DogView {
                     pickImageFromGallery()
                 }
             }
-            //enable()
         }
 
     }
@@ -203,6 +203,7 @@ class CameraActivity : AppCompatActivity() , DogView {
         if(winPercent<30) {
             disenable()
             textView.setText("인식 실패하였습니다!")
+            breed_data=""
         }else if(winPercent< 50){
             breed_data = "("+dogBreed+")믹스견"
             textView.text = String.format(
