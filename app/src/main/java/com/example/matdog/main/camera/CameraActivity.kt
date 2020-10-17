@@ -99,7 +99,6 @@ class CameraActivity : AppCompatActivity() , DogView {
 
     }
 
-    @SuppressLint("ResourceAsColor")
     private fun enable(){
         btn_camera_list.isEnabled=true
         btn_camera_list.setBackgroundResource(R.drawable.btnpink)
