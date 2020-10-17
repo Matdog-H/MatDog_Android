@@ -25,8 +25,8 @@ import kotlinx.android.synthetic.main.activity_list.*
 class List_Activity : AppCompatActivity() {
 
     //var array_status = arrayOfNulls<Int>(9)
-    private var search_data : String? = ""
-    private var dog_breed:String? ="없"
+    private var search_data: String? = ""
+    private var dog_breed: String? = "없"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,28 +43,26 @@ class List_Activity : AppCompatActivity() {
         var dog_breed_protect = intent.getStringExtra("breed2") // 임시보호 리스트 - 분석결과값
         var dog_breed_lost = intent.getStringExtra("breed3") // 실종 리스트 - 분석결과값
 
-        //Log.v("dog_breed_register값 확인하기", dog_breed_register)
-
         var array_breed = arrayOf(
             dog_breed_register, dog_breed_protect, dog_breed_lost
         )
 
-        var array_status= arrayOf(
-            a1,a2,a3,a4,a5,a6
+        var array_status = arrayOf(
+            a1, a2, a3, a4, a5, a6
         )
 
-        for (i in 0 until array_breed.size){
-            if(array_breed[i].isNullOrBlank()){}
-            else {
+        for (i in 0 until array_breed.size) {
+            if (array_breed[i].isNullOrBlank()) {
+            } else {
                 dog_breed = array_breed[i]
             }
         }
 
 
 
-        for (i in 0 until array_status.size){
-            if(array_status[i].isNullOrBlank()){}
-            else{
+        for (i in 0 until array_status.size) {
+            if (array_status[i].isNullOrBlank()) {
+            } else {
                 list_change(i)
                 break
             }
@@ -74,18 +72,18 @@ class List_Activity : AppCompatActivity() {
     }
 
     // 버튼 클릭 관련 함수
-    private fun init(){
+    private fun init() {
 
-        ic_back.setOnClickListener{
+        ic_back.setOnClickListener {
             finish()
         }
     }
 
-    private fun list_change(state_result : Int) {
+    private fun list_change(state_result: Int) {
 
-        if(state_result==0 || state_result==1 || state_result==2) {
-            edt_search.isVisible=true
-            btn_search.isVisible=true
+        if (state_result == 0 || state_result == 1 || state_result == 2) {
+            edt_search.isVisible = true
+            btn_search.isVisible = true
             var fragmentAdapter =
                 ViewPager_Shelter_Adapter(
                     supportFragmentManager,
@@ -97,14 +95,14 @@ class List_Activity : AppCompatActivity() {
             btn_search.setOnClickListener {
                 search_data = edt_search.getText().toString()
 
-                if(search_data==null){
+                if (search_data == null) {
                     var fragmentAdapter =
                         ViewPager_Shelter_Adapter(
                             supportFragmentManager, state_result, " " // 상태값에 따라 서버연결 리스트가 변하도록
                         )
                     list_viewPager.adapter = fragmentAdapter
                     list_tablayout.setupWithViewPager(list_viewPager)
-                }else {
+                } else {
                     var fragmentAdapter =
                         ViewPager_Shelter_Adapter(
                             supportFragmentManager,
@@ -116,14 +114,14 @@ class List_Activity : AppCompatActivity() {
                 }
                 Log.v("searchdata값", search_data)
             }
-        } else{
-            edt_search.isVisible=false
-            btn_search.isVisible=false
+        } else {
+            edt_search.isVisible = false
+            btn_search.isVisible = false
 
             var fragmentAdapter =
                 ViewPager_Shelter_Adapter(
                     supportFragmentManager,
-                    state_result-3,
+                    state_result - 3,
                     dog_breed // 상태값에 따라 서버연결 리스트가 변하도록
                 )
             list_viewPager.adapter = fragmentAdapter
@@ -132,15 +130,15 @@ class List_Activity : AppCompatActivity() {
 
         // 글등록 버튼
         btn_write.setOnClickListener {
-             if (state_result==0 || state_result==3) {
+            if (state_result == 0 || state_result == 3) {
                 val intent1 = Intent(this, Write_Shelter_Activity::class.java)
-                startActivityForResult(intent1,2000)
-            } else if (state_result==1 || state_result==4) {
-                 val intent2 = Intent(this, Write_Miss_Activity::class.java)
-                startActivityForResult(intent2,3000)
+                startActivityForResult(intent1, 2000)
+            } else if (state_result == 1 || state_result == 4) {
+                val intent2 = Intent(this, Write_Miss_Activity::class.java)
+                startActivityForResult(intent2, 3000)
             } else {
-                 val intent3 = Intent(this, Write_Protect_Activity::class.java)
-                startActivityForResult(intent3,4000)
+                val intent3 = Intent(this, Write_Protect_Activity::class.java)
+                startActivityForResult(intent3, 4000)
             }
 
         }
@@ -149,8 +147,8 @@ class List_Activity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-            if (requestCode == 2000 || requestCode==3000 || requestCode==4000) {
-            Log.v("requestCode로 들어옴","requestCode로 들어왔음")
+        if (requestCode == 2000 || requestCode == 3000 || requestCode == 4000) {
+            Log.v("requestCode로 들어옴", "requestCode로 들어왔음")
             var a1 = intent.getStringExtra("state0") // 보호소 리스트 - 분양공고등록
             var a2 = intent.getStringExtra("state1") // 임시보호 리스트 - 실종공고등록
             var a3 = intent.getStringExtra("state2") // 실종 리스트 - 임시보호공고등록
@@ -158,9 +156,24 @@ class List_Activity : AppCompatActivity() {
             var a5 = intent.getStringExtra("state4") // 임시보호 리스트 - 품종결과
             var a6 = intent.getStringExtra("state5") // 실종 리스트 - 품종결과
 
+            var dog_breed_register = intent.getStringExtra("breed1") // 보호소 리스트 - 분석결과값
+            var dog_breed_protect = intent.getStringExtra("breed2") // 임시보호 리스트 - 분석결과값
+            var dog_breed_lost = intent.getStringExtra("breed3") // 실종 리스트 - 분석결과값
+
+            var array_breed = arrayOf(
+                dog_breed_register, dog_breed_protect, dog_breed_lost
+            )
+
             var array_status = arrayOf(
                 a1, a2, a3, a4, a5, a6
             )
+
+            for (i in 0 until array_breed.size) {
+                if (array_breed[i].isNullOrBlank()) {
+                } else {
+                    dog_breed = array_breed[i]
+                }
+            }
 
             for (i in 0 until array_status.size) {
                 if (array_status[i].isNullOrBlank()) {
@@ -171,6 +184,7 @@ class List_Activity : AppCompatActivity() {
             }
 
             init()
+
         }
     }
 
