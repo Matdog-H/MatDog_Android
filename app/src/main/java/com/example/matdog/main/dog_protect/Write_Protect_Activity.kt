@@ -59,6 +59,10 @@ class Write_Protect_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_protect)
 
+        var dog_breed = intent.getStringExtra("breed") // 보호소 리스트 - 분석결과값
+
+        species_name_protect.setText(dog_breed)
+
         picture() // 앨범에서 사진 가져오기
 
         // --------------- 데이터 저장 --------------------

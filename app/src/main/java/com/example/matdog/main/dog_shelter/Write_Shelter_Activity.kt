@@ -59,8 +59,14 @@ class Write_Shelter_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_write)
 
         var dog_breed = intent.getStringExtra("breed1") // 보호소 리스트 - 분석결과값
+        var dog_breed2 = intent.getStringExtra("breed")
 
-        species_name.setText(dog_breed)
+        if (dog_breed != "")
+            species_name.setText(dog_breed)
+        else if(dog_breed2 !="")
+            species_name.setText(dog_breed2)
+        else
+            species_name.setText("")
         picture() // 앨범에서 사진 가져오기
 
         // --------------- 데이터 저장 --------------------
@@ -170,7 +176,6 @@ class Write_Shelter_Activity : AppCompatActivity() {
                 ) //특징
 
 
-
                 // ------------server -------------
                 token = SharedPreferenceController.getUserToken(this)
                 val callRegisterResponse =
@@ -225,8 +230,8 @@ class Write_Shelter_Activity : AppCompatActivity() {
             // 종 수정가능해짐
             species_name.isEnabled = true
         }
-        radioretouch.setOnClickListener{ // "이전 연락처 그대로" 라디오버튼 눌렀을때,
-            if(radioretouch.isChecked == true){
+        radioretouch.setOnClickListener { // "이전 연락처 그대로" 라디오버튼 눌렀을때,
+            if (radioretouch.isChecked == true) {
                 radioretouch.isChecked = true
                 radionotouch.isChecked = false
             }
@@ -236,7 +241,7 @@ class Write_Shelter_Activity : AppCompatActivity() {
             dm_rb = null
         }
         radionotouch.setOnClickListener { // 연락처수정 라디오버튼을 눌렀을 때,
-            if(radionotouch.isChecked == true){
+            if (radionotouch.isChecked == true) {
                 radionotouch.isChecked = true
                 radioretouch.isChecked = false
             }

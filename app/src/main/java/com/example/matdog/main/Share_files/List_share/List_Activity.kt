@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.activity_list.*
 
 class List_Activity : AppCompatActivity() {
 
-    //var array_status = arrayOfNulls<Int>(9)
     private var search_data: String? = ""
     private var dog_breed: String? = ""
 
@@ -98,9 +97,7 @@ class List_Activity : AppCompatActivity() {
                 if (search_data == null) {
                     var fragmentAdapter =
                         ViewPager_Shelter_Adapter(
-                            supportFragmentManager,
-                            state_result, // 상태값에 따라 서버연결 리스트가 변하도록
-                            " "
+                            supportFragmentManager, state_result, " " // 상태값에 따라 서버연결 리스트가 변하도록
                         )
                     list_viewPager.adapter = fragmentAdapter
                     list_tablayout.setupWithViewPager(list_viewPager)
@@ -108,8 +105,8 @@ class List_Activity : AppCompatActivity() {
                     var fragmentAdapter =
                         ViewPager_Shelter_Adapter(
                             supportFragmentManager,
-                            state_result,  // 상태값에 따라 서버연결 리스트가 변하도록
-                            search_data
+                            state_result,
+                            search_data // 상태값에 따라 서버연결 리스트가 변하도록
                         )
                     list_viewPager.adapter = fragmentAdapter
                     list_tablayout.setupWithViewPager(list_viewPager)
@@ -123,22 +120,21 @@ class List_Activity : AppCompatActivity() {
             var fragmentAdapter =
                 ViewPager_Shelter_Adapter(
                     supportFragmentManager,
-                    state_result - 3,  // 상태값에 따라 서버연결 리스트가 변하도록
-                    dog_breed
+                    state_result - 3,
+                    dog_breed // 상태값에 따라 서버연결 리스트가 변하도록
                 )
             list_viewPager.adapter = fragmentAdapter
             list_tablayout.setupWithViewPager(list_viewPager)
         }
 
-        // 글등록 버튼(+)
+        // 글등록 버튼
         btn_write.setOnClickListener {
             if (state_result == 0 || state_result == 3) {
                 val intent1 = Intent(this, Write_Shelter_Activity::class.java)
                 startActivityForResult(intent1, 2000)
-            } else if (state_result == 1 || state_result == 4) { // 임시보호리스트(전체)
-                val intent2 = Intent(this, Write_Miss_Activity::class.java) // 실종공고등록창
+            } else if (state_result == 1 || state_result == 4) {
+                val intent2 = Intent(this, Write_Miss_Activity::class.java)
                 startActivityForResult(intent2, 3000)
-                // 실종공고리스트가 뜨도록..상태값 바꿔줘야함..
             } else {
                 val intent3 = Intent(this, Write_Protect_Activity::class.java)
                 startActivityForResult(intent3, 4000)
@@ -187,8 +183,8 @@ class List_Activity : AppCompatActivity() {
                     break
                 }
             }
+
             init()
-        } else if(requestCode==3000){
 
         }
     }
