@@ -1,120 +1,120 @@
 치와와
-japanese spaniel
-maltese dog
-pekinese
-shih tzu
-blenheim spaniel
-papillon
-toy terrier
-rhodesian ridgeback
-afghan hound
-basset
-beagle
-bloodhound
-bluetick
-black and tan coonhound
-walker hound
-english foxhound
-redbone
-borzoi
-irish wolfhound
-italian greyhound
-whippet
-ibizan hound
-norwegian elkhound
-otterhound
-saluki
-scottish deerhound
-weimaraner
-staffordshire bullterrier
-american staffordshire terrier
-bedlington terrier
-border terrier
-kerry blue terrier
-irish terrier
-norfolk terrier
-norwich terrier
-yorkshire terrier
-wire haired fox terrier
-lakeland terrier
-sealyham terrier
-airedale
-cairn
-australian terrier
-dandie dinmont
-boston bull
-miniature schnauzer
-giant schnauzer
-standard schnauzer
-scotch terrier
-tibetan terrier
-silky terrier
-soft coated wheaten terrier
-west highland white terrier
-lhasa
-flat coated retriever
-curly coated retriever
-golden retriever
-labrador retriever
-chesapeake bay retriever
-german short haired pointer
-vizsla
-english setter
-irish setter
-gordon setter
-brittany spaniel
-clumber
-english springer
-welsh springer spaniel
-cocker spaniel
-sussex spaniel
-irish water spaniel
-kuvasz
-schipperke
-groenendael
-malinois
-briard
-kelpie
-komondor
-old english sheepdog
-shetland sheepdog
-collie
-border collie
-bouvier des flandres
-rottweiler
-german shepherd
-doberman
-miniature pinscher
-greater swiss mountain dog
-bernese mountain dog
-appenzeller
-entlebucher
-boxer
-bull mastiff
-tibetan mastiff
-french bulldog
-great dane
-saint bernard
-eskimo dog
-malamute
-siberian husky
-affenpinscher
-basenji
-pug
-leonberg
-newfoundland
-great pyrenees
-samoyed
-pomeranian
-chow
-keeshond
-brabancon griffon
-pembroke
-cardigan
-toy poodle
-miniature poodle
-standard poodle
-mexican hairless
-dingo
-dhole
-african hunting dog
+제페니스 친
+말티즈
+페키니즈
+시추
+킹 찰스 스패니얼
+파피용
+토이 테리어
+로디지안 리지백
+아프간 하운드
+바셋하운드
+비글
+블러드 하운드
+블루틱 쿤하운드
+블랙 앤 탄 쿤하운드
+트리잉 워커 쿤하운드
+잉글리시 폭스하운드
+레드본
+보르조이
+아이리시 울프하운드
+이탈리안 그레이하운드
+휘핏
+이비전 하운드
+노르웨이언 엘크하운드
+오터 하운드
+살루키
+스코티시 디어하운드
+와이머라너
+스타포드셔 불 테리어
+아메리칸 스태퍼드셔 테리어
+베들링턴 테리어
+보더 테리어
+케리 블루 테리어
+아이리시 테리어
+노퍽 테리어
+노리치 테리어
+요크셔 테리어
+와이어 폭스 테리어
+레이클랜드 테리어
+실리엄 테리어
+에어데일 테리어
+케언 테리어
+오스트레일리안 테리어
+댄디 딘몬트 테리어
+보스턴 테리어
+미니어처 슈나우저
+자이언트 슈나우저
+스탠더드 슈나우저
+스코티시 테리어
+티베탄 테리어
+오스트레일리안 실키 테리어
+아이리쉬 소프트코티드 휘튼 테리어
+웨스트 하일랜드 화이트 테리어
+라사압소
+플랫 코티드 리트리버
+컬리 코티드 리트리버
+골든 리트리버
+래브라도 리트리버
+체서피크 베이 리트리버
+저먼 쇼트헤어드 포인터
+비즐라
+르웰린
+아이리시 세터
+고든 세터
+브리트니
+클럼버 스파니엘
+잉글리시 스프링어 스패니얼
+웰시 스프링어 스패니얼
+코커 스패니얼
+서식스 스패니얼
+아이리시 워터 스패니얼
+쿠바츠
+스키퍼키
+그루넨달
+말리노이즈
+브리아드
+오스트레일리안 켈피
+코몬돌
+올드 잉글리시 쉽독
+셰틀랜드 십도그
+러프 콜리
+보더 콜리
+부비에 데 플랑드르
+로트바일러
+저먼 셰퍼드
+도베르만 핀셔
+미니어처 핀셔
+그레이터 스위스 마운틴 도그
+버니즈 마운틴 도그
+아펜젤러 세넨훈드
+엔틀버쳐 마운틴 독
+복서
+불마스티프
+티베탄 마스티프
+프렌치 불도그
+그레이트 데인
+세인트 버나드
+아메리칸 에스키모 도그
+알래스칸 맬러뮤트
+시베리안 허스키
+아펜핀셔
+바센지
+퍼그
+레온베르거
+뉴펀들랜드
+그레이트 피레니즈
+사모예드견
+포메라니안
+차우차우
+키스혼드
+브뤼셀 그리펀
+펨브록 웰시 코기
+카디건 웰시 코기
+토이 푸들
+미니어처 푸들
+스탠다드 푸들
+멕시칸 헤어리스 도그
+딩고
+승냥이
+아프리카들개
