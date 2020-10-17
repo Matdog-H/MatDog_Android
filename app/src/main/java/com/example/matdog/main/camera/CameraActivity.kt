@@ -33,7 +33,7 @@ import kotlin.properties.Delegates
 class CameraActivity : AppCompatActivity() , DogView {
 
     private lateinit var dogDetector: DogDetector
-    private var breed_data by Delegates.notNull<Int>()
+    private lateinit var breed_data : String
 
     companion object {
         private val IMAGE_PICK_CODE = 1000
@@ -74,7 +74,8 @@ class CameraActivity : AppCompatActivity() , DogView {
         btn_camera_list.setOnClickListener {
             val intent1 = Intent(this, List_Activity::class.java)
             intent1.putExtra("state3", "3") //보호소 리스트로
-            intent1.putExtra("breed", breed_data)
+            intent1.putExtra("breed1", breed_data)
+            Log.v("breed_data 값 확인하기", breed_data)
             startActivity(intent1)
         }
 
@@ -197,7 +198,7 @@ class CameraActivity : AppCompatActivity() , DogView {
             Locale.FRANCE, getString(R.string.dog_result), dogBreed,
             winPercent)
 
-        breed_data = R.string.dog_breed
+        breed_data = dogBreed
     }
 
     override fun displayError() {

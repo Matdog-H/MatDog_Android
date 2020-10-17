@@ -26,6 +26,7 @@ class List_Activity : AppCompatActivity() {
 
     //var array_status = arrayOfNulls<Int>(9)
     private var search_data : String? = ""
+    private var dog_breed:String? ="없"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +39,28 @@ class List_Activity : AppCompatActivity() {
         var a5 = intent.getStringExtra("state4") // 임시보호 리스트 - 품종결과
         var a6 = intent.getStringExtra("state5") // 실종 리스트 - 품종결과
 
-        var dog_breed_register = intent.getStringExtra("breed") // 보호소 리스트 - 분석결과값
+        var dog_breed_register = intent.getStringExtra("breed1") // 보호소 리스트 - 분석결과값
+        var dog_breed_protect = intent.getStringExtra("breed2") // 임시보호 리스트 - 분석결과값
+        var dog_breed_lost = intent.getStringExtra("breed3") // 실종 리스트 - 분석결과값
+
+        //Log.v("dog_breed_register값 확인하기", dog_breed_register)
+
+        var array_breed = arrayOf(
+            dog_breed_register, dog_breed_protect, dog_breed_lost
+        )
 
         var array_status= arrayOf(
             a1,a2,a3,a4,a5,a6
         )
+
+        for (i in 0 until array_breed.size){
+            if(array_breed[i].isNullOrBlank()){}
+            else {
+                dog_breed = array_breed[i]
+            }
+        }
+
+
 
         for (i in 0 until array_status.size){
             if(array_status[i].isNullOrBlank()){}
@@ -68,7 +86,14 @@ class List_Activity : AppCompatActivity() {
         if(state_result==0 || state_result==1 || state_result==2) {
             edt_search.isVisible=true
             btn_search.isVisible=true
-
+            var fragmentAdapter =
+                ViewPager_Shelter_Adapter(
+                    supportFragmentManager,
+                    state_result,
+                    search_data // 상태값에 따라 서버연결 리스트가 변하도록
+                )
+            list_viewPager.adapter = fragmentAdapter
+            list_tablayout.setupWithViewPager(list_viewPager)
             btn_search.setOnClickListener {
                 search_data = edt_search.getText().toString()
 
@@ -94,15 +119,16 @@ class List_Activity : AppCompatActivity() {
         } else{
             edt_search.isVisible=false
             btn_search.isVisible=false
+
+            var fragmentAdapter =
+                ViewPager_Shelter_Adapter(
+                    supportFragmentManager,
+                    state_result-3,
+                    dog_breed // 상태값에 따라 서버연결 리스트가 변하도록
+                )
+            list_viewPager.adapter = fragmentAdapter
+            list_tablayout.setupWithViewPager(list_viewPager)
         }
-
-        var fragmentAdapter =
-            ViewPager_Shelter_Adapter(
-                supportFragmentManager, state_result, search_data // 상태값에 따라 서버연결 리스트가 변하도록
-            )
-
-        list_viewPager.adapter = fragmentAdapter
-        list_tablayout.setupWithViewPager(list_viewPager)
 
         // 글등록 버튼
         btn_write.setOnClickListener {

@@ -6,37 +6,6 @@ import retrofit2.http.*
 
 // 분양공고보기 - 최신순.ver, 나이순.ver
 interface ListInter{
-    @GET("/program/allregister")
-    fun listResponse_new(
-        //@Header("authorization") key : String // 토큰값
-    ): Call<ListResponse>
-
-    @GET("/program/allregisterAge")
-    fun listResponse_age(
-        //@Header("authorization") key : String // 토큰값
-    ): Call<ListResponse>
-
-    //임시보호
-    @GET("/program/allSpot")
-    fun listResponse_new_spot(
-        //@Header("authorization") key : String // 토큰값
-    ): Call<ListResponse>
-
-    @GET("/program/allSpotAge")
-    fun listResponse_age_spot(
-        //@Header("authorization") key : String // 토큰값
-    ): Call<ListResponse>
-
-    //실종
-    @GET("/program/allLost")
-    fun listResponse_new_lost(
-        //@Header("authorization") key : String // 토큰값
-    ): Call<ListResponse>
-
-    @GET("/program/allLostAge")
-    fun listResponse_age_lost(
-        //@Header("authorization") key : String // 토큰값
-    ): Call<ListResponse>
 
     //----------품종 공고 리스트 가져오기 ---------------------
     @GET("/program/register/finddog/{sort}")

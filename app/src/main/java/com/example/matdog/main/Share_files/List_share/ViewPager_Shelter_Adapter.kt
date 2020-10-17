@@ -9,7 +9,7 @@ class ViewPager_Shelter_Adapter(fm : FragmentManager, forStatus: Int, search_dat
     private var search_data = search_data
 
     override fun getItem(position: Int): Fragment {
-        Log.v("seardata값_뷰페이저_어댑터",search_data)
+        //Log.v("seardata값_뷰페이저_어댑터",search_data)
         return when (position) {
             0 -> {
                 Fragment_Shelter_New(data, search_data)
