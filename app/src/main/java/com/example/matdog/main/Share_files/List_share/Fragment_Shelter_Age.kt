@@ -46,9 +46,6 @@ class Fragment_Shelter_Age(i: Int, searchData: String?) : Fragment(), View.OnCli
             UserServiceImpl.ListService.list_spot_search(1, search_data) // 임시보호 : 1
         val callAgeList_Lost =
             UserServiceImpl.ListService.list_lost_search(1, search_data) // 실종 : 2
-        val callAgeList_result = UserServiceImpl.ListService.list_register_result(1, "푸들")
-        val callAgeList_result_Spot = UserServiceImpl.ListService.list_spot_result(1, "포메")
-        val callAgeList_result_Lost = UserServiceImpl.ListService.list_lost_result(1, "포메")
 
         //리스트 띄우기
         if (status_list_age == 0) {
@@ -129,31 +126,6 @@ class Fragment_Shelter_Age(i: Int, searchData: String?) : Fragment(), View.OnCli
                             myadapter2.notifyDataSetChanged()
                             rv_datalist.add(myadapter2.data)
                         }
-                    }
-                }
-            }
-        } else if (status_list_age == 3) {
-            callAgeList_result.safeEnqueue {
-                if (it.isSuccessful) {
-                    if (it.body()!!.status == 200) {
-                        val myData = it.body()!!.listdata
-                        var List_result_age = arrayListOf<ListItem>()
-                        for (i in 0 until myData!!.size) {
-                            List_result_age.add(
-                                ListItem(
-                                    it_species = myData!![i].kindCd,
-                                    it_status = myData!![i].registerStatus,
-                                    it_gender = myData!![i].sexCd,
-                                    it_age = myData!![i].age,
-                                    it_date = myData!![i].happenDt,
-                                    it_image = myData!![i].filename
-                                )
-                            )
-                            post_registerIdx.add(myData!![i].registerIdx)
-                        }
-                        myadapter2.data = List_result_age
-                        myadapter2.notifyDataSetChanged()
-                        rv_datalist.add(myadapter2.data)
                     }
                 }
             }

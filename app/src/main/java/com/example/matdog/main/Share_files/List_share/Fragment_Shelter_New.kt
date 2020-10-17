@@ -50,17 +50,10 @@ class Fragment_Shelter_New(i: Int, searchData: String?) : Fragment(), View.OnCli
         //-------server--------------
         val callNewList =
             UserServiceImpl.ListService.list_register_search(2, search_data) // 보호소 : 0
-        Log.v("search_data 값 보기", search_data)
         val callNewList_Spot =
             UserServiceImpl.ListService.list_spot_search(2, search_data) // 임시보호 : 1
         val callNewList_Lost =
             UserServiceImpl.ListService.list_lost_search(2, search_data) // 실종 : 2
-//        val callNewList_result =
-//            UserServiceImpl.ListService.list_register_result(2, search_data) // 보호소 / 인식품종바탕결과
-        val callNewList_result_Spot =
-            UserServiceImpl.ListService.list_spot_result(2, "포메") // 보호소 / 인식품종바탕결과
-        val callNewList_result_Lost =
-            UserServiceImpl.ListService.list_lost_result(2, "포메") // 보호소 / 인식품종바탕결과
 
         Log.v("statusCode 값 확인",status_list.toString())
         //리스트 띄우기
@@ -146,32 +139,6 @@ class Fragment_Shelter_New(i: Int, searchData: String?) : Fragment(), View.OnCli
                 }
             }
         }
-//        else if (status_list == 3) {
-//            callNewList_result.safeEnqueue {
-//                if (it.isSuccessful) {
-//                    if (it.body()!!.status == 200) {
-//                        val myData = it.body()!!.listdata
-//                        var List_result_new = arrayListOf<ListItem>()
-//                        for (i in 0 until myData!!.size) {
-//                            List_result_new.add(
-//                                ListItem(
-//                                    it_species = myData!![i].kindCd,
-//                                    it_status = myData!![i].registerStatus,
-//                                    it_gender = myData!![i].sexCd,
-//                                    it_age = myData!![i].age,
-//                                    it_date = myData!![i].happenDt,
-//                                    it_image = myData!![i].filename
-//                                )
-//                            )
-//                            post_registerIdx.add(myData!![i].registerIdx)
-//                        }
-//                        myadapter1.data = List_result_new
-//                        myadapter1.notifyDataSetChanged()
-//                        rv_datalist.add(myadapter1.data)
-//                    }
-//                }
-//            }
-//        }
 
         //-------------------------------------------------
 
