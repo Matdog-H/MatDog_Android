@@ -38,6 +38,8 @@ class List_Activity : AppCompatActivity() {
         var a5 = intent.getStringExtra("state4") // 임시보호 리스트 - 품종결과
         var a6 = intent.getStringExtra("state5") // 실종 리스트 - 품종결과
 
+        var dog_breed_register = intent.getStringExtra("breed") // 보호소 리스트 - 분석결과값
+
         var array_status= arrayOf(
             a1,a2,a3,a4,a5,a6
         )

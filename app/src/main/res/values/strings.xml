@@ -4,4 +4,5 @@
     <string name="error">Sorry, FireBase MLKIT fail :(</string>
 <!--    <string name="dog_result"> %1$s 로 (%2$.2f)추정됩니다.</string>-->
     <string name="dog_result"> %1$s (으)로 %2$.0f 퍼센트 추정됩니다.</string>
+    <string name="dog_breed">%1$s</string>
 </resources>
