@@ -58,6 +58,9 @@ class Write_Shelter_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write)
 
+        var dog_breed = intent.getStringExtra("breed1") // 보호소 리스트 - 분석결과값
+
+        species_name.setText(dog_breed)
         picture() // 앨범에서 사진 가져오기
 
         // --------------- 데이터 저장 --------------------

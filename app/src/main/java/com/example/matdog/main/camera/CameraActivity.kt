@@ -83,13 +83,13 @@ class CameraActivity : AppCompatActivity() , DogView {
         //분양 공고 등록
         btn_camera_register.setOnClickListener {
             val intent2 = Intent(this, Write_Shelter_Activity::class.java)
+            intent2.putExtra("breed1", breed_data)
             startActivity(intent2)
         }
 
         button_camera.setOnClickListener {
             picture_button1.isVisible=false
             imageView.isVisible=true
-            enable()
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).let {
                 if (it.resolveActivity(packageManager) != null) {
                     startActivityForResult(it, REQUEST_IMAGE_CAPTURE)
@@ -102,9 +102,16 @@ class CameraActivity : AppCompatActivity() , DogView {
     @SuppressLint("ResourceAsColor")
     private fun enable(){
         btn_camera_list.isEnabled=true
-        //btn_camera_list.setBackgroundColor(R.color.colorAccent)
+        btn_camera_list.setBackgroundResource(R.drawable.btnpink)
         btn_camera_register.isEnabled=true
-        //btn_camera_register.setBackgroundColor(R.color.colorAccent)
+        btn_camera_register.setBackgroundResource(R.drawable.btnpink)
+    }
+
+    private fun disenable(){
+        btn_camera_list.isEnabled=false
+        btn_camera_list.setBackgroundResource(R.drawable.graybtn)
+        btn_camera_register.isEnabled=false
+        btn_camera_register.setBackgroundResource(R.drawable.graybtn)
     }
 
     private fun picture() {
@@ -112,7 +119,6 @@ class CameraActivity : AppCompatActivity() , DogView {
         get_photo.setOnClickListener {
             picture_button1.isVisible=true
             imageView.isVisible=false
-            enable()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 //black_blind.setBackgroundColor(Color.WHITE)
                 //button_camera.isEnabled = false
@@ -128,6 +134,7 @@ class CameraActivity : AppCompatActivity() , DogView {
                     pickImageFromGallery()
                 }
             }
+            //enable()
         }
 
     }
@@ -194,11 +201,23 @@ class CameraActivity : AppCompatActivity() , DogView {
     }
 
     override fun displayDogBreed(dogBreed: String, winPercent: Float) {
-        textView.text = String.format(
-            Locale.FRANCE, getString(R.string.dog_result), dogBreed,
-            winPercent)
-
-        breed_data = dogBreed
+        if(winPercent<30) {
+            disenable()
+            textView.setText("인식 실패하였습니다!")
+        }else if(winPercent< 50){
+            breed_data = "("+dogBreed+")믹스견"
+            textView.text = String.format(
+                Locale.FRANCE, getString(R.string.dog_result), breed_data,
+                winPercent)
+            breed_data = "믹스견"
+            enable()
+        }else{
+            breed_data = dogBreed
+            textView.text = String.format(
+                Locale.FRANCE, getString(R.string.dog_result), breed_data,
+                winPercent)
+            enable()
+        }
     }
 
     override fun displayError() {

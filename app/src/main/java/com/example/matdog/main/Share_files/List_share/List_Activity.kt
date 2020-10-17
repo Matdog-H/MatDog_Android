@@ -26,7 +26,7 @@ class List_Activity : AppCompatActivity() {
 
     //var array_status = arrayOfNulls<Int>(9)
     private var search_data: String? = ""
-    private var dog_breed: String? = "없"
+    private var dog_breed: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
