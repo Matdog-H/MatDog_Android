@@ -13,6 +13,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
@@ -229,6 +230,7 @@ class Write_Shelter_Activity : AppCompatActivity() {
         species_modify.setOnClickListener { // 종 수정버튼 눌렀을 때,
             // 종 수정가능해짐
             species_name.isEnabled = true
+            species_name.setTextColor(Color.parseColor("#fb777a"))
         }
         radioretouch.setOnClickListener { // "이전 연락처 그대로" 라디오버튼 눌렀을때,
             if (radioretouch.isChecked == true) {

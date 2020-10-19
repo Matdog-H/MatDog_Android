@@ -13,6 +13,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.media.ExifInterface
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -240,6 +241,7 @@ class Write_Protect_Activity : AppCompatActivity() {
         species_modify_protect.setOnClickListener {// 종 수정버튼 눌렀을 때,
             // 종 수정가능해짐
             species_name_protect.isEnabled = true
+            species_name_protect.setTextColor(Color.parseColor("#fb777a"))
         }
 
         radioretouch_protect.setOnClickListener{ // "이전 연락처 그대로" 라디오버튼 눌렀을때,

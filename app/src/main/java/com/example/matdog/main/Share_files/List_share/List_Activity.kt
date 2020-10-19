@@ -90,6 +90,7 @@ class List_Activity : AppCompatActivity() {
                     search_data // 상태값에 따라 서버연결 리스트가 변하도록
                 )
             list_viewPager.adapter = fragmentAdapter
+            fragmentAdapter.notifyDataSetChanged()
             list_tablayout.setupWithViewPager(list_viewPager)
             btn_search.setOnClickListener {
                 search_data = edt_search.getText().toString()
@@ -100,6 +101,7 @@ class List_Activity : AppCompatActivity() {
                             supportFragmentManager, state_result, " " // 상태값에 따라 서버연결 리스트가 변하도록
                         )
                     list_viewPager.adapter = fragmentAdapter
+                    fragmentAdapter.notifyDataSetChanged()
                     list_tablayout.setupWithViewPager(list_viewPager)
                 } else {
                     var fragmentAdapter =
@@ -109,6 +111,7 @@ class List_Activity : AppCompatActivity() {
                             search_data // 상태값에 따라 서버연결 리스트가 변하도록
                         )
                     list_viewPager.adapter = fragmentAdapter
+                    fragmentAdapter.notifyDataSetChanged()
                     list_tablayout.setupWithViewPager(list_viewPager)
                 }
                 Log.v("searchdata값", search_data)
@@ -124,19 +127,29 @@ class List_Activity : AppCompatActivity() {
                     dog_breed // 상태값에 따라 서버연결 리스트가 변하도록
                 )
             list_viewPager.adapter = fragmentAdapter
+            fragmentAdapter.notifyDataSetChanged()
             list_tablayout.setupWithViewPager(list_viewPager)
         }
 
+
+
         // 글등록 버튼
         btn_write.setOnClickListener {
+            var dog_breed_register = intent.getStringExtra("breed1") // 보호소 리스트 - 분석결과값
+            var dog_breed_protect = intent.getStringExtra("breed2") // 임시보호 리스트 - 분석결과값
+            var dog_breed_lost = intent.getStringExtra("breed3") // 실종 리스트 - 분석결과값
+
             if (state_result == 0 || state_result == 3) {
                 val intent1 = Intent(this, Write_Shelter_Activity::class.java)
+                intent1.putExtra("breed1",dog_breed_register)
                 startActivityForResult(intent1, 2000)
             } else if (state_result == 1 || state_result == 4) {
                 val intent2 = Intent(this, Write_Miss_Activity::class.java)
+                intent2.putExtra("breed",dog_breed_protect)
                 startActivityForResult(intent2, 3000)
             } else {
                 val intent3 = Intent(this, Write_Protect_Activity::class.java)
+                intent3.putExtra("breed",dog_breed_lost)
                 startActivityForResult(intent3, 4000)
             }
 
@@ -160,6 +173,7 @@ class List_Activity : AppCompatActivity() {
             var dog_breed_register = intent.getStringExtra("breed1") // 보호소 리스트 - 분석결과값
             var dog_breed_protect = intent.getStringExtra("breed2") // 임시보호 리스트 - 분석결과값
             var dog_breed_lost = intent.getStringExtra("breed3") // 실종 리스트 - 분석결과값
+
 
             var array_breed = arrayOf(
                 dog_breed_register, dog_breed_protect, dog_breed_lost

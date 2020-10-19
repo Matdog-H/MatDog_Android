@@ -13,6 +13,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.media.ExifInterface
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,7 @@ import com.example.matdog.api.UserServiceImpl
 import com.example.matdog.main.pop_up.Renew_popupActivity
 import kotlinx.android.synthetic.main.activity_write.*
 import kotlinx.android.synthetic.main.activity_write_miss.*
+import kotlinx.android.synthetic.main.activity_write_protect.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -206,6 +208,7 @@ class Write_Miss_Activity : AppCompatActivity() {
         species_modify_miss.setOnClickListener {// 종 수정버튼 눌렀을 때,
             // 종 수정가능해짐
             species_name_miss.isEnabled = true
+            species_name_miss.setTextColor(Color.parseColor("#fb777a"))
         }
 
         radioretouch_miss.setOnClickListener{ // "이전 연락처 그대로" 라디오버튼 눌렀을때,
