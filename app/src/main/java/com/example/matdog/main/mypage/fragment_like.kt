@@ -112,28 +112,5 @@ class fragment_like() : Fragment(), View.OnClickListener{
         return like_listview
 
     }
-    override fun onClick(v: View?) {
-
-     FLrecyclerview = view?.findViewById(R.id.ll_recyclerview)!!
-
-        //상태값에 따라 상세화면 바뀌게
-        if (v?.parent == FLrecyclerview){
-//            if(status_post==1){
-//                val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
-//                intent.putExtra("delete","delete_shelter")
-//                startActivity(intent)
-//            }
-//            else if(status_post==2){
-//                val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
-//                intent.putExtra("delete","delete_miss")
-//                startActivity(intent)
-//            }
-//            else{
-//                val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
-//                intent.putExtra("delete","delete_protect")
-//                startActivity(intent)
-//            }
-
-        }
-    }
+    override fun onClick(v: View?) {}
 }
