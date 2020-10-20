@@ -1,6 +1,5 @@
 package com.example.matdog.main.mypage
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -20,9 +19,6 @@ import com.example.matdog.main.Share_files.Recyclerview_share.ListItem
 import com.example.matdog.main.dog_miss.Detail_Miss_Activity
 import com.example.matdog.main.dog_protect.Detail_Protect_Activity
 import com.example.matdog.main.dog_shelter.Detail_Shelter_Activity
-import kotlinx.android.synthetic.main.my_list.*
-import splitties.systemservices.windowManager
-
 
 class fragment_my() : Fragment(), View.OnClickListener{
     private var token : String = ""
@@ -95,7 +91,7 @@ class fragment_my() : Fragment(), View.OnClickListener{
             //상태값에 따라 상세화면 바뀌게
             if (view?.parent == FMrecyclerview) {
                 if (my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerStatus == 1) {
-                    val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
+                    val intent= Intent(getActivity(), Detail_Shelter_Activity::class.java)
                     intent.putExtra("delete","delete_shelter")
                     intent.putExtra("registerIdx",my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
                     intent.putExtra("position",position)
@@ -105,14 +101,14 @@ class fragment_my() : Fragment(), View.OnClickListener{
                     startActivityForResult(intent,1000)
                 }
                 else if (my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerStatus == 2) {
-                    val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
+                    val intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
                     intent.putExtra("delete","delete_miss")
                     intent.putExtra("registerIdx",my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
                     intent.putExtra("position",position)
                     startActivityForResult(intent,1000)
                 }
                 else{
-                    val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
+                    val intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
                     intent.putExtra("delete","delete_protect")
                     intent.putExtra("registerIdx",my_write_List_server[FMrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
                     intent.putExtra("position",position)

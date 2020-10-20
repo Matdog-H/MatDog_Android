@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.example.matdog.R
 import com.example.matdog.main.Share_files.List_share.List_Activity
 import com.example.matdog.main.camera.CameraActivity
-import com.example.matdog.main.camera.LaunchActivity
 import com.example.matdog.main.camera.LostCameraActivity
 import com.example.matdog.main.mypage.MyPageActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btn_camera.setOnClickListener{
-            val intent = Intent(this@MainActivity, LaunchActivity::class.java)
+            val intent = Intent(this@MainActivity, CameraActivity::class.java)
             startActivity(intent)
         }
         btn_lost.setOnClickListener{
