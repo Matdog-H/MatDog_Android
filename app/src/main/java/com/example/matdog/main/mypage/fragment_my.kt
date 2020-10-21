@@ -85,7 +85,7 @@ class fragment_my() : Fragment(), View.OnClickListener{
 
         mpadapter2.notifyDataSetChanged()
 
-    mpadapter2.setItemClickListener(object :mp_Adapter.ItemClickListener{
+        mpadapter2.setItemClickListener(object :mp_Adapter.ItemClickListener{
         override fun onClick(view: View, position: Int) {
             Log.d("SSS", "${position}번 리스트 선택")
             //상태값에 따라 상세화면 바뀌게

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "587117675675",
+    "firebase_url": "https://matdog-93387.firebaseio.com",
+    "project_id": "matdog-93387",
+    "storage_bucket": "matdog-93387.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587117675675:android:79c9fc78c4382f9d7d323e",
+        "android_client_info": {
+          "package_name": "com.example.matdog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587117675675-fgb6u47l7lsvkm7psrd52072ad233mpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrA-TGfTPRnNQVixUzuNYMYOil1h1O1jk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587117675675-fgb6u47l7lsvkm7psrd52072ad233mpi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
