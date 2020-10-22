@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera2" />
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
@@ -38,7 +39,6 @@
 
         <!--camaera-->
         <activity android:name=".main.camera.CameraActivity" />
-        <activity android:name=".main.camera.LaunchActivity"></activity>
         <activity android:name=".main.camera.LostCameraActivity" />
 
         <!--dog_miss-->
