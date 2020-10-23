@@ -1,5 +1,6 @@
 package com.example.matdog.main.mypage
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
+import com.example.matdog.api.MyListAllData
 import com.example.matdog.api.SharedPreferenceController
 import com.example.matdog.api.UserServiceImpl
 import com.example.matdog.api.safeEnqueue
@@ -29,13 +31,23 @@ class fragment_like() : Fragment(), View.OnClickListener{
     var post_status = ArrayList<Int>() //상태값 저장 리스트
     var post_registerIdx = ArrayList<Int>() //아이디값 저장 리스트
 
+    var my_like_List_server = arrayListOf<MyListAllData>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var like_listview=inflater.inflate(R.layout.like_list, container, false)
         var thiscontext = container!!.getContext()
+        FLrecyclerview = like_listview.findViewById(R.id.ll_recyclerview)
 
         //-------------server-----------------
+        server(thiscontext)
+
+
+        return like_listview
+
+    }
+    override fun onClick(v: View?) {}
+    fun server(thiscontext: Context){
         token = SharedPreferenceController.getUserToken(thiscontext)
         val calllikepost = UserServiceImpl.MyListService.listResponse_mylike(token)
         calllikepost.safeEnqueue {
@@ -44,73 +56,64 @@ class fragment_like() : Fragment(), View.OnClickListener{
                 var my_like_list = arrayListOf<ListItem>()
                 for(i in 0 until LikePost.size){
                     my_like_list.add(
-                       ListItem(
-                           it_species = LikePost[i].kindCd,
-                           it_status = LikePost[i].registerStatus,
-                           it_gender = LikePost[i].sexCd,
-                           it_age = LikePost[i].age,
-                           it_date = LikePost[i].happenDt,
-                           it_image = LikePost[i].filename
-                       )
-                   )
-                    post_status.add(LikePost[i].registerStatus) // 클릭 아이템 공고 상태값 저장
-                    post_registerIdx.add(LikePost[i].registerIdx) //클릭 아이템 공고 아이디 값 저장
+                        ListItem(
+                            it_species = LikePost[i].kindCd,
+                            it_status = LikePost[i].registerStatus,
+                            it_gender = LikePost[i].sexCd,
+                            it_age = LikePost[i].age,
+                            it_date = LikePost[i].happenDt,
+                            it_image = LikePost[i].filename
+                        )
+                    )
+                    //post_status.add(LikePost[i].registerStatus) // 클릭 아이템 공고 상태값 저장
+                    //post_registerIdx.add(LikePost[i].registerIdx) //클릭 아이템 공고 아이디 값 저장
+                    my_like_List_server= LikePost as ArrayList<MyListAllData>
                 }
+                //리사이클러뷰의 어댑터 세팅
+                FLrecyclerview.adapter=mpadapter1
+                //리사이클러뷰 배치
+                FLrecyclerview.layoutManager= GridLayoutManager(thiscontext,2)
 
-               mpadapter1.mp_data = my_like_list
-               mpadapter1.notifyDataSetChanged()
-               mp_datalist.add(mpadapter1.mp_data)
-
-           }
-       }
-
-        //-------------server-----------------
+                mpadapter1.mp_data = my_like_list
+                mpadapter1.notifyDataSetChanged()
+                mp_datalist.add(mpadapter1.mp_data)
 
 
-        FLrecyclerview = like_listview.findViewById(R.id.ll_recyclerview)
+            }
+        }
+                mpadapter1.notifyDataSetChanged()
 
-        //this로 현재 context 전달
-        //mpadapter1= Adapter(thiscontext)
-
-        //클릭이벤트
-        //mpadapter1.onItemClick(this)
         mpadapter1.setItemClickListener(object :mp_Adapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
                 Log.d("SSS", "${position}번 리스트 선택")
                 //상태값에 따라 상세화면 바뀌게
                 if (view?.parent == FLrecyclerview) {
-                    if (post_status[position] == 1) {
+                    if (my_like_List_server[FLrecyclerview.getChildLayoutPosition(view)]?.registerStatus == 1) {
                         val intent: Intent = Intent(getActivity(), Detail_Shelter_Activity::class.java)
-                        intent.putExtra("registerIdx",post_registerIdx[position])
-                        startActivity(intent)
+                        intent.putExtra("registerIdx",my_like_List_server[FLrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
+                        startActivityForResult(intent,9999)
                     }
-                    else if (post_status[position] == 2) {
+                    else if (my_like_List_server[FLrecyclerview.getChildLayoutPosition(view)]?.registerStatus == 2) {
                         val intent: Intent = Intent(getActivity(), Detail_Miss_Activity::class.java)
-                        intent.putExtra("registerIdx",post_registerIdx[position])
-                        startActivity(intent)
+                        intent.putExtra("registerIdx",my_like_List_server[FLrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
+                        startActivityForResult(intent,9999)
                     }
                     else{
                         val intent: Intent = Intent(getActivity(), Detail_Protect_Activity::class.java)
-                        intent.putExtra("registerIdx",post_registerIdx[position])
-                        startActivity(intent)
+                        intent.putExtra("registerIdx",my_like_List_server[FLrecyclerview.getChildLayoutPosition(view)]?.registerIdx)
+                        startActivityForResult(intent,9999)
                     }
                 }
             }
         })
 
-
-        //리사이클러뷰의 어댑터 세팅
-        FLrecyclerview.adapter=mpadapter1
-
-        //리사이클러뷰 배치
-        FLrecyclerview.layoutManager= GridLayoutManager(thiscontext,2)
-
-
-
-        mpadapter1.notifyDataSetChanged()
-
-        return like_listview
-
     }
-    override fun onClick(v: View?) {}
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode==9999){
+            server(activity!!)
+            mpadapter1.notifyDataSetChanged()
+        }
+    }
 }
