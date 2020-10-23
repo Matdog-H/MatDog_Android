@@ -61,6 +61,7 @@ class Write_Shelter_Activity : AppCompatActivity() {
 
         var dog_breed = intent.getStringExtra("breed1") // 보호소 리스트 - 분석결과값
         var dog_breed2 = intent.getStringExtra("breed")
+        var BITMAP:Bitmap? = intent.getParcelableExtra("image")
 
         if (dog_breed != "")
             species_name.setText(dog_breed)
@@ -68,6 +69,8 @@ class Write_Shelter_Activity : AppCompatActivity() {
             species_name.setText(dog_breed2)
         else
             species_name.setText("")
+        if(BITMAP != null) picture_write1.setImageBitmap(BITMAP)
+
         picture() // 앨범에서 사진 가져오기
 
         // --------------- 데이터 저장 --------------------

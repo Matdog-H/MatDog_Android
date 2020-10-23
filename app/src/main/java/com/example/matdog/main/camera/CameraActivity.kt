@@ -62,6 +62,7 @@ class CameraActivity : AppCompatActivity() , DogView {
 
     private lateinit var dogDetector: DogDetector
     private lateinit var breed_data : String
+    private lateinit var BITMAP : Bitmap
 
     companion object {
         private val IMAGE_PICK_CODE = 1000
@@ -164,11 +165,11 @@ class CameraActivity : AppCompatActivity() , DogView {
             startActivity(intent1)
         }
 
-
         //분양 공고 등록
         btn_camera_register.setOnClickListener {
             val intent2 = Intent(this, Write_Shelter_Activity::class.java)
             intent2.putExtra("breed1", breed_data)
+            intent2.putExtra("image",BITMAP)
             startActivity(intent2)
         }
 
@@ -204,6 +205,7 @@ class CameraActivity : AppCompatActivity() , DogView {
                 image_predicted.setImageBitmap(uprightImage)
                 dogDetector.recognizeDog(bitmap = uprightImage)
                 image_predicted.visibility = View.VISIBLE
+                BITMAP = uprightImage
             }
 
             // Re-enable camera controls
@@ -361,7 +363,7 @@ class CameraActivity : AppCompatActivity() , DogView {
                 val inputStream: InputStream? =
                     contentResolver.openInputStream(selectedPictureUri!!) // !! 강제로 not null로 바꿔줌..
                 val bitmap: Bitmap = BitmapFactory.decodeStream(inputStream, null, options)!!
-
+                BITMAP = bitmap
                 dogDetector.recognizeDog(bitmap = bitmap)
 
                 picture_button1.setImageURI(data?.data)
@@ -376,6 +378,7 @@ class CameraActivity : AppCompatActivity() , DogView {
                     imageView.setImageBitmap(it)
                     imageView.scaleType = ImageView.ScaleType.CENTER_CROP
                     dogDetector.recognizeDog(bitmap = it)
+                    BITMAP = it
                 }
             }
         }
