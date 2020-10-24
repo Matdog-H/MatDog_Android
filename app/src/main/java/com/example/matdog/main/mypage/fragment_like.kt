@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matdog.R
@@ -28,9 +29,6 @@ class fragment_like() : Fragment(), View.OnClickListener{
     private lateinit var  FLrecyclerview : RecyclerView
     private var mpadapter1: mp_Adapter = mp_Adapter(R.layout.list_item)
     var mp_datalist = ArrayList<ArrayList<ListItem>>()
-    var post_status = ArrayList<Int>() //상태값 저장 리스트
-    var post_registerIdx = ArrayList<Int>() //아이디값 저장 리스트
-
     var my_like_List_server = arrayListOf<MyListAllData>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,8 +37,10 @@ class fragment_like() : Fragment(), View.OnClickListener{
         var thiscontext = container!!.getContext()
         FLrecyclerview = like_listview.findViewById(R.id.ll_recyclerview)
 
+
         //-------------server-----------------
         server(thiscontext)
+
 
 
         return like_listview
@@ -48,6 +48,7 @@ class fragment_like() : Fragment(), View.OnClickListener{
     }
     override fun onClick(v: View?) {}
     fun server(thiscontext: Context){
+
         token = SharedPreferenceController.getUserToken(thiscontext)
         val calllikepost = UserServiceImpl.MyListService.listResponse_mylike(token)
         calllikepost.safeEnqueue {
@@ -112,7 +113,7 @@ class fragment_like() : Fragment(), View.OnClickListener{
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==9999){
-            server(activity!!)
+           server(activity!!)
             mpadapter1.notifyDataSetChanged()
         }
     }

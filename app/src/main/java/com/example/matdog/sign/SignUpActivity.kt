@@ -92,7 +92,7 @@ class SignUpActivity : AppCompatActivity() {
             val name = signup_name.getText().toString()
             val addr = signup_address.getText().toString()
             val birth = signup_birth.getText().toString()
-            val tel : String?= signup_birth.getText().toString()
+            val tel : String?= signup_phone.getText().toString()
             val email : String? = signup_email.getText().toString()
             val dm : String? = signup_dm.getText().toString()
             Log.v("아이디값", id)

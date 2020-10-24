@@ -25,8 +25,8 @@ class fragment_my() : Fragment(), View.OnClickListener{
     private lateinit var  FMrecyclerview : RecyclerView
     private var mpadapter2: mp_Adapter = mp_Adapter(R.layout.list_item)
     var mp_datalist = ArrayList<ArrayList<ListItem>>()
-
     var my_write_List_server = arrayListOf<MyListAllData>()
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var mylistview = inflater.inflate(R.layout.my_list, container, false)
@@ -42,6 +42,9 @@ class fragment_my() : Fragment(), View.OnClickListener{
     override fun onClick(v: View?) {}
 //,container: ViewGroup?
     fun server(thiscontext:Context){
+
+        mpadapter2.notifyDataSetChanged()
+
 
         token = SharedPreferenceController.getUserToken(thiscontext)
         val callmypost = UserServiceImpl.MyListService.listResponse_mywrite(token)
@@ -73,7 +76,6 @@ class fragment_my() : Fragment(), View.OnClickListener{
 
                 //리/사이클러뷰 배치
                 FMrecyclerview.layoutManager= GridLayoutManager(thiscontext,2)
-
 
 
                 mpadapter2.mp_data = my_write_List

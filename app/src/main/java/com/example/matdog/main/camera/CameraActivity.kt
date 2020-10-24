@@ -329,7 +329,7 @@ class CameraActivity : AppCompatActivity() , DogView {
         Log.i("galleryAddPic", "사진앨범저장");
         this.sendBroadcast(mediaScanIntent);
         Log.i("galleryAddPic", "사진이 앨범에 저장되었습니다.");
-        Toast.makeText(this, "사진이 앨범에 저장되었습니다.", Toast.LENGTH_SHORT).show();
+
     }
 
 
