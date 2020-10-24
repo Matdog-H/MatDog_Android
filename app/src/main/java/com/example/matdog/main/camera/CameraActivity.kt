@@ -16,6 +16,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
 import android.util.SparseIntArray
@@ -57,6 +58,7 @@ import java.util.*
 import java.util.concurrent.Executors
 import kotlin.math.min
 import kotlin.random.Random
+import android.content.ContentValues
 
 class CameraActivity : AppCompatActivity() , DogView {
 
@@ -141,6 +143,7 @@ class CameraActivity : AppCompatActivity() , DogView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
 
+
         breed_data= ""
         dogDetector = DogDetector(this)
         dogDetector.view = this
@@ -169,7 +172,7 @@ class CameraActivity : AppCompatActivity() , DogView {
         btn_camera_register.setOnClickListener {
             val intent2 = Intent(this, Write_Shelter_Activity::class.java)
             intent2.putExtra("breed1", breed_data)
-            intent2.putExtra("image",BITMAP)
+            //intent2.putExtra("image",BITMAP)
             startActivity(intent2)
         }
 
@@ -261,6 +264,57 @@ class CameraActivity : AppCompatActivity() , DogView {
         )
     }
 
+
+    /**
+     * 앨범에 이미지 저정하기
+     * (앨범 경로: sdcard/DCIM)
+     */
+//    fun saveImageInAlbum(context: Context, fileName: String, bitmap: Bitmap) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//            val values = ContentValues()
+//            with(values) {
+//                put(MediaStore.Images.Media.TITLE, fileName)
+//                put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis())
+//                put(MediaStore.Images.Media.RELATIVE_PATH, "DCIM/A한이음")
+//                put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+//            }
+//
+//            val uri = context.getContentResolver()
+//                .insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+//            val fos = context.contentResolver.openOutputStream(uri!!)
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+//            fos?.run {
+//                flush()
+//                close()
+//            }
+//        } else {
+//            val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() +
+//                    File.separator +
+//                    "A한이음"
+//            val file = File(dir)
+//            if (!file.exists()) {
+//                file.mkdirs()
+//            }
+//
+//            val imgFile = File(file, "test_capture.jpg")
+//            val os = FileOutputStream(imgFile)
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os)
+//            os.flush()
+//            os.close()
+//
+//            val values = ContentValues()
+//            with(values) {
+//                put(MediaStore.Images.Media.TITLE, fileName)
+//                put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis())
+//                put(MediaStore.Images.Media.BUCKET_ID, fileName)
+//                put(MediaStore.Images.Media.DATA, imgFile.absolutePath)
+//                put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+//            }
+//
+//            context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+//        }
+//    }
+
     private var mCurrentPhotoPath : String? = null //이미지 저장 경로
 
     // 이미지 갤러리에 저장
@@ -269,10 +323,11 @@ class CameraActivity : AppCompatActivity() , DogView {
         val mediaScanIntent: Intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         // 해당 경로에 있는 파일을 객체화(새로 파일을 만든다는 것으로 이해하면 안 됨)
         val f: File = File(mCurrentPhotoPath);
+        Log.i("galleryAddPic", "경로"+mCurrentPhotoPath);
         val contentUri: Uri = Uri.fromFile(f);
         mediaScanIntent.setData(contentUri);
         Log.i("galleryAddPic", "사진앨범저장");
-        sendBroadcast(mediaScanIntent);
+        this.sendBroadcast(mediaScanIntent);
         Log.i("galleryAddPic", "사진이 앨범에 저장되었습니다.");
         Toast.makeText(this, "사진이 앨범에 저장되었습니다.", Toast.LENGTH_SHORT).show();
     }
@@ -295,8 +350,8 @@ class CameraActivity : AppCompatActivity() , DogView {
 
         // 이미지 저장할 경로 생성 -> /storage/emulated/0/Pictures/Matdog/JPEG_20201023_011930.jpg
         var storageDir = File(
-            Environment.getExternalStorageDirectory().toString() + "/Pictures",
-            "Matdog"
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM),
+            "A한이음"
         )
         if (!storageDir.exists()) {
             Log.i("mCurrentPhotoPath", storageDir.toString())
@@ -305,6 +360,7 @@ class CameraActivity : AppCompatActivity() , DogView {
         file = File(storageDir,imageFileName)
         Log.i("bitmapToFile2222", "filename"+file);
         mCurrentPhotoPath = file.absolutePath
+        Log.i("bitmap_mCurrentPhotoPath", "mCurrentPhotoPath"+mCurrentPhotoPath)
 
         try{
             // Compress the bitmap and save in jpg format
