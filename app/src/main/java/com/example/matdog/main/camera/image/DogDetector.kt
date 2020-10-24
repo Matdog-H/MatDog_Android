@@ -31,7 +31,7 @@ class DogDetector(private val context: Context) {
         initializeInterpreter()
     }
 
-    fun recognizeDog(bitmap: Bitmap) {
+    fun recognizeDog(bitmap: Bitmap) { //CameraActivity.kt에서 bitmap으로 이미지 받아옴
         try {
             val inputs = FirebaseModelInputs.Builder().add(fromBitmapToByteBuffer(bitmap)).build()
             interpreter

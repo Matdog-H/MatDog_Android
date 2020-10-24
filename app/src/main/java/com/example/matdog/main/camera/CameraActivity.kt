@@ -176,11 +176,10 @@ class CameraActivity : AppCompatActivity() , DogView {
             startActivity(intent2)
         }
 
+        //사진 찍는 버튼
         camera_capture_button?.setOnClickListener {
-
             // Disable all camera controls
             it.isEnabled = false
-
             if (pauseAnalysis) {
                 // If image analysis is in paused state, resume it
                 // 이미지 분석이 일시 중지 된 상태이면 다시 시작
@@ -197,20 +196,13 @@ class CameraActivity : AppCompatActivity() , DogView {
                     if (isFrontFacing) postScale(-1f, 1f)
                 }
                 val uprightImage = Bitmap.createBitmap(
-                    bitmapBuffer, 0, 0, bitmapBuffer.width, bitmapBuffer.height, matrix, true
+                    bitmapBuffer, 0, 0, bitmapBuffer.width,
+                    bitmapBuffer.height, matrix, true
                 )
-                Log.i("camera_capture_button_bitmapToFile", "비트맵"+uprightImage);
-                bitmapToFile(uprightImage)
-                Log.i("camera_capture_button_bitmapToFile", "Call");
-                galleryAddPic() // 갤러리에 사진저장
-                Log.i("camera_capture_button_galleryAddPic", "Call");
-
                 image_predicted.setImageBitmap(uprightImage)
                 dogDetector.recognizeDog(bitmap = uprightImage)
                 image_predicted.visibility = View.VISIBLE
-                BITMAP = uprightImage
             }
-
             // Re-enable camera controls
             it.isEnabled = true
         }
@@ -441,12 +433,10 @@ class CameraActivity : AppCompatActivity() , DogView {
     }
 
 //------------------------------강아지 품종 분석---------------------------------------
-
     override fun onDestroy() {
         dogDetector.view = null
         super.onDestroy()
     }
-
     override fun displayDogBreed(dogBreed: String, winPercent: Float) {
         if(winPercent<30) {
             disenable()
@@ -468,7 +458,6 @@ class CameraActivity : AppCompatActivity() , DogView {
             enable()
         }
     }
-
     override fun displayError() {
         Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show()
     }
