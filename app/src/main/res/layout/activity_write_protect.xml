@@ -537,7 +537,7 @@
             android:id="@+id/radioContact_protect"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="15dp"
