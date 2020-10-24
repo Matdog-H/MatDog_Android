@@ -134,6 +134,9 @@ dependencies {
 
     implementation 'org.tensorflow:tensorflow-lite:2.0.0'
 
+    //시스템이 권한 요청과 연결된 요청 코드를 관리하도록 허용
+    def activity_version = "1.1.0"
+    implementation "androidx.activity:activity-ktx:$activity_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
