@@ -512,7 +512,7 @@ class CameraActivity : AppCompatActivity() , DogView {
         // 조기 종료 : 예측이 충분하지 않으면 보고하지 마십시오.
         if (prediction == null || prediction.score < ACCURACY_THRESHOLD) {
             box_prediction.visibility = View.GONE
-            text_prediction.visibility = View.GONE
+            //text_prediction.visibility = View.GONE
             return@post
         }
 
@@ -521,7 +521,7 @@ class CameraActivity : AppCompatActivity() , DogView {
         val location = mapOutputCoordinates(prediction.location)
 
         // Update the text and UI
-        text_prediction.text = "${"%.2f".format(prediction.score)} ${prediction.label}"
+        //text_prediction.text = "${"%.2f".format(prediction.score)} ${prediction.label}"
         (box_prediction.layoutParams as ViewGroup.MarginLayoutParams).apply {
             topMargin = location.top.toInt()
             leftMargin = location.left.toInt()
@@ -531,7 +531,7 @@ class CameraActivity : AppCompatActivity() , DogView {
 
         // Make sure all UI elements are visible
         box_prediction.visibility = View.VISIBLE
-        text_prediction.visibility = View.VISIBLE
+        //text_prediction.visibility = View.VISIBLE
     }
 
     /**

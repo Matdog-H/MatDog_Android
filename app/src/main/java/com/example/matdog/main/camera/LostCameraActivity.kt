@@ -407,7 +407,7 @@ class LostCameraActivity : AppCompatActivity(), DogView {
         // Early exit: if prediction is not good enough, don't report it
         if (prediction == null || prediction.score < ACCURACY_THRESHOLD) {
             box_prediction_lost.visibility = View.GONE
-            text_prediction_lost.visibility = View.GONE
+//            text_prediction_lost.visibility = View.GONE
             return@post
         }
 
@@ -415,7 +415,7 @@ class LostCameraActivity : AppCompatActivity(), DogView {
         val location = mapOutputCoordinates(prediction.location)
 
         // Update the text and UI
-        text_prediction_lost.text = "${"%.2f".format(prediction.score)} ${prediction.label}"
+//        text_prediction_lost.text = "${"%.2f".format(prediction.score)} ${prediction.label}"
         (box_prediction_lost.layoutParams as ViewGroup.MarginLayoutParams).apply {
             topMargin = location.top.toInt()
             leftMargin = location.left.toInt()
@@ -425,7 +425,7 @@ class LostCameraActivity : AppCompatActivity(), DogView {
 
         // Make sure all UI elements are visible
         box_prediction_lost.visibility = View.VISIBLE
-        text_prediction_lost.visibility = View.VISIBLE
+//        text_prediction_lost.visibility = View.VISIBLE
     }
 
     /**
