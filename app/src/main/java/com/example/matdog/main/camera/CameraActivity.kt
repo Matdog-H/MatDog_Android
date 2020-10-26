@@ -69,9 +69,6 @@ class CameraActivity : AppCompatActivity() , DogView {
     companion object {
         private val IMAGE_PICK_CODE = 1000
         private val PERMISSION_CODE = 1001
-        private const val REQUEST_IMAGE_CAPTURE = 1
-        private const val IMG_MINE_TYPE = "image/jpg"
-
         private val ORIENTATIONS = SparseIntArray()
 
         private val TAG = CameraActivity::class.java.simpleName
@@ -256,122 +253,6 @@ class CameraActivity : AppCompatActivity() , DogView {
         )
     }
 
-
-    /**
-     * 앨범에 이미지 저정하기
-     * (앨범 경로: sdcard/DCIM)
-     */
-//    fun saveImageInAlbum(context: Context, fileName: String, bitmap: Bitmap) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//            val values = ContentValues()
-//            with(values) {
-//                put(MediaStore.Images.Media.TITLE, fileName)
-//                put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis())
-//                put(MediaStore.Images.Media.RELATIVE_PATH, "DCIM/A한이음")
-//                put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
-//            }
-//
-//            val uri = context.getContentResolver()
-//                .insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-//            val fos = context.contentResolver.openOutputStream(uri!!)
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-//            fos?.run {
-//                flush()
-//                close()
-//            }
-//        } else {
-//            val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() +
-//                    File.separator +
-//                    "A한이음"
-//            val file = File(dir)
-//            if (!file.exists()) {
-//                file.mkdirs()
-//            }
-//
-//            val imgFile = File(file, "test_capture.jpg")
-//            val os = FileOutputStream(imgFile)
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os)
-//            os.flush()
-//            os.close()
-//
-//            val values = ContentValues()
-//            with(values) {
-//                put(MediaStore.Images.Media.TITLE, fileName)
-//                put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis())
-//                put(MediaStore.Images.Media.BUCKET_ID, fileName)
-//                put(MediaStore.Images.Media.DATA, imgFile.absolutePath)
-//                put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
-//            }
-//
-//            context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-//        }
-//    }
-
-    private var mCurrentPhotoPath : String? = null //이미지 저장 경로
-
-    // 이미지 갤러리에 저장
-    private fun galleryAddPic() {
-        Log.i("galleryAddPic", "Call");
-        val mediaScanIntent: Intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        // 해당 경로에 있는 파일을 객체화(새로 파일을 만든다는 것으로 이해하면 안 됨)
-        val f: File = File(mCurrentPhotoPath);
-        Log.i("galleryAddPic", "경로"+mCurrentPhotoPath);
-        val contentUri: Uri = Uri.fromFile(f);
-        mediaScanIntent.setData(contentUri);
-        Log.i("galleryAddPic", "사진앨범저장");
-        this.sendBroadcast(mediaScanIntent);
-        Log.i("galleryAddPic", "사진이 앨범에 저장되었습니다.");
-
-    }
-
-
-    // Method to save an bitmap to a file
-    private fun bitmapToFile(bitmap:Bitmap): File? {
-        Log.i("bitmapToFile", "Call");
-        // Get the context wrapper
-        val wrapper = ContextWrapper(applicationContext)
-
-        // Initialize a new file instance to save bitmap object
-        // 새 파일 인스턴스를 초기화하여 비트 맵 객체 저장
-        // 초기루트는 프로젝트 내장메모리로 -> /data/user/0/com.example.matdog/app_Images
-        var file = wrapper.getDir("Images",Context.MODE_PRIVATE)
-        Log.i("bitmapToFile1111", "filename"+file);
-
-        val timeStamp : String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val imageFileName = "JPEG_$timeStamp.jpg"
-
-        // 이미지 저장할 경로 생성 -> /storage/emulated/0/Pictures/Matdog/JPEG_20201023_011930.jpg
-        var storageDir = File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM),
-            "A한이음"
-        )
-        if (!storageDir.exists()) {
-            Log.i("mCurrentPhotoPath", storageDir.toString())
-            storageDir.mkdirs()
-        }
-        file = File(storageDir,imageFileName)
-        Log.i("bitmapToFile2222", "filename"+file);
-        mCurrentPhotoPath = file.absolutePath
-        Log.i("bitmap_mCurrentPhotoPath", "mCurrentPhotoPath"+mCurrentPhotoPath)
-
-        try{
-            // Compress the bitmap and save in jpg format
-            val stream: OutputStream = FileOutputStream(file)
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream)
-            stream.flush()
-            stream.close()
-            Log.i("bitmap and save in jpg format", "stream"+stream);
-        }catch (e:IOException){
-            Log.i("bitmap and save in jpg format", "error");
-            e.printStackTrace()
-        }
-
-        // Return the saved bitmap file
-        return file
-    }
-
-
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -389,16 +270,6 @@ class CameraActivity : AppCompatActivity() , DogView {
             }
         }
 
-        if (requestCode == permissionsRequestCode && hasPermissions(this)) {
-            bindCameraUseCases()
-            try{
-                galleryAddPic();
-            }catch (e: Exception){
-                Log.e("permissionsRequestCode", e.toString());
-            }
-        } else {
-            finish() // If we don't have the required permissions, we can't run
-        }
     }
 
     //여기서 강아지 품종 분석 텐서플로우를 연결한다!----------------------------------------------------------------------
@@ -415,19 +286,6 @@ class CameraActivity : AppCompatActivity() , DogView {
                 dogDetector.recognizeDog(bitmap = bitmap)
 
                 picture_button1.setImageURI(data?.data)
-            }
-        } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            (data?.extras?.get("data") as Bitmap).apply {
-                Bitmap.createBitmap(this, 0, height / 2 - width / 2, width, width).let {
-//                    bitmapToFile(it)
-//                    Log.i("onActivityResult_bitmapToFile", "Call");
-//                    galleryAddPic() // 갤러리에 사진저장
-//                    Log.i("onActivityResult_galleryAddPic", "Call");
-                    imageView.setImageBitmap(it)
-                    imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-                    dogDetector.recognizeDog(bitmap = it)
-                    BITMAP = it
-                }
             }
         }
     }
